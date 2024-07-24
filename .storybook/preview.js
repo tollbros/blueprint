@@ -1,14 +1,11 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { defaultTheme } from "../src/themes/default.theme";
+import TollTheme from '../src/themes/TollTheme'
 
 export const withMuiTheme = (Story) => {
-  return (<ThemeProvider theme={defaultTheme}>
-    <CssBaseline />
-    <style>
-      {defaultTheme?.MuiCssBaseline?.styleOverrides}
-    </style>
-    <Story />
-  </ThemeProvider>)
+  return (
+    <TollTheme>
+      <Story />
+    </TollTheme>
+  )
 };
 
 /** @type { import('@storybook/react').Preview } */

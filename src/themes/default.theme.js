@@ -1,11 +1,9 @@
-import { createTheme } from '@mui/material'
+import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
+import figmaTheme from './figma.theme.json';
+import buttonTheme from './button.theme.json';
+import checkboxTheme from './checkbox.theme.json';
 
-const baseFontFamily = 'Gotham'
-const altFontFamily = 'Gotham Narrow, sans-serif'
-// const alt_light_font_family = 'GothamSSm-ExtraLight, sans-serif'
-const domaineFontFamily = 'Domaine'
-
-export const defaultTheme = createTheme({
+export const defaultTheme = extendTheme({
   MuiCssBaseline: {
     styleOverrides: `
         @import "https://use.typekit.net/loo0pmd.css";
@@ -69,106 +67,9 @@ export const defaultTheme = createTheme({
         }
       `
   },
-  typography: {
-    fontFamily: baseFontFamily,
-    h1: {
-      fontFamily: domaineFontFamily,
-      fontSize: '3rem',
-      fontWeight: 600
-    },
-    h2: {
-      fontFamily: domaineFontFamily,
-      fontSize: '2.6rem',
-      fontWeight: 600
-    },
-    h3: {
-      fontFamily: domaineFontFamily,
-      fontSize: '2.2rem',
-      fontWeight: 600
-    },
-    h4: {
-      fontFamily: domaineFontFamily,
-      fontSize: '1.8rem',
-      fontWeight: 600
-    },
-    h5: {
-      fontFamily: domaineFontFamily,
-      fontSize: '1.4rem',
-      fontWeight: 600
-    },
-    h6: {
-      fontFamily: domaineFontFamily,
-      fontSize: '1rem',
-      fontWeight: 600
-    },
-    subtitle1: {
-      fontFamily: altFontFamily
-    },
-    subtitle2: {
-      fontFamily: altFontFamily
-    },
-    caption: {
-      fontFamily: altFontFamily,
-      fontSize: '.85em'
-    },
-    overline: {
-      fontFamily: baseFontFamily,
-      fontSize: '12px',
-      fontWeight: 500,
-      textTransform: 'uppercase',
-      letterSpacing: '2px',
-      lineHeight: '15px',
-      color: '#8195a2'
-    },
-    button: {
-      fontFamily: baseFontFamily,
-      fontWeight: 600,
-      textTransform: 'none'
-    },
-    body1: {
-      fontFamily: baseFontFamily
-    },
-    body2: {
-      fontFamily: baseFontFamily
-    }
-  },
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#0070CD'
-    },
-    secondary: {
-      main: '#0C223F'
-    },
-    error: {
-      main: '#A31F34'
-    },
-    warning: {
-      main: '#F9CA0C'
-    },
-    success: {
-      main: '#009D47'
-    },
-    info: {
-      main: '#0070CD'
-    },
-    background: {
-      grey: '#f6f6f6'
-    }
-  },
-  shape: {
-    borderRadius: 0
-  },
+  ...figmaTheme,
   components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 0
-        },
-        text: {
-          padding: 0
-        }
-      }
-    }
+    ...buttonTheme,
+    ...checkboxTheme
   }
 })
