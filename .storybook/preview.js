@@ -1,10 +1,10 @@
-import TollTheme from '../src/themes/TollTheme'
+import ThemeProvider from '../src/themes/ThemeProvider'
 
 export const withMuiTheme = (Story) => {
   return (
-    <TollTheme>
+    <ThemeProvider>
       <Story />
-    </TollTheme>
+    </ThemeProvider>
   )
 };
 

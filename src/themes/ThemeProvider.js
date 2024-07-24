@@ -3,7 +3,7 @@ import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/s
 import { defaultTheme } from './default.theme'
 import { CssBaseline } from '@mui/material'
 
-const TollTheme = ({ children }) => {
+const ThemeProvider = ({ children }) => {
   return (
     <CssVarsProvider theme={defaultTheme}>
       <CssBaseline />
@@ -13,4 +13,4 @@ const TollTheme = ({ children }) => {
   )
 }
 
-export default TollTheme
+export default ThemeProvider

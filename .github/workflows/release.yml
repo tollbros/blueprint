@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   release:
     name: Release
@@ -23,5 +23,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
-      - name: Update TollBrothers UI Library
+      - name: Update Toll Blueprint
         run: curl -X POST ${{secrets.VERCEL_DEPLOY_URL}}

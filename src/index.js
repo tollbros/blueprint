@@ -1,5 +1,5 @@
 import Checkbox from './mui/primitives/Checkbox'
 import Button from './mui/primitives/Button'
-import TollTheme from './themes/TollTheme'
+import ThemeProvider from './themes/ThemeProvider'
 
-export { Checkbox, Button, TollTheme }
+export { Checkbox, Button, ThemeProvider }
