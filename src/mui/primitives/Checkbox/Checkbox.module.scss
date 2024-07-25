@@ -1,0 +1,25 @@
+.checkbox {
+  &:global(.MuiCheckbox-root) {
+    background: var(--mui-palette-TB-Brand-Primary);
+  }
+  &:global(.MuiCheckbox-root.MuiCheckbox-sizeSmall) {
+    background: pink;
+
+    &:hover {
+      background: red;
+    }
+  }
+  &:global(.MuiCheckbox-root.MuiCheckbox-sizeMedium) {
+    background: green;
+
+    &:hover {
+      background: blue;
+    }
+  }
+  &:global(.MuiCheckbox-root.Mui-checked) {
+    background: var(--mui-palette-TB-Brand-Secondary);
+  }
+  &:global(.MuiCheckbox-root.Mui-disabled) {
+    background: purple;
+  }
+}

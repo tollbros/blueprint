@@ -1,5 +1,7 @@
 import { fn } from '@storybook/test'
 import CheckboxStickerSheet from './CheckboxStickerSheet'
+import CheckboxClasses from './CheckboxClasses'
+import CSSModuleClassesTable from './CSSModuleClasses'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
@@ -12,16 +14,8 @@ export default {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   // tags: ['autodocs'],
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
+  args: {},
   argTypes: {
-    color: {
-      options: ['primary', 'secondary', 'success', 'error', 'info', 'warning'],
-      control: { type: 'radio' }
-    },
-    size: {
-      options: ['small', 'medium'],
-      control: { type: 'radio' }
-    },
     disabled: {
       control: { type: 'boolean' }
     }
@@ -31,6 +25,18 @@ export default {
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const StickerSheet = {
   args: {
-    children: 'Button'
+    disabled: false
   }
+}
+
+export const MUIClasses = {
+  render: CheckboxClasses,
+  args: {},
+  argTypes: {}
+}
+
+export const CSSModuleClasses = {
+  render: CSSModuleClassesTable,
+  args: {},
+  argTypes: {}
 }
