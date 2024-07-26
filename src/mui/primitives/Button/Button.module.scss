@@ -1,0 +1,6 @@
+.button {
+  &:global(.MuiButton-root.MuiButton-sizeSmall.MuiButton-containedPrimary:not(.Mui-disabled):not(.Mui-focusVisible):not(:hover)) {
+    background-color: pink;
+    color: #fff;
+  }
+}
