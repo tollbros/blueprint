@@ -3,7 +3,7 @@
     background: var(--mui-palette-TB-Brand-Primary);
   }
   &:global(.MuiCheckbox-root.MuiCheckbox-sizeSmall) {
-    background: pink;
+    background: var(--mui-palette-TB-Functional-Error, #A31F34);
 
     &:hover {
       background: red;
