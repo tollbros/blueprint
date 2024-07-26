@@ -9,34 +9,70 @@ const CheckboxStickerSheet = ({ disabled = false }) => {
   const VariantCheckboxes = () => (
     <Grid container gap={2}>
       <Grid item xs={12}>
-        {colors.map((color, index) => {
+        <Grid container>
+          <Grid item xs={2} />
+          <Grid item xs={10}>
+            <Grid container>
+              <Grid
+                item
+                xs={3}
+                sx={{
+                  textAlign: 'center'
+                }}
+              >
+                <b>small</b>
+              </Grid>
+              <Grid
+                item
+                xs={3}
+                sx={{
+                  textAlign: 'center'
+                }}
+              >
+                <b>medium</b>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+        {colors.map((color, colorIndex) => {
           return (
             <Grid
-              key={color + index}
+              key={color + colorIndex}
               container
               direction='row'
               sx={{ borderBottom: '1px solid rgba(0, 0, 0, 0.1)' }}
             >
+              <Grid item xs={2}>
+                <h5>{color}</h5>
+              </Grid>
               <Grid
                 item
-                xs={2}
+                xs={10}
                 sx={{
                   display: 'flex',
                   justifyContent: 'center',
-                  alignItems: 'flex-end'
+                  alignItems: 'center'
                 }}
               >
-                <h5>{color}</h5>
-              </Grid>
-              <Grid item xs={10}>
-                <Grid container>
-                  {sizes.map((size) => (
-                    <Grid item xs={4} key={color + size}>
-                      <h5>{size}</h5>
-                      <Checkbox disabled={disabled} color={color} size={size}>
-                        {color} {size}
-                      </Checkbox>
-                    </Grid>
+                <Grid container paddingBottom='8px' paddingTop='8px'>
+                  {sizes.map((size, sizeIndex) => (
+                    <>
+                      <Grid
+                        item
+                        xs={3}
+                        key={color + size}
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          flexDirection: 'column'
+                        }}
+                      >
+                        <Checkbox disabled={disabled} color={color} size={size}>
+                          {color} {size}
+                        </Checkbox>
+                      </Grid>
+                    </>
                   ))}
                 </Grid>
               </Grid>

@@ -1,7 +1,6 @@
 import { fn } from '@storybook/test'
 import CheckboxStickerSheet from './CheckboxStickerSheet'
 import CheckboxClasses from './CheckboxClasses'
-import CSSModuleClassesTable from './CSSModuleClasses'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
@@ -31,12 +30,6 @@ export const StickerSheet = {
 
 export const MUIClasses = {
   render: CheckboxClasses,
-  args: {},
-  argTypes: {}
-}
-
-export const CSSModuleClasses = {
-  render: CSSModuleClassesTable,
   args: {},
   argTypes: {}
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { defaultTheme } from '../../themes/default.theme'
-import ClassTable from '../../storybook/ClassTable'
 import Grid from '@mui/material/Grid'
+import PaletteItem from '../../storybook/PaletteItem'
 
 const PaletteCssVars = () => {
   return Object.keys(defaultTheme.vars.palette).map((key) => {
@@ -15,78 +15,44 @@ const PaletteCssVars = () => {
 
     return (
       <Grid container>
-        <Grid item xs={2}>
-          <h5>{key}</h5>
+        <Grid item xs={12}>
+          <p>{key}</p>
         </Grid>
-        <Grid item xs={10} sx={{ border: '1px solid #d9d9d9' }}>
-          {Object.keys(defaultTheme.vars.palette[key]).map((classKey) => {
-            if (
-              typeof defaultTheme.vars.palette[key][classKey] !== 'object' ||
-              defaultTheme.vars.palette[key][classKey] === null ||
-              Array.isArray(defaultTheme.vars.palette[key][classKey])
-            ) {
-              return (
-                <div>
-                  {classKey}: <b>{defaultTheme.vars.palette[key][classKey]}</b>
-                  <span
-                    style={{
-                      minWidth: '100%',
-                      color: 'transparent',
-                      minHeight: '100%',
-                      display: 'flex',
-                      backgroundColor: defaultTheme.vars.palette[key][classKey]
-                    }}
-                  >
-                    -
-                  </span>
-                </div>
-              )
-            }
+        <Grid item xs={10}>
+          <Grid container gap={2}>
+            {Object.keys(defaultTheme.vars.palette[key]).map(
+              (classKey, classIndex) => {
+                if (
+                  typeof defaultTheme.vars.palette[key][classKey] !==
+                    'object' ||
+                  defaultTheme.vars.palette[key][classKey] === null ||
+                  Array.isArray(defaultTheme.vars.palette[key][classKey])
+                ) {
+                  return (
+                    <PaletteItem
+                      key={classIndex}
+                      classKey={`classKey-${classKey}`}
+                      backgroundColor={defaultTheme.vars.palette[key][classKey]}
+                    />
+                  )
+                }
 
-            return (
-              <ClassTable
-                rows={Object.keys(defaultTheme.vars.palette[key]).map(
-                  (classKey) => {
-                    return {
-                      name: (
-                        <>
-                          {Object.keys(
-                            defaultTheme.vars.palette[key][classKey]
-                          ).map((paletteKey) => {
-                            return (
-                              <div>
-                                {paletteKey}:{' '}
-                                {
-                                  defaultTheme.vars.palette[key][classKey][
-                                    paletteKey
-                                  ]
-                                }{' '}
-                                <span
-                                  style={{
-                                    minWidth: '100%',
-                                    minHeight: '100%',
-                                    display: 'flex',
-                                    color: 'transparent',
-                                    backgroundColor:
-                                      defaultTheme.vars.palette[key][classKey][
-                                        paletteKey
-                                      ]
-                                  }}
-                                >
-                                  -
-                                </span>
-                              </div>
-                            )
-                          })}
-                        </>
-                      )
-                    }
-                  }
-                )}
-                title={classKey}
-              />
-            )
-          })}
+                return Object.keys(
+                  defaultTheme.vars.palette[key][classKey]
+                ).map((paletteKey, palleteKeyIndex) => {
+                  return (
+                    <PaletteItem
+                      key={`${paletteKey}-${palleteKeyIndex}`}
+                      classKey={`${classKey}.${paletteKey}`}
+                      backgroundColor={
+                        defaultTheme.vars.palette[key][classKey][paletteKey]
+                      }
+                    />
+                  )
+                })
+              }
+            )}
+          </Grid>
         </Grid>
       </Grid>
     )

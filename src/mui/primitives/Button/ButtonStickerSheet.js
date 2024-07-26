@@ -36,7 +36,7 @@ const ButtonStickerSheet = () => {
           <Grid item xs={10}>
             {colors.map((color, indexColor) => {
               return (
-                <Grid container key={color + indexColor}>
+                <Grid container key={color + indexColor} mb={2}>
                   {sizes.map((size, indexSize) => (
                     <Grid item xs={4} key={color + size}>
                       <Grid container direction='column'>
