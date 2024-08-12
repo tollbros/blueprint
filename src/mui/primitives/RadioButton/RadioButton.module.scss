@@ -1,0 +1,25 @@
+.radioButtonContainer {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .radioButtonContainer:not(.disabled) {
+    cursor: pointer;
+  }
+  
+  .disabled {
+    cursor: not-allowed;
+  }
+  
+  .hiddenRadio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .styledRadio {
+    width: var(--Values-Button-Spacing-Raw---20, 20px);
+    height: var(--Values-Button-Spacing-Raw---20, 20px);
+  }
+  
