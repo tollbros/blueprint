@@ -1,5 +1,5 @@
 import React from 'react'
-import { defaultTheme } from '../../themes/default.theme'
+import { defaultTheme } from '../../themes/default/theme'
 import Grid from '@mui/material/Grid'
 import PaletteItem from '../../storybook/PaletteItem'
 

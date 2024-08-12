@@ -1,8 +1,9 @@
 import ThemeProvider from '../src/themes/ThemeProvider'
+import { defaultTheme } from '../src'
 
 export const withMuiTheme = (Story) => {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={defaultTheme}>
       <Story />
     </ThemeProvider>
   )
