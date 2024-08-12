@@ -1,5 +1,5 @@
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
-import figmaTheme from './figma.theme.json';
+import figmaTheme from './figma.theme';
 import buttonTheme from './button.theme.json';
 import checkboxTheme from './checkbox.theme.json';
 
