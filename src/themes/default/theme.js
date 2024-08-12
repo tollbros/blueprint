@@ -1,5 +1,7 @@
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
 import figmaTheme from './figma.json'
+import buttonTheme from './button.json'
+import checkboxTheme from './checkbox.json'
 
 export const defaultTheme = extendTheme({
   MuiCssBaseline: {
@@ -65,5 +67,9 @@ export const defaultTheme = extendTheme({
         }
       `
   },
-  ...figmaTheme
+  ...figmaTheme,
+  components: {
+    ...buttonTheme,
+    ...checkboxTheme
+  }
 })
