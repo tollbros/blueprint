@@ -2,17 +2,10 @@ import React from 'react'
 import Grid from '@mui/material/Grid'
 import Button from './Button'
 
-const ButtonStickerSheet = () => {
+const ButtonStickerSheet = ({ disabled = false }) => {
   const ButtonVariants = () => {
     const variants = ['contained', 'outlined', 'text']
-    const colors = [
-      'primary',
-      'secondary',
-      'success',
-      'error',
-      'info',
-      'warning'
-    ]
+    const colors = ['accent', 'primary', 'medium', 'success', 'error']
     const sizes = ['small', 'medium', 'large']
 
     return variants.reduce((acc, variant, index) => {
@@ -46,7 +39,12 @@ const ButtonStickerSheet = () => {
                           </Grid>
                         )}
                         <Grid item xs={4}>
-                          <Button variant={variant} color={color} size={size}>
+                          <Button
+                            variant={variant}
+                            color={color}
+                            size={size}
+                            disabled={disabled}
+                          >
                             {color}
                           </Button>
                         </Grid>
