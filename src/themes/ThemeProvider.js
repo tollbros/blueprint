@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
-  Experimental_CssVarsProvider as CssVarsProvider,
-  useColorScheme,
-  getInitColorSchemeScript
+  Experimental_CssVarsProvider as CssVarsProvider
 } from '@mui/material/styles/CssVarsProvider'
 import { CssBaseline } from '@mui/material'
 import { StyledEngineProvider } from '@mui/material/styles'
 
 const ThemeProvider = ({ children, theme }) => {
-  console.log('theme', theme)
-  console.log('generateCssVars', theme?.generateCssVars())
+  const [baselineStyles, setBaselineStyles] = useState(null)
+  useEffect(() => {
+    setBaselineStyles(theme?.MuiCssBaseline?.styleOverrides)
+  }, [])
 
   return (
     <CssVarsProvider theme={theme}>
@@ -17,25 +17,11 @@ const ThemeProvider = ({ children, theme }) => {
         <CssBaseline />
         <LogColorScheme />
         <LogInitColorTheme />
-        {theme?.MuiCssBaseline?.styleOverrides && (
-          <style>{theme?.MuiCssBaseline?.styleOverrides}</style>
-        )}
+        {baselineStyles && <style>{baselineStyles}</style>}
         {children}
       </StyledEngineProvider>
     </CssVarsProvider>
   )
-}
-
-const LogInitColorTheme = () => {
-  const initColorScheme = getInitColorSchemeScript()
-  console.log('initColorScheme', initColorScheme)
-  return null
-}
-
-const LogColorScheme = () => {
-  const colorScheme = useColorScheme()
-  console.log('colorScheme', colorScheme)
-  return null
 }
 
 export default ThemeProvider
