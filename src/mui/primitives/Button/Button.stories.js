@@ -1,6 +1,5 @@
 import { fn } from '@storybook/test'
 import ButtonStickerSheet from './ButtonStickerSheet'
-import ButtonClasses from './ButtonClasses'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
@@ -26,10 +25,4 @@ export const StickerSheet = {
   args: {
     children: 'Button'
   }
-}
-
-export const Classes = {
-  render: ButtonClasses,
-  args: {},
-  argTypes: {}
 }
