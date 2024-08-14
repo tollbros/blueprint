@@ -19,7 +19,7 @@ To start using Blueprint in your project, follow these simple steps:
 2. **Import the styles:**
 
    ```javascript
-   import { ThemeProvider, defaultTheme, kragleTheme } for '@tollbrothers/blueprint';
+   import { ThemeProvider, defaultTheme, kragleTheme } from '@tollbrothers/blueprint';
 
    // either use defaultTheme or kragleTheme or your own custom theme
    const App = () => (
