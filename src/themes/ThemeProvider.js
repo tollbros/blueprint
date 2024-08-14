@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {
-  Experimental_CssVarsProvider as CssVarsProvider
-} from '@mui/material/styles/CssVarsProvider'
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles/CssVarsProvider'
 import { CssBaseline } from '@mui/material'
 import { StyledEngineProvider } from '@mui/material/styles'
 
