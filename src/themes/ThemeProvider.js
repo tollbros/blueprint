@@ -15,8 +15,6 @@ const ThemeProvider = ({ children, theme }) => {
     <CssVarsProvider theme={theme}>
       <StyledEngineProvider injectFirst>
         <CssBaseline />
-        <LogColorScheme />
-        <LogInitColorTheme />
         {baselineStyles && <style>{baselineStyles}</style>}
         {children}
       </StyledEngineProvider>
