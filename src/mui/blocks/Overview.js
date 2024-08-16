@@ -1,41 +1,34 @@
-import React from 'react'
-import Typography from '@mui/material/Typography'
-import Grid from '@mui/material/Grid'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableRow from '@mui/material/TableRow'
-import Button from '../primitives/Button'
+import React from 'react';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableRow from '@mui/material/TableRow';
+import Button from '../primitives/Button/Button';
 
 export default function CommunityOverview({
-  overview,
-  overviewGallery = [],
-  communityTypes,
-  homeTypes,
-  title,
-  bulletPoints = [],
-  eventLink = '',
-  eventText,
-  socialMedia,
+  // // overview,
+  // overviewGallery = [],
+  // communityTypes,
+  // homeTypes,
+  // title,
+  // bulletPoints = [],
+  // eventLink = '',
+  // eventText,
+  // socialMedia,
   qmis = [],
-  communities,
-  communityName,
-  eventData,
-  communityId,
-  showRenderOverlay,
-  options = [],
-  rows = []
+  // communities,
+  // communityName,
+  // eventData,
+  // communityId,
+  // showRenderOverlay,
+  // options = [],
+  rows = [],
 }) {
   return (
-    <Grid
-      container
-      component='section'
-      direction='column'
-      alignItems='center'
-      justifyContent='center'
-      pt='60px'
-    >
+    <Grid container component='section' direction='column' alignItems='center' justifyContent='center' pt='60px'>
       <Grid
         container
         component='aside'
@@ -45,7 +38,7 @@ export default function CommunityOverview({
         gap={3}
         sx={{
           width: '90%',
-          maxWidth: '872px'
+          maxWidth: '872px',
         }}
       >
         <Grid item xs={12}>
@@ -65,12 +58,10 @@ export default function CommunityOverview({
         </Grid>
         <Grid item xs={12}>
           <Typography align='center' component='p'>
-            Awarded 2023 Master Plan Community of the Year, Sterling Grove is an
-            all-ages resort-style community showcasing new homes in the growing
-            city of Surprise, Arizona, featuring single-family and 55+
-            active-adult collections with a large private clubhouse, spectacular
-            resort-style amenities, and Arizona’s newest championship golf
-            course.
+            Awarded 2023 Master Plan Community of the Year, Sterling Grove is an all-ages resort-style community
+            showcasing new homes in the growing city of Surprise, Arizona, featuring single-family and 55+ active-adult
+            collections with a large private clubhouse, spectacular resort-style amenities, and Arizona’s newest
+            championship golf course.
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -85,7 +76,7 @@ export default function CommunityOverview({
                     <TableRow
                       key={row.name}
                       sx={{
-                        '&:last-child td, &:last-child th': { border: 0 }
+                        '&:last-child td, &:last-child th': { border: 0 },
                       }}
                     >
                       <TableCell component='th' scope='row'>
@@ -106,5 +97,5 @@ export default function CommunityOverview({
         </Grid>
       </Grid>
     </Grid>
-  )
+  );
 }

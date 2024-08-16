@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { CssBaseline } from '@mui/material'
-import {
-  StyledEngineProvider,
-  Experimental_CssVarsProvider as CssVarsProvider
-} from '@mui/material/styles'
+import React, { useEffect, useReducer } from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { StyledEngineProvider, Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 
 const ThemeProvider = ({ children, theme }) => {
-  const [baselineStyles, setBaselineStyles] = useState(null)
+  const baselineReducer = () => theme?.MuiCssBaseline?.styleOverrides;
+  const [baselineStyles, dispatchBaseline] = useReducer(baselineReducer, null);
+
   useEffect(() => {
-    setBaselineStyles(theme?.MuiCssBaseline?.styleOverrides)
-  }, [])
+    dispatchBaseline();
+  }, []);
 
   return (
     <CssVarsProvider theme={theme}>
@@ -19,7 +18,7 @@ const ThemeProvider = ({ children, theme }) => {
         {children}
       </StyledEngineProvider>
     </CssVarsProvider>
-  )
-}
+  );
+};
 
-export default ThemeProvider
+export default ThemeProvider;

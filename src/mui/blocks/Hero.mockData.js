@@ -5,7 +5,7 @@ const data = {
   location: 'Surprise, AZ',
   county: 'Maricopa County',
   startingPrice: '$6,329,995',
-  homeTypes: ['Single Family', 'Condo']
-}
+  homeTypes: ['Single Family', 'Condo'],
+};
 
-export default data
+export default data;

@@ -1,13 +1,12 @@
-import { fn } from '@storybook/test'
-import Chip from './Chip'
+import { fn } from '@storybook/test';
+import Chip from './Chip';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-export default {
+const StorySchema = {
   title: 'primitives/Chip',
   component: Chip,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered'
+    layout: 'centered',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
@@ -15,50 +14,53 @@ export default {
   args: { onClick: fn() },
   argTypes: {
     label: {
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     color: {
       options: ['primary', 'secondary', 'success', 'error', 'info', 'warning'],
-      control: { type: 'radio' }
+      control: { type: 'radio' },
     },
     size: {
       options: ['small', 'medium'],
-      control: { type: 'radio' }
+      control: { type: 'radio' },
     },
     variant: {
       options: ['contained', 'outlined'],
-      control: { type: 'radio' }
+      control: { type: 'radio' },
     },
     disabled: {
-      control: { type: 'boolean' }
-    }
-  }
-}
+      control: { type: 'boolean' },
+    },
+  },
+};
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+export default StorySchema;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary = {
   args: {
-    label: 'Chip'
-  }
-}
+    label: 'Chip',
+  },
+};
 
 export const Secondary = {
   args: {
     color: 'secondary',
-    label: 'Chip'
-  }
-}
+    label: 'Chip',
+  },
+};
 
 export const Medium = {
   args: {
     size: 'medium',
-    label: 'Chip'
-  }
-}
+    label: 'Chip',
+  },
+};
 
 export const Small = {
   args: {
     size: 'small',
-    label: 'Chip'
-  }
-}
+    label: 'Chip',
+  },
+};

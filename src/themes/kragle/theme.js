@@ -1,7 +1,7 @@
-import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
-import figmaTheme from './figma.json'
-import buttonTheme from './button.json'
-import checkboxTheme from './checkbox.json'
+import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
+import figmaTheme from './figma.json';
+import buttonTheme from './button.json';
+import checkboxTheme from './checkbox.json';
 
 export const kragleTheme = extendTheme({
   MuiCssBaseline: {
@@ -65,11 +65,11 @@ export const kragleTheme = extendTheme({
           font-style: normal;
           font-display: swap;
         }
-      `
+      `,
   },
   ...figmaTheme,
   components: {
     ...buttonTheme,
-    ...checkboxTheme
-  }
-})
+    ...checkboxTheme,
+  },
+});

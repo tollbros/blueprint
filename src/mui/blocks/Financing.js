@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Financing = () => {
   return (
@@ -6,7 +6,7 @@ const Financing = () => {
       <h2>TODO: Financing</h2>
       <p>Financing content...</p>
     </section>
-  )
-}
+  );
+};
 
-export default Financing
+export default Financing;

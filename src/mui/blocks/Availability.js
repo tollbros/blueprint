@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Availability = () => {
   return (
@@ -6,7 +6,7 @@ const Availability = () => {
       <h2>TODO: Community Availability</h2>
       <p>Community Availability content...</p>
     </section>
-  )
-}
+  );
+};
 
-export default Availability
+export default Availability;

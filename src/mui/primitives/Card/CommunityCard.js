@@ -2,15 +2,15 @@ import React from 'react';
 import styles from './CommunityCard.module.scss';
 
 const CommunityCard = ({
-  tagText = "[G-Tag]",
-  collectionName = "[SH-B] Villa Collection",
-  propertyName = "[H6] Acorn",
-  squareFeet = "3,219",
-  beds = "3",
-  baths = "2",
-  halfBaths = "2",
-  garage = "1",
-  price = "$399,995",
+  tagText = '[G-Tag]',
+  collectionName = '[SH-B] Villa Collection',
+  propertyName = '[H6] Acorn',
+  squareFeet = '3,219',
+  beds = '3',
+  baths = '2',
+  halfBaths = '2',
+  garage = '1',
+  price = '$399,995',
 }) => {
   return (
     <div className={styles.card}>
@@ -43,7 +43,9 @@ const CommunityCard = ({
           </div>
         </div>
         <p>[B-B] 1 story condo priced at {price}</p>
-        <a href="#" className={styles.viewLink}>[G-L] View Condo Design</a>
+        <a href='#' className={styles.viewLink}>
+          [G-L] View Condo Design
+        </a>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
-import React from 'react'
-import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
+import React from 'react';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 
 const ContactBar = ({
   primaryContactImage,
@@ -10,15 +10,14 @@ const ContactBar = ({
   salesImage,
   salesTitle,
   salesStreet,
-  salesLocation
+  salesLocation,
 }) => {
-
   return (
     <section style={{ width: '100%', height: 'auto' }}>
       <Grid
         sx={{
           backgroundColor: (theme) => theme.palette.secondary.main,
-          padding: '20px 5% 70px 5%'
+          padding: '20px 5% 70px 5%',
         }}
         container
       >
@@ -32,17 +31,11 @@ const ContactBar = ({
                 alignItems: 'center',
                 justifyContent: 'flex-start',
                 gap: '1rem',
-                color: (theme) => theme.palette.secondary.contrastText
+                color: (theme) => theme.palette.secondary.contrastText,
               }}
             >
-              <img
-                alt={primaryContactTitle}
-                style={{ width: '40px' }}
-                src={primaryContactImage}
-              />
-              <Typography sx={{ fontWeight: '600' }}>
-                {primaryContactTitle}
-              </Typography>
+              <img alt={primaryContactTitle} style={{ width: '40px' }} src={primaryContactImage} />
+              <Typography sx={{ fontWeight: '600' }}>{primaryContactTitle}</Typography>
             </Grid>
             <Grid
               item
@@ -52,7 +45,7 @@ const ContactBar = ({
                 alignItems: 'center',
                 justifyContent: 'flex-start',
                 gap: '1rem',
-                color: (theme) => theme.palette.secondary.contrastText
+                color: (theme) => theme.palette.secondary.contrastText,
               }}
             >
               <Typography>{primaryContacts}</Typography>
@@ -65,7 +58,7 @@ const ContactBar = ({
                 alignItems: 'center',
                 justifyContent: 'flex-start',
                 gap: '1rem',
-                color: (theme) => theme.palette.secondary.contrastText
+                color: (theme) => theme.palette.secondary.contrastText,
               }}
             >
               <Typography>{primaryPhone}</Typography>
@@ -82,14 +75,10 @@ const ContactBar = ({
                 alignItems: 'center',
                 justifyContent: 'flex-start',
                 gap: '1rem',
-                color: (theme) => theme.palette.secondary.contrastText
+                color: (theme) => theme.palette.secondary.contrastText,
               }}
             >
-              <img
-                alt={salesTitle}
-                style={{ width: '40px' }}
-                src={salesImage}
-              />
+              <img alt={salesTitle} style={{ width: '40px' }} src={salesImage} />
               <Typography sx={{ fontWeight: '600' }}>{salesTitle}</Typography>
             </Grid>
             <Grid
@@ -100,7 +89,7 @@ const ContactBar = ({
                 alignItems: 'center',
                 justifyContent: 'flex-start',
                 gap: '1rem',
-                color: (theme) => theme.palette.secondary.contrastText
+                color: (theme) => theme.palette.secondary.contrastText,
               }}
             >
               <Typography>{salesStreet}</Typography>
@@ -113,7 +102,7 @@ const ContactBar = ({
                 alignItems: 'center',
                 justifyContent: 'flex-start',
                 gap: '1rem',
-                color: (theme) => theme.palette.secondary.contrastText
+                color: (theme) => theme.palette.secondary.contrastText,
               }}
             >
               <Typography>{salesLocation}</Typography>
@@ -122,7 +111,7 @@ const ContactBar = ({
         </Grid>
       </Grid>
     </section>
-  )
-}
+  );
+};
 
-export default ContactBar
+export default ContactBar;

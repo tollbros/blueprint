@@ -1,35 +1,28 @@
-import * as React from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import Container from '@mui/material/Container'
-import Button from '../primitives/Button'
-import useScrollTrigger from '@mui/material/useScrollTrigger'
-import ContactButtons from '../partials/ContactButtons'
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Container from '@mui/material/Container';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Button from '../primitives/Button/Button';
+import ContactButtons from '../partials/ContactButtons';
 
-const pages = [
-  'Details',
-  'Amenities',
-  'Homes',
-  'Gallery',
-  'Availability',
-  'Financing'
-]
+const pages = ['Details', 'Amenities', 'Homes', 'Gallery', 'Availability', 'Financing'];
 
 function ElevationScroll(props) {
-  const { children, window } = props
+  const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
-    target: window ? window() : undefined
-  })
+    target: window ? window() : undefined,
+  });
 
   return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0
-  })
+    elevation: trigger ? 4 : 0,
+  });
 }
 
 const MenuBar = (props) => {
@@ -38,7 +31,7 @@ const MenuBar = (props) => {
       <AppBar
         position='sticky'
         sx={{
-          backgroundColor: (theme) => theme.palette.background.grey
+          backgroundColor: (theme) => theme.palette.background.grey,
         }}
       >
         <Container maxWidth='xl'>
@@ -53,7 +46,7 @@ const MenuBar = (props) => {
                     display: 'block',
                     textTransform: 'capitalize',
                     fontWeight: '500',
-                    padding: '0 1rem'
+                    padding: '0 1rem',
                   }}
                   variant='text'
                 >
@@ -67,7 +60,7 @@ const MenuBar = (props) => {
         </Container>
       </AppBar>
     </ElevationScroll>
-  )
-}
+  );
+};
 
-export default MenuBar
+export default MenuBar;

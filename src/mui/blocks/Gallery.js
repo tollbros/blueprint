@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Gallery = () => {
   return (
@@ -6,7 +6,7 @@ const Gallery = () => {
       <h2>TODO: Community Gallery</h2>
       <p>Community Gallery content...</p>
     </section>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;
