@@ -1,16 +1,9 @@
-import Grid from '@mui/material/Grid'
-import Button from '../primitives/Button'
-import Typography from '@mui/material/Typography'
-import React from 'react'
+import React from 'react';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Button from '../primitives/Button/Button';
 
-const createRow = ({
-  name,
-  isActiveCommunity,
-  homeType,
-  sqft,
-  pricedFrom,
-  onNameClick
-}) => {
+const createRow = ({ name, isActiveCommunity, homeType, sqft, pricedFrom, onNameClick }) => {
   return {
     name: (
       <Grid container direction='column'>
@@ -37,9 +30,9 @@ const createRow = ({
           <span>{pricedFrom}</span>
         </Grid>
       </Grid>
-    )
-  }
-}
+    ),
+  };
+};
 
 const rows = [
   createRow({
@@ -48,7 +41,7 @@ const rows = [
     homeType: 'Condo',
     sqft: '1285-2142+ sq ft',
     pricedFrom: '$480,995',
-    onNameClick: () => console.log('Villa Collection')
+    onNameClick: () => console.log('Villa Collection'),
   }),
   createRow({
     name: 'Arlington Collection',
@@ -56,7 +49,7 @@ const rows = [
     homeType: 'Single Family',
     sqft: '1520-3182+ sq ft',
     pricedFrom: '$555,995',
-    onNameClick: () => console.log('Arlington Collection')
+    onNameClick: () => console.log('Arlington Collection'),
   }),
   createRow({
     name: 'Concord Collection',
@@ -64,7 +57,7 @@ const rows = [
     homeType: 'Single Family',
     sqft: '2220-3741+ sq ft',
     pricedFrom: '$685,995',
-    onNameClick: () => console.log('Concord Collection')
+    onNameClick: () => console.log('Concord Collection'),
   }),
   createRow({
     name: 'Sonoma Collection',
@@ -72,7 +65,7 @@ const rows = [
     homeType: 'Single Family',
     sqft: '1913-4197+ sq ft',
     pricedFrom: '$745,995',
-    onNameClick: () => console.log('Sonoma Collection')
+    onNameClick: () => console.log('Sonoma Collection'),
   }),
   createRow({
     name: 'Pasadena Collection',
@@ -80,12 +73,12 @@ const rows = [
     homeType: 'Single Family',
     sqft: '3460-4126+ sq ft',
     pricedFrom: '$1,170,995',
-    onNameClick: () => console.log('Pasadena Collection')
-  })
-]
+    onNameClick: () => console.log('Pasadena Collection'),
+  }),
+];
 
 const data = {
-  rows
-}
+  rows,
+};
 
-export default data
+export default data;

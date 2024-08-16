@@ -1,13 +1,12 @@
-import { fn } from '@storybook/test'
-import Card from './Card'
+import { fn } from '@storybook/test';
+import Card from './Card';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-export default {
+const StorySchema = {
   title: 'partials/Card',
   component: Card,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered'
+    layout: 'centered',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
@@ -16,59 +15,62 @@ export default {
   argTypes: {
     color: {
       options: ['primary', 'secondary', 'success', 'error', 'info', 'warning'],
-      control: { type: 'radio' }
+      control: { type: 'radio' },
     },
     size: {
       options: ['small', 'medium', 'large'],
-      control: { type: 'radio' }
+      control: { type: 'radio' },
     },
     variant: {
       options: ['contained', 'outlined', 'text'],
-      control: { type: 'radio' }
+      control: { type: 'radio' },
     },
     disabled: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     disableElevation: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     fullWidth: {
-      control: { type: 'boolean' }
-    }
-  }
-}
+      control: { type: 'boolean' },
+    },
+  },
+};
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+export default StorySchema;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary = {
   args: {
-    children: 'Button'
-  }
-}
+    children: 'Button',
+  },
+};
 
 export const Secondary = {
   args: {
     color: 'secondary',
-    children: 'Button'
-  }
-}
+    children: 'Button',
+  },
+};
 
 export const Large = {
   args: {
     size: 'large',
-    children: 'Button'
-  }
-}
+    children: 'Button',
+  },
+};
 
 export const Medium = {
   args: {
     size: 'medium',
-    children: 'Button'
-  }
-}
+    children: 'Button',
+  },
+};
 
 export const Small = {
   args: {
     size: 'small',
-    children: 'Button'
-  }
-}
+    children: 'Button',
+  },
+};

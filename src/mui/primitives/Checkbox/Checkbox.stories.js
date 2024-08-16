@@ -1,12 +1,11 @@
-import CheckboxStickerSheet from './CheckboxStickerSheet'
+import CheckboxStickerSheet from './CheckboxStickerSheet';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-export default {
+const StorySchema = {
   title: 'primitives/Checkbox',
   component: CheckboxStickerSheet,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'fullscreen'
+    layout: 'fullscreen',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   // tags: ['autodocs'],
@@ -14,14 +13,17 @@ export default {
   args: {},
   argTypes: {
     disabled: {
-      control: { type: 'boolean' }
-    }
-  }
-}
+      control: { type: 'boolean' },
+    },
+  },
+};
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+export default StorySchema;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const StickerSheet = {
   args: {
-    disabled: false
-  }
-}
+    disabled: false,
+  },
+};

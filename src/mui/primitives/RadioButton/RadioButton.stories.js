@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Story } from '@storybook/react';
 import RadioButton from './RadioButton';
 
-export default {
+const StorySchema = {
   title: 'Components/RadioButton',
   component: RadioButton,
 };
+
+export default StorySchema;
 
 const Template = (args) => <RadioButton {...args} />;
 
@@ -45,21 +46,9 @@ export const RadioButtonGroup = () => {
 
   return (
     <div>
-      <RadioButton 
-        checked={selectedOption === 'option1'} 
-        onChange={handleChange} 
-        value="option1"
-      /> Option 1<br />
-      <RadioButton 
-        checked={selectedOption === 'option2'} 
-        onChange={handleChange} 
-        value="option2"
-      /> Option 2<br />
-      <RadioButton 
-        checked={selectedOption === 'option3'} 
-        onChange={handleChange} 
-        value="option3"
-      /> Option 3
+      <RadioButton checked={selectedOption === 'option1'} onChange={handleChange} value='option1' /> Option 1<br />
+      <RadioButton checked={selectedOption === 'option2'} onChange={handleChange} value='option2' /> Option 2<br />
+      <RadioButton checked={selectedOption === 'option3'} onChange={handleChange} value='option3' /> Option 3
     </div>
   );
 };

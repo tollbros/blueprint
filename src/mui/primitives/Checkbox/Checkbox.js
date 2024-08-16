@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './Checkbox.module.scss'
+import React from 'react';
+import styles from './Checkbox.module.scss';
 
 const Checkbox = ({ children, ...rest }) => {
   return (
@@ -7,7 +7,7 @@ const Checkbox = ({ children, ...rest }) => {
       <input type='checkbox' className={styles.checkbox} {...rest} />
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default Checkbox
+export default Checkbox;

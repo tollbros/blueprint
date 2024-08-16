@@ -1,10 +1,10 @@
-import React from 'react'
-import Grid from '@mui/material/Grid'
-import Checkbox from './Checkbox'
+import React from 'react';
+import Grid from '@mui/material/Grid';
+import Checkbox from './Checkbox';
 
 const CheckboxStickerSheet = ({ disabled = false }) => {
-  const colors = ['primary', 'secondary', 'success', 'error', 'info', 'warning']
-  const sizes = ['small', 'medium']
+  const colors = ['primary', 'secondary', 'success', 'error', 'info', 'warning'];
+  const sizes = ['small', 'medium'];
 
   const VariantCheckboxes = () => (
     <Grid container gap={2}>
@@ -17,7 +17,7 @@ const CheckboxStickerSheet = ({ disabled = false }) => {
                 item
                 xs={3}
                 sx={{
-                  textAlign: 'center'
+                  textAlign: 'center',
                 }}
               >
                 <b>small</b>
@@ -26,7 +26,7 @@ const CheckboxStickerSheet = ({ disabled = false }) => {
                 item
                 xs={3}
                 sx={{
-                  textAlign: 'center'
+                  textAlign: 'center',
                 }}
               >
                 <b>medium</b>
@@ -51,11 +51,11 @@ const CheckboxStickerSheet = ({ disabled = false }) => {
                 sx={{
                   display: 'flex',
                   justifyContent: 'center',
-                  alignItems: 'center'
+                  alignItems: 'center',
                 }}
               >
                 <Grid container paddingBottom='8px' paddingTop='8px'>
-                  {sizes.map((size, sizeIndex) => (
+                  {sizes.map((size) => (
                     <>
                       <Grid
                         item
@@ -65,7 +65,7 @@ const CheckboxStickerSheet = ({ disabled = false }) => {
                           display: 'flex',
                           justifyContent: 'center',
                           alignItems: 'center',
-                          flexDirection: 'column'
+                          flexDirection: 'column',
                         }}
                       >
                         <Checkbox disabled={disabled} color={color} size={size}>
@@ -77,13 +77,13 @@ const CheckboxStickerSheet = ({ disabled = false }) => {
                 </Grid>
               </Grid>
             </Grid>
-          )
+          );
         })}
       </Grid>
     </Grid>
-  )
+  );
 
-  return <VariantCheckboxes />
-}
+  return <VariantCheckboxes />;
+};
 
-export default CheckboxStickerSheet
+export default CheckboxStickerSheet;

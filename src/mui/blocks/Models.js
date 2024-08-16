@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Models = () => {
   return (
@@ -6,7 +6,7 @@ const Models = () => {
       <h2>TODO: Community Models</h2>
       <p>Community Models content...</p>
     </section>
-  )
-}
+  );
+};
 
-export default Models
+export default Models;

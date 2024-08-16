@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const NeighborhoodMap = () => {
   return (
@@ -6,7 +6,7 @@ const NeighborhoodMap = () => {
       <h2>TODO: Neighborhood Map</h2>
       <p>Neighborhood Map content...</p>
     </section>
-  )
-}
+  );
+};
 
-export default NeighborhoodMap
+export default NeighborhoodMap;
