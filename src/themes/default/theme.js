@@ -1,9 +1,8 @@
-import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
 import figmaTheme from './figma.json';
 import buttonTheme from './button.json';
 import checkboxTheme from './checkbox.json';
 
-export const defaultTheme = extendTheme({
+export const defaultTheme = {
   MuiCssBaseline: {
     styleOverrides: `
         @import "https://use.typekit.net/loo0pmd.css";
@@ -72,4 +71,4 @@ export const defaultTheme = extendTheme({
     ...buttonTheme,
     ...checkboxTheme,
   },
-});
+};

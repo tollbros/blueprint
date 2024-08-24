@@ -86,7 +86,7 @@
   "typography": {
     "H1": {
       "fontSize": "3rem",
-      "fontFamily": "Domaine Display, Helvetica, Arial, sans-serif",
+      "fontFamily": "Domaine, Helvetica, Arial, sans-serif",
       "fontStyle": "normal",
       "fontWeight": 700,
       "lineHeight": "60px",
@@ -95,7 +95,7 @@
     },
     "H2": {
       "fontSize": "2.5rem",
-      "fontFamily": "Domaine Display, Helvetica, Arial, sans-serif",
+      "fontFamily": "Domaine, Helvetica, Arial, sans-serif",
       "fontStyle": "normal",
       "fontWeight": 700,
       "lineHeight": "50px",
@@ -104,7 +104,7 @@
     },
     "H3": {
       "fontSize": "2.0625rem",
-      "fontFamily": "Domaine Display, Helvetica, Arial, sans-serif",
+      "fontFamily": "Domaine, Helvetica, Arial, sans-serif",
       "fontStyle": "normal",
       "fontWeight": 700,
       "lineHeight": "41px",
@@ -113,7 +113,7 @@
     },
     "H4": {
       "fontSize": "1.75rem",
-      "fontFamily": "Domaine Display, Helvetica, Arial, sans-serif",
+      "fontFamily": "Domaine, Helvetica, Arial, sans-serif",
       "fontStyle": "normal",
       "fontWeight": 700,
       "lineHeight": "35px",
@@ -122,7 +122,7 @@
     },
     "H5": {
       "fontSize": "1.75rem",
-      "fontFamily": "Domaine Display, Helvetica, Arial, sans-serif",
+      "fontFamily": "Domaine, Helvetica, Arial, sans-serif",
       "fontStyle": "normal",
       "fontWeight": 700,
       "lineHeight": "35px",
@@ -131,7 +131,7 @@
     },
     "H6": {
       "fontSize": "1.1875rem",
-      "fontFamily": "Domaine Display, Helvetica, Arial, sans-serif",
+      "fontFamily": "Domaine, Helvetica, Arial, sans-serif",
       "fontStyle": "normal",
       "fontWeight": 700,
       "lineHeight": "24px",

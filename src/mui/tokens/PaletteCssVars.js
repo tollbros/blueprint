@@ -2,13 +2,15 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import { defaultTheme } from '../../themes/default/theme';
 import PaletteItem from '../../storybook/PaletteItem';
+import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
 
 const PaletteCssVars = () => {
-  return Object.keys(defaultTheme.vars.palette).map((key, index) => {
+  const theme = extendTheme(defaultTheme);
+  return Object.keys(theme.vars.palette).map((key, index) => {
     const isObject =
-      typeof defaultTheme.vars.palette[key] === 'object' &&
-      defaultTheme.vars.palette[key] !== null &&
-      !Array.isArray(defaultTheme.vars.palette[key]);
+      typeof theme.vars.palette[key] === 'object' &&
+      theme.vars.palette[key] !== null &&
+      !Array.isArray(theme.vars.palette[key]);
 
     if (!isObject) {
       return;
@@ -21,27 +23,27 @@ const PaletteCssVars = () => {
         </Grid>
         <Grid item xs={10}>
           <Grid container gap={2}>
-            {Object.keys(defaultTheme.vars.palette[key]).map((classKey, classIndex) => {
+            {Object.keys(theme.vars.palette[key]).map((classKey, classIndex) => {
               if (
-                typeof defaultTheme.vars.palette[key][classKey] !== 'object' ||
-                defaultTheme.vars.palette[key][classKey] === null ||
-                Array.isArray(defaultTheme.vars.palette[key][classKey])
+                typeof theme.vars.palette[key][classKey] !== 'object' ||
+                theme.vars.palette[key][classKey] === null ||
+                Array.isArray(theme.vars.palette[key][classKey])
               ) {
                 return (
                   <PaletteItem
                     key={classIndex}
                     classKey={`classKey-${classKey}`}
-                    backgroundColor={defaultTheme.vars.palette[key][classKey]}
+                    backgroundColor={theme.vars.palette[key][classKey]}
                   />
                 );
               }
 
-              return Object.keys(defaultTheme.vars.palette[key][classKey]).map((paletteKey, palleteKeyIndex) => {
+              return Object.keys(theme.vars.palette[key][classKey]).map((paletteKey, palleteKeyIndex) => {
                 return (
                   <PaletteItem
                     key={`${paletteKey}-${palleteKeyIndex}`}
                     classKey={`${classKey}.${paletteKey}`}
-                    backgroundColor={defaultTheme.vars.palette[key][classKey][paletteKey]}
+                    backgroundColor={theme.vars.palette[key][classKey][paletteKey]}
                   />
                 );
               });
