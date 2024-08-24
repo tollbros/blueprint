@@ -6,21 +6,19 @@ export default function Types() {
     width: '100%',
     maxWidth: 800,
     border: '1px solid lightGray',
-    padding: '0 8px'
-  }
+    padding: '0 8px',
+  };
+
   const theme = useTheme();
 
-  return Object.keys(theme.MuiCssBaseline.typography).map(typographyKey => {
-
+  return Object.keys(theme.MuiCssBaseline.typography).map((typographyKey, index) => {
     return (
-      <div style={styles}>
-        <h1 className={`tb-MuiCssBaseline-typography-${typographyKey}-font`}>
-          {typographyKey}. Typography
-        </h1>
-        <br/>
+      <div key={typographyKey + index} style={styles}>
+        <h1 className={`tb-MuiCssBaseline-typography-${typographyKey}-font`}>{typographyKey}. Typography</h1>
+        <br />
         <b>var(--mui-MuiCssBaseline-typography-{typographyKey}-font)</b>
       </div>
-    )
+    );
   });
 
   // return (
@@ -85,4 +83,4 @@ export default function Types() {
   //     </div>
   //   </>
   // )
-};
+}

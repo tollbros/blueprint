@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { StyledEngineProvider, Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
@@ -30,41 +30,76 @@ const decorateTheme = ({ theme }) => {
               fontFamily: theme.typography[key].fontFamily,
               textDecorationLine: theme.typography[key].textDecorationLine,
               textTransform: theme.typography[key].textTransform,
-            }
-          }
-        }, {})
+            },
+          };
+        }, {}),
       },
-    }
+    },
   });
-}
+};
 
 const ThemeProvider = ({ children, theme }) => {
-  const decoratedTheme = decorateTheme({ theme })
-  const baselineReducer = () => theme?.MuiCssBaseline?.styleOverrides;
-  const [baselineStyles, dispatchBaseline] = useReducer(baselineReducer, null);
-
-  useEffect(() => {
-    dispatchBaseline();
-  }, []);
+  const decoratedTheme = decorateTheme({ theme });
+  const baselineStyles = decoratedTheme?.MuiCssBaseline?.styleOverrides;
 
   return (
     <CssVarsProvider theme={decoratedTheme}>
       <StyledEngineProvider injectFirst>
         <CssBaseline />
         {baselineStyles && <style>{baselineStyles}</style>}
-        {baselineStyles && <style>
-          {`
-          ${Object.keys(decoratedTheme.MuiCssBaseline.typography).map(typographyKey => {
-            return `
+        {baselineStyles && (
+          <style>
+            {`
+          ${Object.keys(decoratedTheme.MuiCssBaseline.typography)
+            .map((typographyKey) => {
+              return `
               .tb-MuiCssBaseline-typography-${typographyKey}-font {
                 font: var(--mui-MuiCssBaseline-typography-${typographyKey}-font);
                 text-decoration-line: var(--mui-MuiCssBaseline-typography-${typographyKey}-textDecorationLine);
                 text-transform: var(--mui-MuiCssBaseline-typography-${typographyKey}-textTransform);
               }
-            `
-          }).join('\n')}
+            `;
+            })
+            .join('\n')}
           `}
-        </style>}
+          </style>
+        )}
+        {baselineStyles && (
+          <style>
+            {`
+            h1 {
+              font: var(--mui-MuiCssBaseline-typography-H1-font);
+              text-decoration-line: var(--mui-MuiCssBaseline-typography-H1-textDecorationLine);
+              text-transform: var(--mui-MuiCssBaseline-typography-H1-textTransform);
+            }
+            h2 {
+              font: var(--mui-MuiCssBaseline-typography-H2-font);
+              text-decoration-line: var(--mui-MuiCssBaseline-typography-H2-textDecorationLine);
+              text-transform: var(--mui-MuiCssBaseline-typography-H2-textTransform);
+            }
+            h3 {
+              font: var(--mui-MuiCssBaseline-typography-H3-font);
+              text-decoration-line: var(--mui-MuiCssBaseline-typography-H3-textDecorationLine);
+              text-transform: var(--mui-MuiCssBaseline-typography-H3-textTransform);
+            }
+            h4 {
+              font: var(--mui-MuiCssBaseline-typography-H4-font);
+              text-decoration-line: var(--mui-MuiCssBaseline-typography-H4-textDecorationLine);
+              text-transform: var(--mui-MuiCssBaseline-typography-H4-textTransform);
+            }
+            h5 {
+              font: var(--mui-MuiCssBaseline-typography-H5-font);
+              text-decoration-line: var(--mui-MuiCssBaseline-typography-H5-textDecorationLine);
+              text-transform: var(--mui-MuiCssBaseline-typography-H5-textTransform);
+            }
+            h6 {
+              font: var(--mui-MuiCssBaseline-typography-H6-font);
+              text-decoration-line: var(--mui-MuiCssBaseline-typography-H6-textDecorationLine);
+              text-transform: var(--mui-MuiCssBaseline-typography-H6-textTransform);
+            }
+            `}
+          </style>
+        )}
         {children}
       </StyledEngineProvider>
     </CssVarsProvider>
