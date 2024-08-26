@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Amenities.module.scss';
 
 const Amenities = () => {
   return (
-    <section style={{ height: '757px', width: '100%', padding: '5%' }}>
+    <section className={styles.amenities}>
       <h2>TODO: Community Amenities</h2>
       <p>Community Amenities content...</p>
     </section>

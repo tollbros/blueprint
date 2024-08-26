@@ -1,6 +1,6 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
 import Button from './Button';
+import styles from './ButtonStickerSheet.module.scss';
 
 const ButtonStickerSheet = ({ disabled = false }) => {
   const ButtonVariants = () => {
@@ -10,43 +10,35 @@ const ButtonStickerSheet = ({ disabled = false }) => {
 
     return variants.reduce((acc, variant, index) => {
       const VariantButtons = () => (
-        <Grid container direction='row' sx={{ borderBottom: '1px solid rgba(0, 0, 0, 0.1)' }}>
-          <Grid
-            item
-            xs={2}
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
+        <div className={styles.buttonStickerSheet}>
+          <div className={styles.title}>
             <h5>{variant}</h5>
-          </Grid>
-          <Grid item xs={10}>
+          </div>
+          <div className={styles.container}>
             {colors.map((color, indexColor) => {
               return (
-                <Grid container key={color + indexColor} mb={2}>
+                <div className={styles.rowContainer} key={color + indexColor}>
                   {sizes.map((size) => (
-                    <Grid item xs={4} key={color + size}>
-                      <Grid container direction='column'>
+                    <div className={styles.cellContainer} key={color + size}>
+                      <div className={styles.cell}>
                         {indexColor === 0 && (
-                          <Grid item xs={4}>
+                          <div className={styles.columnTitle}>
                             <h5>{size}</h5>
-                          </Grid>
+                          </div>
                         )}
-                        <Grid item xs={4}>
+                        <div className={styles.cell}>
                           <Button variant={variant} color={color} size={size} disabled={disabled}>
                             {color}
                           </Button>
-                        </Grid>
-                      </Grid>
-                    </Grid>
+                        </div>
+                      </div>
+                    </div>
                   ))}
-                </Grid>
+                </div>
               );
             })}
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       );
       return [...acc, <VariantButtons key={variant + index} />];
     }, []);

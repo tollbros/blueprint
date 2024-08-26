@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Availability.module.scss';
 
 const Availability = () => {
   return (
-    <section style={{ height: '757px', width: '100%', padding: '5%' }}>
+    <section className={styles.availability}>
       <h2>TODO: Community Availability</h2>
       <p>Community Availability content...</p>
     </section>

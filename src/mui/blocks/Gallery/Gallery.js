@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Gallery.module.scss';
 
 const Gallery = () => {
   return (
-    <section style={{ height: '757px', width: '100%', padding: '5%' }}>
+    <section className={styles.gallery}>
       <h2>TODO: Community Gallery</h2>
       <p>Community Gallery content...</p>
     </section>
