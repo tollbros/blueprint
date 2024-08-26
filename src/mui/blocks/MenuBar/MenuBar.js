@@ -1,11 +1,8 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Container from '@mui/material/Container';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Button from '../primitives/Button/Button';
-import ContactButtons from '../partials/ContactButtons';
+import Button from '../../primitives/Button/Button';
+import ContactButtons from '../../partials/ContactButtons';
+import styles from './MenuBar.module.scss';
 
 const pages = ['Details', 'Amenities', 'Homes', 'Gallery', 'Availability', 'Financing'];
 
@@ -28,15 +25,10 @@ function ElevationScroll(props) {
 const MenuBar = (props) => {
   return (
     <ElevationScroll {...props}>
-      <AppBar
-        position='sticky'
-        sx={{
-          backgroundColor: (theme) => theme.palette.background.grey,
-        }}
-      >
-        <Container maxWidth='xl'>
-          <Toolbar disableGutters>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+      <div className={styles.menuBar}>
+        <div>
+          <div>
+            <div>
               {pages.map((page) => (
                 <Button
                   key={page}
@@ -53,12 +45,12 @@ const MenuBar = (props) => {
                   {page}
                 </Button>
               ))}
-            </Box>
+            </div>
 
             <ContactButtons />
-          </Toolbar>
-        </Container>
-      </AppBar>
+          </div>
+        </div>
+      </div>
     </ElevationScroll>
   );
 };

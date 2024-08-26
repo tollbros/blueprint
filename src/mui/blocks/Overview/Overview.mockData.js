@@ -1,35 +1,34 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Button from '../primitives/Button/Button';
+import Button from '../../primitives/Button/Button';
+import styles from './Overview.module.scss';
 
 const createRow = ({ name, isActiveCommunity, homeType, sqft, pricedFrom, onNameClick }) => {
   return {
     name: (
-      <Grid container direction='column'>
-        <Grid item component='span'>
+      <div className={styles.mockColumn}>
+        <span>
           <Button onClick={onNameClick} variant='text' p={0}>
             {name}
           </Button>
-        </Grid>
+        </span>
         {isActiveCommunity && (
-          <Grid item component='span'>
+          <span>
             <span>Also Available 55+</span>
-          </Grid>
+          </span>
         )}
-      </Grid>
+      </div>
     ),
     homeType,
     sqft,
     pricedFrom: (
-      <Grid container direction='column'>
-        <Grid item component='span'>
-          <Typography variant='subtitle2'>Priced From</Typography>
-        </Grid>
-        <Grid item component='span'>
+      <div className={styles.mockColumn}>
+        <span>
+          <p>Priced From</p>
+        </span>
+        <span>
           <span>{pricedFrom}</span>
-        </Grid>
-      </Grid>
+        </span>
+      </div>
     ),
   };
 };

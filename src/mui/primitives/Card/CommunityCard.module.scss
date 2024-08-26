@@ -4,13 +4,13 @@
     overflow: hidden;
     max-width: 300px;
   }
-  
+
   .imagePlaceholder {
     background-color: #f0f0f0;
     height: 200px;
     position: relative;
   }
-  
+
   .tag {
     position: absolute;
     bottom: 10px;
@@ -19,34 +19,34 @@
     color: white;
     padding: 5px 10px;
   }
-  
+
   .cardContent {
     padding: 15px;
   }
-  
+
   .specs {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
   }
-  
+
   .specItem {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     line-height: 1;
   }
-  
+
   .specValue {
     font-weight: bold;
     margin-bottom: 2px;
   }
-  
+
   .specLabel {
     font-size: 0.8em;
     color: #666;
   }
-  
+
   .viewLink {
     color: blue;
     text-decoration: none;

@@ -1,8 +1,8 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
+import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
 import { defaultTheme } from '../../themes/default/theme';
 import PaletteItem from '../../storybook/PaletteItem';
-import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
+import styles from './PaletteCssVars.module.scss';
 
 const PaletteCssVars = () => {
   const theme = extendTheme(defaultTheme);
@@ -17,12 +17,12 @@ const PaletteCssVars = () => {
     }
 
     return (
-      <Grid key={key + index} container>
-        <Grid item xs={12}>
+      <div key={key + index} className={styles.paletteCssVars}>
+        <div className={styles.title}>
           <p>{key}</p>
-        </Grid>
-        <Grid item xs={10}>
-          <Grid container gap={2}>
+        </div>
+        <div className={styles.inner}>
+          <div className={styles.container}>
             {Object.keys(theme.vars.palette[key]).map((classKey, classIndex) => {
               if (
                 typeof theme.vars.palette[key][classKey] !== 'object' ||
@@ -48,9 +48,9 @@ const PaletteCssVars = () => {
                 );
               });
             })}
-          </Grid>
-        </Grid>
-      </Grid>
+          </div>
+        </div>
+      </div>
     );
   });
 };
