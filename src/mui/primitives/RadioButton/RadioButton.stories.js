@@ -1,70 +1,80 @@
 import React, { useState } from 'react';
-import { Story } from '@storybook/react';
-import { useTheme } from '@mui/material/styles';
 import RadioButton from './RadioButton';
+import { useTheme } from '@mui/material/styles';
 
-const StorySchema = {
+export default {
   title: 'Components/RadioButton',
   component: RadioButton,
+  argTypes: {
+    label: { control: 'text' },
+    checked: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+  },
 };
-
-export default StorySchema;
 
 const Template = (args) => <RadioButton {...args} />;
 
+// Updated Radio Button Group story
 export const RadioButtonGroup = () => {
-  const [selectedOption, setSelectedOption] = useState('option1');
-
+  const [selected, setSelected] = useState('');
   const theme = useTheme();
 
-  const handleChange = (value) => {
-    setSelectedOption(value);
+  const options = [
+    { label: 'Option A', value: 'A' },
+    { label: 'Option B', value: 'B' },
+    { label: 'Option C', value: 'C' },
+  ];
+
+  const handleChange = (event) => {
+    setSelected(event.target.value);
   };
 
   return (
-    <div>
-      <RadioButton 
-        checked={selectedOption === 'option1'} 
-        onChange={handleChange} 
-        value="option1"
-      /> <span style={theme.typography.GothamBaseBook}>Option A</span><br />
-      <RadioButton 
-        checked={selectedOption === 'option2'} 
-        onChange={handleChange} 
-        value="option2"
-      /> <span style={theme.typography.GothamBaseBook}>Option B</span><br />
-      <RadioButton 
-        checked={selectedOption === 'option3'} 
-        onChange={handleChange} 
-        value="option3"
-      /> <span style={theme.typography.GothamBaseBook}>Option C</span>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      {options.map((option) => (
+        <div key={option.value} style={{ display: 'flex', alignItems: 'center' }}>
+          <RadioButton
+            label=""
+            value={option.value}
+            checked={selected === option.value}
+            onChange={handleChange}
+            name="radioGroup"
+            theme={theme}
+          />
+          <span style={{ ...theme.typography.GothamSmallBook, marginLeft: '8px' }}>
+            {option.label}
+          </span>
+        </div>
+      ))}
     </div>
   );
 };
 
+RadioButtonGroup.storyName = 'Radio Button Group';
+
 export const Default = Template.bind({});
 Default.args = {
-  checked: false,
-  disabled: false,
-  onChange: () => console.log('Radio button changed'),
-  value: 'default',
+  label: 'Radio Button',
 };
 
 export const Checked = Template.bind({});
 Checked.args = {
-  ...Default.args,
+  label: 'Checked Radio Button',
   checked: true,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  ...Default.args,
+  label: 'Disabled Radio Button',
   disabled: true,
 };
 
-export const CheckedDisabled = Template.bind({});
-CheckedDisabled.args = {
-  ...Default.args,
+export const DisabledChecked = Template.bind({});
+DisabledChecked.args = {
+  label: 'Disabled Checked Radio Button',
   checked: true,
   disabled: true,
 };
+
+export const WithoutLabel = Template.bind({});
+WithoutLabel.args = {};

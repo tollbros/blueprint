@@ -23,9 +23,9 @@ const Template = (args) => <CommunityCard {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  tagText: '[G-Tag]',
-  collectionName: '[SH-B] Villa Collection',
-  propertyName: '[H6] Acorn',
+  tagText: '[Tag]',
+  collectionName: 'Villa Collection',
+  propertyName: 'Acorn',
   squareFeet: '3,219',
   beds: '3',
   baths: '2',

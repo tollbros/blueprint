@@ -214,7 +214,7 @@
       "fontSize": "0.875rem",
       "fontFamily": "Gotham, Helvetica, Arial, sans-serif",
       "fontStyle": "normal",
-      "fontWeight": 700,
+      "fontWeight": 500,
       "lineHeight": "21px",
       "textTransform": "none",
       "textDecorationLine": "none"

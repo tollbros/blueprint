@@ -1,0 +1,47 @@
+.tabContainer {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    padding-bottom: 1px; // To ensure the underline is visible
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: #D8D8D8;
+      box-shadow: 0 1px 2px rgba(133, 133, 133, 0.15);
+    }
+  }
+  
+  .tabItem {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    cursor: pointer;
+    font: var(--mui-MuiCssBaseline-typography-GothamBaseBold-font);
+    
+    &.selected {
+      color: var(--mui-palette-TB-Functional-Black, #000000);
+    }
+    
+    &:not(.selected) {
+      color: var(--mui-palette-TB-Functional-DarkGray, #858585);
+    }
+  }
+  
+  .selectionBar {
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    position: relative;
+    z-index: 1; // To ensure it appears above the underline
+    
+    .selected & {
+      background-color: var(--mui-palette-TB-Brand-Accent, #0070CD);
+    }
+  }
