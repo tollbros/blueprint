@@ -8,10 +8,12 @@ const InputField = ({ placeholder, disabled, ...props }) => {
   const theme = useTheme();
 
   const handleFocus = () => !disabled && setIsFocused(true);
+
   const handleBlur = (e) => {
     setIsFocused(false);
     setHasValue(e.target.value !== '');
   };
+
   const handleChange = (e) => {
     setHasValue(e.target.value !== '');
   };
@@ -23,14 +25,12 @@ const InputField = ({ placeholder, disabled, ...props }) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
-        placeholder=" "
+        placeholder=' '
         disabled={disabled}
-        style={{ ...theme.typography.SubtitleBase }}
         {...props}
       />
-      <label 
-        className={`${styles.placeholder} ${(isFocused || hasValue) ? styles.floatingPlaceholder : ''}`}
-        style={isFocused || hasValue ? { ...theme.typography.GothamXSmallBook } : { ...theme.typography.GothamBaseBook }}
+      <label
+        className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}
       >
         {placeholder}
       </label>

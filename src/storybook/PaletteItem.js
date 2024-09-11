@@ -1,16 +1,15 @@
-import Grid from '@mui/material/Grid'
-import React from 'react'
+import React from 'react';
 
 const PaletteItem = ({ backgroundColor, classKey }) => {
   return (
-    <Grid
-      item
-      xs={12}
-      md={4}
-      display='flex'
-      direction='row'
-      alignItems='flex-start'
-      justifyContent='flex-start'
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        flexBasis: '33%',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+      }}
     >
       <div
         style={{
@@ -21,7 +20,7 @@ const PaletteItem = ({ backgroundColor, classKey }) => {
           height: '48px',
           marginRight: '8px',
           border: '1px solid #e0e0e0',
-          borderRadius: '4px'
+          borderRadius: '4px',
         }}
       >
         -
@@ -30,8 +29,8 @@ const PaletteItem = ({ backgroundColor, classKey }) => {
         <p style={{ margin: '0' }}>{classKey}</p>
         <b>{backgroundColor}</b>
       </div>
-    </Grid>
-  )
-}
+    </div>
+  );
+};
 
-export default PaletteItem
+export default PaletteItem;

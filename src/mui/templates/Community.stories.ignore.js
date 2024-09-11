@@ -1,15 +1,14 @@
-import Community from './Community'
-import heroMockData from '../blocks/Hero.mockData'
-import overviewMockData from '../blocks/Overview.mockData'
-import contactBarMockData from '../blocks/ContactBar.mockData'
+import Community from './Community';
+import heroMockData from '../blocks/Hero.mockData';
+import overviewMockData from '../blocks/Overview.mockData';
+import contactBarMockData from '../blocks/ContactBar.mockData';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-export default {
+const StorySchema = {
   title: 'templates/Community',
   component: Community,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'fullscreen'
+    layout: 'fullscreen',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
@@ -18,43 +17,46 @@ export default {
     blocks: [
       {
         component: 'Hero',
-        props: heroMockData
+        props: heroMockData,
       },
       {
         component: 'ContactBar',
-        props: contactBarMockData
+        props: contactBarMockData,
       },
       {
-        component: 'MenuBar'
+        component: 'MenuBar',
       },
       {
         component: 'Overview',
-        props: overviewMockData
+        props: overviewMockData,
       },
       {
-        component: 'Amenities'
+        component: 'Amenities',
       },
       {
-        component: 'Models'
+        component: 'Models',
       },
       {
-        component: 'Gallery'
+        component: 'Gallery',
       },
       {
-        component: 'Availability'
+        component: 'Availability',
       },
       {
-        component: 'NeighborhoodMap'
+        component: 'NeighborhoodMap',
       },
       {
-        component: 'Financing'
-      }
-    ]
+        component: 'Financing',
+      },
+    ],
   },
-  argTypes: {}
-}
+  argTypes: {},
+};
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+export default StorySchema;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default = {
-  args: {}
-}
+  args: {},
+};

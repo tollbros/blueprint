@@ -1,14 +1,14 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
-import Button from '../primitives/Button'
+import * as React from 'react';
+import styles from './ContactButtons.module.scss';
+import Button from '../primitives/Button/Button';
 
 const ContactButtons = () => {
   return (
-    <Box sx={{ flexGrow: 0, display: 'flex', gap: '1rem' }}>
+    <div className={styles.contactButtons}>
       <Button color='contrast'>Contact Sales</Button>
       <Button>Schedule a Tour</Button>
-    </Box>
-  )
-}
+    </div>
+  );
+};
 
-export default ContactButtons
+export default ContactButtons;

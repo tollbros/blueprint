@@ -1,104 +1,89 @@
-import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
-import React from 'react'
+import React from 'react';
+import styles from './PaletteTokenTypes.module.scss';
 
-const PaletteTokenTypes = ({
-  data,
-  dataKey,
-  numbersOnly = false,
-  isDeep = false
-}) => {
+const PaletteTokenTypes = ({ data, dataKey, numbersOnly = false, isDeep = false }) => {
   switch (typeof data) {
     case 'string':
       if (data.startsWith('#') || data.startsWith('rgb')) {
         return (
-          <Grid item xs={12}>
-            <Grid container spacing={2}>
-              {!isDeep && (
-                <Grid item xs={12}>
-                  <Typography variant='overline'>{dataKey}</Typography>
-                </Grid>
+          <div className={styles.string}>
+            {!isDeep && (
+              <div className={styles.stringKey}>
+                <p>{dataKey}</p>
+              </div>
+            )}
+            <div className={styles.stringColor}>
+              <div className={styles.stringBox} style={{ backgroundColor: data }} />
+            </div>
+            <div className={styles.stringDescription}>
+              {isDeep && (
+                <pre>
+                  <b>{dataKey}</b>
+                </pre>
               )}
-              <Grid item xs={3}>
-                <Box
-                  sx={{
-                    width: '100%',
-                    height: '100px',
-                    backgroundColor: data
-                  }}
-                />
-              </Grid>
-              <Grid item xs={9}>
-                {isDeep && (
-                  <pre>
-                    <b>{dataKey}</b>
-                  </pre>
-                )}
-                <pre>{data}</pre>
-              </Grid>
-            </Grid>
-          </Grid>
-        )
+              <pre>{data}</pre>
+            </div>
+          </div>
+        );
       }
+
       return (
-        <Grid item xs={12}>
+        <div>
           <pre>
             <b>{dataKey}</b>
           </pre>
           <pre>{data}</pre>
-        </Grid>
-      )
+        </div>
+      );
     case 'object':
       if (Array.isArray(data)) {
         return (
-          <Grid item xs={12}>
+          <div>
             <pre>{dataKey}</pre>
             <pre>{JSON.stringify(data, null, 2)}</pre>
-          </Grid>
-        )
+          </div>
+        );
       }
+
       return (
-        <Grid item xs={12}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Typography variant='overline'>{dataKey}</Typography>
-            </Grid>
-            <Grid item xs={12}>
+        <div>
+          <div>
+            <div>
+              <p>{dataKey}</p>
+            </div>
+            <div>
               {Object.keys(data).map((key) => (
-                <PaletteTokenTypes
-                  key={key}
-                  dataKey={key}
-                  data={data[key]}
-                  isDeep
-                />
+                <PaletteTokenTypes key={key} dataKey={key} data={data[key]} isDeep />
               ))}
-            </Grid>
-          </Grid>
-        </Grid>
-      )
+            </div>
+          </div>
+        </div>
+      );
     case 'number':
       if (!numbersOnly) {
-        return null
+        return null;
       }
+
       return (
-        <Grid item xs={12}>
+        <div>
           <pre>{dataKey}</pre>
           <pre>{data}</pre>
-        </Grid>
-      )
+        </div>
+      );
+
     case 'function': {
-      return null
+      return null;
     }
+
     default:
       return (
-        <Grid item xs={12}>
+        <div>
           <pre>{typeof data}</pre>
           <pre>{dataKey}</pre>
           <pre>{JSON.stringify(data, null, 2)}</pre>
-        </Grid>
-      )
+        </div>
+      );
   }
-}
+};
 
-export default PaletteTokenTypes
+export default PaletteTokenTypes;

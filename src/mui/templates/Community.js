@@ -1,8 +1,8 @@
-import React from 'react'
-import Blocks from './Blocks'
+import React from 'react';
+import Blocks from './Blocks';
 
 const Community = ({ blocks = [] }) => {
-  return <Blocks blocks={blocks} />
-}
+  return <Blocks blocks={blocks} />;
+};
 
-export default Community
+export default Community;

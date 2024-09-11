@@ -1,13 +1,12 @@
-import { fn } from '@storybook/test'
-import ButtonStickerSheet from './ButtonStickerSheet'
+import { fn } from '@storybook/test';
+import ButtonStickerSheet from './ButtonStickerSheet';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-export default {
+const StorySchema = {
   title: 'primitives/Button',
   component: ButtonStickerSheet,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'fullscreen'
+    layout: 'fullscreen',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   // tags: ['autodocs'],
@@ -15,14 +14,17 @@ export default {
   args: { onClick: fn() },
   argTypes: {
     disabled: {
-      control: { type: 'boolean' }
-    }
-  }
-}
+      control: { type: 'boolean' },
+    },
+  },
+};
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+export default StorySchema;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const StickerSheet = {
   args: {
-    children: 'Button'
-  }
-}
+    children: 'Button',
+  },
+};

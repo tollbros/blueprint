@@ -1,9 +1,8 @@
-import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
-import figmaTheme from './figma.json'
-import buttonTheme from './button.json'
-import checkboxTheme from './checkbox.json'
+import figmaTheme from './figma.json';
+import buttonTheme from './button.json';
+import checkboxTheme from './checkbox.json';
 
-export const kragleTheme = extendTheme({
+export const kragleTheme = {
   MuiCssBaseline: {
     styleOverrides: `
         @import "https://use.typekit.net/loo0pmd.css";
@@ -65,11 +64,11 @@ export const kragleTheme = extendTheme({
           font-style: normal;
           font-display: swap;
         }
-      `
+      `,
   },
   ...figmaTheme,
   components: {
     ...buttonTheme,
-    ...checkboxTheme
-  }
-})
+    ...checkboxTheme,
+  },
+};

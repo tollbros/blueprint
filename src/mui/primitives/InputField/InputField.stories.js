@@ -1,7 +1,7 @@
 import React from 'react';
 import InputField from './InputField';
 
-export default {
+const StorySchema = {
   title: 'Components/InputField',
   component: InputField,
   argTypes: {
@@ -9,6 +9,8 @@ export default {
     disabled: { control: 'boolean' },
   },
 };
+
+export default StorySchema;
 
 const Template = (args) => <InputField {...args} />;
 

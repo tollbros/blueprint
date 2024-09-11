@@ -1,25 +1,62 @@
-.radioButtonContainer {
-    display: inline-flex;
-    align-items: center;
-  }
+.radioButtonWrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radioButtonWrapper.disabled {
+  cursor: not-allowed;
+}
   
-  .radioButtonContainer:not(.disabled) {
-    cursor: pointer;
-  }
-  
-  .disabled {
-    cursor: not-allowed;
-  }
-  
-  .hiddenRadio {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .styledRadio {
-    width: var(--Values-Button-Spacing-Raw---20, 20px);
-    height: var(--Values-Button-Spacing-Raw---20, 20px);
-  }
-  
+.hiddenRadio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.styledRadio {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.styledRadio svg {
+  transition: all 0.2s ease-in-out;
+}
+
+.styledRadio svg circle:first-child {
+  stroke: var(--mui-palette-TB-Brand-Gray, #8195A2);
+  stroke-width: 1;
+}
+
+/* Focus state */
+.hiddenRadio:focus + .styledRadio svg circle:first-child {
+  stroke: var(--mui-palette-TB-Brand-Gray, #8195A2);
+  stroke-width: 2;
+}
+
+/* Selected state */
+.hiddenRadio:checked + .styledRadio svg circle:first-child {
+  stroke: var(--mui-palette-TB-Brand-Gray, #8195A2);
+  stroke-width: 2;
+}
+
+.hiddenRadio:checked + .styledRadio svg circle:last-child {
+  fill: var(--mui-palette-TB-Brand-Accent, #0070CD);
+}
+
+/* Disabled state */
+.hiddenRadio:disabled + .styledRadio svg circle:first-child {
+  stroke: var(--mui-palette-TB-Functional-MedGray, #D8D8D8);
+  stroke-width: 1;
+}
+
+.hiddenRadio:disabled:checked + .styledRadio svg circle:last-child {
+  fill: var(--mui-palette-TB-Functional-MedGray, #D8D8D8);
+}

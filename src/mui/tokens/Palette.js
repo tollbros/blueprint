@@ -1,18 +1,17 @@
-import React from 'react'
-import Grid from '@mui/material/Grid'
-import * as styles from '@mui/material/styles'
-import PaletteTokenTypes from './PaletteTokenTypes'
+import React from 'react';
+import * as styles from '@mui/material/styles';
+import PaletteTokenTypes from './PaletteTokenTypes';
 
 const Palette = () => {
-  const theme = styles.useTheme()
-  console.log('theme', theme)
+  const theme = styles.useTheme();
+
   return (
-    <Grid container spacing={2}>
+    <div>
       {Object.keys(theme.palette).map((key) => (
         <PaletteTokenTypes key={key} dataKey={key} data={theme.palette[key]} />
       ))}
-    </Grid>
-  )
-}
+    </div>
+  );
+};
 
-export default Palette
+export default Palette;
