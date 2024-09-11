@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Financing.module.scss';
 
 const Financing = () => {
   return (
-    <section style={{ height: '757px', width: '100%', padding: '5%' }}>
+    <section className={styles.financing}>
       <h2>TODO: Financing</h2>
       <p>Financing content...</p>
     </section>

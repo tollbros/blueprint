@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from 'NeighborhoodMap.module.scss';
 
 const NeighborhoodMap = () => {
   return (
-    <section style={{ height: '757px', width: '100%', padding: '5%' }}>
+    <section className={styles.neighborhoodMap}>
       <h2>TODO: Neighborhood Map</h2>
       <p>Neighborhood Map content...</p>
     </section>

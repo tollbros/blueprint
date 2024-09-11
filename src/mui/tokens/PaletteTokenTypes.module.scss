@@ -1,0 +1,25 @@
+.string {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+
+  .stringKey {
+    display: flex;
+    width: 100%;
+  }
+
+  .stringColor {
+    display: flex;
+    width: 20%;
+  }
+
+  .stringBox {
+    width: 100%;
+    height: 100px;
+  }
+
+  .stringDescription {
+    display: flex;
+    width: 80%;
+  }
+}

@@ -4,13 +4,13 @@
     overflow: hidden;
     max-width: 300px;
   }
-  
+
   .imagePlaceholder {
     background-color: var(--mui-palette-TB-Functional-LightGray, #E9EDF0);
     height: 200px;
     position: relative;
   }
-  
+
   .tag {
     position: absolute;
     bottom: 0px;
@@ -20,7 +20,7 @@
     padding: 5px 10px;
     font: var(--mui-MuiCssBaseline-typography-GothamSmallBold-font);
   }
-  
+
   .cardContent {
     padding: 16px;
   }
@@ -39,27 +39,27 @@
   .propertyName {
     font: var(--mui-MuiCssBaseline-typography-H6-font);
   }
-  
+
   .specs {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
   }
-  
+
   .specItem {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     line-height: 1;
   }
-  
+
   .specValue {
     font-weight: bold;
     margin-bottom: 2px;
     color: var(--mui-palette-TB-Functional-Black, #000000);
     font: var(--mui-MuiCssBaseline-typography-SubtitleLarge-font);
   }
-  
+
   .specLabel {
     font-size: 0.8em;
     color: var(--mui-palette-TB-Functional-Black, #000000);
