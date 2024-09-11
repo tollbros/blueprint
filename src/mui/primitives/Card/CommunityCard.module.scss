@@ -1,27 +1,43 @@
 .card {
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 0px;
     overflow: hidden;
     max-width: 300px;
   }
 
   .imagePlaceholder {
-    background-color: #f0f0f0;
+    background-color: var(--mui-palette-TB-Functional-LightGray, #E9EDF0);
     height: 200px;
     position: relative;
   }
 
   .tag {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: #333;
-    color: white;
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--mui-palette-TB-Brand-Primary, #0C223F);
+    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
     padding: 5px 10px;
+    font: var(--mui-MuiCssBaseline-typography-GothamSmallBold-font);
   }
 
   .cardContent {
-    padding: 15px;
+    padding: 16px;
+  }
+
+  .collectionName,
+  .propertyName {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .collectionName {
+    font: var(--mui-MuiCssBaseline-typography-SubtitleBase-font);
+  }
+
+  .propertyName {
+    font: var(--mui-MuiCssBaseline-typography-H6-font);
   }
 
   .specs {
@@ -40,14 +56,26 @@
   .specValue {
     font-weight: bold;
     margin-bottom: 2px;
+    color: var(--mui-palette-TB-Functional-Black, #000000);
+    font: var(--mui-MuiCssBaseline-typography-SubtitleLarge-font);
   }
 
   .specLabel {
     font-size: 0.8em;
-    color: #666;
+    color: var(--mui-palette-TB-Functional-Black, #000000);
+    font: var(--mui-MuiCssBaseline-typography-BodySmall-font);
+  }
+  
+  .prodLabel {
+    font: var(--mui-MuiCssBaseline-typography-BodyBase-font);
+    display: block;
+    margin-bottom: 0;
   }
 
   .viewLink {
-    color: blue;
+    color: var(--mui-palette-TB-Brand-Accent, #0070CD);
+    font: var(--mui-MuiCssBaseline-typography-GothamBaseBold-font);
+    display: block;
+    margin-top: 0;
     text-decoration: none;
   }

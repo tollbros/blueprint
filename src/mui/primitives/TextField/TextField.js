@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useTheme } from '@mui/material/styles';
-import styles from './InputField.module.scss';
+import styles from './TextField.module.scss';
 
-const InputField = ({ placeholder, disabled, ...props }) => {
+const TextField = ({ placeholder, disabled, maxLength = 200, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
-  const theme = useTheme();
+  const [charCount, setCharCount] = useState(0);
 
   const handleFocus = () => !disabled && setIsFocused(true);
 
@@ -15,18 +14,21 @@ const InputField = ({ placeholder, disabled, ...props }) => {
   };
 
   const handleChange = (e) => {
-    setHasValue(e.target.value !== '');
+    const inputValue = e.target.value;
+    setHasValue(inputValue !== '');
+    setCharCount(inputValue.length);
   };
 
   return (
-    <div className={`${styles.inputContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}>
-      <input
-        className={styles.input}
+    <div className={`${styles.textFieldContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}>
+      <textarea
+        className={styles.textarea}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
         placeholder=' '
         disabled={disabled}
+        maxLength={maxLength}
         {...props}
       />
       <label
@@ -34,8 +36,11 @@ const InputField = ({ placeholder, disabled, ...props }) => {
       >
         {placeholder}
       </label>
+      <div className={styles.charCounter}>
+        {charCount}/{maxLength}
+      </div>
     </div>
   );
 };
 
-export default InputField;
+export default TextField;

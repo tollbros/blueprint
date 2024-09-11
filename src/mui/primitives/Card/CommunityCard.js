@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './CommunityCard.module.scss';
 
 const CommunityCard = ({
-  tagText = '[G-Tag]',
-  collectionName = '[SH-B] Villa Collection',
-  propertyName = '[H6] Acorn',
+  tagText = 'Tag',
+  collectionName = 'Villa Collection',
+  propertyName = 'Acorn',
   squareFeet = '3,219',
   beds = '3',
   baths = '2',
@@ -18,12 +18,12 @@ const CommunityCard = ({
         <span className={styles.tag}>{tagText}</span>
       </div>
       <div className={styles.cardContent}>
-        <h3>{collectionName}</h3>
-        <h2>{propertyName}</h2>
+        <span className={styles.collectionName}>{collectionName}</span>
+        <span className={styles.propertyName}>{propertyName}</span>
         <div className={styles.specs}>
           <div className={styles.specItem}>
-            <span className={styles.specValue}>[SH-L]{squareFeet}</span>
-            <span className={styles.specLabel}>[B-S] sq. ft.</span>
+            <span className={styles.specValue}>{squareFeet}</span>
+            <span className={styles.specLabel}>sq. ft.</span>
           </div>
           <div className={styles.specItem}>
             <span className={styles.specValue}>{beds}</span>
@@ -42,9 +42,9 @@ const CommunityCard = ({
             <span className={styles.specLabel}>garage</span>
           </div>
         </div>
-        <p>[B-B] 1 story condo priced at {price}</p>
+        <prodLabel>1 story condo priced at {price}</prodLabel>
         <a href='#' className={styles.viewLink}>
-          [G-L] View Condo Design
+          View Condo Design
         </a>
       </div>
     </div>
