@@ -42,7 +42,7 @@ To start using Blueprint in your project, follow these simple steps:
 
 ## Workflow
 
-### Example
+#### Example
 
 Take a look at the `src/mui/blocks/Overview` directory. A directory was created and then the following files were created:
 
