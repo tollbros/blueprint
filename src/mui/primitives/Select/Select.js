@@ -23,15 +23,16 @@ const Select = ({ options, placeholder = 'Select an option' }) => {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
-  const selectedLabel = options.find(option => option.value === selectedOption)?.label || '';
+  const selectedLabel = options.find((option) => option.value === selectedOption)?.label || '';
 
   return (
-    <div 
+    <div
       ref={selectRef}
       className={`${styles.selectContainer} ${selectedOption && styles.filled} ${isOpen && styles.open}`}
       onClick={toggleDropdown}
@@ -40,7 +41,9 @@ const Select = ({ options, placeholder = 'Select an option' }) => {
       }}
     >
       <div className={styles.textContainer}>
-        <label className={`${styles.placeholder} ${selectedOption ? styles.placeholderSmall : styles.placeholderLarge}`}>
+        <label
+          className={`${styles.placeholder} ${selectedOption ? styles.placeholderSmall : styles.placeholderLarge}`}
+        >
           {placeholder}
         </label>
         {selectedOption && <span className={styles.selectedText}>{selectedLabel}</span>}

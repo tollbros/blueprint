@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { StyledEngineProvider, Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
@@ -39,13 +39,24 @@ const decorateTheme = ({ theme }) => {
 };
 
 const ThemeProvider = ({ children, theme }) => {
-  const decoratedTheme = decorateTheme({ theme });
-  const baselineStyles = decoratedTheme?.MuiCssBaseline?.styleOverrides;
+  const [baselineStyles, setBaselineStyles] = useState(null);
+
+  const decoratedTheme = useMemo(() => {
+    return decorateTheme({ theme });
+  }, [theme]);
+
+  useEffect(() => {
+    setBaselineStyles(decoratedTheme?.MuiCssBaseline?.styleOverrides);
+  }, [decoratedTheme]);
+
+  if (!baselineStyles) {
+    return children;
+  }
 
   return (
     <CssVarsProvider theme={decoratedTheme}>
       <StyledEngineProvider injectFirst>
-        <CssBaseline />
+        {baselineStyles && <CssBaseline />}
         {baselineStyles && <style>{baselineStyles}</style>}
         {baselineStyles && (
           <style>

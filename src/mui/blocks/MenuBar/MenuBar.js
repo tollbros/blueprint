@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { cloneElement } from 'react';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Button from '../../primitives/Button/Button';
 import ContactButtons from '../../partials/ContactButtons';
@@ -17,7 +17,7 @@ function ElevationScroll(props) {
     target: window ? window() : undefined,
   });
 
-  return React.cloneElement(children, {
+  return cloneElement(children, {
     elevation: trigger ? 4 : 0,
   });
 }

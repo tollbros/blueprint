@@ -34,16 +34,14 @@ export const RadioButtonGroup = () => {
       {options.map((option) => (
         <div key={option.value} style={{ display: 'flex', alignItems: 'center' }}>
           <RadioButton
-            label=""
+            label=''
             value={option.value}
             checked={selected === option.value}
             onChange={handleChange}
-            name="radioGroup"
+            name='radioGroup'
             theme={theme}
           />
-          <span style={{ ...theme.typography.GothamSmallBook, marginLeft: '8px' }}>
-            {option.label}
-          </span>
+          <span style={{ ...theme.typography.GothamSmallBook, marginLeft: '8px' }}>{option.label}</span>
         </div>
       ))}
     </div>
