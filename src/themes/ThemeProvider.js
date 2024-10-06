@@ -16,7 +16,7 @@ const decorateTheme = ({ theme }) => {
 
           return {
             ...acc,
-            [key]: {
+            [`${key}.MuiTypography-root`]: {
               ...theme.typography[key],
               font: `${theme.typography[key].fontStyle}
                   ${theme.typography[key].fontWeight}
@@ -30,6 +30,7 @@ const decorateTheme = ({ theme }) => {
               fontFamily: theme.typography[key].fontFamily,
               textDecorationLine: theme.typography[key].textDecorationLine,
               textTransform: theme.typography[key].textTransform,
+              margin: theme.typography[key].margin,
             },
           };
         }, {}),
