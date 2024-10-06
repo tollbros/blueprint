@@ -91,7 +91,8 @@
       "fontWeight": 700,
       "lineHeight": "60px",
       "textTransform": "none",
-      "textDecorationLine": "none"
+      "textDecorationLine": "none",
+      "margin": "0"
     },
     "H2": {
       "fontSize": "2.5rem",
@@ -100,7 +101,8 @@
       "fontWeight": 700,
       "lineHeight": "50px",
       "textTransform": "none",
-      "textDecorationLine": "none"
+      "textDecorationLine": "none",
+      "margin": "0"
     },
     "H3": {
       "fontSize": "2.0625rem",
@@ -109,7 +111,8 @@
       "fontWeight": 700,
       "lineHeight": "41px",
       "textTransform": "none",
-      "textDecorationLine": "none"
+      "textDecorationLine": "none",
+      "margin": "0"
     },
     "H4": {
       "fontSize": "1.75rem",
@@ -118,7 +121,8 @@
       "fontWeight": 700,
       "lineHeight": "35px",
       "textTransform": "none",
-      "textDecorationLine": "none"
+      "textDecorationLine": "none",
+      "margin": "0"
     },
     "H5": {
       "fontSize": "1.75rem",
@@ -127,7 +131,8 @@
       "fontWeight": 700,
       "lineHeight": "35px",
       "textTransform": "none",
-      "textDecorationLine": "none"
+      "textDecorationLine": "none",
+      "margin": "0"
     },
     "H6": {
       "fontSize": "1.1875rem",
@@ -136,7 +141,8 @@
       "fontWeight": 700,
       "lineHeight": "24px",
       "textTransform": "none",
-      "textDecorationLine": "none"
+      "textDecorationLine": "none",
+      "margin": "0"
     },
     "BodyBase": {
       "fontSize": "1rem",
