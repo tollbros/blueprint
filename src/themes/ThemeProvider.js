@@ -16,7 +16,7 @@ const decorateTheme = ({ theme }) => {
 
           return {
             ...acc,
-            [`${key}.MuiTypography-root`]: {
+            [key]: {
               ...theme.typography[key],
               font: `${theme.typography[key].fontStyle}
                   ${theme.typography[key].fontWeight}
@@ -79,32 +79,32 @@ const ThemeProvider = ({ children, theme }) => {
         {baselineStyles && (
           <style>
             {`
-            h1 {
+            h1.MuiTypography-root {
               font: var(--mui-MuiCssBaseline-typography-H1-font);
               text-decoration-line: var(--mui-MuiCssBaseline-typography-H1-textDecorationLine);
               text-transform: var(--mui-MuiCssBaseline-typography-H1-textTransform);
             }
-            h2 {
+            h2.MuiTypography-root {
               font: var(--mui-MuiCssBaseline-typography-H2-font);
               text-decoration-line: var(--mui-MuiCssBaseline-typography-H2-textDecorationLine);
               text-transform: var(--mui-MuiCssBaseline-typography-H2-textTransform);
             }
-            h3 {
+            h3.MuiTypography-root {
               font: var(--mui-MuiCssBaseline-typography-H3-font);
               text-decoration-line: var(--mui-MuiCssBaseline-typography-H3-textDecorationLine);
               text-transform: var(--mui-MuiCssBaseline-typography-H3-textTransform);
             }
-            h4 {
+            h4.MuiTypography-root {
               font: var(--mui-MuiCssBaseline-typography-H4-font);
               text-decoration-line: var(--mui-MuiCssBaseline-typography-H4-textDecorationLine);
               text-transform: var(--mui-MuiCssBaseline-typography-H4-textTransform);
             }
-            h5 {
+            h5.MuiTypography-root {
               font: var(--mui-MuiCssBaseline-typography-H5-font);
               text-decoration-line: var(--mui-MuiCssBaseline-typography-H5-textDecorationLine);
               text-transform: var(--mui-MuiCssBaseline-typography-H5-textTransform);
             }
-            h6 {
+            h6.MuiTypography-root {
               font: var(--mui-MuiCssBaseline-typography-H6-font);
               text-decoration-line: var(--mui-MuiCssBaseline-typography-H6-textDecorationLine);
               text-transform: var(--mui-MuiCssBaseline-typography-H6-textTransform);
