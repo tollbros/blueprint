@@ -41,8 +41,8 @@ To start using Blueprint in your project, follow these simple steps:
 
 ### Local Development
 
-1. From `blueprint` point react and react-dom to local e.g. `npm i ../blueprint` for devDependencies and peerDependencies.
-2.
+1. From `blueprint` point react and react-dom to local e.g. `npm i ../whateverRepoYouAreTesting` for devDependencies and peerDependencies via `file:`.
+2. From `whateverRepoYouAreTesting` point `@tollbrothers/blueprint` to the local directory via `file:`.
 
 
 ## Workflow
