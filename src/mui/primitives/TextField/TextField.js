@@ -20,7 +20,9 @@ const TextField = ({ placeholder, disabled, maxLength = 200, ...props }) => {
   };
 
   return (
-    <div className={`${styles.textFieldContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}>
+    <div
+      className={`${styles.textFieldContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}
+    >
       <textarea
         className={styles.textarea}
         onFocus={handleFocus}
@@ -31,9 +33,7 @@ const TextField = ({ placeholder, disabled, maxLength = 200, ...props }) => {
         maxLength={maxLength}
         {...props}
       />
-      <label
-        className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}
-      >
+      <label className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}>
         {placeholder}
       </label>
       <div className={styles.charCounter}>
