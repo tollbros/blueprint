@@ -6,10 +6,12 @@
 
 .tabTitleContainer {
   display: flex;
+  justify-content: space-between;
   gap: 16px;
   position: relative;
+  width: 100%;
   padding: 0 16px;
-  padding-bottom: 1px; // To ensure the underline is visible
+  // padding-bottom: 1px; // To ensure the underline is visible
 
 
   .tabTitleScrollable {
@@ -17,10 +19,11 @@
     gap: 16px;
     overflow-x: scroll;
     align-items: flex-end;
+    width: 100%;
 
     &::-webkit-scrollbar {
       width: 1px;
-      height: 1px;
+      height: 2px;
       margin-top: -1px;
     }
 
