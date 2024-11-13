@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from './TextField.module.scss';
+import styles from './TextArea.module.scss';
 
-const TextField = ({ placeholder, disabled, maxLength = 200, ...props }) => {
+const TextArea = ({ placeholder, disabled, maxLength = 200, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
   const [charCount, setCharCount] = useState(0);
@@ -20,9 +20,7 @@ const TextField = ({ placeholder, disabled, maxLength = 200, ...props }) => {
   };
 
   return (
-    <div
-      className={`${styles.textFieldContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}
-    >
+    <div className={`${styles.textAreaContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}>
       <textarea
         className={styles.textarea}
         onFocus={handleFocus}
@@ -33,7 +31,9 @@ const TextField = ({ placeholder, disabled, maxLength = 200, ...props }) => {
         maxLength={maxLength}
         {...props}
       />
-      <label className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}>
+      <label
+        className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}
+      >
         {placeholder}
       </label>
       <div className={styles.charCounter}>
@@ -43,4 +43,4 @@ const TextField = ({ placeholder, disabled, maxLength = 200, ...props }) => {
   );
 };
 
-export default TextField;
+export default TextArea;
