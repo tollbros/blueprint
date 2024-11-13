@@ -89,38 +89,38 @@ const typography= {
     "textTransform": "none",
     "textDecorationLine": "none"
   },
-  "SubtitleBase": {
+  "SubheaderBase": {
     "fontSize": "1rem",
     "fontFamily": "Gotham Narrow, Helvetica, Arial, sans-serif",
     "fontStyle": "normal",
-    "fontWeight": 700,
+    "fontWeight": 500,
     "lineHeight": "24px",
     "textTransform": "none",
     "textDecorationLine": "none"
   },
-  "SubtitleLarge": {
+  "SubheaderLarge": {
     "fontSize": "1.125rem",
     "fontFamily": "Gotham Narrow, Helvetica, Arial, sans-serif",
     "fontStyle": "normal",
-    "fontWeight": 700,
+    "fontWeight": 500,
     "lineHeight": "27px",
     "textTransform": "none",
     "textDecorationLine": "none"
   },
-  "SubtitleSmall": {
+  "SubheaderSmall": {
     "fontSize": "0.8125rem",
     "fontFamily": "Gotham Narrow, Helvetica, Arial, sans-serif",
     "fontStyle": "normal",
-    "fontWeight": 700,
+    "fontWeight": 500,
     "lineHeight": "20px",
     "textTransform": "none",
     "textDecorationLine": "none"
   },
-  "SubtitleXSmall": {
+  "SubheaderXSmall": {
     "fontSize": "0.6875rem",
     "fontFamily": "Gotham Narrow, Helvetica, Arial, sans-serif",
     "fontStyle": "normal",
-    "fontWeight": 700,
+    "fontWeight": 500,
     "lineHeight": "17px",
     "textTransform": "none",
     "textDecorationLine": "none"
