@@ -8,7 +8,38 @@
   display: flex;
   gap: 16px;
   position: relative;
+  padding: 0 16px;
   padding-bottom: 1px; // To ensure the underline is visible
+
+
+  .tabTitleScrollable {
+    display: flex;
+    gap: 16px;
+    overflow-x: scroll;
+    align-items: flex-end;
+
+    &::-webkit-scrollbar {
+      width: 1px;
+      height: 1px;
+      margin-top: -1px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      border: 1px solid transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--mui-palette-TB-Functional-DarkGray, #858585);
+    }
+  }
+
+  .tabActionContainer {
+    min-width: 20px;
+  }
 
   &::after {
     content: '';
@@ -38,6 +69,10 @@
   &:not(.selected) {
     color: var(--mui-palette-TB-Functional-DarkGray, #858585);
   }
+}
+
+.tabContent {
+  padding: 0 16px;
 }
 
 .selectionBar {
