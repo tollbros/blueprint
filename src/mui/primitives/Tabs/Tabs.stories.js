@@ -30,7 +30,11 @@ TwoTabs.args = {
 export const TwoTabsWithActionButton = Template.bind({});
 TwoTabsWithActionButton.args = {
   tabAction: () => {
-    return <Button>Add</Button>;
+    return (
+      <Button size={'small'} style={{ textWrap: 'nowrap' }}>
+        Tab Action Button
+      </Button>
+    );
   },
   tabs: [
     {
@@ -51,7 +55,11 @@ TwoTabsWithActionButton.args = {
 export const ScrollableTabs = Template.bind({});
 ScrollableTabs.args = {
   tabAction: () => {
-    return <Button>Add</Button>;
+    return (
+      <Button size={'small'} style={{ textWrap: 'nowrap' }}>
+        Tab Action Button
+      </Button>
+    );
   },
   tabs: [
     {
