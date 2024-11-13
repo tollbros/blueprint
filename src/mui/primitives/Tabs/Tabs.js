@@ -8,8 +8,8 @@ const Tabs = ({ tabs }) => {
   }, [selectedTab]);
 
   return (
-    <>
-      <div className={styles.tabContainer}>
+    <div className={styles.tabContainer}>
+      <div className={styles.tabTitleContainer}>
         {tabs.map((tab, index) => {
           return (
             <>
@@ -26,7 +26,7 @@ const Tabs = ({ tabs }) => {
         })}
       </div>
       <CurrentTabContent />
-    </>
+    </div>
   );
 };
 
