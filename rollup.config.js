@@ -1,10 +1,8 @@
 import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import babel from '@rollup/plugin-babel';
-import packageJson from './package.json' assert { type: 'json' };
-import sass from 'rollup-plugin-sass';
+import packageJson from './package.json';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
 
