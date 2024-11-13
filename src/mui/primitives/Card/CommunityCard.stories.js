@@ -33,16 +33,3 @@ Default.args = {
   garage: '1',
   price: '$399,995',
 };
-
-export const CustomizedCard = Template.bind({});
-CustomizedCard.args = {
-  tagText: 'New',
-  collectionName: 'Hillside Collection',
-  propertyName: 'Brighton',
-  squareFeet: '4,500',
-  beds: '4',
-  baths: '3',
-  halfBaths: '1',
-  garage: '2',
-  price: '$599,995',
-};

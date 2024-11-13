@@ -29,9 +29,7 @@ const InputField = ({ placeholder, disabled, ...props }) => {
         disabled={disabled}
         {...props}
       />
-      <label
-        className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}
-      >
+      <label className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}>
         {placeholder}
       </label>
     </div>
