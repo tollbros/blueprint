@@ -2,7 +2,6 @@ import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
 import external from 'rollup-plugin-peer-deps-external';
 import babel from '@rollup/plugin-babel';
-import packageJson from './package.json';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
 
@@ -12,7 +11,7 @@ export default {
   output: {
     file: 'dist/index.js',
     format: 'es', // 'modern' can be interpreted as ES module
-    name: packageJson.name,
+    name: '@tollbrothers/blueprint',
   },
   external: ['react', 'react-dom'],
   plugins: [
