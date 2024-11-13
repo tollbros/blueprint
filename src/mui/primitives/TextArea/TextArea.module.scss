@@ -1,4 +1,4 @@
-.textFieldContainer {
+.textAreaContainer {
     display: flex;
     height: 200px;
     width: 343px;
@@ -46,8 +46,7 @@
     transition: all 0.2s ease-out;
     color: #000;
     pointer-events: none;
-    font: var(--mui-MuiCssBaseline-typography-GothamBaseBook-font);
-
+    font: var(--mui-MuiCssBaseline-typography-semantic-Placeholder-font);
   }
   
   .floatingPlaceholder {
