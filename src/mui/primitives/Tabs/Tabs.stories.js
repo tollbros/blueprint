@@ -27,6 +27,27 @@ TwoTabs.args = {
   ],
 };
 
+export const TwoTabsWithActionButton = Template.bind({});
+TwoTabsWithActionButton.args = {
+  tabAction: () => {
+    return <Button>Add</Button>;
+  },
+  tabs: [
+    {
+      title: 'Tab 1',
+      content: () => {
+        return <div>Content of Tab 1</div>;
+      },
+    },
+    {
+      title: 'Tab 2',
+      content: () => {
+        return <div>Content of Tab 2</div>;
+      },
+    },
+  ],
+};
+
 export const ScrollableTabs = Template.bind({});
 ScrollableTabs.args = {
   tabAction: () => {
