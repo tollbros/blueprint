@@ -60,26 +60,26 @@ export default function Types() {
   //       <pre>var(--mui-MuiCssBaseline-typography-H6-font)</pre>
   //     </div>
   //     <div style={styles}>
-  //       <p className={'tb-font-SubtitleBase'}>
-  //         subtitle base. Lorem ipsum dolor sit amet, consectetur adipisicing
+  //       <p className={'tb-font-SubheaderBase'}>
+  //         Subheader base. Lorem ipsum dolor sit amet, consectetur adipisicing
   //         elit.
   //         Quos blanditiis tenetur
   //       </p>
-  //       <pre>var(--mui-MuiCssBaseline-typography-SubtitleBase-font)</pre>
+  //       <pre>var(--mui-MuiCssBaseline-typography-SubheaderBase-font)</pre>
   //     </div>
   //     <div style={styles}>
-  //       <p className={'tb-font-SubtitleLarge'}>
-  //         subtitle large. Lorem ipsum dolor sit amet, consectetur adipisicing
+  //       <p className={'tb-font-SubheaderLarge'}>
+  //         Subheader large. Lorem ipsum dolor sit amet, consectetur adipisicing
   //         elit. Quos blanditiis tenetur
   //       </p>
-  //       <pre>var(--mui-MuiCssBaseline-typography-SubtitleLarge-font)</pre>
+  //       <pre>var(--mui-MuiCssBaseline-typography-SubheaderLarge-font)</pre>
   //     </div>
   //     <div style={styles}>
-  //       <p className={'tb-font-SubtitleSmall'}>
-  //         subtitle small. Lorem ipsum dolor sit amet, consectetur adipisicing
+  //       <p className={'tb-font-SubheaderSmall'}>
+  //         Subheader small. Lorem ipsum dolor sit amet, consectetur adipisicing
   //         elit. Quos blanditiis tenetur
   //       </p>
-  //       <pre>var(--mui-MuiCssBaseline-typography-SubtitleSmall-font)</pre>
+  //       <pre>var(--mui-MuiCssBaseline-typography-SubheaderSmall-font)</pre>
   //     </div>
   //   </>
   // )
