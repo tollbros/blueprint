@@ -7,7 +7,7 @@ const Tabs = ({ tabs, tabAction }) => {
     return tabs[selectedTab].content;
   }, [selectedTab]);
 
-  const TabActionComponent = useMemo(() => {
+  const tabActionComponent = useMemo(() => {
     return tabAction ? tabAction() : null;
   }, [tabAction]);
 
@@ -30,7 +30,7 @@ const Tabs = ({ tabs, tabAction }) => {
             );
           })}
         </div>
-        <div className={styles.tabActionContainer}>{TabActionComponent}</div>
+        {tabActionComponent && <div className={styles.tabActionContainer}>{tabActionComponent}</div>}
       </div>
       <div className={styles.tabContent}>
         <CurrentTabContent />
