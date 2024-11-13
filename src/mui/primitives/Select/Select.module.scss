@@ -57,7 +57,7 @@
 .selectedText {
   color: var(--mui-palette-TB-Functional-Black, #000000);
   text-align: left;
-  font: var(--mui-MuiCssBaseline-typography-SubtitleBase-font);
+  font: var(--mui-MuiCssBaseline-typography-SubheaderBase-font);
 }
 
 /* Custom dropdown styling */
@@ -96,5 +96,5 @@
   color: var(--mui-palette-TB-Functional-Black, #000000);
   border-left: 2px solid var(--mui-palette-TB-Brand-Accent, #0070CD);
   padding-left: 18px;
-  font: var(--mui-MuiCssBaseline-typography-SubtitleBase-font);
+  font: var(--mui-MuiCssBaseline-typography-SubheaderBase-font);
 }
