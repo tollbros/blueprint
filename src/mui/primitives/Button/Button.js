@@ -32,7 +32,7 @@ const Button = ({ children, variant = 'contained', size = 'large', color = 'acce
   }
 
   return (
-    <button className={`${classes.join(' ')} ${className}`} {...rest}>
+    <button className={`${classes.join(' ')} ${className}`} type={'button'} {...rest}>
       {children}
     </button>
   );
