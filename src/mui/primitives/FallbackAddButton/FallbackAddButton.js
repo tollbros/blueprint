@@ -19,6 +19,7 @@ const FallbackAddButton = ({ isCondensed = false, text = '', ...rest }) => {
       variant={'text'}
       className={`tb-MuiCssBaseline-typography-GothamBaseBold-font`}
       style={{ textWrap: 'nowrap' }}
+      type={'button'}
       {...rest}
     >
       <AddIcon fontSize={'10px'} sx={{ marginRight: '4px' }} />
