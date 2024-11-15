@@ -19,7 +19,7 @@ const Tabs = ({ tabs, tabAction }) => {
             return (
               <>
                 <div
-                  key={index}
+                  key={`blueprint-tab-${index}`}
                   className={`${styles.tabItem} ${selectedTab === index ? styles.selected : ''}`}
                   onClick={() => setSelectedTab(index)}
                 >
