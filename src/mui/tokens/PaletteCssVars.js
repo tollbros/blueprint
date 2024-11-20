@@ -1,5 +1,5 @@
 import React from 'react';
-import { experimental_extendTheme as extendTheme } from '@mui/material/styles';
+import { extendTheme } from '@mui/material/styles';
 import { defaultTheme } from '../../themes/default/theme';
 import PaletteItem from '../../storybook/PaletteItem';
 import styles from './PaletteCssVars.module.scss';

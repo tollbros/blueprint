@@ -1,6 +1,6 @@
 import styles from './Button.module.scss';
 
-const Button = ({ children, variant = 'contained', size = 'large', color = 'accent', ...rest }) => {
+const Button = ({ children, variant = 'contained', size = 'large', color = 'accent', className = '', ...rest }) => {
   const classes = [styles.button];
 
   if (variant === 'contained') {
@@ -32,7 +32,7 @@ const Button = ({ children, variant = 'contained', size = 'large', color = 'acce
   }
 
   return (
-    <button className={classes.join(' ')} {...rest}>
+    <button className={`${classes.join(' ')} ${className}`} type={'button'} {...rest}>
       {children}
     </button>
   );
