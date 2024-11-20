@@ -3,10 +3,10 @@ import * as React from 'react';
 import Button from '../Button/Button';
 import SquareIconButton from '../SquareIconButton/SquareIconButton';
 
-const FallbackAddButton = ({ isCondensed = false, text = '', ...rest }) => {
+const FallbackAddButton = ({ isCondensed = false, children = '', className = '', ...rest }) => {
   if (isCondensed) {
     return (
-      <SquareIconButton {...rest}>
+      <SquareIconButton className={className} {...rest}>
         <AddIcon fontSize={'small'} />
       </SquareIconButton>
     );
@@ -17,13 +17,13 @@ const FallbackAddButton = ({ isCondensed = false, text = '', ...rest }) => {
       size={'small'}
       color={'accent'}
       variant={'text'}
-      className={`tb-MuiCssBaseline-typography-GothamBaseBold-font`}
+      className={`tb-MuiCssBaseline-typography-GothamBaseBold-font ${className}`}
       style={{ textWrap: 'nowrap' }}
       type={'button'}
       {...rest}
     >
       <AddIcon fontSize={'10px'} sx={{ marginRight: '4px' }} />
-      {text}
+      {children}
     </Button>
   );
 };
