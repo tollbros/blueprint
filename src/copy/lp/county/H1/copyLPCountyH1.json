@@ -1,0 +1,9 @@
+{
+  "default": "New Homes for Sale in ~LOCATION~ County",
+  "townhome": "New Townhomes for Sale in ~LOCATION~ County",
+  "condo": "New Condos for Sale in ~LOCATION~ County",
+  "activeAdult": "New 55+ Homes for Sale in ~LOCATION~ County",
+  "singleFamily": "New Single-Family Homes for Sale in ~LOCATION~ County",
+  "future": "New Community Coming Soon to ~LOCATION~ County",
+  "futurePlural": "New Communities Coming Soon to the ~LOCATION~ County"
+}
