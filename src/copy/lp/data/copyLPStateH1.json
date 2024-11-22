@@ -1,0 +1,9 @@
+{
+  "default": "New Homes for Sale in ~STATE~",
+  "townhome": "New Townhomes for Sale in ~STATE~",
+  "condo": "New Condos for Sale in ~STATE~",
+  "activeAdult": "New 55+ Homes for Sale in ~STATE~",
+  "singleFamily": "New Single-Family Homes for Sale in ~STATE~",
+  "future": "New Community Coming Soon to ~STATE~",
+  "futurePlural": "New Communities Coming Soon to the ~STATE~"
+}
