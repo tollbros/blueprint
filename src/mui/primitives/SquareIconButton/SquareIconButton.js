@@ -1,4 +1,4 @@
-import IconButton from '@mui/material/IconButton/IconButton';
+import IconButton from '@mui/material/IconButton';
 import styles from './SquareIconButton.module.scss';
 
 const SquareIconButton = ({ children, className = '', ...rest }) => {
