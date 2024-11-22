@@ -1,6 +1,6 @@
 import lpParagraphCopy from './copyLPCountyParagraph.json';
 
-const CopyLPCountyTopHero = ({
+const getCopyLPCountyParagraph = ({
   isTownhome,
   isCondo,
   isActiveAdult,
@@ -9,7 +9,7 @@ const CopyLPCountyTopHero = ({
   isPlural,
   isNoHomeDesigns,
   isNoQMIs,
-  location,
+  county,
   communityName = 'Toll Brothers community',
 }) => {
   const isOneCommunity = !isPlural;
@@ -78,7 +78,7 @@ const CopyLPCountyTopHero = ({
   copy = copy.replace('~COMMUNITYNAME~', communityName);
 
   // default
-  return copy.replace('~LOCATION~', location);
+  return copy.replace('~COUNTY~', county);
 };
 
-export default CopyLPCountyTopHero;
+export default getCopyLPCountyParagraph;

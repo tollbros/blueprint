@@ -1,7 +1,7 @@
 import React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { Dialog, DialogActions, DialogContent } from '@mui/material';
+import { Drawer, DialogActions } from '@mui/material';
 
 import { Button, TextArea } from '../../index.js';
 
@@ -24,9 +24,11 @@ const saveJson = (filename, dataObjToWrite) => {
 };
 
 const EditableCopy = ({
-  location,
+  city,
+  county,
   state,
-  CopyComponent,
+  stateAbbreviation,
+  getCopy,
   copyJson,
   targetToUpdate,
   fileName,
@@ -40,7 +42,7 @@ const EditableCopy = ({
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [isEditing, setIsEditing] = React.useState(false);
-  const [copy, setCopy] = React.useState(copyJson[targetToUpdate]);
+  const [newCopyJson, setNewCopyJson] = React.useState(copyJson);
 
   const handleOpen = (event) => {
     if (disabled) {
@@ -56,6 +58,7 @@ const EditableCopy = ({
 
   const handleOpenEdit = () => {
     setIsEditing(true);
+    setAnchorEl(null);
   };
 
   const handleCancelEdit = () => {
@@ -63,16 +66,19 @@ const EditableCopy = ({
   };
 
   const handleSaveEdit = () => {
+    alert('JSON is saved locally it is up to you to commit the file.');
     // download copyJson as a json file
-    saveJson(fileName, {
-      ...copyJson,
-      [targetToUpdate]: copy,
-    });
+    saveJson(fileName, newCopyJson);
     setIsEditing(false);
   };
 
-  const handleOnChange = (e) => {
-    setCopy(e.target.value);
+  const handleOnChange = ({ newValue, copyKey }) => {
+    setNewCopyJson((prevNewCopy) => {
+      return {
+        ...prevNewCopy,
+        [copyKey]: newValue,
+      };
+    });
   };
 
   const copyComponentProps = {
@@ -87,6 +93,10 @@ const EditableCopy = ({
     isNoHomeDesigns: isNoHomeDesigns,
     isNoQMIs: isNoQMIs,
     communityName: communityName,
+    city: city,
+    county: county,
+    state: state,
+    stateAbbreviation: stateAbbreviation,
   };
 
   return (
@@ -96,9 +106,7 @@ const EditableCopy = ({
         style={{ border: '1px solid grey', padding: '8px', cursor: disabled ? 'not-allowed' : 'pointer' }}
       >
         <b>{targetToUpdate}</b>
-        <div>
-          <CopyComponent location={location} state={state} {...copyComponentProps} />
-        </div>
+        <div>{getCopy({ ...copyComponentProps })}</div>
       </div>
       <Menu
         id={`menu-${fileName}-${targetToUpdate}`}
@@ -111,36 +119,34 @@ const EditableCopy = ({
       >
         <MenuItem onClick={handleOpenEdit}>Edit</MenuItem>
       </Menu>
-      <Dialog
-        open={isEditing}
-        onClose={handleCancelEdit}
-        PaperProps={{
-          component: 'form',
-          onSubmit: handleSaveEdit,
-        }}
-      >
-        <DialogContent>
-          <TextArea
-            placeholder={`Edit ${targetToUpdate}`}
-            value={copy}
-            onChange={handleOnChange}
-            autoFocus
-            required
-            margin='dense'
-            id='name'
-            name='copy'
-            type='text'
-          />
-        </DialogContent>
-        <DialogActions>
+      <Drawer open={isEditing} onClose={handleCancelEdit} anchor={'bottom'}>
+        <div style={{ display: 'grid', gap: '16px', padding: '16px', gridTemplateColumns: '1fr 1fr 1fr 1fr' }}>
+          {Object.keys(copyJson).map((copyKey, index) => {
+            return (
+              <TextArea
+                key={`textArea-${index}`}
+                placeholder={`Edit ${copyKey}`}
+                value={newCopyJson[copyKey]}
+                onChange={(e) => handleOnChange({ newValue: e.target.value, copyKey })}
+                autoFocus
+                required
+                margin='dense'
+                id='name'
+                name='copy'
+                type='text'
+              />
+            );
+          })}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Button size='small' variant={'text'} onClick={handleCancelEdit}>
             Cancel
           </Button>
-          <Button size={'small'} type='submit'>
-            Save
+          <Button onClick={handleSaveEdit} size={'small'} type='button'>
+            Save JSON
           </Button>
-        </DialogActions>
-      </Dialog>
+        </div>
+      </Drawer>
     </>
   );
 };

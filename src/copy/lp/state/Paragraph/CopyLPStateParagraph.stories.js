@@ -1,22 +1,14 @@
 import React from 'react';
-import CopyLPStateParagraph from './CopyLPStateParagraph.js';
+import getCopyLPStateParagraph from './getCopyLPStateParagraph.js';
 import copyLPStateParagraphJson from './copyLPStateParagraph.json';
 import EditableCopy from '../../../EditableCopy/EditableCopy.js';
 
 const StorySchema = {
-  title: 'Copy/LP/State/Paragraph',
-  component: CopyLPStateParagraph,
+  title: 'Copy/LP/State',
+  component: getCopyLPStateParagraph,
   argTypes: {
     state: { control: 'text' },
     communityName: { control: 'text' },
-    isTownhome: { control: 'boolean' },
-    isCondo: { control: 'boolean' },
-    isActiveAdult: { control: 'boolean' },
-    isSingleFamily: { control: 'boolean' },
-    isFuture: { control: 'boolean' },
-    isPlural: { control: 'boolean' },
-    isNoQMIs: { control: 'boolean' },
-    isNoHomeDesigns: { control: 'boolean' },
   },
 };
 
@@ -50,7 +42,7 @@ const AllTemplate = (args) => {
               isPlural={targetToUpdate.endsWith('Plural')}
               isNoQMIs={targetToUpdate.includes('NoQMIs')}
               isNoHomeDesigns={targetToUpdate.includes('NoHomeDesigns')}
-              CopyComponent={CopyLPStateParagraph}
+              getCopy={getCopyLPStateParagraph}
               copyJson={copyLPStateParagraphJson}
               fileName={'copyLPStateParagraph.json'}
               targetToUpdate={targetToUpdate}
@@ -76,7 +68,7 @@ const AllTemplate = (args) => {
               isPlural={targetToUpdate.endsWith('Plural')}
               isNoQMIs={targetToUpdate.includes('NoQMIs')}
               isNoHomeDesigns={targetToUpdate.includes('NoHomeDesigns')}
-              CopyComponent={CopyLPStateParagraph}
+              getCopy={getCopyLPStateParagraph}
               copyJson={copyLPStateParagraphJson}
               fileName={'copyLPStateParagraph.json'}
               targetToUpdate={targetToUpdate}
@@ -88,27 +80,9 @@ const AllTemplate = (args) => {
   );
 };
 
-export const all = AllTemplate.bind({});
-all.args = {
+export const stateParagraphCopies = AllTemplate.bind({});
+stateParagraphCopies.storyName = 'Paragraph';
+stateParagraphCopies.args = {
   state: 'Texas',
   communityName: 'Hidden Creeks at Lakewood Park - Harvest Collection',
-};
-
-const BaseTemplate = (args) => {
-  return <CopyLPStateParagraph {...args} />;
-};
-
-export const base = BaseTemplate.bind({});
-
-base.args = {
-  state: 'Texas',
-  communityName: 'Hidden Creeks at Lakewood Park - Harvest Collection',
-  isTownhome: false,
-  isCondo: false,
-  isActiveAdult: false,
-  isSingleFamily: false,
-  isFuture: false,
-  isPlural: false,
-  isNoQMIs: false,
-  isNoHomeDesigns: false,
 };

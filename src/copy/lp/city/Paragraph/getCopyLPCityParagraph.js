@@ -1,6 +1,6 @@
 import lpParagraphCopy from './copyLPCityParagraph.json';
 
-const CopyLPCityTopHero = ({
+const getCopyLPCityParagraph = ({
   isTownhome,
   isCondo,
   isActiveAdult,
@@ -10,7 +10,7 @@ const CopyLPCityTopHero = ({
   isPlural,
   isNoHomeDesigns,
   isNoQMIs,
-  location,
+  city,
   communityName = 'Toll Brothers community',
 }) => {
   const isOneCommunity = !isPlural;
@@ -79,11 +79,11 @@ const CopyLPCityTopHero = ({
   copy = copy.replace('~COMMUNITYNAME~', communityName);
 
   if (isNearBy) {
-    return copy.replace('in ~LOCATION~', `near ${location}`);
+    return copy.replace('in ~CITY~', `near ${city}`);
   }
 
   // default
-  return copy.replace('~LOCATION~', location);
+  return copy.replace('~CITY~', city);
 };
 
-export default CopyLPCityTopHero;
+export default getCopyLPCityParagraph;

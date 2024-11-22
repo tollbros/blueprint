@@ -1,9 +1,9 @@
 {
-  "default": "New Homes for Sale in the ~LOCATION~ Area",
-  "townhome": "New Townhomes for Sale in the ~LOCATION~ Area",
-  "condo": "New Condos for Sale in the ~LOCATION~ Area",
-  "activeAdult": "New 55+ Homes for Sale in the ~LOCATION~ Area",
-  "singleFamily": "New Single-Family Homes for Sale in the ~LOCATION~ Area",
-  "future": "New Community Coming Soon to ~LOCATION~",
-  "futurePlural": "New Communities Coming Soon to the ~LOCATION~ Area"
+  "default": "New Homes for Sale in the ~CITY~ Area",
+  "townhome": "New Townhomes for Sale in the ~CITY~ Area",
+  "condo": "New Condos for Sale in the ~CITY~ Area",
+  "activeAdult": "New 55+ Homes for Sale in the ~CITY~ Area",
+  "singleFamily": "New Single-Family Homes for Sale in the ~CITY~ Area",
+  "future": "New Community Coming Soon to ~CITY~",
+  "futurePlural": "New Communities Coming Soon to the ~CITY~ Area"
 }

@@ -1,6 +1,6 @@
 import lpParagraphCopy from './copyLPStateParagraph.json';
 
-const CopyLPStateTopHero = ({
+const getCopyLPStateTopHero = ({
   isTownhome,
   isCondo,
   isActiveAdult,
@@ -81,4 +81,4 @@ const CopyLPStateTopHero = ({
   return copy.replace('~STATE~', state);
 };
 
-export default CopyLPStateTopHero;
+export default getCopyLPStateTopHero;

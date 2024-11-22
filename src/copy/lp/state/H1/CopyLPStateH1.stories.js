@@ -1,19 +1,13 @@
 import React from 'react';
-import CopyLPStateH1 from './CopyLPStateH1.js';
+import getCopyLPStateH1 from './getCopyLPStateH1.js';
 import copyLPStateH1Json from './copyLPStateH1.json';
 import EditableCopy from '../../../EditableCopy/EditableCopy.js';
 
 const StorySchema = {
-  title: 'Copy/LP/State/H1',
-  component: CopyLPStateH1,
+  title: 'Copy/LP/State',
+  component: getCopyLPStateH1,
   argTypes: {
     state: { control: 'text' },
-    isTownhome: { control: 'boolean' },
-    isCondo: { control: 'boolean' },
-    isActiveAdult: { control: 'boolean' },
-    isSingleFamily: { control: 'boolean' },
-    isFuture: { control: 'boolean' },
-    isFuturePlural: { control: 'boolean' },
   },
 };
 
@@ -37,7 +31,7 @@ const AllTemplate = (args) => {
             <EditableCopy
               key={`key-${index}`}
               state={args.state}
-              CopyComponent={CopyLPStateH1}
+              getCopy={getCopyLPStateH1}
               copyJson={copyLPStateH1Json}
               fileName={'copyLPStateH1.json'}
               targetToUpdate={targetToUpdate}
@@ -49,23 +43,8 @@ const AllTemplate = (args) => {
   );
 };
 
-export const all = AllTemplate.bind({});
-all.args = {
+export const stateH1Copies = AllTemplate.bind({});
+stateH1Copies.storyName = 'h1';
+stateH1Copies.args = {
   state: 'Texas',
-};
-
-const BaseTemplate = (args) => {
-  return <CopyLPStateH1 {...args} />;
-};
-
-export const base = BaseTemplate.bind({});
-
-base.args = {
-  state: 'Texas',
-  isTownhome: false,
-  isCondo: false,
-  isActiveAdult: false,
-  isSingleFamily: false,
-  isFuture: false,
-  isFuturePlural: false,
 };

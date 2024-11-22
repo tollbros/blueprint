@@ -1,6 +1,14 @@
 import lpH1Copy from './copyLPCountyH1.json';
 
-const CopyLPCountyH1 = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, isFuturePlural, location }) => {
+const getCopyLPCountyH1 = ({
+  isTownhome,
+  isCondo,
+  isActiveAdult,
+  isSingleFamily,
+  isFuture,
+  isFuturePlural,
+  county,
+}) => {
   let copy = lpH1Copy.default;
 
   if (isSingleFamily) {
@@ -28,7 +36,7 @@ const CopyLPCountyH1 = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, is
   }
 
   // default
-  return copy.replace('~LOCATION~', location);
+  return copy.replace('~COUNTY~', county);
 };
 
-export default CopyLPCountyH1;
+export default getCopyLPCountyH1;

@@ -1,23 +1,14 @@
 import React from 'react';
-import CopyLPCityParagraph from './CopyLPCityParagraph.js';
+import getCopyLPCityParagraph from './getCopyLPCityParagraph.js';
 import copyLPCityParagraphJson from './copyLPCityParagraph.json';
 import EditableCopy from '../../../EditableCopy/EditableCopy.js';
 
 const StorySchema = {
-  title: 'Copy/LP/City/Paragraph',
-  component: CopyLPCityParagraph,
+  title: 'Copy/LP/City',
+  component: getCopyLPCityParagraph,
   argTypes: {
-    location: { control: 'text' },
+    city: { control: 'text' },
     communityName: { control: 'text' },
-    isTownhome: { control: 'boolean' },
-    isCondo: { control: 'boolean' },
-    isActiveAdult: { control: 'boolean' },
-    isSingleFamily: { control: 'boolean' },
-    isFuture: { control: 'boolean' },
-    isNearBy: { control: 'boolean' },
-    isPlural: { control: 'boolean' },
-    isNoQMIs: { control: 'boolean' },
-    isNoHomeDesigns: { control: 'boolean' },
   },
 };
 
@@ -46,10 +37,10 @@ const AllTemplate = (args) => {
           return (
             <EditableCopy
               key={`key-${index}`}
-              location={args.location}
+              city={args.city}
               communityName={args.communityName}
               isPlural={targetToUpdate.endsWith('Plural')}
-              CopyComponent={CopyLPCityParagraph}
+              getCopy={getCopyLPCityParagraph}
               copyJson={copyLPCityParagraphJson}
               fileName={'copyLPCityParagraph.json'}
               targetToUpdate={targetToUpdate}
@@ -70,11 +61,11 @@ const AllTemplate = (args) => {
           return (
             <EditableCopy
               key={`key-${index}`}
-              location={args.location}
+              city={args.city}
               communityName={args.communityName}
               isNearBy={true}
               disabled={true}
-              CopyComponent={CopyLPCityParagraph}
+              getCopy={getCopyLPCityParagraph}
               copyJson={copyLPCityParagraphJson}
               fileName={'copyLPCityParagraph.json'}
               targetToUpdate={targetToUpdate}
@@ -95,12 +86,12 @@ const AllTemplate = (args) => {
           return (
             <EditableCopy
               key={`key-${index}`}
-              location={args.location}
+              city={args.city}
               communityName={args.communityName}
               isPlural={targetToUpdate.endsWith('Plural')}
               isNoQMIs={targetToUpdate.includes('NoQMIs')}
               isNoHomeDesigns={targetToUpdate.includes('NoHomeDesigns')}
-              CopyComponent={CopyLPCityParagraph}
+              getCopy={getCopyLPCityParagraph}
               copyJson={copyLPCityParagraphJson}
               fileName={'copyLPCityParagraph.json'}
               targetToUpdate={targetToUpdate}
@@ -121,11 +112,11 @@ const AllTemplate = (args) => {
           return (
             <EditableCopy
               key={`key-${index}`}
-              location={args.location}
+              city={args.city}
               communityName={args.communityName}
               isNearBy={true}
               disabled={true}
-              CopyComponent={CopyLPCityParagraph}
+              getCopy={getCopyLPCityParagraph}
               copyJson={copyLPCityParagraphJson}
               fileName={'copyLPCityParagraph.json'}
               targetToUpdate={targetToUpdate}
@@ -137,28 +128,9 @@ const AllTemplate = (args) => {
   );
 };
 
-export const all = AllTemplate.bind({});
-all.args = {
-  location: 'Austin, Texas',
+export const cityParagraphCopies = AllTemplate.bind({});
+cityParagraphCopies.storyName = 'Paragraph';
+cityParagraphCopies.args = {
+  city: 'Austin',
   communityName: 'Hidden Creeks at Lakewood Park - Harvest Collection',
-};
-
-const BaseTemplate = (args) => {
-  return <CopyLPCityParagraph {...args} />;
-};
-
-export const base = BaseTemplate.bind({});
-
-base.args = {
-  location: 'Austin, Texas',
-  communityName: 'Hidden Creeks at Lakewood Park - Harvest Collection',
-  isTownhome: false,
-  isCondo: false,
-  isActiveAdult: false,
-  isSingleFamily: false,
-  isFuture: false,
-  isNearBy: false,
-  isPlural: false,
-  isNoQMIs: false,
-  isNoHomeDesigns: false,
 };

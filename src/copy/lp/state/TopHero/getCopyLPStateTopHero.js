@@ -1,6 +1,6 @@
-import lpTopHeroCopy from './copyLPCityTopHero.json';
+import lpTopHeroCopy from './copyLPStateTopHero.json';
 
-const CopyLPCityTopHero = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, isNearBy, location }) => {
+const getCopyLPStateTopHero = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, state }) => {
   let copy = lpTopHeroCopy.default;
 
   if (isSingleFamily) {
@@ -23,12 +23,8 @@ const CopyLPCityTopHero = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily,
     copy = lpTopHeroCopy.future;
   }
 
-  if (isNearBy) {
-    return copy.replace('in ~LOCATION~', `near ${location}`);
-  }
-
   // default
-  return copy.replace('~LOCATION~', location);
+  return copy.replace('~STATE~', state);
 };
 
-export default CopyLPCityTopHero;
+export default getCopyLPStateTopHero;

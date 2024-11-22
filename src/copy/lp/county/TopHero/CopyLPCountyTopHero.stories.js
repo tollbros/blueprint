@@ -1,19 +1,14 @@
 import React from 'react';
-import CopyLPCountyTopHero from './CopyLPCountyTopHero.js';
+import getCopyLPCountyTopHero from './getCopyLPCountyTopHero.js';
 import copyLPCountyTopHeroJson from './copyLPCountyTopHero.json';
 import EditableCopy from '../../../EditableCopy/EditableCopy.js';
 
 const StorySchema = {
-  title: 'Copy/LP/County/TopHero',
-  component: CopyLPCountyTopHero,
+  title: 'Copy/LP/County',
+  component: getCopyLPCountyTopHero,
   argTypes: {
-    location: { control: 'text' },
+    county: { control: 'text' },
     state: { control: 'text' },
-    isTownhome: { control: 'boolean' },
-    isCondo: { control: 'boolean' },
-    isActiveAdult: { control: 'boolean' },
-    isSingleFamily: { control: 'boolean' },
-    isFuture: { control: 'boolean' },
   },
 };
 
@@ -36,9 +31,9 @@ const AllTemplate = (args) => {
           return (
             <EditableCopy
               key={`key-${index}`}
-              location={args.location}
+              county={args.county}
               state={args.state}
-              CopyComponent={CopyLPCountyTopHero}
+              getCopy={getCopyLPCountyTopHero}
               copyJson={copyLPCountyTopHeroJson}
               fileName={'copyLPCountyTopHero.json'}
               targetToUpdate={targetToUpdate}
@@ -50,23 +45,9 @@ const AllTemplate = (args) => {
   );
 };
 
-export const all = AllTemplate.bind({});
-all.args = {
-  location: 'Williamson',
+export const countyTopHeroCopies = AllTemplate.bind({});
+countyTopHeroCopies.storyName = 'Top Hero';
+countyTopHeroCopies.args = {
+  county: 'Williamson',
   state: 'Texas',
-};
-
-const BaseTemplate = (args) => {
-  return <CopyLPCountyTopHero {...args} />;
-};
-
-export const base = BaseTemplate.bind({});
-
-base.args = {
-  location: 'Austin, Texas',
-  isTownhome: false,
-  isCondo: false,
-  isActiveAdult: false,
-  isSingleFamily: false,
-  isFuture: false,
 };

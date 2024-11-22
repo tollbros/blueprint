@@ -1,19 +1,13 @@
 import React from 'react';
-import CopyLPCountyH1 from './CopyLPCountyH1.js';
+import getCopyLPCountyH1 from './getCopyLPCountyH1.js';
 import copyLPCountyH1Json from './copyLPCountyH1.json';
 import EditableCopy from '../../../EditableCopy/EditableCopy.js';
 
 const StorySchema = {
-  title: 'Copy/LP/County/H1',
-  component: CopyLPCountyH1,
+  title: 'Copy/LP/County',
+  component: getCopyLPCountyH1,
   argTypes: {
-    location: { control: 'text' },
-    isTownhome: { control: 'boolean' },
-    isCondo: { control: 'boolean' },
-    isActiveAdult: { control: 'boolean' },
-    isSingleFamily: { control: 'boolean' },
-    isFuture: { control: 'boolean' },
-    isFuturePlural: { control: 'boolean' },
+    county: { control: 'text' },
   },
 };
 
@@ -36,8 +30,8 @@ const AllTemplate = (args) => {
           return (
             <EditableCopy
               key={`key-${index}`}
-              location={args.location}
-              CopyComponent={CopyLPCountyH1}
+              county={args.county}
+              getCopy={getCopyLPCountyH1}
               copyJson={copyLPCountyH1Json}
               fileName={'copyLPCountyH1.json'}
               targetToUpdate={targetToUpdate}
@@ -49,23 +43,8 @@ const AllTemplate = (args) => {
   );
 };
 
-export const all = AllTemplate.bind({});
-all.args = {
-  location: 'Williamson',
-};
-
-const BaseTemplate = (args) => {
-  return <CopyLPCountyH1 {...args} />;
-};
-
-export const base = BaseTemplate.bind({});
-
-base.args = {
-  location: 'Williamson',
-  isTownhome: false,
-  isCondo: false,
-  isActiveAdult: false,
-  isSingleFamily: false,
-  isFuture: false,
-  isFuturePlural: false,
+export const countyH1Copies = AllTemplate.bind({});
+countyH1Copies.storyName = 'h1';
+countyH1Copies.args = {
+  county: 'Williamson',
 };

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from './TextArea.module.scss';
 
-const TextArea = ({ placeholder, disabled, maxLength = 200, ...props }) => {
+const TextArea = ({ placeholder, disabled, maxLength = 200, value, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
-  const [charCount, setCharCount] = useState(0);
+  const [charCount, setCharCount] = useState(value?.length || 0);
 
   const handleFocus = () => !disabled && setIsFocused(true);
 
@@ -16,11 +16,13 @@ const TextArea = ({ placeholder, disabled, maxLength = 200, ...props }) => {
   const handleChange = (e) => {
     const inputValue = e.target.value;
     setHasValue(inputValue !== '');
-    setCharCount(inputValue.length);
+    setCharCount(e.target.length);
   };
 
   return (
-    <div className={`${styles.textAreaContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}>
+    <div
+      className={`${styles.textAreaContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}
+    >
       <textarea
         className={styles.textarea}
         onFocus={handleFocus}
@@ -29,11 +31,10 @@ const TextArea = ({ placeholder, disabled, maxLength = 200, ...props }) => {
         placeholder=' '
         disabled={disabled}
         maxLength={maxLength}
+        value={value}
         {...props}
       />
-      <label
-        className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}
-      >
+      <label className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}>
         {placeholder}
       </label>
       <div className={styles.charCounter}>

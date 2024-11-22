@@ -1,6 +1,6 @@
-import lpH1Copy from './copyLPStateH1.json';
+import lpH1Copy from './copyLPCityH1.json';
 
-const CopyLPStateH1 = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, isFuturePlural, state }) => {
+const getCopyLPCityH1 = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, isFuturePlural, city }) => {
   let copy = lpH1Copy.default;
 
   if (isSingleFamily) {
@@ -28,7 +28,7 @@ const CopyLPStateH1 = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isF
   }
 
   // default
-  return copy.replace('~STATE~', state);
+  return copy.replace('~CITY~', city);
 };
 
-export default CopyLPStateH1;
+export default getCopyLPCityH1;

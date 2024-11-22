@@ -1,22 +1,14 @@
 import React from 'react';
-import CopyLPCountyParagraph from './CopyLPCountyParagraph.js';
+import getCopyLPCountyParagraph from './getCopyLPCountyParagraph.js';
 import copyLPCountyParagraphJson from './copyLPCountyParagraph.json';
 import EditableCopy from '../../../EditableCopy/EditableCopy.js';
 
 const StorySchema = {
-  title: 'Copy/LP/County/Paragraph',
-  component: CopyLPCountyParagraph,
+  title: 'Copy/LP/County',
+  component: getCopyLPCountyParagraph,
   argTypes: {
-    location: { control: 'text' },
+    county: { control: 'text' },
     communityName: { control: 'text' },
-    isTownhome: { control: 'boolean' },
-    isCondo: { control: 'boolean' },
-    isActiveAdult: { control: 'boolean' },
-    isSingleFamily: { control: 'boolean' },
-    isFuture: { control: 'boolean' },
-    isPlural: { control: 'boolean' },
-    isNoQMIs: { control: 'boolean' },
-    isNoHomeDesigns: { control: 'boolean' },
   },
 };
 
@@ -45,12 +37,12 @@ const AllTemplate = (args) => {
           return (
             <EditableCopy
               key={`key-${index}`}
-              location={args.location}
+              county={args.county}
               communityName={args.communityName}
               isPlural={targetToUpdate.endsWith('Plural')}
               isNoQMIs={targetToUpdate.includes('NoQMIs')}
               isNoHomeDesigns={targetToUpdate.includes('NoHomeDesigns')}
-              CopyComponent={CopyLPCountyParagraph}
+              getCopy={getCopyLPCountyParagraph}
               copyJson={copyLPCountyParagraphJson}
               fileName={'copyLPCountyParagraph.json'}
               targetToUpdate={targetToUpdate}
@@ -71,12 +63,12 @@ const AllTemplate = (args) => {
           return (
             <EditableCopy
               key={`key-${index}`}
-              location={args.location}
+              county={args.county}
               communityName={args.communityName}
               isPlural={targetToUpdate.endsWith('Plural')}
               isNoQMIs={targetToUpdate.includes('NoQMIs')}
               isNoHomeDesigns={targetToUpdate.includes('NoHomeDesigns')}
-              CopyComponent={CopyLPCountyParagraph}
+              getCopy={getCopyLPCountyParagraph}
               copyJson={copyLPCountyParagraphJson}
               fileName={'copyLPCountyParagraph.json'}
               targetToUpdate={targetToUpdate}
@@ -88,27 +80,9 @@ const AllTemplate = (args) => {
   );
 };
 
-export const all = AllTemplate.bind({});
-all.args = {
-  location: 'Williamson',
+export const countyParagraphCopies = AllTemplate.bind({});
+countyParagraphCopies.storyName = 'Paragraph';
+countyParagraphCopies.args = {
+  county: 'Williamson',
   communityName: 'Hidden Creeks at Lakewood Park - Harvest Collection',
-};
-
-const BaseTemplate = (args) => {
-  return <CopyLPCountyParagraph {...args} />;
-};
-
-export const base = BaseTemplate.bind({});
-
-base.args = {
-  location: 'Williamson',
-  communityName: 'Hidden Creeks at Lakewood Park - Harvest Collection',
-  isTownhome: false,
-  isCondo: false,
-  isActiveAdult: false,
-  isSingleFamily: false,
-  isFuture: false,
-  isPlural: false,
-  isNoQMIs: false,
-  isNoHomeDesigns: false,
 };

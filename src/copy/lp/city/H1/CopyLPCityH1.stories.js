@@ -1,13 +1,13 @@
 import React from 'react';
-import CopyLPCityH1 from './CopyLPCityH1.js';
+import getCopyLPCityH1 from './getCopyLPCityH1.js';
 import copyLPCityH1Json from './copyLPCityH1.json';
 import EditableCopy from '../../../EditableCopy/EditableCopy.js';
 
 const StorySchema = {
-  title: 'Copy/LP/City/H1',
-  component: CopyLPCityH1,
+  title: 'Copy/LP/City',
+  component: getCopyLPCityH1,
   argTypes: {
-    location: { control: 'text' },
+    city: { control: 'text' },
   },
 };
 
@@ -30,8 +30,8 @@ const AllTemplate = (args) => {
           return (
             <EditableCopy
               key={`key-${index}`}
-              location={args.location}
-              CopyComponent={CopyLPCityH1}
+              city={args.city}
+              getCopy={getCopyLPCityH1}
               copyJson={copyLPCityH1Json}
               fileName={'copyLPCityH1.json'}
               targetToUpdate={targetToUpdate}
@@ -43,7 +43,8 @@ const AllTemplate = (args) => {
   );
 };
 
-export const all = AllTemplate.bind({});
-all.args = {
-  location: 'Austin, Texas',
+export const cityH1Copies = AllTemplate.bind({});
+cityH1Copies.storyName = 'h1';
+cityH1Copies.args = {
+  city: 'Austin',
 };
