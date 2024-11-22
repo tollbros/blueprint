@@ -1,4 +1,4 @@
-import lpH1Copy from './copyLPCountyH1.json';
+import lpH1Copy from '../../data/copyLPCountyH1.json';
 
 const getCopyLPCountyH1 = ({
   isTownhome,

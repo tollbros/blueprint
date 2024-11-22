@@ -1,7 +1,7 @@
 import React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { Drawer, DialogActions } from '@mui/material';
+import { Drawer } from '@mui/material';
 
 import { Button, TextArea } from '../../index.js';
 

@@ -1,4 +1,4 @@
-import lpTopHeroCopy from './copyLPCountyTopHero.json';
+import lpTopHeroCopy from '../../data/copyLPCountyTopHero.json';
 
 const getCopyLPCountyTopHero = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, county, state }) => {
   let copy = lpTopHeroCopy.default;

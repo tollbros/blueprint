@@ -1,10 +1,10 @@
 import React from 'react';
 import getCopyLPCountyH1 from './getCopyLPCountyH1.js';
-import copyLPCountyH1Json from './copyLPCountyH1.json';
+import copyLPCountyH1Json from '../../data/copyLPCountyH1.json';
 import EditableCopy from '../../../EditableCopy/EditableCopy.js';
 
 const StorySchema = {
-  title: 'Copy/LP/County',
+  title: 'Copy/lpCounty',
   component: getCopyLPCountyH1,
   argTypes: {
     county: { control: 'text' },
@@ -18,7 +18,7 @@ const AllTemplate = (args) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
       <div>
-        <b>LP &gt; County &gt; H1 &gt; copyLPCountyH1.json</b>
+        <b>copy &gt; lp &gt; data &gt; copyLPCountyH1.json</b>
       </div>
       <div
         style={{

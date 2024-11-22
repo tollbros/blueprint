@@ -1,4 +1,4 @@
-import lpParagraphCopy from './copyLPCityParagraph.json';
+import lpParagraphCopy from '../../data/copyLPCityParagraph.json';
 
 const getCopyLPCityParagraph = ({
   isTownhome,

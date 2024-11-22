@@ -1,10 +1,10 @@
 import React from 'react';
 import getCopyLPCityParagraph from './getCopyLPCityParagraph.js';
-import copyLPCityParagraphJson from './copyLPCityParagraph.json';
+import copyLPCityParagraphJson from '../../data/copyLPCityParagraph.json';
 import EditableCopy from '../../../EditableCopy/EditableCopy.js';
 
 const StorySchema = {
-  title: 'Copy/LP/City',
+  title: 'Copy/lpCity',
   component: getCopyLPCityParagraph,
   argTypes: {
     city: { control: 'text' },
@@ -20,7 +20,7 @@ const AllTemplate = (args) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
       <div>
-        <b>LP &gt; City &gt; H1 &gt; copyLPCityParagraph.json</b>
+        <b>copy &gt; lp &gt; data &gt; copyLPCityParagraph.json</b>
       </div>
 
       <div>

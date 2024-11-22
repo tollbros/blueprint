@@ -1,4 +1,4 @@
-import lpH1Copy from './copyLPCityH1.json';
+import lpH1Copy from '../../data/copyLPCityH1.json';
 
 const getCopyLPCityH1 = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, isFuturePlural, city }) => {
   let copy = lpH1Copy.default;
