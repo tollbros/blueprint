@@ -1,6 +1,21 @@
 import lpH1Copy from '../../data/copyLPStateH1.json';
 
-const getCopyLPStateH1 = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, isFuturePlural, state }) => {
+const getCopyLPStateH1 = (props) => {
+  const {
+    isTownhome,
+    isCondo,
+    isActiveAdult,
+    isSingleFamily,
+    isFuture,
+    isFuturePlural,
+    state,
+    isDebug = false,
+  } = props;
+
+  if (!state) {
+    console.error('getCopyLPStateH1 is missing state prop');
+  }
+
   let copy = lpH1Copy.default;
 
   if (isSingleFamily) {
@@ -27,8 +42,13 @@ const getCopyLPStateH1 = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, 
     copy = lpH1Copy.futurePlural;
   }
 
-  // default
-  return copy.replace('~STATE~', state);
+  const finalCopy = copy.replace('~STATE~', state);
+
+  if (isDebug) {
+    console.table({ finalCopy, ...props });
+  }
+
+  return finalCopy;
 };
 
 export default getCopyLPStateH1;
