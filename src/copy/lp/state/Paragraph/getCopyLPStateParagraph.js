@@ -1,4 +1,4 @@
-import lpParagraphCopy from './copyLPStateParagraph.json';
+import lpParagraphCopy from '../../data/copyLPStateParagraph.json';
 
 const getCopyLPStateTopHero = ({
   isTownhome,
