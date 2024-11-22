@@ -1,0 +1,24 @@
+{
+  "default": "~COMMUNITYNAME~ in ~CITY~ features quick move-in homes for those on shorter timelines, as well as home designs with an array of personalization options. Feel free to schedule a tour today.",
+  "defaultNoQMIs": "~COMMUNITYNAME~ in ~CITY~ features home designs with an array of personalization options. Feel free to schedule a tour today.",
+  "defaultNoHomeDesigns": "~COMMUNITYNAME~ in ~CITY~ features quick move-in homes for those on shorter timelines. Feel free to schedule a tour today.",
+
+  "defaultPlural": "Our new home communities in ~CITY~ and the surrounding area feature quick move-in homes for those on shorter timelines, as well as home designs with an array of personalization options. Feel free to schedule a tour of your community of choice.",
+  "defaultNoQMIsPlural": "Our new home communities in ~CITY~ and the surrounding area feature home designs with an array of personalization options. Feel free to schedule a tour of your community of choice.",
+  "defaultNoHomeDesignsPlural": "Our new home communities in ~CITY~ and the surrounding area feature quick move-in homes for those on shorter timelines, as well as home designs with an array of personalization options. Feel free to schedule a tour of your community of choice.",
+
+  "townhome": "~COMMUNITYNAME~ in ~CITY~ features spacious townhomes with designer appointed features, the ease of low-maintenance living, and an array of amenities to enjoy. Feel free to schedule a tour today.",
+  "townhomePlural": "Our new communities in ~CITY~ and the surrounding area feature spacious townhomes with designer appointed features, the ease of low-maintenance living, and an array of amenities to enjoy. Feel free to schedule a tour of your community of choice.",
+
+  "condo": "~COMMUNITYNAME~ in ~CITY~ features spacious condos with designer appointed features, the ease of low-maintenance living, and an array of amenities to enjoy. Feel free to schedule a tour today.",
+  "condoPlural": "Our new communities in ~CITY~ and the surrounding area feature spacious condos with designer appointed features, the ease of low-maintenance living, and an array of amenities to enjoy. Feel free to schedule a tour of your community of choice.",
+
+  "activeAdult": "~COMMUNITYNAME~ in ~CITY~ is designed for active lifestyles, with social events, activities, and resort-style amenities. Feel free to schedule a tour today.",
+  "activeAdultPlural": "Our new Toll Brothers Regency 55+ communities in ~CITY~ and the surrounding area are designed for active lifestyles, with social events, activities, and resort-style amenities. Feel free to schedule a tour of your community of choice.",
+
+  "singleFamily": "~COMMUNITYNAME~ in ~CITY~ features single-family homes with quick move-in options, as well as home designs with an array of personalization options. Feel free to schedule a tour today.",
+  "singleFamilyPlural": "Our new home communities in ~CITY~ and the surrounding area feature single-family homes with quick move-in options, as well as home designs with an array of personalization options. Feel free to schedule a tour of your community of choice.",
+
+  "future": "~COMMUNITYNAME~ in ~CITY~ features quick move-in homes for those on shorter timelines, as well as home designs with an array of personalization options. Feel free to join the VIP interest list today.",
+  "futurePlural": "Our new home communities in ~CITY~ and the surrounding area feature quick move-in homes for those on shorter timelines, as well as home designs with an array of personalization options. Feel free to join the VIP interest list of your community of choice."
+}

@@ -11,7 +11,7 @@ export default function Types() {
 
   const theme = useTheme();
 
-  return Object.keys(theme.MuiCssBaseline.typography).map((typographyKey, index) => {
+  return Object.keys(theme.MuiCssBaseline?.typography || {}).map((typographyKey, index) => {
     return (
       <div key={typographyKey + index} style={styles}>
         <h1 className={`tb-MuiCssBaseline-typography-${typographyKey}-font`}>{typographyKey}. Typography</h1>

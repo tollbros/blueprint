@@ -37,7 +37,7 @@ const Select = ({ options, placeholder = 'Select an option' }) => {
       className={`${styles.selectContainer} ${selectedOption && styles.filled} ${isOpen && styles.open}`}
       onClick={toggleDropdown}
       style={{
-        borderColor: theme.palette.TB.Brand.Gray,
+        borderColor: theme.palette?.TB?.Brand?.Gray,
       }}
     >
       <div className={styles.textContainer}>
