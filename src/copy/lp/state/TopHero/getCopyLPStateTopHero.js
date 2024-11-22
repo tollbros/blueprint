@@ -1,6 +1,12 @@
 import lpTopHeroCopy from '../../data/copyLPStateTopHero.json';
 
-const getCopyLPStateTopHero = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, state }) => {
+const getCopyLPStateTopHero = (props) => {
+  const { isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, state, isDebug = false } = props;
+
+  if (!state) {
+    console.error('getCopyLPStateTopHero is missing state prop');
+  }
+
   let copy = lpTopHeroCopy.default;
 
   if (isSingleFamily) {
@@ -23,8 +29,13 @@ const getCopyLPStateTopHero = ({ isTownhome, isCondo, isActiveAdult, isSingleFam
     copy = lpTopHeroCopy.future;
   }
 
-  // default
-  return copy.replace('~STATE~', state);
+  const finalCopy = copy.replace('~STATE~', state);
+
+  if (isDebug) {
+    console.table({ finalCopy, ...props });
+  }
+
+  return finalCopy;
 };
 
 export default getCopyLPStateTopHero;

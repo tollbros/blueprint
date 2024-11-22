@@ -1,17 +1,24 @@
 import lpParagraphCopy from '../../data/copyLPStateParagraph.json';
 
-const getCopyLPStateTopHero = ({
-  isTownhome,
-  isCondo,
-  isActiveAdult,
-  isSingleFamily,
-  isFuture,
-  isPlural,
-  isNoHomeDesigns,
-  isNoQMIs,
-  state,
-  communityName = 'Toll Brothers community',
-}) => {
+const getCopyLPStateParagraph = (props) => {
+  const {
+    isTownhome, // optional
+    isCondo, // optional
+    isActiveAdult, // optional
+    isSingleFamily, // optional
+    isFuture, // optional
+    isPlural, // optional
+    isNoHomeDesigns, // optional
+    isNoQMIs, // optional
+    state, // required
+    communityName = 'Toll Brothers community', // optional
+    isDebug = false,
+  } = props;
+
+  if (!state) {
+    console.error('getCopyLPStateParagraph is missing state prop');
+  }
+
   const isOneCommunity = !isPlural;
   let copy = lpParagraphCopy.default;
 
@@ -77,8 +84,13 @@ const getCopyLPStateTopHero = ({
 
   copy = copy.replace('~COMMUNITYNAME~', communityName);
 
-  // default
-  return copy.replace('~STATE~', state);
+  const finalCopy = copy.replace('~STATE~', state);
+
+  if (isDebug) {
+    console.table({ finalCopy, ...props });
+  }
+
+  return finalCopy;
 };
 
-export default getCopyLPStateTopHero;
+export default getCopyLPStateParagraph;
