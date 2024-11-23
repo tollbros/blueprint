@@ -4,6 +4,7 @@ import external from 'rollup-plugin-peer-deps-external';
 import babel from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default {
   input: 'src/index.js', // Change this to your entry point
@@ -21,6 +22,7 @@ export default {
     '@mui/icons-material/Add',
   ],
   plugins: [
+    nodeResolve(),
     external(),
     postcss({
       extract: false,
