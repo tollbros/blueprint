@@ -5,6 +5,7 @@ import babel from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import localResolve from 'rollup-plugin-local-resolve';
 
 export default {
   input: 'src/index.js', // Change this to your entry point
@@ -23,6 +24,7 @@ export default {
   ],
   plugins: [
     nodeResolve(),
+    localResolve(),
     external(),
     postcss({
       extract: false,
