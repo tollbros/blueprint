@@ -31,10 +31,13 @@
   },
   "homepage": "https://github.com/tollbros/blueprint#readme",
   "peerDependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^6.1.7",
+    "@mui/material": "^6.1.7",
     "next": "^13.0.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.56.2"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.7",
@@ -94,21 +97,5 @@
       "plugin:storybook/recommended",
       "plugin:storybook/recommended"
     ]
-  },
-  "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@mui/icons-material": "^6.1.7",
-    "@mui/material": "^6.1.7",
-    "next": "^13.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "exports": {
-    "./*.js": {
-      "types": "./*.d.ts",
-      "require": "./*.js",
-      "import": "./*.js"
-    }
   }
 }
