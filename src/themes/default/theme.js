@@ -1,4 +1,4 @@
-import {figmaTheme} from './figma';
+import { figmaTheme } from './figma.js';
 import buttonTheme from './button.json';
 import checkboxTheme from './checkbox.json';
 
