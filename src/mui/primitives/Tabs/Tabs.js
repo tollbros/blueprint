@@ -1,13 +1,13 @@
-import React from 'react';
+import { useMemo, useState } from 'react';
 import styles from './Tabs.module.scss';
 
 const Tabs = ({ tabs, tabAction }) => {
-  const [selectedTab, setSelectedTab] = React.useState(0);
-  const CurrentTabContent = React.useMemo(() => {
+  const [selectedTab, setSelectedTab] = useState(0);
+  const CurrentTabContent = useMemo(() => {
     return tabs[selectedTab].content;
   }, [selectedTab]);
 
-  const tabActionComponent = React.useMemo(() => {
+  const tabActionComponent = useMemo(() => {
     return tabAction ? tabAction() : null;
   }, [tabAction]);
 
@@ -18,7 +18,11 @@ const Tabs = ({ tabs, tabAction }) => {
           {tabs.map((tab, index) => {
             return (
               <>
-                <div key={`blueprint-tab-${index}`} className={`${styles.tabItem} ${selectedTab === index ? styles.selected : ''}`} onClick={() => setSelectedTab(index)}>
+                <div
+                  key={`blueprint-tab-${index}`}
+                  className={`${styles.tabItem} ${selectedTab === index ? styles.selected : ''}`}
+                  onClick={() => setSelectedTab(index)}
+                >
                   {tab.title}
                   <div className={styles.selectionBar} />
                 </div>

@@ -1,12 +1,12 @@
-import Button from './mui/primitives/Button/Button.js';
+import Button from './mui/primitives/Button/Button';
 import FallbackAddButton from './mui/primitives/FallbackAddButton/FallbackAddButton.js';
 import SquareIconButton from './mui/primitives/SquareIconButton/SquareIconButton.js';
-import ThemeProvider from './themes/ThemeProvider.js';
-import InputField from './mui/primitives/InputField/InputField.js';
-import TextArea from './mui/primitives/TextArea/TextArea.js';
-import Tabs from './mui/primitives/Tabs/Tabs.js';
-import { defaultTheme } from './themes/default/theme.js';
-import { kragleTheme } from './themes/kragle/theme.js';
+import ThemeProvider from './themes/ThemeProvider';
+import InputField from './mui/primitives/InputField/InputField';
+import TextArea from './mui/primitives/TextArea/TextArea';
+import Tabs from './mui/primitives/Tabs/Tabs';
+import { defaultTheme } from './themes/default/theme';
+import { kragleTheme } from './themes/kragle/theme';
 import getCopyLPCityH1 from './copy/lp/city/H1/getCopyLPCityH1.js';
 import getCopyLPCityTopHero from './copy/lp/city/TopHero/getCopyLPCityTopHero.js';
 import getCopyLPCityParagraph from './copy/lp/city/Paragraph/getCopyLPCityParagraph.js';
@@ -35,5 +35,5 @@ export {
   getCopyLPCountyParagraph,
   getCopyLPStateH1,
   getCopyLPStateParagraph,
-  getCopyLPStateTopHero
+  getCopyLPStateTopHero,
 };

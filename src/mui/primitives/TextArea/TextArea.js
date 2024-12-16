@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './TextArea.module.scss';
 
 const TextArea = ({ placeholder, disabled, maxLength = 200, value, ...props }) => {
-  const [isFocused, setIsFocused] = React.useState(false);
-  const [hasValue, setHasValue] = React.useState(false);
-  const [charCount, setCharCount] = React.useState(value?.length || 0);
+  const [isFocused, setIsFocused] = useState(false);
+  const [hasValue, setHasValue] = useState(false);
+  const [charCount, setCharCount] = useState(value?.length || 0);
 
   const handleFocus = () => !disabled && setIsFocused(true);
 
@@ -20,9 +20,23 @@ const TextArea = ({ placeholder, disabled, maxLength = 200, value, ...props }) =
   };
 
   return (
-    <div className={`${styles.textAreaContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}>
-      <textarea className={styles.textarea} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} placeholder=' ' disabled={disabled} maxLength={maxLength} value={value} {...props} />
-      <label className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}>{placeholder}</label>
+    <div
+      className={`${styles.textAreaContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}
+    >
+      <textarea
+        className={styles.textarea}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        placeholder=' '
+        disabled={disabled}
+        maxLength={maxLength}
+        value={value}
+        {...props}
+      />
+      <label className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}>
+        {placeholder}
+      </label>
       <div className={styles.charCounter}>
         {charCount}/{maxLength}
       </div>

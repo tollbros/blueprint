@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { StyledEngineProvider, Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import { extendTheme } from '@mui/material/styles';
@@ -30,24 +30,23 @@ const decorateTheme = ({ theme }) => {
               fontFamily: theme.typography[key].fontFamily,
               textDecorationLine: theme.typography[key].textDecorationLine,
               textTransform: theme.typography[key].textTransform,
-              margin: theme.typography[key].margin
-            }
+              margin: theme.typography[key].margin,
+            },
           };
-        }, {})
-      }
-    }
+        }, {}),
+      },
+    },
   });
 };
 
 const ThemeProvider = ({ children, theme }) => {
-  console.log('React', React);
-  const [baselineStyles, setBaselineStyles] = React.useState(null);
+  const [baselineStyles, setBaselineStyles] = useState(null);
 
-  const decoratedTheme = React.useMemo(() => {
+  const decoratedTheme = useMemo(() => {
     return decorateTheme({ theme });
   }, [theme]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setBaselineStyles(decoratedTheme?.MuiCssBaseline?.styleOverrides);
   }, [decoratedTheme]);
 
