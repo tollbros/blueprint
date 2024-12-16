@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowJs": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "jsxFactory": "React.createElement",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "strict": true,
+  },
+  "include": [
+    "src/**/*",
+  ],
+}

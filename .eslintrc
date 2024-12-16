@@ -1,38 +1,23 @@
 {
-  "parser": "babel-eslint",
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:prettier/recommended",
-    "prettier/standard",
-    "prettier/react"
-  ],
-  "env": {
-    "node": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 2020,
-    "ecmaFeatures": {
-      "legacyDecorators": true,
-      "jsx": true
-    }
-  },
-  "settings": {
-    "react": {
-      "version": "16"
-    }
-  },
+  "extends": ["next/core-web-vitals", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "space-before-function-paren": 0,
-    "react/prop-types": 0,
-    "react/jsx-handler-names": 0,
-    "react/jsx-fragments": 0,
-    "react/no-unused-prop-types": 0,
-    "import/export": 0,
-    "react/jsx-uses-react": "off",
-    // suppress errors for missing 'import React' in files
-    "react/react-in-jsx-scope": "off",
-    // allow jsx syntax in js files (for next.js project)
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }] //should add ".ts" if typescript project
+    "prettier/prettier": "error",
+    "no-unused-vars": ["error", {
+      "argsIgnorePattern": "^_"
+    }],
+    "import/first": ["error", "absolute-first"],
+    "import/newline-after-import": "error",
+    "prefer-template": "error",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "block" },
+      { "blankLine": "always", "prev": "block", "next": "*" },
+      { "blankLine": "always", "prev": "*", "next": "block-like" },
+      { "blankLine": "always", "prev": "block-like", "next": "*" }
+    ],
+    "@next/next/no-img-element": "off",
+    "@next/next/link-passhref": "off",
+    "react/no-unescaped-entities": "off"
   }
 }

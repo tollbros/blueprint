@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './Button.module.scss';
 
 const Button = ({ children, variant = 'contained', size = 'large', color = 'accent', className = '', ...rest }) => {
