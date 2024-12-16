@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { useTheme } from '@mui/material/styles';
+import { useState } from 'react';
 import styles from './InputField.module.scss';
 
 const InputField = ({ placeholder, disabled, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
-  const theme = useTheme();
 
   const handleFocus = () => !disabled && setIsFocused(true);
 

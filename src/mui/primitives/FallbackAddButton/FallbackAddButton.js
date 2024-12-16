@@ -1,5 +1,4 @@
 import AddIcon from '@mui/icons-material/Add';
-import * as React from 'react';
 import Button from '../Button/Button';
 import SquareIconButton from '../SquareIconButton/SquareIconButton';
 

@@ -31,19 +31,22 @@
   },
   "homepage": "https://github.com/tollbros/blueprint#readme",
   "peerDependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^6.1.7",
+    "@mui/material": "^6.1.7",
     "next": "^13.0.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.56.2"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.7",
     "@babel/preset-react": "^7.25.7",
     "@chromatic-com/storybook": "^1.6.0",
+    "@mui/types": "^7.2.19",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "latest",
     "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@rollup/plugin-url": "^8.0.2",
@@ -73,6 +76,7 @@
     "rollup": "^4.18.0",
     "rollup-plugin-css-modules": "^0.1.2",
     "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-import-folder": "^1.0.6",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-sass": "^1.13.2",
@@ -93,14 +97,5 @@
       "plugin:storybook/recommended",
       "plugin:storybook/recommended"
     ]
-  },
-  "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "next": "^13.0.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@emotion/styled": "^11.11.5",
-    "@mui/icons-material": "^6.1.7",
-    "@mui/material": "^6.1.7"
   }
 }

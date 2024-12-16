@@ -1,6 +1,12 @@
 import lpTopHeroCopy from '../../data/copyLPCountyTopHero.json';
 
-const getCopyLPCountyTopHero = ({ isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, county, state }) => {
+const getCopyLPCountyTopHero = (props) => {
+  const { isTownhome, isCondo, isActiveAdult, isSingleFamily, isFuture, county, state, isDebug } = props;
+
+  if (!county) {
+    console.error('getCopyLPCountyTopHero is missing county prop');
+  }
+
   let copy = lpTopHeroCopy.default;
 
   if (isSingleFamily) {
@@ -23,10 +29,19 @@ const getCopyLPCountyTopHero = ({ isTownhome, isCondo, isActiveAdult, isSingleFa
     copy = lpTopHeroCopy.future;
   }
 
-  copy = copy.replace('~STATE~', state);
+  if (!state) {
+    copy = copy.replace(', ~STATE~', '');
+  } else {
+    copy = copy.replace('~STATE~', state);
+  }
 
-  // default
-  return copy.replace('~LOCATION~', county);
+  const finalCopy = copy.replace('~COUNTY~', county);
+
+  if (isDebug) {
+    console.table({ finalCopy, ...props });
+  }
+
+  return finalCopy;
 };
 
 export default getCopyLPCountyTopHero;

@@ -1,18 +1,20 @@
 import lpParagraphCopy from '../../data/copyLPCityParagraph.json';
 
-const getCopyLPCityParagraph = ({
-  isTownhome,
-  isCondo,
-  isActiveAdult,
-  isSingleFamily,
-  isFuture,
-  isNearBy,
-  isPlural,
-  isNoHomeDesigns,
-  isNoQMIs,
-  city,
-  communityName = 'Toll Brothers community',
-}) => {
+const getCopyLPCityParagraph = (props) => {
+  const {
+    isTownhome,
+    isCondo,
+    isActiveAdult,
+    isSingleFamily,
+    isFuture,
+    isNearBy,
+    isPlural,
+    isNoHomeDesigns,
+    isNoQMIs,
+    city,
+    communityName = 'Toll Brothers community',
+    isDebug,
+  } = props;
   const isOneCommunity = !isPlural;
   let copy = lpParagraphCopy.default;
 
@@ -82,8 +84,13 @@ const getCopyLPCityParagraph = ({
     return copy.replace('in ~CITY~', `near ${city}`);
   }
 
-  // default
-  return copy.replace('~CITY~', city);
+  const finalCopy = copy.replace('~CITY~', city);
+
+  if (isDebug) {
+    console.table({ finalCopy, ...props });
+  }
+
+  return finalCopy;
 };
 
 export default getCopyLPCityParagraph;
