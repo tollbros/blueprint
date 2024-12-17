@@ -224,7 +224,7 @@ const typography = {
 export const figmaTheme = {
   colorSchemes: {
     light: lightMode,
-    dark: lightMode,
+    dark: null,
   },
   typography: {
     ...typography,
