@@ -1,4 +1,3 @@
-import React from 'react';
 import SquareIconButton from './SquareIconButton';
 
 export default {
