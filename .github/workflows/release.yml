@@ -3,9 +3,16 @@ on:
   push:
     branches:
       - master
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   release:
-    name: Release
+    name: NPM Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,8 +32,10 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
   deploy:
+    name: Deploy Storybook to GitHub Pages
     runs-on: ubuntu-latest
     steps:
       - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.0
         with:
           path: storybook-static
+
