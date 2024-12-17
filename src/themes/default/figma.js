@@ -1,3 +1,44 @@
+const lightMode = {
+  palette: {
+    TB: {
+      Brand: {
+        Primary: '#0C223F',
+        Medium: '#004876',
+        Accent: '#0070CD',
+        Gray: '#8195A2',
+      },
+      Functional: {
+        Black: '#000000',
+        OffBlack: '#595959',
+        White: '#FFFFFF',
+        OffWhite: '#B5B5B5',
+        DarkGray: '#858585',
+        MedGray: '#D8D8D8',
+        LightGray: '#E9EDF0',
+        GrayOnDark: 'rgba(255, 255, 255, 0.2)',
+        Success: '#009D47',
+        Error: '#A31F34',
+      },
+      POI: {
+        Food: '#AD3F49',
+        Fitness: '#D78956',
+        Entertainment: '#DBAE60',
+        Parks: '#5E8748',
+        Transportation: '#5C8988',
+        Business: '#2C71C7',
+        Shopping: '#344072',
+        School: '#543D6E',
+      },
+    },
+    primary: {
+      contrast: '#FFFFFF',
+      main: '#2196F3',
+    },
+    action: {
+      disabled: 'rgba(0, 0, 0, 0.38)',
+    },
+  },
+};
 const typography = {
   H1: {
     fontSize: '3rem',
@@ -182,88 +223,8 @@ const typography = {
 };
 export const figmaTheme = {
   colorSchemes: {
-    light: {
-      palette: {
-        TB: {
-          Brand: {
-            Primary: '#0C223F',
-            Medium: '#004876',
-            Accent: '#0070CD',
-            Gray: '#8195A2',
-          },
-          Functional: {
-            Black: '#000000',
-            OffBlack: '#595959',
-            White: '#FFFFFF',
-            OffWhite: '#B5B5B5',
-            DarkGray: '#858585',
-            MedGray: '#D8D8D8',
-            LightGray: '#E9EDF0',
-            GrayOnDark: 'rgba(255, 255, 255, 0.2)',
-            Success: '#009D47',
-            Error: '#A31F34',
-          },
-          POI: {
-            Food: '#AD3F49',
-            Fitness: '#D78956',
-            Entertainment: '#DBAE60',
-            Parks: '#5E8748',
-            Transportation: '#5C8988',
-            Business: '#2C71C7',
-            Shopping: '#344072',
-            School: '#543D6E',
-          },
-        },
-        primary: {
-          contrast: '#FFFFFF',
-          main: '#2196F3',
-        },
-        action: {
-          disabled: 'rgba(0, 0, 0, 0.38)',
-        },
-      },
-    },
-    dark: {
-      palette: {
-        TB: {
-          Brand: {
-            Primary: '#FFFFFF',
-            Medium: '#FFFFFF',
-            Accent: '#FFFFFF',
-            Gray: '#FFFFFF',
-          },
-          Functional: {
-            Black: '#FFFFFF',
-            OffBlack: '#FFFFFF',
-            White: '#FFFFFF',
-            OffWhite: '#FFFFFF',
-            DarkGray: '#FFFFFF',
-            MedGray: '#FFFFFF',
-            LightGray: '#FFFFFF',
-            GrayOnDark: '#FFFFFF',
-            Success: '#FFFFFF',
-            Error: '#FFFFFF',
-          },
-          POI: {
-            Food: '#FFFFFF',
-            Fitness: '#FFFFFF',
-            Entertainment: '#FFFFFF',
-            Parks: '#FFFFFF',
-            Transportation: '#FFFFFF',
-            Business: '#FFFFFF',
-            Shopping: '#FFFFFF',
-            School: '#FFFFFF',
-          },
-        },
-        primary: {
-          contrast: 'rgba(0, 0, 0, 0.87)',
-          main: '#90CAF9',
-        },
-        action: {
-          disabled: 'rgba(255, 255, 255, 0.38)',
-        },
-      },
-    },
+    light: lightMode,
+    dark: lightMode,
   },
   typography: {
     ...typography,
