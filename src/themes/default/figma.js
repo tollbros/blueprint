@@ -277,7 +277,5 @@ export const figmaTheme = {
       TagLabel: typography.GothamSmallBold,
     },
   },
-  tb: {
-    BorderRadius: '4px',
-  },
+  GlobalBrandBorderRadius: '4px',
 };
