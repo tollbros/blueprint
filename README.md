@@ -68,4 +68,22 @@ Overview.stories.js is used by Storybook
 Overview.js is used by Overview.stories.js and the application
 ```
 
+### Setting Up Your Project to Use the Library
 
+To ensure proper resolution of dependencies, particularly for React, React DOM, and Material-UI, configure the `paths` in your `jsconfig.json` (or `tsconfig.json` if using TypeScript).
+
+#### Update Your `jsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "react": ["./node_modules/react"],
+      "react-dom": ["./node_modules/react-dom"],
+      "@mui/material/*": ["./node_modules/@mui/material/*"]
+    }
+  }
+}
+```
+
+By explicitly defining paths in your jsconfig.json, you ensure that your project uses the correct instances of react, react-dom, and other dependencies. This prevents issues where your library might resolve these packages to its own node_modules instead of the consumer project's node_modules.

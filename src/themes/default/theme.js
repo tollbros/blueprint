@@ -1,6 +1,4 @@
-import {figmaTheme} from './figma';
-import buttonTheme from './button.json';
-import checkboxTheme from './checkbox.json';
+import { figmaTheme } from './figma';
 
 export const defaultTheme = {
   MuiCssBaseline: {
@@ -67,8 +65,4 @@ export const defaultTheme = {
       `,
   },
   ...figmaTheme,
-  components: {
-    ...buttonTheme,
-    ...checkboxTheme,
-  },
 };
