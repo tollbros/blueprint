@@ -1,7 +1,11 @@
 import styles from './Button.module.scss';
 
-const Button = ({ children, variant = 'contained', size = 'base', color = 'accent', className = '', ...rest }) => {
+const Button = ({ children, variant = 'contained', size = 'base', color = 'accent', className = '', fullWidth = false, ...rest }) => {
   const classes = [styles.button];
+
+  if (fullWidth) {
+    classes.push(styles.fullWidth);
+  }
 
   if (variant === 'contained') {
     classes.push(styles.contained);

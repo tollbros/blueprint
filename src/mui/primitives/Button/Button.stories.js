@@ -17,6 +17,9 @@ const StorySchema = {
     size: { control: 'select', options: ['base', 'small'] },
     variant: { control: 'select', options: ['contained', 'outlined', 'text'] },
     color: { control: 'select', options: ['accent', 'primary', 'medium', 'success', 'error'] },
+    fullWidth: {
+      control: { type: 'boolean' },
+    },
     disabled: {
       control: { type: 'boolean' },
     },
@@ -34,6 +37,7 @@ export const PrimaryCTAButton = {
     variant: 'contained',
     color: 'accent',
     disabled: false,
+    fullWidth: false,
     className: '',
   },
 };
@@ -45,6 +49,7 @@ export const SmallPrimaryCTAButton = {
     variant: 'contained',
     color: 'accent',
     disabled: false,
+    fullWidth: false,
     className: '',
   },
 };
