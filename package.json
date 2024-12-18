@@ -33,7 +33,6 @@
   "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "18.3.1",
-    "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.2.0"
@@ -56,7 +55,6 @@
     "@storybook/test": "^8.1.11",
     "autoprefixer": "^10.4.19",
     "babel-eslint": "^10.0.3",
-    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
