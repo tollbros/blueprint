@@ -8,17 +8,17 @@
     border: 1px solid var(--mui-palette-TB-Brand-Gray, #8195A2);
     background: var(--mui-palette-TB-Functional-White, #FFFFFF);
     transition: all 0.2s ease-out;
-  
+
     &.focused {
       border-bottom: 4px solid var(--mui-palette-TB-Brand-Gray, #8195A2)
     }
-  
+
     &.disabled {
       background: var(--mui-palette-TB-Functional-LightGray, #E9EDF0);
       border-color: var(--mui-palette-TB-Functional-DarkGray, #858585);
     }
   }
-  
+
   .textarea {
     width: 100%;
     height: calc(100% - 20px);
@@ -29,16 +29,16 @@
     padding: 12px 0 0 0;
     font: var(--mui-MuiCssBaseline-typography-SubheaderBase-font);
     resize: none;
-  
+
     &:focus {
       outline: none;
     }
-  
+
     &:disabled {
       cursor: not-allowed;
     }
   }
-  
+
   .placeholder {
     position: absolute;
     left: 20px;
@@ -46,24 +46,24 @@
     transition: all 0.2s ease-out;
     color: #000;
     pointer-events: none;
-    font: var(--mui-MuiCssBaseline-typography-semantic-Placeholder-font);
+    font: var(--mui-MuiCssBaseline-typography-SemanticPlaceholder-font);
   }
-  
+
   .floatingPlaceholder {
     top: 4px;
     font: var(--mui-MuiCssBaseline-typography-GothamXSmallBook-font);
   }
-  
+
   .textarea:not(:placeholder-shown) + .placeholder {
     top: 4px;
     font: var(--mui-MuiCssBaseline-typography-GothamXSmallBook-font);
   }
-  
+
   .disabled .placeholder {
     color: var(--mui-palette-TB-Functional-DarkGray, #858585)
 
   }
-  
+
   .charCounter {
     position: absolute;
     bottom: 5px;

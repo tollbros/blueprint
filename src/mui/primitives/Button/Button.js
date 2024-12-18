@@ -1,6 +1,6 @@
 import styles from './Button.module.scss';
 
-const Button = ({ children, variant = 'contained', size = 'large', color = 'accent', className = '', ...rest }) => {
+const Button = ({ children, variant = 'contained', size = 'base', color = 'accent', className = '', ...rest }) => {
   const classes = [styles.button];
 
   if (variant === 'contained') {
@@ -13,10 +13,6 @@ const Button = ({ children, variant = 'contained', size = 'large', color = 'acce
 
   if (size === 'small') {
     classes.push(styles.small);
-  } else if (size === 'medium') {
-    classes.push(styles.medium);
-  } else if (size === 'large') {
-    classes.push(styles.large);
   }
 
   if (color === 'accent') {

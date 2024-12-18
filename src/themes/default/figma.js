@@ -228,15 +228,13 @@ export const figmaTheme = {
   },
   typography: {
     ...typography,
-    semantic: {
-      Placeholder: typography.GothamBaseBook,
-      FloatingPlaceholder: typography.GothamXSmallBook,
-      Input: typography.SubheaderBase,
-      ButtonLabelBase: typography.GothamBaseBold,
-      ButtonLabelSmall: typography.GothamSmallBold,
-      TabLabel: typography.GothamBaseBold,
-      TagLabel: typography.GothamSmallBold,
-    },
+    SemanticPlaceholder: typography.GothamBaseBook,
+    SemanticFloatingPlaceholder: typography.GothamXSmallBook,
+    SemanticInput: typography.SubheaderBase,
+    SemanticButtonLabelBase: typography.GothamBaseBold,
+    SemanticButtonLabelSmall: typography.GothamSmallBold,
+    SemanticTabLabel: typography.GothamBaseBold,
+    SemanticTagLabel: typography.GothamSmallBold,
   },
   GlobalBrandBorderRadius: '4px',
 };

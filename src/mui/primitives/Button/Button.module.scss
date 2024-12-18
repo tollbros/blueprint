@@ -3,34 +3,21 @@
 .button {
   border: 0;
   min-width: 55px;
-  margin: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: var(--mui-GlobalBrandBorderRadius);
-  font-weight: 500;
+  padding: 0 20px;
+  font: var(--mui-MuiCssBaseline-typography-SemanticButtonLabelBase-font);
+  // base
+  height: 48px;
 
   /**
    * Sizes
    */
   &.small {
-    font-size: 14px;
-    height: 30px;
-    padding: 24px 48px;
-    min-width: 180px;
-  }
-  &.medium {
-    font-size: 18px;
-    height: 48px;
-    padding: 32px 56px;
-    min-width: 240px;
-  }
-  &.large {
-    font-size: 22px;
-    height: 60px;
-    padding: 40px 64px;
-    min-width: 320px;
+   height: 40px;
   }
 
   /**
