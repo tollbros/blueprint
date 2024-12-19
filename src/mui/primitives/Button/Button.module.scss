@@ -3,31 +3,30 @@
 .button {
   border: 0;
   min-width: 55px;
-  margin: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
   cursor: pointer;
+  border-radius: var(--mui-GlobalBrandBorderRadius);
+  padding: 0 20px;
+  font: var(--mui-MuiCssBaseline-typography-SemanticButtonLabelBase-font);
+  height: 48px;
+
+  &.fullWidth {
+    width: 100%;
+  }
 
   /**
    * Sizes
    */
   &.small {
-    height: 30px;
-  }
-  &.medium {
-    height: 48px;
-  }
-  &.large {
-    height: 60px;
+   height: 40px;
   }
 
   /**
    * Variants
    */
   &.contained {
-    border-radius: 0;
 
     &.accent {
       background-color: var(--mui-palette-TB-Brand-Accent);
@@ -60,7 +59,6 @@
     }
   }
   &.outlined {
-    border-radius: 0;
 
     &.accent {
       background-color: var(--mui-palette-TB-Functional-White, #FFFFFF);
@@ -93,8 +91,6 @@
     }
   }
   &.text {
-    border-radius: 0;
-
     &.accent {
       background-color: transparent;
       color: var(--mui-palette-TB-Brand-Accent);
