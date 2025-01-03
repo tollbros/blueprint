@@ -180,6 +180,12 @@ const ThemeProvider = ({ children, theme }) => {
           text-decoration-line: var(--tb-typography-H6-textDecorationLine);
           text-transform: var(--tb-typography-H6-textTransform);
         }
+
+        body {
+          color: var(--tb-palette-TB-Functional-Black);
+          font: var(--tb-typography-BodyBase-font);
+          background-color: var(--tb-palette-TB-Functional-White);
+        }
      `}
       </style>
 
