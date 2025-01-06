@@ -36,7 +36,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--mui-palette-TB-Functional-DarkGray, #858585);
+      background: var(--tb-palette-TB-Functional-DarkGray, #858585);
     }
   }
 
@@ -62,14 +62,14 @@
   gap: 8px;
   flex-shrink: 0;
   cursor: pointer;
-  font: var(--mui-MuiCssBaseline-typography-GothamBaseBold-font);
+  font: var(--tb-typography-GothamBaseBold-font);
 
   &.selected {
-    color: var(--mui-palette-TB-Functional-Black, #000000);
+    color: var(--tb-palette-TB-Functional-Black, #000000);
   }
 
   &:not(.selected) {
-    color: var(--mui-palette-TB-Functional-DarkGray, #858585);
+    color: var(--tb-palette-TB-Functional-DarkGray, #858585);
   }
 }
 
@@ -85,6 +85,6 @@
   z-index: 1; // To ensure it appears above the underline
 
   .selected & {
-    background-color: var(--mui-palette-TB-Brand-Accent, #0070CD);
+    background-color: var(--tb-palette-TB-Brand-Accent, #0070CD);
   }
 }

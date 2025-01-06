@@ -21,7 +21,7 @@
   position: absolute;
   right: 20px;
   pointer-events: none;
-  color: var(--mui-palette-TB-Functional-DarkGray, #858585);
+  color: var(--tb-palette-TB-Functional-DarkGray, #858585);
 }
 
 .textContainer {
@@ -42,22 +42,22 @@
 }
 
 .placeholder {
-  color: var(--mui-palette-TB-Functional-Black, #000000);
+  color: var(--tb-palette-TB-Functional-Black, #000000);
   text-align: left;
 }
 
 .placeholderLarge {
-  font: var(--mui-MuiCssBaseline-typography-GothamBaseBook-font);
+  font: var(--tb-typography-GothamBaseBook-font);
 }
 
 .placeholderSmall {
-  font: var(--mui-MuiCssBaseline-typography-GothamXSmallBook-font);
+  font: var(--tb-typography-GothamXSmallBook-font);
 }
 
 .selectedText {
-  color: var(--mui-palette-TB-Functional-Black, #000000);
+  color: var(--tb-palette-TB-Functional-Black, #000000);
   text-align: left;
-  font: var(--mui-MuiCssBaseline-typography-SubheaderBase-font);
+  font: var(--tb-typography-SubheaderBase-font);
 }
 
 /* Custom dropdown styling */
@@ -68,7 +68,7 @@
   left: -1px;
   right: -1px;
   background: #FFF;
-  border: 1px solid var(--mui-palette-TB-Brand-Gray, #8195A2);
+  border: 1px solid var(--tb-palette-TB-Brand-Gray, #8195A2);
   border-top: none;
   max-height: 200px;
   overflow-y: auto;
@@ -81,20 +81,20 @@
 
 .option {
   padding: 10px 20px;
-  color: var(--mui-palette-TB-Functional-Black, #000000);
+  color: var(--tb-palette-TB-Functional-Black, #000000);
   cursor: pointer;
-  font: var(--mui-MuiCssBaseline-typography-BodyBase-font);
+  font: var(--tb-typography-BodyBase-font);
 }
 
 .option:hover {
-  background-color: var(--mui-palette-TB-Brand-Accent, #0070CD);
+  background-color: var(--tb-palette-TB-Brand-Accent, #0070CD);
   color: #FFF;
 }
 
 .option.selected {
-  background-color: var(--mui-palette-TB-Functional-LightGray, #E9EDF0);
-  color: var(--mui-palette-TB-Functional-Black, #000000);
-  border-left: 2px solid var(--mui-palette-TB-Brand-Accent, #0070CD);
+  background-color: var(--tb-palette-TB-Functional-LightGray, #E9EDF0);
+  color: var(--tb-palette-TB-Functional-Black, #000000);
+  border-left: 2px solid var(--tb-palette-TB-Brand-Accent, #0070CD);
   padding-left: 18px;
-  font: var(--mui-MuiCssBaseline-typography-SubheaderBase-font);
+  font: var(--tb-typography-SubheaderBase-font);
 }

@@ -15,7 +15,7 @@ const FallbackAddButton = ({ isCondensed = false, children = '', className = '',
       size={'small'}
       color={'accent'}
       variant={'text'}
-      className={`tb-MuiCssBaseline-typography-GothamBaseBold-font ${className}`}
+      className={`blueprint-typography-GothamBaseBold-font ${className}`}
       style={{ textWrap: 'nowrap' }}
       type={'button'}
       {...rest}
