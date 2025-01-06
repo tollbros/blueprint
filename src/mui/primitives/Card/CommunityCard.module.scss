@@ -6,7 +6,7 @@
   }
 
   .imagePlaceholder {
-    background-color: var(--mui-palette-TB-Functional-LightGray, #E9EDF0);
+    background-color: var(--tb-palette-TB-Functional-LightGray, #E9EDF0);
     height: 200px;
     position: relative;
   }
@@ -15,10 +15,10 @@
     position: absolute;
     bottom: 0px;
     left: 0px;
-    background-color: var(--mui-palette-TB-Brand-Primary, #0C223F);
-    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+    background-color: var(--tb-palette-TB-Brand-Primary, #0C223F);
+    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
     padding: 5px 10px;
-    font: var(--mui-MuiCssBaseline-typography-GothamSmallBold-font);
+    font: var(--tb-typography-GothamSmallBold-font);
   }
 
   .cardContent {
@@ -33,11 +33,11 @@
   }
 
   .collectionName {
-    font: var(--mui-MuiCssBaseline-typography-SubheaderBase-font);
+    font: var(--tb-typography-SubheaderBase-font);
   }
 
   .propertyName {
-    font: var(--mui-MuiCssBaseline-typography-H6-font);
+    font: var(--tb-typography-H6-font);
   }
 
   .specs {
@@ -56,25 +56,25 @@
   .specValue {
     font-weight: bold;
     margin-bottom: 2px;
-    color: var(--mui-palette-TB-Functional-Black, #000000);
-    font: var(--mui-MuiCssBaseline-typography-SubheaderLarge-font);
+    color: var(--tb-palette-TB-Functional-Black, #000000);
+    font: var(--tb-typography-SubheaderLarge-font);
   }
 
   .specLabel {
     font-size: 0.8em;
-    color: var(--mui-palette-TB-Functional-Black, #000000);
-    font: var(--mui-MuiCssBaseline-typography-BodySmall-font);
+    color: var(--tb-palette-TB-Functional-Black, #000000);
+    font: var(--tb-typography-BodySmall-font);
   }
-  
+
   .prodLabel {
-    font: var(--mui-MuiCssBaseline-typography-BodyBase-font);
+    font: var(--tb-typography-BodyBase-font);
     display: block;
     margin-bottom: 0;
   }
 
   .viewLink {
-    color: var(--mui-palette-TB-Brand-Accent, #0070CD);
-    font: var(--mui-MuiCssBaseline-typography-GothamBaseBold-font);
+    color: var(--tb-palette-TB-Brand-Accent, #0070CD);
+    font: var(--tb-typography-GothamBaseBold-font);
     display: block;
     margin-top: 0;
     text-decoration: none;

@@ -15,7 +15,7 @@
     "node": ">=20.7.0"
   },
   "scripts": {
-    "bundle": "microbundle --no-compress --jsx React.createElement --jsxImportSource react --compress --format modern,cjs",
+    "bundle": "microbundle --jsx React.createElement --jsxImportSource react --compress --format modern,cjs",
     "build": "npm run bundle",
     "dev": "npm run bundle -- watch",
     "prepare":  "run-s build",
@@ -31,11 +31,8 @@
   },
   "homepage": "https://github.com/tollbros/blueprint#readme",
   "peerDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "18.3.1",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/material": "^6.2.0"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "next": "^13.5.7"

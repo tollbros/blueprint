@@ -9,7 +9,7 @@
   .inner {
     display: flex;
     width: 100%;
-    background-color: var(--mui-palette-TB-Brand-Primary, #0C223F);
+    background-color: var(--tb-palette-TB-Brand-Primary, #0C223F);
     padding: 20px 5% 70px 5%;
     flex-direction: column;
 
@@ -33,7 +33,7 @@
           align-items: center;
           justify-content: flex-start;
           gap: 1rem;
-          color: var(--mui-palette-secondary-contrastText, #fff);
+          color: var(--tb-palette-secondary-contrastText, #fff);
 
           img {
             width: 40px;

@@ -5,8 +5,8 @@ import ThemeProvider from './themes/ThemeProvider';
 import InputField from './mui/primitives/InputField/InputField';
 import TextArea from './mui/primitives/TextArea/TextArea';
 import Tabs from './mui/primitives/Tabs/Tabs';
+import { useTheme } from './themes/ThemeProvider';
 import { defaultTheme } from './themes/default/theme';
-import { kragleTheme } from './themes/kragle/theme';
 
 export {
   Button,
@@ -17,5 +17,5 @@ export {
   InputField,
   Tabs,
   defaultTheme,
-  kragleTheme,
+  useTheme
 };
