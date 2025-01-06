@@ -79,8 +79,7 @@ To ensure proper resolution of dependencies, particularly for React, React DOM, 
   "compilerOptions": {
     "paths": {
       "react": ["./node_modules/react"],
-      "react-dom": ["./node_modules/react-dom"],
-      "@mui/material/*": ["./node_modules/@mui/material/*"]
+      "react-dom": ["./node_modules/react-dom"]
     }
   }
 }

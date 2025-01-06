@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo } from 'react';
+import { createContext, useContext, useEffect, useState, useMemo } from 'react';
 import decorateTheme from './utils/decorateTheme';
 import flattenToCssVars from './utils/flattenToCssVars';
 const ThemeContext = createContext();
@@ -7,9 +7,21 @@ const ThemeProvider = ({ children, theme }) => {
   const decoratedTheme = useMemo(() => {
     return decorateTheme({ theme });
   }, [theme]);
+
   const cssVarsObject = useMemo(() => {
     return flattenToCssVars(decorateTheme({ theme }));
   }, [theme]);
+
+  const [clientReady, setClientReady] = useState(false);
+
+  useEffect(() => {
+    setClientReady(true);
+  }, [])
+
+
+  if (!clientReady) {
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={decoratedTheme}>
