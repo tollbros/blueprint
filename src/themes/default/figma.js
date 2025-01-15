@@ -152,7 +152,7 @@ const typography = {
     fontSize: '0.8125rem',
     fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
-    fontWeight: 500,
+    fontWeight: 700,
     lineHeight: '20px',
     textTransform: 'none',
     textDecorationLine: 'none',

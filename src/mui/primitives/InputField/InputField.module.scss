@@ -1,10 +1,11 @@
 .inputContainer {
   display: flex;
+  justify-content: center;
   height: 60px;
-  width: 343px;
+  width: 100%;       // Add this
   padding: 0px 20px;
   align-items: center;
-  align-self: stretch;
+  align-self: stretch;  // This makes more sense with max-width
   position: relative;
   border: 1px solid var(--TB-Brand-Gray, #8195A2);
   background: var(--TB-Brand-BG-Text, #FFF);
@@ -16,7 +17,6 @@
 
 .inputContainer.disabled {
   background: #E9EDF0;
-  border-color: var(--mui-palette-TB-Functional-DarkGray, #858585);
 }
 
 .input {
@@ -63,5 +63,5 @@
 }
 
 .disabled .placeholder {
-  color: #858585;
+  color: var(--TB-Brand-DarkGray, #858585);
 }

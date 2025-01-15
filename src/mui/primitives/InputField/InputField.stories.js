@@ -1,11 +1,37 @@
-import React from 'react';
+import { fn } from '@storybook/test';
 import InputField from './InputField';
+import React from 'react';
+import { fullStory } from '/Users/jsun/WebstormProjects/blueprint/src/mui/templates/Full.story.structure.js';
+import '/Users/jsun/WebstormProjects/blueprint/src/mui/templates/Full.story.style.scss';
 
 const StorySchema = {
-  title: 'Components/InputField',
+  title: 'components/Input Field',
   component: InputField,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  decorators: [(StoryFn, context) => fullStory(StoryFn, context, {
+    variations: [
+      { label: 'Base', value: 'height=48px' },
+      { label: 'Small', value: 'height=40px' },
+    ],
+    properties: [
+      [
+        { label: 'FullWidth=False', value: 'padding=20px' },
+        { label: 'FullWidth=True', value: 'container width' },
+      ],
+      [
+        { label: 'Disabled=False', value: 'fill=AccentBlue' },
+        { label: 'Disabled=True', value: 'fill=MedGray' },
+      ],
+    ],
+  })],
+  args: { onClick: fn() },
   argTypes: {
-    placeholder: { control: 'text' },
+    className: { control: 'text' },
+    size: { control: 'select', options: ['base', 'small'] },
+    variant: { control: 'select', options: ['contained', 'outlined', 'text'] },
+    color: { control: 'select', options: ['accent', 'primary', 'medium', 'success', 'error'] },
     disabled: { control: 'boolean' },
   },
 };
@@ -17,6 +43,8 @@ const Template = (args) => <InputField {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Enter your text',
+  componentNumber: 2,
+  componentName: 'Input Field'
 };
 
 export const WithValue = Template.bind({});

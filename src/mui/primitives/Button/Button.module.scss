@@ -9,108 +9,63 @@
   cursor: pointer;
   border-radius: var(--mui-GlobalBrandBorderRadius);
   padding: 0 20px;
+  width: fit-content;
   font: var(--mui-MuiCssBaseline-typography-SemanticButtonLabelBase-font);
-  // base
-  height: 48px;
+  height: 48px; // Base size height
+
+  // Full-width style
+  &.fullWidth {
+    width: 100%;
+  }
 
   /**
    * Sizes
    */
   &.small {
-   height: 40px;
+    height: 40px;
   }
 
   /**
-   * Variants
+   * Colors
    */
-  &.contained {
+  &.accent {
+    background-color: var(--mui-palette-TB-Brand-Accent);
+    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+  }
 
-    &.accent {
-      background-color: var(--mui-palette-TB-Brand-Accent);
-      color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-    }
+  &.primary {
+    background-color: var(--mui-palette-TB-Brand-Primary, #0C223F);
+    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+  }
 
-    &.primary {
-      background-color: var(--mui-palette-TB-Brand-Primary, #0C223F);
-      color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-    }
+  &.mediumColor {
+    background-color: var(--mui-palette-TB-Brand-Medium);
+    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+  }
 
-    &.mediumColor {
-      background-color: var(--mui-palette-TB-Brand-Medium);
-      color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-    }
+  &.success {
+    background-color: var(--mui-palette-TB-Functional-Success, #009D47);
+    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+  }
 
-    &.success {
-      background-color: var(--mui-palette-TB-Functional-Success, #009D47);
-      color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-    }
+  &.error {
+    background-color: var(--mui-palette-TB-Functional-Error, #A31F34);
+    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+  }
 
-    &.error {
-      background-color: var(--mui-palette-TB-Functional-Error, #A31F34);
-      color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-    }
+  // Hover and focus states
+  &:focus,
+  &:hover {
+    opacity: 0.9;
+  }
 
-    &:focus,
+  // Disabled state
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
     &:hover {
-      opacity: .9;
-    }
-  }
-  &.outlined {
-
-    &.accent {
-      background-color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-      color: var(--mui-palette-TB-Brand-Accent);
-      border: 1px solid var(--mui-palette-TB-Brand-Accent);
-    }
-
-    &.primary {
-      background-color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-      color: var(--mui-palette-TB-Brand-Primary);
-      border: 1px solid var(--mui-palette-TB-Brand-Primary);
-    }
-
-    &.mediumColor {
-      background-color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-      color: var(--mui-palette-TB-Brand-Medium);
-      border: 1px solid var(--mui-palette-TB-Brand-Medium);
-    }
-
-    &.success {
-      background-color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-      color: var(--mui-palette-TB-Functional-Success, #009D47);
-      border: 1px solid var(--mui-palette-TB-Functional-Success, #009D47);
-    }
-
-    &.error {
-      background-color: var(--mui-palette-TB-Functional-White, #FFFFFF);
-      color: var(--mui-palette-TB-Functional-Error, #A31F34);
-      border: 1px solid var(--mui-palette-TB-Functional-Error, #A31F34);
-    }
-  }
-  &.text {
-    &.accent {
-      background-color: transparent;
-      color: var(--mui-palette-TB-Brand-Accent);
-    }
-
-    &.primary {
-      background-color: transparent;
-      color: var(--mui-palette-TB-Brand-Primary);
-    }
-
-    &.mediumColor {
-      background-color: transparent;
-      color: var(--mui-palette-TB-Brand-Medium);
-    }
-
-    &.success {
-      background-color: transparent;
-      color: var(--mui-palette-TB-Functional-Success, #009D47);
-    }
-
-    &.error {
-      background-color: transparent;
-      color: var(--mui-palette-TB-Functional-Error, #A31F34);
+      opacity: 0.5;
     }
   }
 
@@ -127,15 +82,6 @@
       font-size: 14px;
       white-space: nowrap;
       margin-left: 8px;
-    }
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: .5;
-
-    &:hover {
-      opacity: .5;
     }
   }
 }
