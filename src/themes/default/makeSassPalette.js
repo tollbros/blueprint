@@ -17,7 +17,7 @@ const flattenToSassVars = (obj, parentKey = '') => {
   return result
 }
 
-const makeSASSColors = async () => {
+const makeSassPalette = async () => {
   const palette = defaultTheme.palette
   // At this point result is pretty much this
   // {
@@ -33,4 +33,4 @@ const makeSASSColors = async () => {
   await fs.writeFile(`${currentWorkingDirectory}/styles/modules/_colors.scss`, sassVars);
 }
 
-makeSASSColors()
+makeSassPalette()

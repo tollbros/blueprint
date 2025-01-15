@@ -25,7 +25,7 @@
     "build-storybook": "storybook build",
     "lint": "next lint",
     "stylelint": "stylelint '**/*.scss'",
-    "colors": "tsx src/themes/default/makeSASSColors.js"
+    "palette": "tsx src/themes/default/makeSassPalette.js"
   },
   "bugs": {
     "url": "https://github.com/tollbros/blueprint/issues"
