@@ -19,12 +19,12 @@
 
     &-number {
       margin-bottom: 4px;
-      font: var(--mui-MuiCssBaseline-typography-GothamSmallBook-font);
+      font: var(--tb-typography-GothamSmallBook-font);
       color: #000;
     }
 
     &-name {
-      font: var(--mui-MuiCssBaseline-typography-GothamSmallBold-font);
+      font: var(--tb-typography-GothamSmallBold-font);
       color: #000;
     }
   }
@@ -59,7 +59,7 @@ button {
   text-align: left;
 
   &__title {
-    font: var(--mui-MuiCssBaseline-typography-GothamSmallBold-font);
+    font: var(--tb-typography-GothamSmallBold-font);
     margin-bottom: 8px;
     text-align: center;
   }
@@ -76,11 +76,11 @@ button {
     justify-content: space-between;
 
     &-label {
-      font: var(--mui-MuiCssBaseline-typography-SubheaderSmall-font);
+      font: var(--tb-typography-SubheaderSmall-font);
     }
 
     &-value {
-      font: var(--mui-MuiCssBaseline-typography-BodySmall-font);
+      font: var(--tb-typography-BodySmall-font);
     }
   }
 

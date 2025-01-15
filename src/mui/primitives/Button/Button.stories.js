@@ -1,8 +1,8 @@
 import { fn } from '@storybook/test';
 import Button from './Button';
 import React from 'react';
-import { fullStory } from '/Users/jsun/WebstormProjects/blueprint/src/mui/templates/Full.story.structure.js';
-import '/Users/jsun/WebstormProjects/blueprint/src/mui/templates/Full.story.style.scss';
+import { fullStory } from '../../templates/Full.story.structure.js';
+import '../../templates/Full.story.style.scss';
 
 const StorySchema = {
   title: 'primitives/Buttons',
