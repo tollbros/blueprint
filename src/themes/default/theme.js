@@ -1,68 +1,54 @@
-import { figmaTheme } from './figma';
+import typography from './typography';
 
 export const defaultTheme = {
-  MuiCssBaseline: {
-    styleOverrides: `
-        @import "https://use.typekit.net/loo0pmd.css";
-
-        @font-face {
-          font-family: 'Domaine';
-          src: local('domaine-bold'), url('https://cdn.tollbrothers.com/fonts/domaine/domaine-bold.woff2') format('woff2'),
-            url('https://cdn.tollbrothers.com/fonts/domaine/domaine-bold.woff') format('woff');
-          font-weight: 400;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @font-face {
-          font-family: 'Domaine';
-          src: local('domaine-semibold'), url('https://cdn.tollbrothers.com/fonts/domaine/domaine-display-web-semibold.woff2') format('woff2'),
-            url('https://cdn.tollbrothers.com/fonts/domaine/domaine-display-web-semibold.woff') format('woff');
-          font-weight: 300;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @font-face {
-          font-family: "Gotham Narrow";
-          src: local("GothamNarrSSm-Light"),
-            url("https://cdn.tollbrothers.com/fonts/gotham/woff2/GothamNarrSSm-Light_Web.woff2") format("woff2"),
-            url("https://cdn.tollbrothers.com/fonts/gotham/woff/GothamNarrSSm-Light_Web.woff") format("woff");
-          font-weight: 200 400;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @font-face {
-          font-family: "Gotham Narrow";
-          src: local("GothamNarrSSm-Medium"),
-            url("https://cdn.tollbrothers.com/fonts/gotham/woff2/GothamNarrSSm-Medium_Web.woff2") format("woff2"),
-            url("https://cdn.tollbrothers.com/fonts/gotham/woff/GothamNarrSSm-Medium_Web.woff") format("woff");
-          font-weight: 500, 600;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @font-face {
-          font-family: Gotham;
-          src: local("GothamSSm-Book"),
-            url("https://cdn.tollbrothers.com/fonts/gotham/woff2/GothamSSm-Book_Web.woff2") format("woff2"),
-            url("https://cdn.tollbrothers.com/fonts/gotham/woff/GothamSSm-Book_Web.woff") format("woff");
-          font-weight: 200 400;
-          font-style: normal;
-          font-display: swap;
-        }
-
-        @font-face {
-          font-family: Gotham;
-          src: local("GothamNarrSSm-Medium"),
-            url("https://cdn.tollbrothers.com/fonts/gotham/woff2/GothamSSm-Bold_Web.woff2") format("woff2"),
-            url("https://cdn.tollbrothers.com/fonts/gotham/woff/GothamSSm-Bold_Web.woff") format("woff");
-          font-weight: 500;
-          font-style: normal;
-          font-display: swap;
-        }
-      `,
+  palette: {
+    TB: {
+      Brand: {
+        Primary: '#0C223F',
+        Medium: '#004876',
+        Accent: '#0070CD',
+        Gray: '#8195A2',
+      },
+      Functional: {
+        Black: '#000000',
+        OffBlack: '#595959',
+        White: '#FFFFFF',
+        OffWhite: '#B5B5B5',
+        DarkGray: '#858585',
+        MedGray: '#D8D8D8',
+        LightGray: '#E9EDF0',
+        GrayOnDark: 'rgba(255, 255, 255, 0.2)',
+        Success: '#009D47',
+        Error: '#A31F34',
+      },
+      POI: {
+        Food: '#AD3F49',
+        Fitness: '#D78956',
+        Entertainment: '#DBAE60',
+        Parks: '#5E8748',
+        Transportation: '#5C8988',
+        Business: '#2C71C7',
+        Shopping: '#344072',
+        School: '#543D6E',
+      },
+    },
+    primary: {
+      contrast: '#FFFFFF',
+      main: '#2196F3',
+    },
+    action: {
+      disabled: 'rgba(0, 0, 0, 0.38)',
+    },
   },
-  ...figmaTheme,
+  typography: {
+    ...typography,
+    SemanticPlaceholder: typography.GothamBaseBook,
+    SemanticFloatingPlaceholder: typography.GothamXSmallBook,
+    SemanticInput: typography.SubheaderBase,
+    SemanticButtonLabelBase: typography.GothamBaseBold,
+    SemanticButtonLabelSmall: typography.GothamSmallBold,
+    SemanticTabLabel: typography.GothamBaseBold,
+    SemanticTagLabel: typography.GothamSmallBold,
+  },
+  GlobalBrandBorderRadius: '4px',
 };
