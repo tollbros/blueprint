@@ -18,13 +18,14 @@
     "bundle": "microbundle --jsx React.createElement --jsxImportSource react --compress --format modern,cjs",
     "build": "npm run bundle",
     "dev": "npm run bundle -- watch",
-    "prepare":  "run-s build",
+    "prepare": "run-s build",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "next lint",
-    "stylelint": "stylelint '**/*.scss'"
+    "stylelint": "stylelint '**/*.scss'",
+    "palette": "tsx src/themes/default/makeSassPalette.js"
   },
   "bugs": {
     "url": "https://github.com/tollbros/blueprint/issues"
@@ -72,7 +73,8 @@
     "storybook": "^8.1.11",
     "stylelint": "^16.6.1",
     "stylelint-config-prettier-scss": "^1.0.0",
-    "stylelint-config-standard-scss": "^13.1.0"
+    "stylelint-config-standard-scss": "^13.1.0",
+    "tsx": "^4.19.2"
   },
   "files": [
     "dist"
