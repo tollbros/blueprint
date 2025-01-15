@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, useMemo } from 'react';
 import decorateTheme from './utils/decorateTheme';
 import flattenToCssVars from './utils/flattenToCssVars';
+import hexToRgba from './utils/hexToRGB';
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children, theme }) => {
@@ -91,6 +92,13 @@ const ThemeProvider = ({ children, theme }) => {
 :root {
   ${Object.entries(cssVarsObject)
       .map(([key, value]) => `${key}: ${value};`)
+      .join('\n')}
+
+  ${Object.entries(cssVarsObject)
+      .filter(([key, value]) => key.includes('palette') && value.includes('#'))
+      .map(([key, value]) => {
+        return `${key}-RGB: ${ hexToRgba(value)};`
+      })
       .join('\n')}
 }`}
       </style>

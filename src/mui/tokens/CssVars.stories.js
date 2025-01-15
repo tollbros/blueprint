@@ -1,6 +1,7 @@
 import { defaultTheme } from '../../themes/default/theme';
 import decorateTheme from '../../themes/utils/decorateTheme';
 import flattenToCssVars from '../../themes/utils/flattenToCssVars';
+import hexToRgba from '../../themes/utils/hexToRGB';
 const themeObject = flattenToCssVars(decorateTheme({ theme: defaultTheme }));
 
 const StorySchema = {
@@ -13,6 +14,15 @@ const StorySchema = {
             <div key={themeKey} style={{ display: 'flex', gap: '24px', width: '100%', justifyContent: 'space-between' }}>
               <span>{themeKey}</span>
               <span>{themeObject[themeKey]}</span>
+            </div>
+          )
+        })}
+        {Object.entries(themeObject).filter(([key, value]) => key.includes('palette') && value.includes('#'))
+        .map(([key, value], hexIndex) => {
+          return (
+            <div key={`hex-${hexIndex}`} style={{ display: 'flex', gap: '24px', width: '100%', justifyContent: 'space-between' }}>
+              <span>{key}-RGB</span>
+              <span>{hexToRgba(value)}</span>
             </div>
           )
         })}
