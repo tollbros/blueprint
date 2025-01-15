@@ -1,38 +1,39 @@
 import styles from './Button.module.scss';
 
-const Button = ({ children, variant = 'contained', size = 'base', color = 'accent', className = '', fullWidth = false, ...rest }) => {
-  const classes = [styles.button];
+const Button = ({
+                  children,
+                  size = 'base',
+                  color = 'accent',
+                  className = '',
+                  fullWidth = false,
+                  ...rest
+                }) => {
+  const classMap = {
+    size: {
+      small: styles.small,
+    },
+    color: {
+      accent: styles.accent,
+      primary: styles.primary,
+      medium: styles.mediumColor,
+      success: styles.success,
+      error: styles.error,
+    },
+    fullWidth: fullWidth ? styles.fullWidth : '',
+  };
 
-  if (fullWidth) {
-    classes.push(styles.fullWidth);
-  }
-
-  if (variant === 'contained') {
-    classes.push(styles.contained);
-  } else if (variant === 'outlined') {
-    classes.push(styles.outlined);
-  } else if (variant === 'text') {
-    classes.push(styles.text);
-  }
-
-  if (size === 'small') {
-    classes.push(styles.small);
-  }
-
-  if (color === 'accent') {
-    classes.push(styles.accent);
-  } else if (color === 'primary') {
-    classes.push(styles.primary);
-  } else if (color === 'medium') {
-    classes.push(styles.mediumColor);
-  } else if (color === 'success') {
-    classes.push(styles.success);
-  } else if (color === 'error') {
-    classes.push(styles.error);
-  }
+  const classes = [
+    styles.button, // Base style
+    classMap.size[size],
+    classMap.color[color],
+    classMap.fullWidth,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <button className={`${classes.join(' ')} ${className}`} type={'button'} {...rest}>
+    <button className={classes} type="button" {...rest}>
       {children}
     </button>
   );
