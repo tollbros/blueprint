@@ -7,10 +7,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: var(--mui-GlobalBrandBorderRadius);
+  border-radius: var(--tb-GlobalBrandBorderRadius);
   padding: 0 20px;
   width: fit-content;
-  font: var(--mui-MuiCssBaseline-typography-SemanticButtonLabelBase-font);
+  font: var(--tb-typography-SemanticButtonLabelBase-font);
   height: 48px; // Base size height
 
   // Full-width style
@@ -29,28 +29,28 @@
    * Colors
    */
   &.accent {
-    background-color: var(--mui-palette-TB-Brand-Accent);
-    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+    background-color: var(--tb-palette-TB-Brand-Accent);
+    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
   }
 
   &.primary {
-    background-color: var(--mui-palette-TB-Brand-Primary, #0C223F);
-    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+    background-color: var(--tb-palette-TB-Brand-Primary, #0C223F);
+    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
   }
 
   &.mediumColor {
-    background-color: var(--mui-palette-TB-Brand-Medium);
-    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+    background-color: var(--tb-palette-TB-Brand-Medium);
+    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
   }
 
   &.success {
-    background-color: var(--mui-palette-TB-Functional-Success, #009D47);
-    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+    background-color: var(--tb-palette-TB-Functional-Success, #009D47);
+    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
   }
 
   &.error {
-    background-color: var(--mui-palette-TB-Functional-Error, #A31F34);
-    color: var(--mui-palette-TB-Functional-White, #FFFFFF);
+    background-color: var(--tb-palette-TB-Functional-Error, #A31F34);
+    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
   }
 
   // Hover and focus states

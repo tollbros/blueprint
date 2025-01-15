@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '../../../themes/ThemeProvider';
 import styles from './Select.module.scss';
 
 const Select = ({ options, placeholder = 'Select an option' }) => {

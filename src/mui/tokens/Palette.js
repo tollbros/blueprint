@@ -1,9 +1,9 @@
 import React from 'react';
-import * as styles from '@mui/material/styles';
+import { useTheme } from '../../themes/ThemeProvider';
 import PaletteTokenTypes from './PaletteTokenTypes';
 
 const Palette = () => {
-  const theme = styles.useTheme();
+  const theme = useTheme();
 
   return (
     <div>

@@ -27,7 +27,7 @@
   color: var(--TB-Brand-Base-Text, #000);
   text-align: left;
   padding: 12px 0 0 0;
-  font: var(--mui-MuiCssBaseline-typography-SubheaderBase-font);
+  font: var(--tb-typography-SubheaderBase-font);
 }
 
 .input:focus {
@@ -47,14 +47,14 @@
   color: var(--TB-Brand-Base-Text, #000);
   text-align: left;
   pointer-events: none;
-  font: var(--mui-MuiCssBaseline-typography-GothamBaseBook-font);
+  font: var(--tb-typography-GothamBaseBook-font);
 
 }
 
 .floatingPlaceholder {
   top: 6px;
   transform: translateY(0);
-  font: var(--mui-MuiCssBaseline-typography-GothamXSmallBook-font);
+  font: var(--tb-typography-GothamXSmallBook-font);
 }
 
 .input:not(:placeholder-shown) + .placeholder {

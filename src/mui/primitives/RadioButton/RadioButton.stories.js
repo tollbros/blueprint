@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import RadioButton from './RadioButton';
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '../../../themes/ThemeProvider';
 
 export default {
   title: 'Components/RadioButton',
