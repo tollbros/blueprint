@@ -1,0 +1,111 @@
+.story-wrapper {
+  height: 14vh;
+}
+
+.component-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+
+  &__label {
+    margin-bottom: 24px;
+    text-align: center;
+
+    &-number {
+      margin-bottom: 4px;
+      font: var(--tb-typography-GothamSmallBook-font);
+      color: #000;
+    }
+
+    &-name {
+      font: var(--tb-typography-GothamSmallBold-font);
+      color: #000;
+    }
+  }
+
+  .component-container {
+    width: 100%;  /* Ensure container stretches */
+    max-width: 343px;  /* Limit width to match component-wrapper */
+    margin: 0 auto;  /* Center container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgreen;  /* Light green for debugging */
+    border: 1px solid red;  /* Border to confirm visibility */
+    height: 100%;  /* Ensure height stretches */
+  }
+}
+
+button {
+  width: 100%;  // Apply full width when fullWidth prop is true
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  min-height: auto;
+}
+
+.info-section {
+  width: 343px;
+  text-align: left;
+
+  &__title {
+    font: var(--tb-typography-GothamSmallBold-font);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  &__content {
+    width: 100%;
+    & + & {
+      margin-top: 24px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &-label {
+      font: var(--tb-typography-SubheaderSmall-font);
+    }
+
+    &-value {
+      font: var(--tb-typography-BodySmall-font);
+    }
+  }
+
+  &__divider {
+    width: 320px;
+    height: 1px;
+    background-color: #D8D8D8;
+    margin: 24px 0;
+  }
+
+  &__groups {
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.lorem-ipsum-text {
+  width: 343px;             // Keep the fixed width
+  margin: 0 auto;           // Center it horizontally
+  padding: 0 20px;
+  height: 100vh;            // Ensure it takes up the full height of the viewport
+  display: flex;
+  justify-content: center;  // Horizontally center the text
+  align-items: center;      // Vertically center the text
+  text-align: center;
+}
