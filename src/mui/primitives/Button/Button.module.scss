@@ -1,7 +1,25 @@
 @import "styles/modules/all";
 
+// First, let's define the breakpoint mixin if it's not already defined elsewhere
+@mixin breakpoint($point) {
+  @if $point == sm {
+    @media (min-width: 576px) { @content; }
+  }
+  @else if $point == md {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $point == lg {
+    @media (min-width: 992px) { @content; }
+  }
+  @else if $point == xl {
+    @media (min-width: 1200px) { @content; }
+  }
+}
+
 .button {
+  position: relative;
   border: 0;
+  color: white;
   min-width: 55px;
   display: flex;
   align-items: center;
@@ -11,61 +29,66 @@
   padding: 0 20px;
   width: fit-content;
   font: var(--tb-typography-SemanticButtonLabelBase-font);
-  height: 48px; // Base size height
+  height: 48px;
+  background-color: var(--tb-palette-TB-Brand-Accent);
+  overflow: hidden;
 
-  // Full-width style
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    pointer-events: none;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
   &.fullWidth {
     width: 100%;
   }
 
-  /**
-   * Sizes
-   */
   &.small {
     height: 40px;
   }
 
-  /**
-   * Colors
-   */
   &.accent {
     background-color: var(--tb-palette-TB-Brand-Accent);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
   }
 
   &.primary {
     background-color: var(--tb-palette-TB-Brand-Primary, #0C223F);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
   }
 
-  &.mediumColor {
-    background-color: var(--tb-palette-TB-Brand-Medium);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
+  &.medium {
+    background-color: var(--tb-palette-TB-Brand-Medium, #004876);
   }
 
   &.success {
     background-color: var(--tb-palette-TB-Functional-Success, #009D47);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
   }
 
   &.error {
     background-color: var(--tb-palette-TB-Functional-Error, #A31F34);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
   }
 
-  // Hover and focus states
-  &:focus,
-  &:hover {
-    opacity: 0.9;
-  }
-
-  // Disabled state
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
 
-    &:hover {
-      opacity: 0.5;
+    &::before {
+      display: none;
     }
   }
 
@@ -77,7 +100,7 @@
   span {
     display: none;
 
-    @include breakpoint(sm) {
+    @media (min-width: 576px) {  // Using direct media query instead of mixin
       display: inline-block;
       font-size: 14px;
       white-space: nowrap;

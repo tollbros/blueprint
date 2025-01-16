@@ -42,6 +42,7 @@ const StorySchema = {
     onClick: { table: { disable: true } },
     componentNumber: { table: { disable: true } },
     componentName: { table: { disable: true } },
+    variant: { table: { disable: true } },
   },
 };
 
@@ -51,12 +52,13 @@ export const PrimaryCTAButton = {
   args: {
     children: 'Button Name',
     size: 'base',
-    variant: 'contained',
     color: 'accent',
     disabled: false,
     fullWidth: false,
     className: '',
+    variant: 'primary',
     componentNumber: 1,
     componentName: 'Primary CTA Button'
   },
 };
+

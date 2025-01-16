@@ -3,21 +3,19 @@ import styles from './Button.module.scss';
 const Button = ({
                   children,
                   size = 'base',
-                  color = 'accent',
+                  color = 'accent',  // Default color is 'accent'
                   className = '',
                   fullWidth = false,
                   ...rest
                 }) => {
+
+  //immediately checks if a matching style of the name exists so does not need to be explicitly spelled out.
+  const colorClass = styles[color] || styles.accent;
+
   const classMap = {
     size: {
       small: styles.small,
-    },
-    color: {
-      accent: styles.accent,
-      primary: styles.primary,
-      medium: styles.mediumColor,
-      success: styles.success,
-      error: styles.error,
+      base: styles.base, // Default size class
     },
     fullWidth: fullWidth ? styles.fullWidth : '',
   };
@@ -25,15 +23,19 @@ const Button = ({
   const classes = [
     styles.button, // Base style
     classMap.size[size],
-    classMap.color[color],
     classMap.fullWidth,
+    colorClass,
     className,
   ]
     .filter(Boolean)
     .join(' ');
 
   return (
-    <button className={classes} type="button" {...rest}>
+    <button
+      className={classes}
+      type="button"
+      {...rest}
+    >
       {children}
     </button>
   );
