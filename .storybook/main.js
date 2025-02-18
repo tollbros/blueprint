@@ -1,6 +1,6 @@
 /** @type { import('@storybook/nextjs').StorybookConfig } */
 const config = {
-  stories: 
+  stories:
     ["../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
@@ -10,7 +10,8 @@ const config = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    '@storybook/addon-styling-webpack'
+    '@storybook/addon-styling-webpack',
+    '@storybook/addon-designs'
   ],
   framework: {
     name: '@storybook/nextjs',

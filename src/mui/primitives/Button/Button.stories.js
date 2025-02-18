@@ -7,56 +7,136 @@ import '../../templates/Full.story.style.scss';
 const StorySchema = {
   title: 'primitives/Buttons',
   component: Button,
+  tags: ['autodocs'],
   parameters: {
-    layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/4w6Ywo2rs8mRj2SRXzDKo6/Untitled?node-id=0-3&t=KcXRTL69HE6gjTHM-1'
+    },
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+A versatile Button component that supports primary and secondary variants with different sizes and states.
+        `
+      }
+    }
   },
-  decorators: [(StoryFn, context) => fullStory(StoryFn, context, {
-    variations: [
-      { label: 'Base', value: 'height=48px' },
-      { label: 'Small', value: 'height=40px' },
-    ],
-    properties: [
-      [
-        { label: 'FullWidth=False', value: 'padding=20px' },
-        { label: 'FullWidth=True', value: 'container width' },
-      ],
-      [
-        { label: 'Disabled=False', value: 'fill=AccentBlue' },
-        { label: 'Disabled=True', value: 'fill=MedGray' },
-      ],
-    ],
-  })],
-
   args: { onClick: fn() },
   argTypes: {
     className: { control: 'text' },
-    size: { control: 'select', options: ['base', 'small'] },
-    color: { control: 'select', options: ['accent', 'primary', 'medium', 'success', 'error'] },
+    size: {
+      control: 'select',
+      options: ['default', 'small', 'xsmall'],
+      description: 'Controls the size of the button',
+      table: {
+        defaultValue: { summary: 'default' }
+      }
+    },
     disabled: { control: 'boolean' },
-    fullWidth: {  // Add this control
+    fullWidth: {
       control: 'boolean',
       description: 'Whether the button should take up the full width of its container',
       defaultValue: false,
     },
-    // Exclude from controls
     onClick: { table: { disable: true } },
     componentNumber: { table: { disable: true } },
     componentName: { table: { disable: true } },
+    variant: { table: { disable: true } },
+    PRIMARY_FILL_VARIANT: { table: { disable: true } },
+    SECONDARY_STROKE_VARIANT: { table: { disable: true } },
+    SECONDARY_TEXT_VARIANT: { table: { disable: true } },
   },
 };
 
 export default StorySchema;
 
-export const PrimaryCTAButton = {
-  args: {
-    children: 'Button Name',
-    size: 'base',
-    variant: 'contained',
-    color: 'accent',
-    disabled: false,
-    fullWidth: false,
-    className: '',
-    componentNumber: 1,
-    componentName: 'Primary CTA Button'
+// Primary button examples
+export const PrimaryExamples = {
+  parameters: {
+    docs: {
+      source: {
+        code: `
+// Import the Button component
+import { Button } from '@tollbrothers/blueprint'
+
+// Example usage
+const MyComponent = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <Button variant="primary" size="default">
+      Primary Button
+    </Button>
+
+    <Button variant="primary" size="small">
+      Small Primary
+    </Button>
+
+    <Button variant="primary" fullWidth>
+      Full Width Button
+    </Button>
+  </div>
+)`
+      }
+    }
   },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
+      <Button variant="primary" size="default">
+        Primary Button
+      </Button>
+
+      <Button variant="primary" size="small">
+        Small Primary
+      </Button>
+
+      <Button variant="primary" fullWidth>
+        Full Width Button
+      </Button>
+    </div>
+  )
+};
+
+// Secondary button examples
+export const SecondaryExamples = {
+  parameters: {
+    docs: {
+      source: {
+        code: `
+// Import the Button component
+import { Button } from '@tollbrothers/blueprint'
+
+// Example usage
+const MyComponent = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <Button variant="secondary" size="default">
+      Secondary Button
+    </Button>
+
+    <Button variant="secondary" size="small">
+      Small Secondary
+    </Button>
+
+    <Button variant="secondary" fullWidth>
+      Full Width Secondary Button
+    </Button>
+  </div>
+)`
+      }
+    }
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
+      <Button variant="secondary" size="default">
+        Secondary Button
+      </Button>
+
+      <Button variant="secondary" size="small">
+        Small Secondary
+      </Button>
+
+      <Button variant="secondary" fullWidth>
+        Full Width Secondary Button
+      </Button>
+    </div>
+  )
 };

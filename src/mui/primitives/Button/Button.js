@@ -1,39 +1,54 @@
 import styles from './Button.module.scss';
+import classNames from 'classnames';
+
+const SIZE_CLASSES = {
+  default: styles.default,  // Default button size
+  small: styles.small,      // Small button size
+  xsmall: styles.xsmall     // Extra small button size
+};
+
+
+// Primary CTA property only
+const PRIMARY_FILL_VARIANTS = {
+  defaultColor: styles.defaultColorFill // Default fill for Primary CTA
+};
+
+// Secondary CTA properties only
+const SECONDARY_STROKE_VARIANTS = {
+  defaultColor: styles.defaultColorStroke // Default stroke for Secondary CTA
+};
+
+const SECONDARY_TEXT_VARIANTS = {
+  defaultColor: styles.defaultColorText // Default text color for Secondary CTA
+};
 
 const Button = ({
                   children,
-                  size = 'base',
-                  color = 'accent',
+                  size = 'default',
+                  variant = 'primary',
+                  PRIMARY_FILL_VARIANT = 'defaultColor',
+                  SECONDARY_STROKE_VARIANT = 'defaultColor',
+                  SECONDARY_TEXT_VARIANT = 'defaultColor',
                   className = '',
                   fullWidth = false,
                   ...rest
                 }) => {
-  const classMap = {
-    size: {
-      small: styles.small,
+  // Build the className string using conditional logic
+  const buttonClasses = classNames(
+    styles.button,
+    SIZE_CLASSES[size],
+    styles[variant],
+    {
+      [styles.fullWidth]: fullWidth,
+      [PRIMARY_FILL_VARIANTS[PRIMARY_FILL_VARIANT] || PRIMARY_FILL_VARIANTS.defaultColor]: variant === 'primary',
+      [SECONDARY_STROKE_VARIANTS[SECONDARY_STROKE_VARIANT] || SECONDARY_STROKE_VARIANTS.defaultColor]: variant === 'secondary',
+      [SECONDARY_TEXT_VARIANTS[SECONDARY_TEXT_VARIANT] || SECONDARY_TEXT_VARIANTS.defaultColor]: variant === 'secondary'
     },
-    color: {
-      accent: styles.accent,
-      primary: styles.primary,
-      medium: styles.mediumColor,
-      success: styles.success,
-      error: styles.error,
-    },
-    fullWidth: fullWidth ? styles.fullWidth : '',
-  };
-
-  const classes = [
-    styles.button, // Base style
-    classMap.size[size],
-    classMap.color[color],
-    classMap.fullWidth,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+    className
+  );
 
   return (
-    <button className={classes} type="button" {...rest}>
+    <button className={buttonClasses} type="button" {...rest}>
       {children}
     </button>
   );

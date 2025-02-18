@@ -1,17 +1,19 @@
 .story-wrapper {
   height: 14vh;
+  width: 100%;  /* Ensure the story wrapper takes full width of the viewport */
 }
 
 .component-wrapper {
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 40px 20px;
+  padding: 40px 20px;  /* Adjusted padding to keep space on all sides */
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 100%;  /* Full width */
   background-color: white;
+  box-sizing: border-box;  /* Include padding in width calculation */
 
   &__label {
     margin-bottom: 24px;
@@ -30,20 +32,19 @@
   }
 
   .component-container {
-    width: 100%;  /* Ensure container stretches */
-    max-width: 343px;  /* Limit width to match component-wrapper */
+    width: 100%;  /* Ensure container stretches to full width */
     margin: 0 auto;  /* Center container */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgreen;  /* Light green for debugging */
-    border: 1px solid red;  /* Border to confirm visibility */
     height: 100%;  /* Ensure height stretches */
+    box-sizing: border-box;  /* Include padding in width calculation */
   }
 }
 
 button {
-  width: 100%;  // Apply full width when fullWidth prop is true
+  width: 100%;  /* Full width button */
+  box-sizing: border-box;  /* Include padding in width calculation */
 }
 
 .content-wrapper {
@@ -52,10 +53,13 @@ button {
   align-items: center;
   padding: 40px;
   min-height: auto;
+  width: 100%;  /* Full width */
+  box-sizing: border-box;  /* Include padding in width calculation */
 }
 
 .info-section {
-  width: 343px;
+  width: 100%;  /* Make info-section responsive to full width */
+  max-width: 343px;  /* Limit width to match other components */
   text-align: left;
 
   &__title {
@@ -85,27 +89,27 @@ button {
   }
 
   &__divider {
-    width: 320px;
+    width: 100%;  /* Make divider full width */
     height: 1px;
     background-color: #D8D8D8;
     margin: 24px 0;
   }
 
   &__groups {
-
     &:last-child {
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
   }
 }
 
 .lorem-ipsum-text {
-  width: 343px;             // Keep the fixed width
-  margin: 0 auto;           // Center it horizontally
+  width: 100%;  /* Ensure text container takes full width */
+  max-width: 343px;  /* Limit width to match other components */
+  margin: 0 auto;  /* Center it horizontally */
   padding: 0 20px;
-  height: 100vh;            // Ensure it takes up the full height of the viewport
+  height: 100vh;  /* Full viewport height */
   display: flex;
-  justify-content: center;  // Horizontally center the text
-  align-items: center;      // Vertically center the text
+  justify-content: center;  /* Horizontally center the text */
+  align-items: center;  /* Vertically center the text */
   text-align: center;
 }

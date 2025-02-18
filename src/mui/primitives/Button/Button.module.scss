@@ -1,74 +1,84 @@
 @import "styles/modules/all";
 
 .button {
-  border: 0;
-  min-width: 55px;
+  // Layout
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  border-radius: var(--tb-GlobalBrandBorderRadius);
-  padding: 0 20px;
-  width: fit-content;
-  font: var(--tb-typography-SemanticButtonLabelBase-font);
-  height: 48px; // Base size height
+  overflow: hidden;
 
-  // Full-width style
+  // Dimensions
+  width: fit-content;
+  min-width: 55px;
+  height: 48px;
+  padding: 0 20px;
+
+  // Visual
+  background-color: var(--tb-palette-TB-Brand-Accent);
+  border: 0;
+  border-radius: var(--tb-GlobalBrandBorderRadius);
+  color: white;
+  cursor: pointer;
+
+  // Typography
+  font: var(--tb-typography-SemanticButtonLabelBase-font);
+
+  // Size variations
+  &.small {
+    height: 40px;
+    font: var(--tb-typography-SemanticButtonLabelSmall-font);
+  }
+
+  &.xsmall {
+    height: 32px;
+    font: var(--tb-typography-SemanticButtonLabelSmall-font);
+  }
+
+  // Width variation
   &.fullWidth {
     width: 100%;
   }
 
-  /**
-   * Sizes
-   */
-  &.small {
-    height: 40px;
-  }
-
-  /**
-   * Colors
-   */
-  &.accent {
-    background-color: var(--tb-palette-TB-Brand-Accent);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
-  }
-
+  // Variant styles
   &.primary {
-    background-color: var(--tb-palette-TB-Brand-Primary, #0C223F);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
-  }
 
-  &.mediumColor {
-    background-color: var(--tb-palette-TB-Brand-Medium);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
-  }
+    &:hover:not(:disabled) {
+      background-color: green;
+    }
 
-  &.success {
-    background-color: var(--tb-palette-TB-Functional-Success, #009D47);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
-  }
-
-  &.error {
-    background-color: var(--tb-palette-TB-Functional-Error, #A31F34);
-    color: var(--tb-palette-TB-Functional-White, #FFFFFF);
-  }
-
-  // Hover and focus states
-  &:focus,
-  &:hover {
-    opacity: 0.9;
-  }
-
-  // Disabled state
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-
-    &:hover {
-      opacity: 0.5;
+    &:disabled {
+      cursor: not-allowed;
+      background-color: var(--tb-palette-TB-Functional-MedGray);
+      color: white;
     }
   }
 
+  &.secondary {
+    background-color: transparent;
+
+    &.defaultColorStroke {
+      border: 1px solid var(--tb-palette-TB-Brand-Gray); // default stroke color
+    }
+
+    &.defaultColorText {
+      color: var(--tb-palette-TB-Brand-Medium); // default text color
+    }
+
+    &:hover:not(:disabled) {
+      background-color: #4CAF50;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: white;
+      color: var(--tb-palette-TB-Functional-MedGray);
+      border: 1px solid var(--tb-palette-TB-Functional-MedGray);
+    }
+  }
+
+
+  // Image and span styles remain the same
   img {
     filter: invert(1);
     height: 13px;
@@ -77,7 +87,7 @@
   span {
     display: none;
 
-    @include breakpoint(sm) {
+    @media (min-width: 576px) {
       display: inline-block;
       font-size: 14px;
       white-space: nowrap;
