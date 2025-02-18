@@ -18,9 +18,7 @@ const Template = ({ label, ...args }) => {
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <RadioButton {...args} theme={theme} />
       {label && (
-        <label style={{ ...theme.typography.GothamSmallBook, marginLeft: '8px', cursor: 'pointer' }}>
-          {label}
-        </label>
+        <label style={{ ...theme.typography.GothamSmallBook, marginLeft: '8px', cursor: 'pointer' }}>{label}</label>
       )}
     </div>
   );
@@ -43,24 +41,24 @@ export const RadioButtonGroup = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       {options.map((option) => (
-        <div style={{display: 'flex', alignItems: 'center'}}>
-      <RadioButton key={option.value}
-                   value={option.value}
-                   checked={selected === option.value}
-                   onChange={handleChange}
-                   name="radioGroup"
-                   theme={theme} />
-      {option.label && (
-        <label style={{ ...theme.typography.GothamSmallBook, marginLeft: '8px', cursor: 'pointer' }}>
-          {option.label}
-        </label>
-      )}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <RadioButton
+            key={option.value}
+            value={option.value}
+            checked={selected === option.value}
+            onChange={handleChange}
+            name='radioGroup'
+            theme={theme}
+          />
+          {option.label && (
+            <label style={{ ...theme.typography.GothamSmallBook, marginLeft: '8px', cursor: 'pointer' }}>
+              {option.label}
+            </label>
+          )}
+        </div>
+      ))}
     </div>
-  )
-)}
-</div>
-)
-  ;
+  );
 };
 
 RadioButtonGroup.storyName = 'Radio Button Group';
@@ -91,4 +89,3 @@ DisabledChecked.args = {
 
 export const WithoutLabel = Template.bind({});
 WithoutLabel.args = {};
-

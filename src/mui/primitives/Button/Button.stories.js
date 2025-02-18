@@ -18,8 +18,6 @@ const StorySchema = {
       description: {
         component: `
 A versatile Button component that supports primary and secondary variants with different sizes and states.
-
-\`\`\`
         `
       }
     }
@@ -142,48 +140,3 @@ const MyComponent = () => (
     </div>
   )
 };
-
-// export const PrimaryCTAButton = {
-//   args: {
-//     children: 'Primary CTA Button',
-//     size: 'default',
-//     variant: 'primary',
-//     disabled: false,
-//     fullWidth: false,
-//     className: '',
-//     componentNumber: 1,
-//     componentName: 'Primary CTA Button',
-//   },
-//   argTypes: {
-//     PRIMARY_FILL_VARIANT: {
-//       control: 'select',
-//       options: ['defaultColor'],
-//       table: { disable: false }
-//     },
-//   },
-// };
-//
-// export const SecondaryCTAButton = {
-//   args: {
-//     children: 'Secondary CTA Button',
-//     size: 'default',
-//     variant: 'secondary',
-//     disabled: false,
-//     fullWidth: false,
-//     className: '',
-//     componentNumber: 2,
-//     componentName: 'Secondary CTA Button',
-//   },
-//   argTypes: {
-//     SECONDARY_STROKE_VARIANT: {
-//       control: 'select',
-//       options: ['defaultColor'],
-//       table: { disable: false }
-//     },
-//     SECONDARY_TEXT_VARIANT: {
-//       control: 'select',
-//       options: ['defaultColor'],
-//       table: { disable: false }
-//     },
-//   },
-// };
