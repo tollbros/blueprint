@@ -1,97 +1,84 @@
 @import "styles/modules/all";
 
-// First, let's define the breakpoint mixin if it's not already defined elsewhere
-@mixin breakpoint($point) {
-  @if $point == sm {
-    @media (min-width: 576px) { @content; }
-  }
-  @else if $point == md {
-    @media (min-width: 768px) { @content; }
-  }
-  @else if $point == lg {
-    @media (min-width: 992px) { @content; }
-  }
-  @else if $point == xl {
-    @media (min-width: 1200px) { @content; }
-  }
-}
-
 .button {
+  // Layout
   position: relative;
-  border: 0;
-  color: white;
-  min-width: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  border-radius: var(--tb-GlobalBrandBorderRadius);
-  padding: 0 20px;
-  width: fit-content;
-  font: var(--tb-typography-SemanticButtonLabelBase-font);
-  height: 48px;
-  background-color: var(--tb-palette-TB-Brand-Accent);
   overflow: hidden;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    transition: background-color 0.2s ease;
-    pointer-events: none;
+  // Dimensions
+  width: fit-content;
+  min-width: 55px;
+  height: 48px;
+  padding: 0 20px;
+
+  // Visual
+  background-color: var(--tb-palette-TB-Brand-Accent);
+  border: 0;
+  border-radius: var(--tb-GlobalBrandBorderRadius);
+  color: white;
+  cursor: pointer;
+
+  // Typography
+  font: var(--tb-typography-SemanticButtonLabelBase-font);
+
+  // Size variations
+  &.small {
+    height: 40px;
+    font: var(--tb-typography-SemanticButtonLabelSmall-font);
   }
 
-  &:hover::before,
-  &:focus::before {
-    background-color: rgba(0, 0, 0, 0.4);
+  &.xsmall {
+    height: 32px;
+    font: var(--tb-typography-SemanticButtonLabelSmall-font);
   }
 
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-
+  // Width variation
   &.fullWidth {
     width: 100%;
   }
 
-  &.small {
-    height: 40px;
-  }
-
-  &.accent {
-    background-color: var(--tb-palette-TB-Brand-Accent);
-  }
-
+  // Variant styles
   &.primary {
-    background-color: var(--tb-palette-TB-Brand-Primary, #0C223F);
-  }
 
-  &.medium {
-    background-color: var(--tb-palette-TB-Brand-Medium, #004876);
-  }
+    &:hover:not(:disabled) {
+      background-color: green;
+    }
 
-  &.success {
-    background-color: var(--tb-palette-TB-Functional-Success, #009D47);
-  }
-
-  &.error {
-    background-color: var(--tb-palette-TB-Functional-Error, #A31F34);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-
-    &::before {
-      display: none;
+    &:disabled {
+      cursor: not-allowed;
+      background-color: var(--tb-palette-TB-Functional-MedGray);
+      color: white;
     }
   }
 
+  &.secondary {
+    background-color: transparent;
+
+    &.defaultColorStroke {
+      border: 1px solid var(--tb-palette-TB-Brand-Gray); // default stroke color
+    }
+
+    &.defaultColorText {
+      color: var(--tb-palette-TB-Brand-Medium); // default text color
+    }
+
+    &:hover:not(:disabled) {
+      background-color: #4CAF50;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: white;
+      color: var(--tb-palette-TB-Functional-MedGray);
+      border: 1px solid var(--tb-palette-TB-Functional-MedGray);
+    }
+  }
+
+
+  // Image and span styles remain the same
   img {
     filter: invert(1);
     height: 13px;
@@ -100,7 +87,7 @@
   span {
     display: none;
 
-    @media (min-width: 576px) {  // Using direct media query instead of mixin
+    @media (min-width: 576px) {
       display: inline-block;
       font-size: 14px;
       white-space: nowrap;

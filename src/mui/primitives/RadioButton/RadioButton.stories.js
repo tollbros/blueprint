@@ -5,6 +5,7 @@ import { useTheme } from '../../../themes/ThemeProvider';
 export default {
   title: 'Components/RadioButton',
   component: RadioButton,
+  tags: ['autodocs'],
   argTypes: {
     checked: { control: 'boolean' },
     disabled: { control: 'boolean' },
@@ -42,18 +43,24 @@ export const RadioButtonGroup = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       {options.map((option) => (
-        <Template
-          key={option.value}
-          label={option.label}
-          value={option.value}
-          checked={selected === option.value}
-          onChange={handleChange}
-          name="radioGroup"
-          theme={theme}
-        />
-      ))}
+        <div style={{display: 'flex', alignItems: 'center'}}>
+      <RadioButton key={option.value}
+                   value={option.value}
+                   checked={selected === option.value}
+                   onChange={handleChange}
+                   name="radioGroup"
+                   theme={theme} />
+      {option.label && (
+        <label style={{ ...theme.typography.GothamSmallBook, marginLeft: '8px', cursor: 'pointer' }}>
+          {option.label}
+        </label>
+      )}
     </div>
-  );
+  )
+)}
+</div>
+)
+  ;
 };
 
 RadioButtonGroup.storyName = 'Radio Button Group';
