@@ -11,18 +11,23 @@ const StorySchema = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/4w6Ywo2rs8mRj2SRXzDKo6/Untitled?node-id=0-3&t=KcXRTL69HE6gjTHM-1'
+      url: 'https://www.figma.com/design/CceZPnvgPvbO8cSOarLUBl/Storybook-Design-Actuals?node-id=0-1&t=sONWhpjlvXD9dtIB-1',
     },
     layout: 'centered',
     docs: {
       description: {
         component: `
 A versatile Button component that supports primary and secondary variants with different sizes and states.
-        `
-      }
-    }
+        `,
+      },
+    },
   },
-  args: { onClick: fn() },
+  args: {
+    onClick: fn(),
+    variant: 'primary',
+    children: 'Primary Button',
+    size: 'default',
+  },
   argTypes: {
     className: { control: 'text' },
     size: {
@@ -30,8 +35,8 @@ A versatile Button component that supports primary and secondary variants with d
       options: ['default', 'small', 'xsmall'],
       description: 'Controls the size of the button',
       table: {
-        defaultValue: { summary: 'default' }
-      }
+        defaultValue: { summary: 'default' },
+      },
     },
     disabled: { control: 'boolean' },
     fullWidth: {
@@ -47,9 +52,32 @@ A versatile Button component that supports primary and secondary variants with d
     SECONDARY_STROKE_VARIANT: { table: { disable: true } },
     SECONDARY_TEXT_VARIANT: { table: { disable: true } },
   },
+  // Default story render function showing just one button
+  render: (args) => (
+    <div style={{ width: '300px', display: 'flex', justifyContent: 'center' }}>
+      <Button {...args} />
+    </div>
+  ),
 };
 
 export default StorySchema;
+
+export const PrimaryButton = {
+  args: {
+    children: 'Button Name',
+    size: 'base',
+    variant: 'primary',
+    disabled: false,
+    fullWidth: false,
+    className: '',
+    componentNumber: 1,
+    componentName: 'Primary CTA Button',
+  },
+
+  parameters: {
+    layout: 'centered',
+  },
+};
 
 // Primary button examples
 export const PrimaryExamples = {
@@ -75,25 +103,27 @@ const MyComponent = () => (
       Full Width Button
     </Button>
   </div>
-)`
-      }
-    }
+)`,
+      },
+    },
   },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
-      <Button variant="primary" size="default">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px', alignItems: 'center' }}>
+      <Button variant='primary' size='default'>
         Primary Button
       </Button>
 
-      <Button variant="primary" size="small">
+      <Button variant='primary' size='small'>
         Small Primary
       </Button>
 
-      <Button variant="primary" fullWidth>
-        Full Width Button
-      </Button>
+      <div style={{ width: '100%' }}>
+        <Button variant='primary' fullWidth>
+          Full Width Button
+        </Button>
+      </div>
     </div>
-  )
+  ),
 };
 
 // Secondary button examples
@@ -120,23 +150,25 @@ const MyComponent = () => (
       Full Width Secondary Button
     </Button>
   </div>
-)`
-      }
-    }
+)`,
+      },
+    },
   },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
-      <Button variant="secondary" size="default">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px', alignItems: 'center' }}>
+      <Button variant='secondary' size='default'>
         Secondary Button
       </Button>
 
-      <Button variant="secondary" size="small">
+      <Button variant='secondary' size='small'>
         Small Secondary
       </Button>
 
-      <Button variant="secondary" fullWidth>
-        Full Width Secondary Button
-      </Button>
+      <div style={{ width: '100%' }}>
+        <Button variant='secondary' fullWidth>
+          Full Width Secondary Button
+        </Button>
+      </div>
     </div>
-  )
+  ),
 };

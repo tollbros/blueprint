@@ -1,11 +1,27 @@
+// Variables
+$radio-size: 20px;
+$transition-timing: 0.2s ease-in-out;
+
+// Colors
+$default-stroke-color: var(--tb-palette-TB-Brand-Gray, #8195A2);
+$focus-stroke-color: var(--tb-palette-TB-Brand-Gray, #8195A2);
+$checked-fill-color: var(--tb-palette-TB-Brand-Accent, #0070CD);
+$disabled-stroke-color: var(--tb-palette-TB-Functional-MedGray, #D8D8D8);
+$disabled-fill-color: var(--tb-palette-TB-Functional-MedGray, #D8D8D8);
+
+// Stroke widths
+$default-stroke-width: 1px;
+$focus-stroke-width: 2px;
+$checked-stroke-width: 2px;
+
 .radioButtonWrapper {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
-}
 
-.radioButtonWrapper.disabled {
-  cursor: not-allowed;
+  &.disabled {
+    cursor: not-allowed;
+  }
 }
 
 .hiddenRadio {
@@ -16,47 +32,52 @@
 }
 
 .styledRadio {
-  width: 20px;
-  height: 20px;
+  width: $radio-size;
+  height: $radio-size;
   flex-shrink: 0;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease-in-out;
+  transition: all $transition-timing;
+
+  svg {
+    transition: all $transition-timing;
+
+    circle:first-child {
+      stroke: $default-stroke-color;
+      stroke-width: $default-stroke-width;
+    }
+  }
 }
 
-.styledRadio svg {
-  transition: all 0.2s ease-in-out;
-}
-
-.styledRadio svg circle:first-child {
-  stroke: var(--tb-palette-TB-Brand-Gray, #8195A2);
-  stroke-width: 1;
+.label {
+  margin-left: 8px;
+  font: var(--tb-typography-BodyBase-font, inherit);
 }
 
 /* Focus state */
 .hiddenRadio:focus + .styledRadio svg circle:first-child {
-  stroke: var(--tb-palette-TB-Brand-Gray, #8195A2);
-  stroke-width: 2;
+  stroke: $focus-stroke-color;
+  stroke-width: $focus-stroke-width;
 }
 
 /* Selected state */
 .hiddenRadio:checked + .styledRadio svg circle:first-child {
-  stroke: var(--tb-palette-TB-Brand-Gray, #8195A2);
-  stroke-width: 2;
+  stroke: $focus-stroke-color;
+  stroke-width: $checked-stroke-width;
 }
 
 .hiddenRadio:checked + .styledRadio svg circle:last-child {
-  fill: var(--tb-palette-TB-Brand-Accent, #0070CD);
+  fill: $checked-fill-color;
 }
 
 /* Disabled state */
 .hiddenRadio:disabled + .styledRadio svg circle:first-child {
-  stroke: var(--tb-palette-TB-Functional-MedGray, #D8D8D8);
-  stroke-width: 1;
+  stroke: $disabled-stroke-color;
+  stroke-width: $default-stroke-width;
 }
 
 .hiddenRadio:disabled:checked + .styledRadio svg circle:last-child {
-  fill: var(--tb-palette-TB-Functional-MedGray, #D8D8D8);
+  fill: $disabled-fill-color;
 }

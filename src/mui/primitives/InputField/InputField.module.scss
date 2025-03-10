@@ -1,67 +1,81 @@
+// Variables for easier maintenance
+$input-height: 60px;
+$input-padding-horizontal: 20px;
+$border-color: var(--TB-Brand-Gray, #8195A2);
+$bg-color: var(--TB-Brand-BG-Text, #FFF);
+$text-color: var(--TB-Brand-Base-Text, #000);
+$disabled-bg: #E9EDF0;
+$disabled-text: var(--TB-Brand-DarkGray, #858585);
+$focus-border-size: 4px;
+$placeholder-transition: 0.2s ease-out;
+
+// Typography variables
+$input-font: var(--tb-typography-SubheaderBase-font);
+$placeholder-font: var(--tb-typography-GothamBaseBook-font);
+$floating-placeholder-font: var(--tb-typography-GothamXSmallBook-font);
+
 .inputContainer {
   display: flex;
-  justify-content: center;
-  height: 60px;
-  width: 100%;       // Add this
-  padding: 0px 20px;
-  align-items: center;
-  align-self: stretch;  // This makes more sense with max-width
   position: relative;
-  border: 1px solid var(--TB-Brand-Gray, #8195A2);
-  background: var(--TB-Brand-BG-Text, #FFF);
-}
+  width: 100%;
+  height: $input-height;
+  padding: 0 $input-padding-horizontal;
+  align-items: center;
+  border: 1px solid $border-color;
+  background: $bg-color;
+  box-sizing: border-box;
 
-.inputContainer.focused {
-  border-bottom: 4px solid var(--TB-Brand-Gray, #8195A2);
-}
+  &.focused {
+    border-bottom: $focus-border-size solid $border-color;
+  }
 
-.inputContainer.disabled {
-  background: #E9EDF0;
+  &.disabled {
+    background: $disabled-bg;
+
+    .placeholder {
+      color: $disabled-text;
+    }
+  }
 }
 
 .input {
   width: 100%;
   height: 100%;
+  padding: 12px 0 0 0;
   border: none;
   background: transparent;
-  color: var(--TB-Brand-Base-Text, #000);
+  color: $text-color;
   text-align: left;
-  padding: 12px 0 0 0;
-  font: var(--tb-typography-SubheaderBase-font);
-}
+  font: $input-font;
 
-.input:focus {
-  outline: none;
-}
+  &:focus {
+    outline: none;
+  }
 
-.input:disabled {
-  cursor: not-allowed;
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:not(:placeholder-shown) + .placeholder {
+    top: 6px;
+    transform: translateY(0);
+  }
 }
 
 .placeholder {
   position: absolute;
-  left: 20px;
+  left: $input-padding-horizontal;
   top: 50%;
   transform: translateY(-50%);
-  transition: all 0.2s ease-out;
-  color: var(--TB-Brand-Base-Text, #000);
+  transition: all $placeholder-transition;
+  color: $text-color;
   text-align: left;
   pointer-events: none;
-  font: var(--tb-typography-GothamBaseBook-font);
+  font: $placeholder-font;
 
-}
-
-.floatingPlaceholder {
-  top: 6px;
-  transform: translateY(0);
-  font: var(--tb-typography-GothamXSmallBook-font);
-}
-
-.input:not(:placeholder-shown) + .placeholder {
-  top: 6px;
-  transform: translateY(0);
-}
-
-.disabled .placeholder {
-  color: var(--TB-Brand-DarkGray, #858585);
+  &.floatingPlaceholder {
+    top: 6px;
+    transform: translateY(0);
+    font: $floating-placeholder-font;
+  }
 }

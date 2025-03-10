@@ -1,23 +1,43 @@
-import { useState } from 'react';
+import { useState, useCallback, forwardRef } from 'react';
 import styles from './InputField.module.scss';
 
-const InputField = ({ placeholder, disabled, ...props }) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [hasValue, setHasValue] = useState(false);
+const InputField = forwardRef(({ placeholder, disabled, className, ...props }, ref) => {
+  const [inputState, setInputState] = useState({
+    isFocused: false,
+    hasValue: false,
+  });
 
-  const handleFocus = () => !disabled && setIsFocused(true);
+  const handleFocus = useCallback(() => {
+    if (!disabled) {
+      setInputState((prev) => ({ ...prev, isFocused: true }));
+    }
+  }, [disabled]);
 
-  const handleBlur = (e) => {
-    setIsFocused(false);
-    setHasValue(e.target.value !== '');
-  };
+  const handleBlur = useCallback((e) => {
+    setInputState({
+      isFocused: false,
+      hasValue: e.target.value !== '',
+    });
+  }, []);
 
-  const handleChange = (e) => {
-    setHasValue(e.target.value !== '');
-  };
+  const handleChange = useCallback((e) => {
+    setInputState((prev) => ({
+      ...prev,
+      hasValue: e.target.value !== '',
+    }));
+  }, []);
+
+  // Compute class names once
+  const containerClassName = `${styles.inputContainer} ${inputState.isFocused ? styles.focused : ''} ${
+    disabled ? styles.disabled : ''
+  } ${className || ''}`;
+
+  const labelClassName = `${styles.placeholder} ${
+    inputState.isFocused || inputState.hasValue ? styles.floatingPlaceholder : ''
+  }`;
 
   return (
-    <div className={`${styles.inputContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}>
+    <div className={containerClassName}>
       <input
         className={styles.input}
         onFocus={handleFocus}
@@ -25,13 +45,15 @@ const InputField = ({ placeholder, disabled, ...props }) => {
         onChange={handleChange}
         placeholder=' '
         disabled={disabled}
+        ref={ref}
         {...props}
       />
-      <label className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}>
-        {placeholder}
-      </label>
+      <label className={labelClassName}>{placeholder}</label>
     </div>
   );
-};
+});
+
+// Add display name for better debugging
+InputField.displayName = 'InputField';
 
 export default InputField;

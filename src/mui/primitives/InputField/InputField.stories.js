@@ -5,63 +5,110 @@ import { fullStory } from '../../templates/Full.story.structure.js';
 import '../../templates/Full.story.style.scss';
 
 const StorySchema = {
-  title: 'components/Input Field',
+  title: 'primitives/InputField',
   component: InputField,
+  tags: ['autodocs'],
   parameters: {
-    layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/CceZPnvgPvbO8cSOarLUBl/Storybook-Design-Actuals?node-id=23-9166&t=kk2gIjM3ocCS0MRd-1',
+    },
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+A versatile InputField component that supports different states and provides a modern floating label experience.
+        `,
+      },
+    },
   },
-  decorators: [(StoryFn, context) => fullStory(StoryFn, context, {
-    variations: [
-      { label: 'Base', value: 'height=48px' },
-      { label: 'Small', value: 'height=40px' },
-    ],
-    properties: [
-      [
-        { label: 'FullWidth=False', value: 'padding=20px' },
-        { label: 'FullWidth=True', value: 'container width' },
-      ],
-      [
-        { label: 'Disabled=False', value: 'fill=AccentBlue' },
-        { label: 'Disabled=True', value: 'fill=MedGray' },
-      ],
-    ],
-  })],
-  args: { onClick: fn() },
+  args: {
+    onChange: fn(),
+    placeholder: 'Input Field Label',
+    defaultValue: '',
+  },
   argTypes: {
     className: { control: 'text' },
-    size: { control: 'select', options: ['base', 'small'] },
-    variant: { control: 'select', options: ['contained', 'outlined', 'text'] },
-    color: { control: 'select', options: ['accent', 'primary', 'medium', 'success', 'error'] },
-    disabled: { control: 'boolean' },
+    placeholder: {
+      control: 'text',
+      description: 'The label text for the input field',
+      table: {
+        defaultValue: { summary: '' },
+      },
+    },
+    defaultValue: {
+      control: 'text',
+      description: 'The default value for the input field',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the input field is disabled',
+      defaultValue: false,
+    },
+    onChange: { table: { disable: true } },
+    componentNumber: { table: { disable: true } },
+    componentName: { table: { disable: true } },
   },
+  // Default story render function showing just one input field
+  render: (args) => (
+    <div style={{ width: '300px' }}>
+      <InputField {...args} />
+    </div>
+  ),
 };
 
 export default StorySchema;
 
-const Template = (args) => <InputField {...args} />;
+export const StandardInputField = {
+  args: {
+    placeholder: 'Input Field Label',
+    defaultValue: '',
+    disabled: false,
+    className: '',
+    componentNumber: 1,
+    componentName: 'Standard Input Field',
+  },
 
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: 'Enter your text',
-  componentNumber: 2,
-  componentName: 'Input Field'
+  parameters: {
+    layout: 'centered',
+  },
 };
 
-export const WithValue = Template.bind({});
-WithValue.args = {
-  placeholder: 'Enter your text',
-  defaultValue: 'Some input text',
-};
+// Standard input field examples
+export const StandardExamples = {
+  parameters: {
+    docs: {
+      source: {
+        code: `
+// Import the InputField component
+import { InputField } from '@tollbrothers/blueprint'
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  placeholder: 'Disabled input',
-  disabled: true,
-};
+// Example usage
+const MyComponent = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <InputField placeholder="Standard Input" />
 
-export const DisabledWithValue = Template.bind({});
-DisabledWithValue.args = {
-  placeholder: 'Disabled input',
-  defaultValue: 'Some input text',
-  disabled: true,
+    <InputField
+      placeholder="With Default Value"
+      defaultValue="Pre-populated text"
+    />
+
+    <InputField
+      placeholder="Disabled Input"
+      disabled
+    />
+  </div>
+)`,
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
+      <InputField placeholder='Standard Input' />
+
+      <InputField placeholder='With Default Value' defaultValue='Pre-populated text' />
+
+      <InputField placeholder='Disabled Input' disabled />
+    </div>
+  ),
 };
