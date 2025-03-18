@@ -112,51 +112,6 @@ const ThemeProvider = ({ children, theme }) => {
   text-transform: var(--tb-typography-${typographyKey}-textTransform);
 }`      }).join('\n')}`}
       </style>
-      <style>
-        {`
-h1 {
-  font: var(--tb-typography-H1-font);
-  text-decoration-line: var(--tb-typography-H1-textDecorationLine);
-  text-transform: var(--tb-typography-H1-textTransform);
-}
-
-h2 {
-  font: var(--tb-typography-H2-font);
-  text-decoration-line: var(--tb-typography-H2-textDecorationLine);
-  text-transform: var(--tb-typography-H2-textTransform);
-}
-
-h3 {
-  font: var(--tb-typography-H3-font);
-  text-decoration-line: var(--tb-typography-H3-textDecorationLine);
-  text-transform: var(--tb-typography-H3-textTransform);
-}
-
-h4 {
-  font: var(--tb-typography-H4-font);
-  text-decoration-line: var(--tb-typography-H4-textDecorationLine);
-  text-transform: var(--tb-typography-H4-textTransform);
-}
-
-h5 {
-  font: var(--tb-typography-H5-font);
-  text-decoration-line: var(--tb-typography-H5-textDecorationLine);
-  text-transform: var(--tb-typography-H5-textTransform);
-}
-
-h6 {
-  font: var(--tb-typography-H6-font);
-  text-decoration-line: var(--tb-typography-H6-textDecorationLine);
-  text-transform: var(--tb-typography-H6-textTransform);
-}
-
-body {
-  color: var(--tb-palette-TB-Functional-Black);
-  font: var(--tb-typography-BodyBase-font);
-  background-color: var(--tb-palette-TB-Functional-White);
-}`}
-      </style>
-
       {children}
     </ThemeContext.Provider>
   );
