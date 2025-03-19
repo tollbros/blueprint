@@ -1,7 +1,7 @@
 import ThemeProvider from '../src/themes/ThemeProvider';
 import { defaultTheme } from '../src';
 
-export const withMuiTheme = (Story) => {
+export const withTBTheme = (Story) => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Story />
@@ -26,4 +26,4 @@ const preview = {
 
 export default preview;
 
-export const decorators = [withMuiTheme];
+export const decorators = [withTBTheme];

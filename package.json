@@ -15,7 +15,7 @@
     "node": ">=20.7.0"
   },
   "scripts": {
-    "bundle": "microbundle --jsx React.createElement --jsxImportSource react --compress --format modern,cjs",
+    "bundle": "microbundle --jsx React.createElement --jsxImportSource react --compress true --format modern,cjs --visualize",
     "build": "npm run bundle",
     "dev": "npm run bundle -- watch",
     "prepare": "run-s build",
@@ -47,7 +47,6 @@
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-interactions": "^8.1.11",
     "@storybook/addon-links": "^8.1.11",
-    "@storybook/addon-onboarding": "^8.1.11",
     "@storybook/addon-styling-webpack": "^1.0.0",
     "@storybook/blocks": "^8.1.11",
     "@storybook/nextjs": "^8.1.11",

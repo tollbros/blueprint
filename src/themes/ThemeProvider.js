@@ -1,24 +1,23 @@
 import { createContext, useContext, useEffect, useState, useMemo } from 'react';
-import decorateTheme from './utils/decorateTheme';
+import addFontTokens from './utils/addFontTokens';
 import flattenToCssVars from './utils/flattenToCssVars';
 import hexToRgba from './utils/hexToRGB';
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children, theme }) => {
   const decoratedTheme = useMemo(() => {
-    return decorateTheme({ theme });
+    return addFontTokens({ theme });
   }, [theme]);
 
   const cssVarsObject = useMemo(() => {
-    return flattenToCssVars(decorateTheme({ theme }));
+    return flattenToCssVars(addFontTokens({ theme }));
   }, [theme]);
 
   const [clientReady, setClientReady] = useState(false);
 
   useEffect(() => {
     setClientReady(true);
-  }, [])
-
+  }, []);
 
   if (!clientReady) {
     return null;
@@ -88,21 +87,23 @@ const ThemeProvider = ({ children, theme }) => {
   font-display: swap;
 }`}
       </style>
-      <style>{`
+      <style>
+        {`
 :root {
   ${Object.entries(cssVarsObject)
-      .map(([key, value]) => `${key}: ${value};`)
-      .join('\n')}
+    .map(([key, value]) => `${key}: ${value};`)
+    .join('\n')}
 
   ${Object.entries(cssVarsObject)
-      .filter(([key, value]) => key.includes('palette') && value.includes('#'))
-      .map(([key, value]) => {
-        return `${key}-RGB: ${ hexToRgba(value)};`
-      })
-      .join('\n')}
+    .filter(([key, value]) => key.includes('palette') && value.includes('#'))
+    .map(([key, value]) => {
+      return `${key}-RGB: ${hexToRgba(value)};`;
+    })
+    .join('\n')}
 }`}
       </style>
-      <style>{`
+      <style>
+        {`
       ${Object.keys(decoratedTheme.typography)
         .map((typographyKey) => {
           return `
@@ -110,7 +111,9 @@ const ThemeProvider = ({ children, theme }) => {
   font: var(--tb-typography-${typographyKey}-font);
   text-decoration-line: var(--tb-typography-${typographyKey}-textDecorationLine);
   text-transform: var(--tb-typography-${typographyKey}-textTransform);
-}`      }).join('\n')}`}
+}`;
+        })
+        .join('\n')}`}
       </style>
       {children}
     </ThemeContext.Provider>

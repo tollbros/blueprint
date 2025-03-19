@@ -1,0 +1,118 @@
+// Variables
+$button-min-width: 55px;
+$button-default-height: 48px;
+$button-small-height: 40px;
+$button-xsmall-height: 32px;
+$button-horizontal-padding: 20px;
+$button-border-radius: var(--tb-GlobalBrandBorderRadius);
+
+// Typography
+$button-font-default: var(--tb-typography-SemanticButtonLabelBase-font);
+$button-font-small: var(--tb-typography-SemanticButtonLabelSmall-font);
+
+// Colors
+$primary-bg: var(--tb-palette-TB-Brand-Accent);
+$primary-hover-overlay: rgba(var(--tb-palette-TB-Functional-Black-RGB), 0.4);
+$disabled-bg: var(--tb-palette-TB-Functional-MedGray);
+$secondary-bg: var(--tb-palette-TB-Functional-White-RGB);
+$secondary-border: var(--tb-palette-TB-Brand-Gray);
+$secondary-text: var(--tb-palette-TB-Brand-Medium);
+$secondary-hover-overlay: rgba(var(--tb-palette-TB-Brand-Gray-RGB), 0.4);
+$white: white;
+
+// Breakpoints
+$mobile-breakpoint: 576px;
+
+.button {
+  // Layout
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  // Dimensions
+  width: fit-content;
+  min-width: $button-min-width;
+  height: $button-default-height;
+  padding: 0 $button-horizontal-padding;
+
+  // Visual
+  background-color: $primary-bg;
+  border: 0;
+  border-radius: $button-border-radius;
+  color: $white;
+  cursor: pointer;
+
+  // Typography
+  font: $button-font-default;
+
+  // Size variations
+  &.small {
+    height: $button-small-height;
+    font: $button-font-small;
+  }
+
+  &.xsmall {
+    height: $button-xsmall-height;
+    font: $button-font-small;
+  }
+
+  // Width variation
+  &.fullWidth {
+    width: 100%;
+  }
+
+  // Variant styles
+  &.primary {
+    &:hover:not(:disabled) {
+      background: linear-gradient($primary-hover-overlay, $primary-hover-overlay), $primary-bg;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $disabled-bg;
+      color: $white;
+    }
+  }
+
+  &.secondary {
+    background-color: $secondary-bg;
+
+    &.defaultColorStroke {
+      border: 1px solid $secondary-border;
+    }
+
+    &.defaultColorText {
+      color: $secondary-text;
+    }
+
+    &:hover:not(:disabled) {
+      background: linear-gradient($secondary-hover-overlay, $secondary-hover-overlay), transparent;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $white;
+      color: $disabled-bg;
+      border: 1px solid $disabled-bg;
+    }
+  }
+
+  // Image and span styles
+  img {
+    filter: invert(1);
+    height: 13px;
+  }
+
+  span {
+    display: none;
+
+    @media (min-width: $mobile-breakpoint) {
+      display: inline-block;
+      font-size: 14px;
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+  }
+}
