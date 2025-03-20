@@ -1,10 +1,10 @@
-import Button from './mui/primitives/Button/Button';
-import FallbackAddButton from './mui/primitives/FallbackAddButton/FallbackAddButton.js';
-import SquareIconButton from './mui/primitives/SquareIconButton/SquareIconButton.js';
+import Button from './primitives/Button/Button';
+import FallbackAddButton from './primitives/FallbackAddButton/FallbackAddButton.js';
+import SquareIconButton from './primitives/SquareIconButton/SquareIconButton.js';
 import ThemeProvider from './themes/ThemeProvider';
-import InputField from './mui/primitives/InputField/InputField';
-import TextArea from './mui/primitives/TextArea/TextArea';
-import Tabs from './mui/primitives/Tabs/Tabs';
+import InputField from './primitives/InputField/InputField';
+import TextArea from './primitives/TextArea/TextArea';
+import Tabs from './primitives/Tabs/Tabs';
 import { useTheme } from './themes/ThemeProvider';
 import { defaultTheme } from './themes/default/theme';
 
@@ -17,5 +17,5 @@ export {
   InputField,
   Tabs,
   defaultTheme,
-  useTheme
+  useTheme,
 };
