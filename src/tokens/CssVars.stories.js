@@ -2,6 +2,7 @@ import { defaultTheme } from '../themes/default/theme';
 import addFontTokens from '../themes/utils/addFontTokens';
 import flattenToCssVars from '../themes/utils/flattenToCssVars';
 import hexToRgba from '../themes/utils/hexToRGB';
+import styles from './CssVars.module.scss';
 const themeObject = flattenToCssVars(addFontTokens({ theme: defaultTheme }));
 
 const StorySchema = {
@@ -10,26 +11,56 @@ const StorySchema = {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {Object.keys(themeObject).map((themeKey) => {
+          console.log("themeObject?.[themeKey]?.startsWith?.('#')", themeObject?.[themeKey]?.startsWith?.('#'));
           return (
-            <div
-              key={themeKey}
-              style={{ display: 'flex', gap: '24px', width: '100%', justifyContent: 'space-between' }}
-            >
-              <span>{themeKey}</span>
-              <span>{themeObject[themeKey]}</span>
+            <div className={styles.cssVarRow} key={themeKey} style={{ display: 'flex', gap: '24px', width: '100%', justifyContent: 'space-between' }}>
+              <div>{themeKey}</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                {themeObject[themeKey]}{' '}
+                {(themeKey?.toLowerCase?.()?.endsWith?.('rgb') || themeObject?.[themeKey]?.startsWith?.('#') || themeObject?.[themeKey]?.toLowerCase?.()?.startsWith?.('rgb')) && (
+                  <div
+                    style={{
+                      width: '12px',
+                      height: '12px',
+                      borderRadius: '4px',
+                      border: '1px solid #e0e0e0',
+                      backgroundColor: themeKey?.toLowerCase?.()?.endsWith?.('rgb') ? `rgba(${themeObject[themeKey]})` : themeObject[themeKey],
+                    }}
+                  >
+                    &nbsp;
+                  </div>
+                )}
+              </div>
             </div>
           );
         })}
+        <div>
+          <div style={{ fontSize: '20px', marginTop: '16px' }}>
+            <b>Example for the following RGB CSS Vars:</b>
+          </div>{' '}
+          <pre>rgba(var(--tb-palette-TB-Functional-Black-RGB), 0.4)</pre>
+        </div>
         {Object.entries(themeObject)
           .filter(([key, value]) => key.includes('palette') && value.includes('#'))
           .map(([key, value], hexIndex) => {
+            const rgbaValue = hexToRgba(value);
             return (
-              <div
-                key={`hex-${hexIndex}`}
-                style={{ display: 'flex', gap: '24px', width: '100%', justifyContent: 'space-between' }}
-              >
-                <span>{key}-RGB</span>
-                <span>{hexToRgba(value)}</span>
+              <div className={styles.cssVarRow} key={`hex-${hexIndex}`} style={{ display: 'flex', gap: '24px', width: '100%', justifyContent: 'space-between' }}>
+                <div>{key}-RGB</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  {rgbaValue}{' '}
+                  <div
+                    style={{
+                      width: '12px',
+                      height: '12px',
+                      borderRadius: '4px',
+                      border: '1px solid #e0e0e0',
+                      backgroundColor: `rgba(${rgbaValue})`,
+                    }}
+                  >
+                    &nbsp;
+                  </div>
+                </div>
               </div>
             );
           })}

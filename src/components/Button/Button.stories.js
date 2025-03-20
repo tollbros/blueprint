@@ -25,6 +25,8 @@ A versatile Button component that supports primary and secondary variants with d
     variant: 'primary',
     children: 'Primary Button',
     size: 'default',
+    className: '',
+    fullWidth: false,
   },
   argTypes: {
     className: { control: 'text' },
@@ -36,7 +38,7 @@ A versatile Button component that supports primary and secondary variants with d
         defaultValue: { summary: 'default' },
       },
     },
-    disabled: { control: 'boolean' },
+    disabled: { control: 'boolean', defaultValue: false },
     fullWidth: {
       control: 'boolean',
       description: 'Whether the button should take up the full width of its container',
@@ -51,11 +53,7 @@ A versatile Button component that supports primary and secondary variants with d
     SECONDARY_TEXT_VARIANT: { table: { disable: true } },
   },
   // Default story render function showing just one button
-  render: (args) => (
-    <div style={{ width: '300px', display: 'flex', justifyContent: 'center' }}>
-      <Button {...args} />
-    </div>
-  ),
+  render: (args) => <Button {...args} />,
 };
 
 export default StorySchema;
@@ -67,14 +65,22 @@ export const PrimaryButton = {
     variant: 'primary',
     disabled: false,
     fullWidth: false,
-    className: '',
-    componentNumber: 1,
-    componentName: 'Primary CTA Button',
   },
 
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', justifyContent: 'center', padding: '30px 20px' }}>
+        <div style={{ width: '300px', display: 'flex', justifyContent: 'center' }}>
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
+  // 👇 This story will not appear in Storybook's sidebar or docs page
+  tags: ['!dev', '!autodocs'],
 };
 
 // Primary button examples
