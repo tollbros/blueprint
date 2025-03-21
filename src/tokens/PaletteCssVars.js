@@ -5,7 +5,6 @@ import styles from './PaletteCssVars.module.scss';
 
 const PaletteCssVars = () => {
   const theme = defaultTheme
-  console.log('theme', theme)
   return Object.keys(theme.palette).map((key, index) => {
     const isObject =
       typeof theme.palette[key] === 'object' &&
