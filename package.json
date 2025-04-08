@@ -15,7 +15,7 @@
     "node": ">=20.7.0"
   },
   "scripts": {
-    "bundle": "microbundle --jsx React.createElement --jsxImportSource react --compress --format modern,cjs",
+    "bundle": "rimraf dist && microbundle --jsx React.createElement --jsxImportSource react --compress true --format modern,cjs --visualize",
     "build": "npm run bundle",
     "dev": "npm run bundle -- watch",
     "prepare": "run-s build",
@@ -24,8 +24,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "next lint",
-    "stylelint": "stylelint '**/*.scss'",
-    "palette": "tsx src/themes/default/makeSassPalette.js"
+    "stylelint": "stylelint '**/*.scss'"
   },
   "bugs": {
     "url": "https://github.com/tollbros/blueprint/issues"
@@ -36,7 +35,6 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "classnames": "^2.5.1",
     "next": "^13.5.7"
   },
   "devDependencies": {
@@ -47,7 +45,6 @@
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-interactions": "^8.1.11",
     "@storybook/addon-links": "^8.1.11",
-    "@storybook/addon-onboarding": "^8.1.11",
     "@storybook/addon-styling-webpack": "^1.0.0",
     "@storybook/blocks": "^8.1.11",
     "@storybook/nextjs": "^8.1.11",
@@ -70,13 +67,13 @@
     "microbundle": "^0.15.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
+    "rimraf": "^6.0.1",
     "sass": "^1.56.2",
     "semantic-release": "^19.0.5",
     "storybook": "^8.1.11",
     "stylelint": "^16.6.1",
     "stylelint-config-prettier-scss": "^1.0.0",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "tsx": "^4.19.2"
+    "stylelint-config-standard-scss": "^13.1.0"
   },
   "files": [
     "dist"
