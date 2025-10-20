@@ -57,7 +57,7 @@
   font-style: normal;
   font-display: swap;
 }
-      
+
 
 :root {
 --tb-palette-TB-Brand-Primary: #0C223F;
@@ -85,6 +85,16 @@
 --tb-palette-primary-contrast: #FFFFFF;
 --tb-palette-primary-main: #2196F3;
 --tb-palette-action-disabled: rgba(0, 0, 0, 0.38);
+--tb-spacing-0: 0;
+--tb-spacing-1: 4px;
+--tb-spacing-2: 8px;
+--tb-spacing-3: 12px;
+--tb-spacing-4: 16px;
+--tb-spacing-5: 24px;
+--tb-spacing-6: 32px;
+--tb-spacing-7: 36px;
+--tb-spacing-8: 48px;
+--tb-spacing-9: 60px;
 --tb-typography-H1-fontSize: 3rem;
 --tb-typography-H1-fontFamily: Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H1-fontStyle: normal;

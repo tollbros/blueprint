@@ -40,6 +40,18 @@ export const defaultTheme = {
       disabled: 'rgba(0, 0, 0, 0.38)',
     },
   },
+  spacing: {
+    0: '0',
+    1: '4px',
+    2: '8px',
+    3: '12px',
+    4: '16px',
+    5: '24px',
+    6: '32px',
+    7: '36px',
+    8: '48px',
+    9: '60px',
+  },
   typography: {
     ...typography,
     SemanticPlaceholder: typography.GothamBaseBook,
