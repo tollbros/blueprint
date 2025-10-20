@@ -11,11 +11,7 @@ const addFontTokens = ({ theme }) => {
           ...acc,
           [key]: {
             ...theme.typography[key],
-            font: `${theme.typography[key].fontStyle}
-                  ${theme.typography[key].fontWeight}
-                  ${theme.typography[key].fontSize}/
-                  ${theme.typography[key].lineHeight}
-                  ${theme.typography[key].fontFamily}`,
+            font: `${theme.typography[key].fontStyle} ${theme.typography[key].fontWeight} ${theme.typography[key].fontSize}/${theme.typography[key].lineHeight} ${theme.typography[key].fontFamily}`,
             fontStyle: theme.typography[key].fontStyle,
             fontWeight: theme.typography[key].fontWeight,
             fontSize: theme.typography[key].fontSize,

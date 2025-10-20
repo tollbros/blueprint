@@ -92,11 +92,7 @@
 --tb-typography-H1-lineHeight: 60px;
 --tb-typography-H1-textTransform: none;
 --tb-typography-H1-textDecorationLine: none;
---tb-typography-H1-font: normal
-                  400
-                  3rem/
-                  60px
-                  Domaine, Helvetica, Arial, sans-serif;
+--tb-typography-H1-font: normal 400 3rem/60px Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H2-fontSize: 2.5rem;
 --tb-typography-H2-fontFamily: Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H2-fontStyle: normal;
@@ -104,11 +100,7 @@
 --tb-typography-H2-lineHeight: 50px;
 --tb-typography-H2-textTransform: none;
 --tb-typography-H2-textDecorationLine: none;
---tb-typography-H2-font: normal
-                  400
-                  2.5rem/
-                  50px
-                  Domaine, Helvetica, Arial, sans-serif;
+--tb-typography-H2-font: normal 400 2.5rem/50px Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H3-fontSize: 2.0625rem;
 --tb-typography-H3-fontFamily: Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H3-fontStyle: normal;
@@ -116,11 +108,7 @@
 --tb-typography-H3-lineHeight: 41px;
 --tb-typography-H3-textTransform: none;
 --tb-typography-H3-textDecorationLine: none;
---tb-typography-H3-font: normal
-                  400
-                  2.0625rem/
-                  41px
-                  Domaine, Helvetica, Arial, sans-serif;
+--tb-typography-H3-font: normal 400 2.0625rem/41px Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H4-fontSize: 1.75rem;
 --tb-typography-H4-fontFamily: Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H4-fontStyle: normal;
@@ -128,11 +116,7 @@
 --tb-typography-H4-lineHeight: 35px;
 --tb-typography-H4-textTransform: none;
 --tb-typography-H4-textDecorationLine: none;
---tb-typography-H4-font: normal
-                  400
-                  1.75rem/
-                  35px
-                  Domaine, Helvetica, Arial, sans-serif;
+--tb-typography-H4-font: normal 400 1.75rem/35px Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H5-fontSize: 1.75rem;
 --tb-typography-H5-fontFamily: Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H5-fontStyle: normal;
@@ -140,11 +124,7 @@
 --tb-typography-H5-lineHeight: 35px;
 --tb-typography-H5-textTransform: none;
 --tb-typography-H5-textDecorationLine: none;
---tb-typography-H5-font: normal
-                  400
-                  1.75rem/
-                  35px
-                  Domaine, Helvetica, Arial, sans-serif;
+--tb-typography-H5-font: normal 400 1.75rem/35px Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H6-fontSize: 1.1875rem;
 --tb-typography-H6-fontFamily: Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-H6-fontStyle: normal;
@@ -152,11 +132,7 @@
 --tb-typography-H6-lineHeight: 24px;
 --tb-typography-H6-textTransform: none;
 --tb-typography-H6-textDecorationLine: none;
---tb-typography-H6-font: normal
-                  400
-                  1.1875rem/
-                  24px
-                  Domaine, Helvetica, Arial, sans-serif;
+--tb-typography-H6-font: normal 400 1.1875rem/24px Domaine, Helvetica, Arial, sans-serif;
 --tb-typography-BodyBase-fontSize: 1rem;
 --tb-typography-BodyBase-fontFamily: Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-BodyBase-fontStyle: normal;
@@ -164,11 +140,7 @@
 --tb-typography-BodyBase-lineHeight: 24px;
 --tb-typography-BodyBase-textTransform: none;
 --tb-typography-BodyBase-textDecorationLine: none;
---tb-typography-BodyBase-font: normal
-                  300
-                  1rem/
-                  24px
-                  Gotham Narrow, Helvetica, Arial, sans-serif;
+--tb-typography-BodyBase-font: normal 300 1rem/24px Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-BodyLarge-fontSize: 1.125rem;
 --tb-typography-BodyLarge-fontFamily: Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-BodyLarge-fontStyle: normal;
@@ -176,11 +148,7 @@
 --tb-typography-BodyLarge-lineHeight: 27px;
 --tb-typography-BodyLarge-textTransform: none;
 --tb-typography-BodyLarge-textDecorationLine: none;
---tb-typography-BodyLarge-font: normal
-                  300
-                  1.125rem/
-                  27px
-                  Gotham Narrow, Helvetica, Arial, sans-serif;
+--tb-typography-BodyLarge-font: normal 300 1.125rem/27px Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-BodySmall-fontSize: 0.8125rem;
 --tb-typography-BodySmall-fontFamily: Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-BodySmall-fontStyle: normal;
@@ -188,11 +156,7 @@
 --tb-typography-BodySmall-lineHeight: 20px;
 --tb-typography-BodySmall-textTransform: none;
 --tb-typography-BodySmall-textDecorationLine: none;
---tb-typography-BodySmall-font: normal
-                  300
-                  0.8125rem/
-                  20px
-                  Gotham Narrow, Helvetica, Arial, sans-serif;
+--tb-typography-BodySmall-font: normal 300 0.8125rem/20px Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-BodyXSmall-fontSize: 0.6875rem;
 --tb-typography-BodyXSmall-fontFamily: Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-BodyXSmall-fontStyle: normal;
@@ -200,11 +164,7 @@
 --tb-typography-BodyXSmall-lineHeight: 17px;
 --tb-typography-BodyXSmall-textTransform: none;
 --tb-typography-BodyXSmall-textDecorationLine: none;
---tb-typography-BodyXSmall-font: normal
-                  300
-                  0.6875rem/
-                  17px
-                  Gotham Narrow, Helvetica, Arial, sans-serif;
+--tb-typography-BodyXSmall-font: normal 300 0.6875rem/17px Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SubheaderBase-fontSize: 1rem;
 --tb-typography-SubheaderBase-fontFamily: Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SubheaderBase-fontStyle: normal;
@@ -212,11 +172,7 @@
 --tb-typography-SubheaderBase-lineHeight: 24px;
 --tb-typography-SubheaderBase-textTransform: none;
 --tb-typography-SubheaderBase-textDecorationLine: none;
---tb-typography-SubheaderBase-font: normal
-                  400
-                  1rem/
-                  24px
-                  Gotham Narrow, Helvetica, Arial, sans-serif;
+--tb-typography-SubheaderBase-font: normal 400 1rem/24px Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SubheaderLarge-fontSize: 1.125rem;
 --tb-typography-SubheaderLarge-fontFamily: Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SubheaderLarge-fontStyle: normal;
@@ -224,11 +180,7 @@
 --tb-typography-SubheaderLarge-lineHeight: 27px;
 --tb-typography-SubheaderLarge-textTransform: none;
 --tb-typography-SubheaderLarge-textDecorationLine: none;
---tb-typography-SubheaderLarge-font: normal
-                  400
-                  1.125rem/
-                  27px
-                  Gotham Narrow, Helvetica, Arial, sans-serif;
+--tb-typography-SubheaderLarge-font: normal 400 1.125rem/27px Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SubheaderSmall-fontSize: 0.8125rem;
 --tb-typography-SubheaderSmall-fontFamily: Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SubheaderSmall-fontStyle: normal;
@@ -236,11 +188,7 @@
 --tb-typography-SubheaderSmall-lineHeight: 20px;
 --tb-typography-SubheaderSmall-textTransform: none;
 --tb-typography-SubheaderSmall-textDecorationLine: none;
---tb-typography-SubheaderSmall-font: normal
-                  400
-                  0.8125rem/
-                  20px
-                  Gotham Narrow, Helvetica, Arial, sans-serif;
+--tb-typography-SubheaderSmall-font: normal 400 0.8125rem/20px Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SubheaderXSmall-fontSize: 0.6875rem;
 --tb-typography-SubheaderXSmall-fontFamily: Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SubheaderXSmall-fontStyle: normal;
@@ -248,11 +196,7 @@
 --tb-typography-SubheaderXSmall-lineHeight: 17px;
 --tb-typography-SubheaderXSmall-textTransform: none;
 --tb-typography-SubheaderXSmall-textDecorationLine: none;
---tb-typography-SubheaderXSmall-font: normal
-                  400
-                  0.6875rem/
-                  17px
-                  Gotham Narrow, Helvetica, Arial, sans-serif;
+--tb-typography-SubheaderXSmall-font: normal 400 0.6875rem/17px Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-GothamBaseBold-fontSize: 0.875rem;
 --tb-typography-GothamBaseBold-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamBaseBold-fontStyle: normal;
@@ -260,11 +204,7 @@
 --tb-typography-GothamBaseBold-lineHeight: 21px;
 --tb-typography-GothamBaseBold-textTransform: none;
 --tb-typography-GothamBaseBold-textDecorationLine: none;
---tb-typography-GothamBaseBold-font: normal
-                  400
-                  0.875rem/
-                  21px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-GothamBaseBold-font: normal 400 0.875rem/21px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamBaseBook-fontSize: 0.875rem;
 --tb-typography-GothamBaseBook-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamBaseBook-fontStyle: normal;
@@ -272,11 +212,7 @@
 --tb-typography-GothamBaseBook-lineHeight: 21px;
 --tb-typography-GothamBaseBook-textTransform: none;
 --tb-typography-GothamBaseBook-textDecorationLine: none;
---tb-typography-GothamBaseBook-font: normal
-                  400
-                  0.875rem/
-                  21px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-GothamBaseBook-font: normal 400 0.875rem/21px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamSmallBold-fontSize: 0.75rem;
 --tb-typography-GothamSmallBold-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamSmallBold-fontStyle: normal;
@@ -284,11 +220,7 @@
 --tb-typography-GothamSmallBold-lineHeight: 18px;
 --tb-typography-GothamSmallBold-textTransform: none;
 --tb-typography-GothamSmallBold-textDecorationLine: none;
---tb-typography-GothamSmallBold-font: normal
-                  400
-                  0.75rem/
-                  18px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-GothamSmallBold-font: normal 400 0.75rem/18px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamSmallBook-fontSize: 0.75rem;
 --tb-typography-GothamSmallBook-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamSmallBook-fontStyle: normal;
@@ -296,11 +228,7 @@
 --tb-typography-GothamSmallBook-lineHeight: 18px;
 --tb-typography-GothamSmallBook-textTransform: none;
 --tb-typography-GothamSmallBook-textDecorationLine: none;
---tb-typography-GothamSmallBook-font: normal
-                  400
-                  0.75rem/
-                  18px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-GothamSmallBook-font: normal 400 0.75rem/18px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamXSmallBook-fontSize: 0.6875rem;
 --tb-typography-GothamXSmallBook-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamXSmallBook-fontStyle: normal;
@@ -308,11 +236,7 @@
 --tb-typography-GothamXSmallBook-lineHeight: 17px;
 --tb-typography-GothamXSmallBook-textTransform: none;
 --tb-typography-GothamXSmallBook-textDecorationLine: none;
---tb-typography-GothamXSmallBook-font: normal
-                  400
-                  0.6875rem/
-                  17px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-GothamXSmallBook-font: normal 400 0.6875rem/17px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamOverline-fontSize: 0.6875rem;
 --tb-typography-GothamOverline-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-GothamOverline-fontStyle: normal;
@@ -320,11 +244,7 @@
 --tb-typography-GothamOverline-lineHeight: 17px;
 --tb-typography-GothamOverline-textTransform: uppercase;
 --tb-typography-GothamOverline-textDecorationLine: none;
---tb-typography-GothamOverline-font: normal
-                  400
-                  0.6875rem/
-                  17px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-GothamOverline-font: normal 400 0.6875rem/17px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticPlaceholder-fontSize: 0.875rem;
 --tb-typography-SemanticPlaceholder-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticPlaceholder-fontStyle: normal;
@@ -332,11 +252,7 @@
 --tb-typography-SemanticPlaceholder-lineHeight: 21px;
 --tb-typography-SemanticPlaceholder-textTransform: none;
 --tb-typography-SemanticPlaceholder-textDecorationLine: none;
---tb-typography-SemanticPlaceholder-font: normal
-                  400
-                  0.875rem/
-                  21px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-SemanticPlaceholder-font: normal 400 0.875rem/21px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticFloatingPlaceholder-fontSize: 0.6875rem;
 --tb-typography-SemanticFloatingPlaceholder-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticFloatingPlaceholder-fontStyle: normal;
@@ -344,11 +260,7 @@
 --tb-typography-SemanticFloatingPlaceholder-lineHeight: 17px;
 --tb-typography-SemanticFloatingPlaceholder-textTransform: none;
 --tb-typography-SemanticFloatingPlaceholder-textDecorationLine: none;
---tb-typography-SemanticFloatingPlaceholder-font: normal
-                  400
-                  0.6875rem/
-                  17px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-SemanticFloatingPlaceholder-font: normal 400 0.6875rem/17px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticInput-fontSize: 1rem;
 --tb-typography-SemanticInput-fontFamily: Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticInput-fontStyle: normal;
@@ -356,11 +268,7 @@
 --tb-typography-SemanticInput-lineHeight: 24px;
 --tb-typography-SemanticInput-textTransform: none;
 --tb-typography-SemanticInput-textDecorationLine: none;
---tb-typography-SemanticInput-font: normal
-                  400
-                  1rem/
-                  24px
-                  Gotham Narrow, Helvetica, Arial, sans-serif;
+--tb-typography-SemanticInput-font: normal 400 1rem/24px Gotham Narrow, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticButtonLabelBase-fontSize: 0.875rem;
 --tb-typography-SemanticButtonLabelBase-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticButtonLabelBase-fontStyle: normal;
@@ -368,11 +276,7 @@
 --tb-typography-SemanticButtonLabelBase-lineHeight: 21px;
 --tb-typography-SemanticButtonLabelBase-textTransform: none;
 --tb-typography-SemanticButtonLabelBase-textDecorationLine: none;
---tb-typography-SemanticButtonLabelBase-font: normal
-                  400
-                  0.875rem/
-                  21px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-SemanticButtonLabelBase-font: normal 400 0.875rem/21px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticButtonLabelSmall-fontSize: 0.75rem;
 --tb-typography-SemanticButtonLabelSmall-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticButtonLabelSmall-fontStyle: normal;
@@ -380,11 +284,7 @@
 --tb-typography-SemanticButtonLabelSmall-lineHeight: 18px;
 --tb-typography-SemanticButtonLabelSmall-textTransform: none;
 --tb-typography-SemanticButtonLabelSmall-textDecorationLine: none;
---tb-typography-SemanticButtonLabelSmall-font: normal
-                  400
-                  0.75rem/
-                  18px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-SemanticButtonLabelSmall-font: normal 400 0.75rem/18px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticTabLabel-fontSize: 0.875rem;
 --tb-typography-SemanticTabLabel-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticTabLabel-fontStyle: normal;
@@ -392,11 +292,7 @@
 --tb-typography-SemanticTabLabel-lineHeight: 21px;
 --tb-typography-SemanticTabLabel-textTransform: none;
 --tb-typography-SemanticTabLabel-textDecorationLine: none;
---tb-typography-SemanticTabLabel-font: normal
-                  400
-                  0.875rem/
-                  21px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-SemanticTabLabel-font: normal 400 0.875rem/21px Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticTagLabel-fontSize: 0.75rem;
 --tb-typography-SemanticTagLabel-fontFamily: Gotham, Helvetica, Arial, sans-serif;
 --tb-typography-SemanticTagLabel-fontStyle: normal;
@@ -404,11 +300,7 @@
 --tb-typography-SemanticTagLabel-lineHeight: 18px;
 --tb-typography-SemanticTagLabel-textTransform: none;
 --tb-typography-SemanticTagLabel-textDecorationLine: none;
---tb-typography-SemanticTagLabel-font: normal
-                  400
-                  0.75rem/
-                  18px
-                  Gotham, Helvetica, Arial, sans-serif;
+--tb-typography-SemanticTagLabel-font: normal 400 0.75rem/18px Gotham, Helvetica, Arial, sans-serif;
 --tb-GlobalBrandBorderRadius: 4px;
 
 --tb-palette-TB-Brand-Primary-RGB: 12, 34, 63;

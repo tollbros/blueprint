@@ -25,7 +25,7 @@
     "build-storybook": "storybook build",
     "lint": "next lint",
     "stylelint": "stylelint '**/*.scss'",
-    "tokens": " npx @vercel/ncc run src/themes/generateTokens.js"
+    "tokens": " npx @vercel/ncc run src/themes/utils/buildTokens.js"
   },
   "bugs": {
     "url": "https://github.com/tollbros/blueprint/issues"
