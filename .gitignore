@@ -112,3 +112,6 @@ amplifytools.xcconfig
 #amplify-do-not-edit-end
 
 *storybook.log
+
+.env
+.env.*
