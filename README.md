@@ -33,7 +33,22 @@ To start using Blueprint in your project, follow these simple steps:
    import { Button } from '@tollbrothers/blueprint';
 
    const MyComponent = () => (
-     <Button>Click Me</Button>
+   <Button>Click Me</Button>
+  );
+  ```
+
+4. **Render Blueprint icons:**
+
+   ```javascript
+   import { Icon, iconData } from '@tollbrothers/blueprint';
+
+   const allIconNames = Object.keys(iconData); // ['utility-search', 'utility-menu', ...]
+
+   const Toolbar = () => (
+     <div>
+       <Icon name='utility-search' size={24} alt='Search' />
+       <Icon name='utility-favorite' size='1.5rem' alt='Favorite' />
+     </div>
    );
    ```
 
