@@ -62,6 +62,41 @@ To ensure proper resolution of dependencies, particularly for React, React DOM, 
 By explicitly defining paths in your jsconfig.json, you ensure that your project uses the correct instances of react, react-dom, and other dependencies. This prevents issues where your library might resolve these packages to its own node_modules instead of the consumer project's node_modules.
 
 
+## Codex
+
+1. Install / update
+* Keep your npm line, but mention Homebrew (if they used it):
+* `npm install -g @openai/codex@latest`
+* `(macOS) brew update && brew upgrade codex`
+
+2. Version check
+* `✅ codex --version (aim for ≥ 0.49.0)`
+
+3. Config file
+
+* Edit `~/.codex/config.toml`
+
+* Make sure the flag is top-level, not inside [mcp_servers].
+
+  ```
+  experimental_use_rmcp_client = true
+
+  [mcp_servers.figma]
+  url = "http://127.0.0.1:3845/mcp"
+  ```
+
+4. Restart
+
+* Quit and relaunch Codex (or your IDE extension).
+
+5. Figma setup
+
+* Open Figma Desktop, switch on Dev Mode, and select a frame/layer (the MCP often needs an active selection).
+
+6. Verify the MCP wiring
+
+* `get_design_context`
+
 ## Workflow
 
 #### Example
@@ -84,3 +119,7 @@ Overview.mockData.js is used by Overview.stories.js
 Overview.stories.js is used by Storybook
 Overview.js is used by Overview.stories.js and the application
 ```
+
+#### Example Tokens
+
+If you want to see the tokens that are added to the page run `npm run example-tokens`. This will give the stylesheet that is built on the page.

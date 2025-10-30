@@ -5,7 +5,7 @@ import fontFaces from './fontFaces';
 import buildCssVars from './buildCssVars';
 import buildTypographyClasses from './buildTypographyClasses';
 
-const outputFileName = 'tokens.css';
+const outputFileName = 'example-tokens.css';
 const outputFilePath = outputFileName;
 
 /**
