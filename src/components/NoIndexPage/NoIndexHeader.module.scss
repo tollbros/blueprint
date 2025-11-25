@@ -1,0 +1,153 @@
+$hero-height: 685px;
+$content-padding: 24px 16px;
+$bubble-size: 40px;
+$button-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+$text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  min-height: $hero-height;
+  padding: $content-padding;
+  color: var(--tb-palette-TB-Functional-White, #ffffff);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--tb-palette-TB-Functional-Black-RGB, 0, 0, 0), 0.4);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--tb-spacing-4, 16px);
+  width: 100%;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  color: inherit;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.logoWordmark {
+  font-family: 'Domaine', 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.2px;
+  text-shadow: $text-shadow;
+}
+
+.logoTagline {
+  font: var(--tb-typography-GothamXSmallBook-font, 11px/17px 'Gotham', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-shadow: $text-shadow;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--tb-spacing-2, 8px);
+}
+
+.iconButton {
+  width: $bubble-size;
+  height: $bubble-size;
+  border-radius: 50%;
+  border: 0;
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  color: var(--tb-palette-TB-Functional-Black, #000000);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $button-shadow;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--tb-palette-TB-Brand-Accent, #0070cd);
+    outline-offset: 2px;
+  }
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.breadcrumbRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tb-spacing-1, 4px);
+  color: inherit;
+  font: var(--tb-typography-GothamSmallBook-font, 11px/17px 'Gotham', sans-serif);
+}
+
+.ellipsisIcon {
+  color: var(--tb-palette-TB-Functional-White, #ffffff);
+  opacity: 0.9;
+}
+
+.divider {
+  width: 1px;
+  height: 12px;
+  background: var(--tb-palette-TB-Brand-Gray, #8195a2);
+  opacity: 0.85;
+}
+
+.homeTrigger {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 4px 0 4px 8px;
+  text-decoration: none;
+  letter-spacing: 0.25px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.titleWrap {
+  margin-top: auto;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Domaine', 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 0.4px;
+  text-shadow: $text-shadow;
+}

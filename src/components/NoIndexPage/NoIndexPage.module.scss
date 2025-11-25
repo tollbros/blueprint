@@ -1,0 +1,243 @@
+$card-border: 1px solid var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
+$pill-border: 1px solid var(--tb-palette-TB-Brand-Gray, #8195a2);
+$tile-border: 1px solid var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
+$control-height: 60px;
+$body-font: var(--tb-typography-GothamBaseBook-font, 14px/21px 'Gotham', sans-serif);
+$label-font: var(--tb-typography-SubheaderSmall-font, 13px/20px 'Gotham Narrow', sans-serif);
+$heading-font: var(--tb-typography-SubheaderBase-font, 16px/24px 'Gotham Narrow', sans-serif);
+$accent: var(--tb-palette-TB-Brand-Accent, #0070cd);
+$black: var(--tb-palette-TB-Functional-Black, #000000);
+
+.page {
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  color: $black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardArea {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--tb-spacing-6, 32px) var(--tb-spacing-3, 12px) var(--tb-spacing-7, 36px);
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+}
+
+.card {
+  width: min(95%, 360px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--tb-spacing-5, 24px);
+  padding: var(--tb-spacing-5, 24px) var(--tb-spacing-4, 16px);
+  border: $card-border;
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  box-shadow: 0 24px 60px rgba(12, 34, 63, 0.08);
+}
+
+.bodyCopy {
+  margin: 0;
+  font: $body-font;
+  color: $black;
+}
+
+.selectShell {
+  position: relative;
+  height: $control-height;
+  border: 1px solid var(--tb-palette-TB-Brand-Gray, #8195a2);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--tb-spacing-4, 16px);
+  color: $black;
+  cursor: pointer;
+}
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.selectLabel {
+  font: $body-font;
+}
+
+.arrowIcon {
+  margin-left: auto;
+  color: $black;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tb-spacing-3, 12px);
+}
+
+.sectionHeading {
+  font: $heading-font;
+}
+
+.pillRow {
+  display: flex;
+  align-items: center;
+  gap: var(--tb-spacing-2, 8px);
+}
+
+.bedroomPill {
+  height: 40px;
+  min-width: 40px;
+  padding: 0 var(--tb-spacing-3, 12px);
+  border-radius: 999px;
+  border: $pill-border;
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  color: $black;
+  font: $label-font;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease, transform 120ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.pillSelected {
+  background: $accent;
+  color: var(--tb-palette-TB-Functional-White, #ffffff);
+  border-color: $accent;
+}
+
+.tileGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--tb-spacing-2, 8px);
+}
+
+.tile {
+  height: 80px;
+  border: $tile-border;
+  border-radius: var(--tb-GlobalBrandBorderRadius, 4px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  cursor: pointer;
+  color: $black;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+
+  &:hover {
+    border-color: $accent;
+  }
+}
+
+.tileSelected {
+  border-color: $accent;
+  background: rgba(var(--tb-palette-TB-Brand-Accent-RGB, 0, 112, 205), 0.06);
+  box-shadow: inset 0 0 0 1px $accent;
+
+  .houseIcon {
+    color: $accent;
+  }
+}
+
+.tileLabel {
+  font: $label-font;
+  text-align: center;
+}
+
+.houseIcon {
+  color: var(--tb-palette-TB-Brand-Gray, #8195a2);
+}
+
+.checkboxList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tb-spacing-3, 12px);
+}
+
+.checkboxRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--tb-spacing-3, 12px);
+  position: relative;
+
+  input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  input:focus-visible + .customCheckbox {
+    outline: 2px solid $accent;
+    outline-offset: 2px;
+  }
+
+  input:checked + .customCheckbox {
+    background: $accent;
+    border-color: $accent;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.checkboxCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.checkboxHeading {
+  font: $label-font;
+  color: $black;
+}
+
+.checkboxHelper {
+  font: var(--tb-typography-BodySmall-font, 13px/20px 'Gotham Narrow', sans-serif);
+  color: var(--tb-palette-TB-Functional-DarkGray, #858585);
+}
+
+.customCheckbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  border: 1px solid var(--tb-palette-TB-Brand-Gray, #8195a2);
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  &::after {
+    content: '';
+    width: 8px;
+    height: 14px;
+    border-right: 2px solid var(--tb-palette-TB-Functional-White, #ffffff);
+    border-bottom: 2px solid var(--tb-palette-TB-Functional-White, #ffffff);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 120ms ease;
+  }
+}
+
+.cta {
+  height: 48px;
+  font: var(--tb-typography-GothamBaseBold-font, 14px/21px 'Gotham', sans-serif);
+  text-transform: none;
+}
