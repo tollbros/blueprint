@@ -74,7 +74,7 @@ By explicitly defining paths in your jsconfig.json, you ensure that your project
 
 3. Config file
 
-* Edit `~/.codex/config.toml`
+* Edit `nano ~/.codex/config.toml`
 
 * Make sure the flag is top-level, not inside [mcp_servers].
 
