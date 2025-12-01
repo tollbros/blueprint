@@ -7,6 +7,8 @@ $label-font: var(--tb-typography-SubheaderSmall-font, 13px/20px 'Gotham Narrow',
 $heading-font: var(--tb-typography-SubheaderBase-font, 16px/24px 'Gotham Narrow', sans-serif);
 $accent: var(--tb-palette-TB-Brand-Accent, #0070cd);
 $black: var(--tb-palette-TB-Functional-Black, #000000);
+$primary-hover-overlay: rgba(var(--tb-palette-TB-Functional-Black-RGB, 0, 0, 0), 0.4);
+$secondary-hover-overlay: rgba(var(--tb-palette-TB-Brand-Gray-RGB, 129, 149, 162), 0.4);
 
 .page {
   background: var(--tb-palette-TB-Functional-White, #ffffff);
@@ -42,34 +44,9 @@ $black: var(--tb-palette-TB-Functional-Black, #000000);
   color: $black;
 }
 
-.selectShell {
-  position: relative;
-  height: $control-height;
-  border: 1px solid var(--tb-palette-TB-Brand-Gray, #8195a2);
-  display: flex;
-  align-items: center;
-  padding: 0 var(--tb-spacing-4, 16px);
-  color: $black;
-  cursor: pointer;
-}
-
-.select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.selectLabel {
-  font: $body-font;
-}
-
-.arrowIcon {
-  margin-left: auto;
-  color: $black;
+.selectField {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .divider {
@@ -99,22 +76,22 @@ $black: var(--tb-palette-TB-Functional-Black, #000000);
   min-width: 40px;
   padding: 0 var(--tb-spacing-3, 12px);
   border-radius: 999px;
-  border: $pill-border;
-  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  border: 0;
+  background: transparent;
   color: $black;
   font: $label-font;
   cursor: pointer;
-  transition: background 120ms ease, color 120ms ease, border-color 120ms ease, transform 120ms ease;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
 
-  &:hover {
-    transform: translateY(-1px);
+  &:hover:not(.pillSelected) {
+    background: rgba(var(--tb-palette-TB-Brand-Accent-RGB, 0, 112, 205), 0.08);
+    box-shadow: inset 0 0 0 1px rgba(var(--tb-palette-TB-Brand-Accent-RGB, 0, 112, 205), 0.2);
   }
 }
 
 .pillSelected {
   background: $accent;
   color: var(--tb-palette-TB-Functional-White, #ffffff);
-  border-color: $accent;
 }
 
 .tileGrid {
@@ -194,6 +171,18 @@ $black: var(--tb-palette-TB-Functional-Black, #000000);
       opacity: 1;
     }
   }
+
+  &:hover .customCheckbox {
+    background: linear-gradient($secondary-hover-overlay, $secondary-hover-overlay),
+      var(--tb-palette-TB-Functional-White, #ffffff);
+    border-color: var(--tb-palette-TB-Brand-Gray, #8195a2);
+    box-shadow: 0 2px 8px rgba(var(--tb-palette-TB-Functional-Black-RGB, 0, 0, 0), 0.15);
+  }
+
+  &:hover input:checked + .customCheckbox {
+    background: linear-gradient($primary-hover-overlay, $primary-hover-overlay), $accent;
+    border-color: $accent;
+  }
 }
 
 .checkboxCopy {
@@ -226,13 +215,16 @@ $black: var(--tb-palette-TB-Functional-Black, #000000);
 
   &::after {
     content: '';
-    width: 8px;
-    height: 14px;
-    border-right: 2px solid var(--tb-palette-TB-Functional-White, #ffffff);
-    border-bottom: 2px solid var(--tb-palette-TB-Functional-White, #ffffff);
-    transform: rotate(45deg);
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 12px;
+    height: 12px;
+    background: url('https://cdn.tollbrothers.com/sites/comtollbrotherswww/svg/check_grey.svg') center center no-repeat;
+    background-size: contain;
+    filter: brightness(0) invert(1);
     opacity: 0;
-    transition: opacity 120ms ease;
+    transition: opacity 120ms ease, transform 120ms ease;
   }
 }
 

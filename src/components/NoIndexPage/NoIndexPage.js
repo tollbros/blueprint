@@ -1,15 +1,11 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import Button from '../Button/Button';
+import Select from '../Select/Select';
 import NoIndexHeader from './NoIndexHeader';
 import styles from './NoIndexPage.module.scss';
 
-const HERO_IMAGE = 'http://localhost:3845/assets/9ad8a246204f9dae190c8027e4a5b56fb50cbf2a.png';
-
-const ArrowIcon = () => (
-  <svg aria-hidden='true' className={styles.arrowIcon} fill='none' height='10' viewBox='0 0 12 8' width='12'>
-    <path d='M1 1.5L6 6.5L11 1.5' stroke='currentColor' strokeWidth='1.5' />
-  </svg>
-);
+const HERO_IMAGE_FIGMA = 'http://localhost:3845/assets/9ad8a246204f9dae190c8027e4a5b56fb50cbf2a.png';
+const HERO_IMAGE_FALLBACK = 'linear-gradient(120deg, rgba(12,34,63,0.92), rgba(12,34,63,0.75))';
 
 const HouseIcon = () => (
   <svg aria-hidden='true' className={styles.houseIcon} fill='none' height='28' viewBox='0 0 32 28' width='32'>
@@ -69,36 +65,12 @@ const CheckboxRow = ({ label, helper, checked, onChange }) => (
   </label>
 );
 
-const OutlinedSelect = ({ label, options, value, onChange }) => {
-  const selectedLabel = useMemo(() => options.find((option) => option.value === value)?.label ?? label, [label, options, value]);
-
-  return (
-    <div className={styles.selectShell}>
-      <select
-        aria-label={label}
-        className={styles.select}
-        onChange={(event) => onChange(event.target.value)}
-        value={value}
-      >
-        <option disabled value=''>
-          {label}
-        </option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      <span className={styles.selectLabel}>{selectedLabel}</span>
-      <ArrowIcon />
-    </div>
-  );
-};
-
 const NoIndexPage = ({
-  heroImage = HERO_IMAGE,
+  heroImage = HERO_IMAGE_FIGMA,
   heading = 'Non-Index',
   description = 'Select your location and discover the perfect home to make your own',
+  logoSrc,
+  heroFallback = HERO_IMAGE_FALLBACK,
   onSearchClick,
   onMenuClick,
   onUtilityClick,
@@ -128,15 +100,19 @@ const NoIndexPage = ({
     }
   };
 
+  const resolvedHero = heroImage || HERO_IMAGE_FALLBACK;
+
   return (
     <div className={styles.page}>
       <NoIndexHeader
-        backgroundImage={heroImage}
+        backgroundImage={resolvedHero}
+        backgroundFallback={heroFallback}
         onHomeClick={onHomeClick}
         onLogoClick={onLogoClick}
         onMenuClick={onMenuClick}
         onSearchClick={onSearchClick}
         onUtilityClick={onUtilityClick}
+        logoSrc={logoSrc}
         title={heading}
       />
 
@@ -144,8 +120,9 @@ const NoIndexPage = ({
         <form className={styles.card} onSubmit={handleSubmit}>
           <p className={styles.bodyCopy}>{description}</p>
 
-          <OutlinedSelect
-            label='Select a State'
+          <Select
+            className={styles.selectField}
+            fullWidth
             onChange={setSelectedState}
             options={[
               { value: 'az', label: 'Arizona' },
@@ -153,6 +130,7 @@ const NoIndexPage = ({
               { value: 'co', label: 'Colorado' },
               { value: 'fl', label: 'Florida' },
             ]}
+            placeholder='Select a State'
             value={selectedState}
           />
 

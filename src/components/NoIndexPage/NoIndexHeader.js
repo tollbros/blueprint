@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './NoIndexHeader.module.scss';
 
+const LOGO_ON_DARK = 'https://cdn.tollbrothers.com/sites/comtollbrotherswww/svg/toll_logo.svg';
+const LOGO_FALLBACK = '/toll-brothers-logo-light.svg';
+
 const SearchIcon = () => (
   <svg aria-hidden='true' className={styles.icon} fill='none' height='16' viewBox='0 0 18 18' width='16'>
     <circle cx='7.5' cy='7.5' r='6.5' stroke='currentColor' strokeWidth='1.5' />
@@ -40,45 +43,60 @@ const IconButton = ({ label, onClick, children }) => (
 
 const NoIndexHeader = ({
   backgroundImage,
+  backgroundFallback = '/contemplative-reptile.jpg',
   title = 'Non-Index',
   onSearchClick,
   onMenuClick,
-  onUtilityClick,
   onHomeClick,
   onLogoClick,
   className = '',
+  logoSrc = LOGO_ON_DARK,
 }) => {
+  const handleLogoError = (event) => {
+    if (event?.currentTarget?.src !== LOGO_FALLBACK) {
+      event.currentTarget.src = LOGO_FALLBACK;
+    }
+  };
+
   return (
-    <header className={`${styles.hero} ${className}`} style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <header
+      className={`${styles.hero} ${className}`}
+      style={{
+        backgroundImage: [backgroundImage && `url(${backgroundImage})`, backgroundFallback].filter(Boolean).join(', '),
+      }}
+    >
       <div className={styles.overlay} />
       <div className={styles.inner}>
-        <div className={styles.topRow}>
-          <button className={styles.logo} onClick={onLogoClick} type='button'>
-            <span className={styles.logoWordmark}>Toll Brothers</span>
-            <span className={styles.logoTagline}>America&apos;s Luxury Home Builder&reg;</span>
-          </button>
-          <div className={styles.actions}>
-            <IconButton label='Search' onClick={onSearchClick}>
-              <SearchIcon />
-            </IconButton>
-            <IconButton label='Open menu' onClick={onMenuClick}>
-              <MenuIcon />
-            </IconButton>
-            <IconButton label='Utility actions' onClick={onUtilityClick}>
-              <UtilityIcon />
-            </IconButton>
+        <div className={styles.topBlock}>
+          <div className={styles.topRow}>
+            <button className={styles.logo} onClick={onLogoClick} type='button'>
+              <img
+                alt="Toll Brothers — America's Luxury Home Builder"
+                className={styles.logoImage}
+                onError={handleLogoError}
+                src={logoSrc || LOGO_ON_DARK}
+              />
+            </button>
+            <div className={styles.actions}>
+              <IconButton label='Search' onClick={onSearchClick}>
+                <SearchIcon />
+              </IconButton>
+              <IconButton label='Open menu' onClick={onMenuClick}>
+                <MenuIcon />
+              </IconButton>
+            </div>
+          </div>
+          <div className={styles.breadcrumbRow}>
+            <EllipsisIcon />
+            <span className={styles.divider} aria-hidden='true' />
+            <button className={styles.homeTrigger} onClick={onHomeClick} type='button'>
+              Home
+            </button>
           </div>
         </div>
-        <div className={styles.breadcrumbRow}>
-          <EllipsisIcon />
-          <span className={styles.divider} aria-hidden='true' />
-          <button className={styles.homeTrigger} onClick={onHomeClick} type='button'>
-            Home
-          </button>
-        </div>
-        <div className={styles.titleWrap}>
-          <h1 className={styles.title}>{title}</h1>
-        </div>
+      </div>
+      <div className={styles.titleOverlay}>
+        <h1 className={styles.title}>{title}</h1>
       </div>
     </header>
   );

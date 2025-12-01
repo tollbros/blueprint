@@ -3,13 +3,18 @@ $content-padding: 24px 16px;
 $bubble-size: 40px;
 $button-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 $text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+$icon-hover-overlay: rgba(var(--tb-palette-TB-Functional-Black-RGB, 0, 0, 0), 0.08);
 
 .hero {
   position: relative;
   display: flex;
   align-items: stretch;
+  width: 100%;
+  max-width: 100vw;
   min-height: $hero-height;
   padding: $content-padding;
+  box-sizing: border-box;
+  justify-content: center;
   color: var(--tb-palette-TB-Functional-White, #ffffff);
   background-position: center;
   background-size: cover;
@@ -26,6 +31,13 @@ $text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   position: relative;
   z-index: 1;
   display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 375px;
+}
+
+.topBlock {
+  display: flex;
   flex-direction: column;
   gap: var(--tb-spacing-4, 16px);
   width: 100%;
@@ -35,35 +47,22 @@ $text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  column-gap: var(--tb-spacing-3, 12px);
 }
 
 .logo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  color: inherit;
-  text-align: left;
+  display: inline-flex;
   background: transparent;
   border: 0;
   padding: 0;
   cursor: pointer;
 }
 
-.logoWordmark {
-  font-family: 'Domaine', 'Times New Roman', serif;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 30px;
-  letter-spacing: -0.2px;
-  text-shadow: $text-shadow;
-}
-
-.logoTagline {
-  font: var(--tb-typography-GothamXSmallBook-font, 11px/17px 'Gotham', sans-serif);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  text-shadow: $text-shadow;
+.logoImage {
+  height: 32px;
+  width: auto;
+  // Ensure dark logo renders white on dark photography
+  filter: drop-shadow($text-shadow) brightness(0) invert(1);
 }
 
 .actions {
@@ -83,11 +82,12 @@ $text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   align-items: center;
   justify-content: center;
   box-shadow: $button-shadow;
-  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  transition: box-shadow 120ms ease, background 120ms ease;
   cursor: pointer;
 
   &:hover {
-    transform: translateY(-1px);
+    background: linear-gradient($icon-hover-overlay, $icon-hover-overlay),
+      var(--tb-palette-TB-Functional-White, #ffffff);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
   }
 
@@ -137,8 +137,13 @@ $text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   }
 }
 
-.titleWrap {
-  margin-top: auto;
+.titleOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
   text-align: center;
 }
 
