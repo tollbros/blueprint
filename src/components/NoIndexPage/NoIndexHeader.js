@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './NoIndexHeader.module.scss';
 
 const LOGO_ON_DARK = 'https://cdn.tollbrothers.com/sites/comtollbrotherswww/svg/toll_logo.svg';
-const LOGO_FALLBACK = '/toll-brothers-logo-light.svg';
 
 const SearchIcon = () => (
   <svg aria-hidden='true' className={styles.icon} fill='none' height='16' viewBox='0 0 18 18' width='16'>
@@ -53,9 +52,8 @@ const NoIndexHeader = ({
   logoSrc = LOGO_ON_DARK,
 }) => {
   const handleLogoError = (event) => {
-    if (event?.currentTarget?.src !== LOGO_FALLBACK) {
-      event.currentTarget.src = LOGO_FALLBACK;
-    }
+    event.currentTarget.onerror = null;
+    event.currentTarget.src = LOGO_ON_DARK;
   };
 
   return (
