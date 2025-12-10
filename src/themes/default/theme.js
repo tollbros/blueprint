@@ -32,13 +32,15 @@ export const defaultTheme = {
         School: '#543D6E',
       },
     },
-    primary: {
-      contrast: '#FFFFFF',
-      main: '#2196F3',
+
+    State: {
+      AccentHover: '#00437B',
+      AccentPressed: '#005AA4',
+      GrayHover: '#CDD5DA',
+      GrayPressed: '#E6EAEC',
+      ActionDisabled: 'rgba(0, 0, 0, 0.38)',
     },
-    action: {
-      disabled: 'rgba(0, 0, 0, 0.38)',
-    },
+    
   },
   spacing: {
     0: '0',
@@ -48,7 +50,7 @@ export const defaultTheme = {
     4: '16px',
     5: '24px',
     6: '32px',
-    7: '36px',
+    7: '40px',
     8: '48px',
     9: '60px',
   },

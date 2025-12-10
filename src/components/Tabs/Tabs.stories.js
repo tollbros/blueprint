@@ -1,6 +1,6 @@
 import React from 'react';
 import Tabs from './Tabs.js';
-import Button from '../Button/Button.js';
+import PrimaryCTA from '../Button/PrimaryCTA.js';
 
 export default {
   title: 'Components/Tabs',
@@ -31,9 +31,7 @@ export const TwoTabsWithActionButton = Template.bind({});
 TwoTabsWithActionButton.args = {
   tabAction: () => {
     return (
-      <Button size={'small'} style={{ textWrap: 'nowrap' }}>
-        Tab Action Button
-      </Button>
+      <PrimaryCTA size='small' priority='A' state='base' label='Tab Action Button' />
     );
   },
   tabs: [
@@ -56,9 +54,7 @@ export const ScrollableTabs = Template.bind({});
 ScrollableTabs.args = {
   tabAction: () => {
     return (
-      <Button size={'small'} style={{ textWrap: 'nowrap' }}>
-        Tab Action Button
-      </Button>
+      <PrimaryCTA size='small' priority='A' state='base' label='Tab Action Button' />
     );
   },
   tabs: [
