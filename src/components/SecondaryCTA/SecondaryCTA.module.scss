@@ -71,7 +71,8 @@ $stroke-pressed: 2px;
 
 .lightHover {
   background: $gray-hover;
-  border: $stroke-base solid $brand-gray;
+  border: 0;
+  box-shadow: 0 0 0 $stroke-base $brand-gray;
   color: $brand-medium;
 }
 
@@ -84,7 +85,8 @@ $stroke-pressed: 2px;
 
 .lightDisabled {
   background: transparent;
-  border: $stroke-base solid $disabled;
+  border: 0;
+  box-shadow: 0 0 0 $stroke-base $disabled;
   color: $disabled;
 }
 
@@ -98,7 +100,8 @@ $stroke-pressed: 2px;
 
 .darkHover {
   background: $gray-hover;
-  border: $stroke-base solid $white;
+  border: 0;
+  box-shadow: 0 0 0 $stroke-base $white;
   color: $brand-medium;
 }
 
@@ -111,6 +114,7 @@ $stroke-pressed: 2px;
 
 .darkDisabled {
   background: transparent;
-  border: $stroke-base solid $disabled;
+  border: 0;
+  box-shadow: 0 0 0 $stroke-base $disabled;
   color: $disabled;
 }
