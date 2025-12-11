@@ -64,7 +64,8 @@ $stroke-pressed: 2px;
 // Light background variants
 .lightBase {
   background: transparent;
-  border: $stroke-base solid $brand-gray;
+  border: 0;
+  box-shadow: inset 0 0 0 $stroke-base $brand-gray;
   color: $brand-medium;
 }
 
@@ -76,7 +77,8 @@ $stroke-pressed: 2px;
 
 .lightPressed {
   background: $gray-pressed;
-  border: $stroke-pressed solid $gray-hover;
+  border: 0;
+  box-shadow: inset 0 0 0 $stroke-pressed $gray-hover;
   color: $brand-medium;
 }
 
@@ -89,7 +91,8 @@ $stroke-pressed: 2px;
 // Dark background variants
 .darkBase {
   background: transparent;
-  border: $stroke-base solid $white;
+  border: 0;
+  box-shadow: inset 0 0 0 $stroke-base $white;
   color: $white;
 }
 
@@ -101,7 +104,8 @@ $stroke-pressed: 2px;
 
 .darkPressed {
   background: $gray-pressed;
-  border: $stroke-pressed solid $gray-hover;
+  border: 0;
+  box-shadow: inset 0 0 0 $stroke-pressed $gray-hover;
   color: $brand-medium;
 }
 
