@@ -1,6 +1,6 @@
 import React from 'react';
 import Tabs from './Tabs.js';
-import PrimaryCTA from '../Button/PrimaryCTA.js';
+import PrimaryCTA from '../PrimaryCTA/PrimaryCTA.js';
 
 export default {
   title: 'Components/Tabs',

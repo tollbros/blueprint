@@ -1,4 +1,4 @@
-import PrimaryCTA from '../Button/PrimaryCTA';
+import PrimaryCTA from '../PrimaryCTA/PrimaryCTA';
 import SquareIconButton from '../SquareIconButton/SquareIconButton';
 
 const FallbackAddButton = ({ isCondensed = false, children = '', className = '', ...rest }) => {

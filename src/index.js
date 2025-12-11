@@ -1,4 +1,4 @@
-import PrimaryCTA from './components/Button/PrimaryCTA';
+import PrimaryCTA from './components/PrimaryCTA/PrimaryCTA';
 import SecondaryCTA from './components/SecondaryCTA/SecondaryCTA';
 import FallbackAddButton from './components/FallbackAddButton/FallbackAddButton.js';
 import SquareIconButton from './components/SquareIconButton/SquareIconButton.js';
