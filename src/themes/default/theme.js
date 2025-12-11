@@ -32,13 +32,15 @@ export const defaultTheme = {
         School: '#543D6E',
       },
     },
-    primary: {
-      contrast: '#FFFFFF',
-      main: '#2196F3',
+
+    State: {
+      AccentHover: '#00437B',
+      AccentPressed: '#005AA4',
+      GrayHover: '#CDD5DA',
+      GrayPressed: '#E6EAEC',
+      Disabled: 'var(--tb-palette-TB-Functional-MedGray)',
     },
-    action: {
-      disabled: 'rgba(0, 0, 0, 0.38)',
-    },
+    
   },
   spacing: {
     0: '0',
@@ -48,9 +50,19 @@ export const defaultTheme = {
     4: '16px',
     5: '24px',
     6: '32px',
-    7: '36px',
+    7: '40px',
     8: '48px',
     9: '60px',
+  },
+  cta: {
+    height: {
+      base: '48px',
+      small: '40px',
+      large: '56px',
+    },
+    padding: {
+      base: '20px',
+    },
   },
   typography: {
     ...typography,

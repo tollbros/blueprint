@@ -1,4 +1,4 @@
-import Button from '../Button/Button';
+import PrimaryCTA from '../PrimaryCTA/PrimaryCTA';
 import SquareIconButton from '../SquareIconButton/SquareIconButton';
 
 const FallbackAddButton = ({ isCondensed = false, children = '', className = '', ...rest }) => {
@@ -11,18 +11,16 @@ const FallbackAddButton = ({ isCondensed = false, children = '', className = '',
   }
 
   return (
-    <Button
-      size={'small'}
-      color={'accent'}
-      variant={'text'}
-      className={`blueprint-typography-GothamBaseBold-font ${className}`}
+    <PrimaryCTA
+      size='small'
+      priority='B'
+      state='base'
+      className={className}
       style={{ textWrap: 'nowrap' }}
-      type={'button'}
+      type='button'
+      label={`+ ${children}`}
       {...rest}
-    >
-      {'+ '}
-      {children}
-    </Button>
+    />
   );
 };
 

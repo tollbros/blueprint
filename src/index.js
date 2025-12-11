@@ -1,4 +1,5 @@
-import Button from './components/Button/Button';
+import PrimaryCTA from './components/PrimaryCTA/PrimaryCTA';
+import SecondaryCTA from './components/SecondaryCTA/SecondaryCTA';
 import FallbackAddButton from './components/FallbackAddButton/FallbackAddButton.js';
 import SquareIconButton from './components/SquareIconButton/SquareIconButton.js';
 import ThemeProvider from './themes/ThemeProvider';
@@ -9,7 +10,8 @@ import { useTheme } from './themes/ThemeProvider';
 import { defaultTheme } from './themes/default/theme';
 
 export {
-  Button,
+  PrimaryCTA,
+  SecondaryCTA,
   TextArea,
   FallbackAddButton,
   SquareIconButton,
