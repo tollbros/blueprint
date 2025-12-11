@@ -38,7 +38,7 @@ export const defaultTheme = {
       AccentPressed: '#005AA4',
       GrayHover: '#CDD5DA',
       GrayPressed: '#E6EAEC',
-      ActionDisabled: 'rgba(0, 0, 0, 0.38)',
+      Disabled: 'var(--tb-palette-TB-Functional-MedGray)',
     },
     
   },
@@ -53,6 +53,16 @@ export const defaultTheme = {
     7: '40px',
     8: '48px',
     9: '60px',
+  },
+  cta: {
+    height: {
+      base: '48px',
+      small: '40px',
+      large: '56px',
+    },
+    padding: {
+      base: '20px',
+    },
   },
   typography: {
     ...typography,

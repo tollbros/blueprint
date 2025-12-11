@@ -1,9 +1,9 @@
 // Primary CTA styles aligned to Figma export
 $button-min-width: 64px;
-$button-base-height: 48px;
-$button-small-height: 40px;
-$button-large-height: 56px;
-$button-horizontal-padding: 20px;
+$button-base-height: var(--tb-cta-height-base);
+$button-small-height: var(--tb-cta-height-small);
+$button-large-height: var(--tb-cta-height-large);
+$button-horizontal-padding: var(--tb-cta-padding-base);
 $button-border-radius: var(--tb-GlobalBrandBorderRadius);
 
 $button-font: var(--tb-typography-SemanticButtonLabelBase-font);
