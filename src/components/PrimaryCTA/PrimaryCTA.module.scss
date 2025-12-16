@@ -1,14 +1,13 @@
 // Primary CTA styles aligned to Figma export
 $button-min-width: 64px;
-$button-base-height: var(--tb-cta-height-base);
-$button-small-height: var(--tb-cta-height-small);
-$button-large-height: var(--tb-cta-height-large);
-$button-horizontal-padding: var(--tb-cta-padding-base);
+$button-base-height: var(--tb-button-height-base);
+$button-small-height: var(--tb-button-height-small);
+$button-large-height: var(--tb-button-height-large);
+$button-horizontal-padding: var(--tb-button-padding-base);
 $button-border-radius: var(--tb-GlobalBrandBorderRadius);
 
 $button-font: var(--tb-typography-SemanticButtonLabel-font);
-$button-font-small: var(--tb-typography-SemanticButtonTag-font);
-$button-gap: 4px;
+$button-gap: var(--tb-button-gap-textIconBase);
 $icon-size: 20px;
 
 $accent: var(--tb-palette-TB-Brand-Accent);
@@ -53,7 +52,6 @@ $accent-text: var(--tb-palette-TB-Brand-Accent);
 
 .sizeSmall {
   height: $button-small-height;
-  font: $button-font-small;
 }
 
 .sizeLarge {
@@ -69,6 +67,8 @@ $accent-text: var(--tb-palette-TB-Brand-Accent);
   align-items: center;
   color: currentColor;
   display: inline-flex;
+  font-size: inherit;
+  line-height: 1;
   height: $icon-size;
   justify-content: center;
   width: $icon-size;

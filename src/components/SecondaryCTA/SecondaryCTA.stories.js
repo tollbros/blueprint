@@ -1,6 +1,19 @@
 import SecondaryCTA from './SecondaryCTA';
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { fn } from '@storybook/test';
+import { getPreviewContainerStyle } from '../../storybook/previewUtils';
+
+const DotIcon = ({ color = 'currentColor' }) => (
+  <span
+    style={{
+      display: 'inline-block',
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      backgroundColor: color || 'currentColor',
+    }}
+  />
+);
 
 const StorySchema = {
   title: 'primitives/SecondaryCTA',
@@ -12,6 +25,7 @@ const StorySchema = {
     size: 'base',
     bg: 'Light',
     state: 'base',
+    iconPosition: 'none',
     fullWidth: false,
   },
   argTypes: {
@@ -28,6 +42,11 @@ const StorySchema = {
       control: 'select',
       options: ['base', 'hover', 'pressed', 'disabled'],
     },
+    iconPosition: {
+      control: 'select',
+      options: ['none', 'left', 'right'],
+    },
+    icon: { table: { disable: true } },
     fullWidth: {
       control: 'boolean',
     },
@@ -56,25 +75,23 @@ const StorySchema = {
 
       const wrapperWidth = naturalWidth ? `${naturalWidth + 120}px` : 'fit-content';
 
-          return (
-            <div
-              style={{
-                background: 'var(--tb-palette-TB-Functional-LightGray, #E9EDF0)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: wrapperWidth,
-                margin: '0 auto',
-                position: 'relative',
-                borderRadius: '4px',
-                padding: '24px 0',
-              }}
-            >
+      return (
+        <div
+          style={getPreviewContainerStyle(context.args, {
+            wrapperWidth,
+            darkProp: 'bg',
+            darkValues: ['Dark'],
+          })}
+        >
           <div
             ref={measureRef}
             style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', display: 'inline-flex' }}
           >
-            <SecondaryCTA {...context.args} fullWidth={false} />
+            <SecondaryCTA
+              {...context.args}
+              icon={context.args.iconPosition === 'none' ? null : <DotIcon />}
+              fullWidth={false}
+            />
           </div>
 
           <div style={{ display: 'inline-flex', width: context.args.fullWidth ? '100%' : 'auto' }}>
@@ -108,9 +125,12 @@ const StorySchema = {
       if (interactive && !isDisabled) setCurrentState('hover');
     };
 
+    const icon = args.iconPosition === 'none' ? null : <DotIcon />;
+
     return (
       <SecondaryCTA
         {...args}
+        icon={icon}
         state={currentState}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

@@ -54,7 +54,7 @@ export const defaultTheme = {
     8: '48px',
     9: '60px',
   },
-  cta: {
+  button: {
     height: {
       base: '48px',
       small: '40px',
@@ -62,6 +62,13 @@ export const defaultTheme = {
     },
     padding: {
       base: '20px',
+    },
+    gap: {
+      textIconBase: '4px',
+    },
+    stroke: {
+      base: '1px',
+      pressed: '2px',
     },
   },
   typography: {

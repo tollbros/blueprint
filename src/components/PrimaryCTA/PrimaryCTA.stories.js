@@ -1,6 +1,7 @@
 import { fn } from '@storybook/test';
 import PrimaryCTA from './PrimaryCTA';
 import React, { useLayoutEffect, useRef, useState } from 'react';
+import { getPreviewContainerStyle } from '../../storybook/previewUtils';
 
 const DotIcon = ({ color = 'currentColor' }) => (
   <span
@@ -49,15 +50,11 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
 
       return (
         <div
-          style={{
-            background: 'var(--tb-palette-TB-Functional-LightGray, #E9EDF0)',
-            display: 'flex',
-            justifyContent: 'center',
-            width: wrapperWidth,
-            position: 'relative',
-            borderRadius: '4px',
-            padding: '24px 0',
-          }}
+          style={getPreviewContainerStyle(context.args, {
+            wrapperWidth,
+            // PCTA has no dark variant; keep light background.
+            darkValues: [],
+          })}
         >
           <div
             ref={measureRef}
