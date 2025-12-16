@@ -6,7 +6,8 @@ $button-large-height: var(--tb-cta-height-large);
 $button-horizontal-padding: var(--tb-cta-padding-base);
 $button-border-radius: var(--tb-GlobalBrandBorderRadius);
 
-$button-font: var(--tb-typography-SemanticButtonLabelBase-font);
+$button-font: var(--tb-typography-SemanticButtonLabel-font);
+$button-font-small: var(--tb-typography-SemanticButtonTag-font);
 $button-gap: 4px;
 
 $brand-gray: var(--tb-palette-TB-Brand-Gray);
@@ -40,7 +41,7 @@ $stroke-pressed: 2px;
 }
 
 .label {
-  line-height: 21px;
+  line-height: inherit;
   white-space: nowrap;
 }
 
@@ -50,6 +51,7 @@ $stroke-pressed: 2px;
 
 .sizeSmall {
   height: $button-small-height;
+  font: $button-font-small;
 }
 
 .sizeLarge {
