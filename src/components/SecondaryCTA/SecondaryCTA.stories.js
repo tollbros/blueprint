@@ -1,7 +1,7 @@
 import SecondaryCTA from './SecondaryCTA';
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { fn } from '@storybook/test';
-import { getPreviewContainerStyle } from '../../storybook/previewUtils';
+import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtils';
 
 const DotIcon = ({ color = 'currentColor' }) => (
   <span
@@ -73,7 +73,10 @@ const StorySchema = {
         }
       }, [naturalWidth, context.args.label, context.args.size, context.args.bg, context.args.state, context.args.fullWidth]);
 
-      const wrapperWidth = naturalWidth ? `${naturalWidth + 120}px` : 'fit-content';
+      const wrapperWidth = getWrapperWidth(naturalWidth, context.args.fullWidth, {
+        padding: 40,
+        fullMultiplier: 2,
+      });
 
       return (
         <div
@@ -143,4 +146,6 @@ const StorySchema = {
 
 export default StorySchema;
 
-export const Playground = {};
+export const Playground = {
+  parameters: { layout: 'centered' },
+};

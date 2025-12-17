@@ -1,7 +1,7 @@
 import { fn } from '@storybook/test';
 import PrimaryCTA from './PrimaryCTA';
 import React, { useLayoutEffect, useRef, useState } from 'react';
-import { getPreviewContainerStyle } from '../../storybook/previewUtils';
+import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtils';
 
 const DotIcon = ({ color = 'currentColor' }) => (
   <span
@@ -46,7 +46,10 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
         }
       }, [naturalWidth, context.args.label, context.args.size, context.args.priority, context.args.state, context.args.iconPosition]);
 
-      const wrapperWidth = naturalWidth ? `${naturalWidth + 120}px` : 'fit-content';
+      const wrapperWidth = getWrapperWidth(naturalWidth, context.args.fullWidth, {
+        padding: 40,
+        fullMultiplier: 2,
+      });
 
       return (
         <div
