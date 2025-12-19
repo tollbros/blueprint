@@ -16,7 +16,7 @@ const DotIcon = ({ color = 'currentColor' }) => (
 );
 
 const StorySchema = {
-  title: 'Button/04 PillFillButton',
+  title: 'Buttons/04 PillFillButton',
   component: PillFillButton,
   tags: ['autodocs'],
   args: {
