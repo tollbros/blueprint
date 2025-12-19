@@ -1,9 +1,9 @@
 // Text Link styles aligned to design spec and existing tokens.
-$brand-medium: var(--tb-palette-TB-Brand-Medium, #004876);
-$white: var(--tb-palette-TB-Functional-White, #ffffff);
-$disabled: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
-$accent-pressed: var(--tb-palette-State-AccentPressed, #005aa4);
-$gray-pressed: var(--tb-palette-State-GrayPressed, #e6eaec);
+$brand-medium: var(--tb-palette-TB-Brand-Medium);
+$white: var(--tb-palette-TB-Functional-White);
+$disabled: var(--tb-palette-TB-Functional-MedGray);
+$accent-pressed: var(--tb-palette-State-AccentPressed);
+$gray-pressed: var(--tb-palette-State-GrayPressed);
 
 .textLink {
   align-items: center;
@@ -20,21 +20,18 @@ $gray-pressed: var(--tb-palette-State-GrayPressed, #e6eaec);
 }
 
 .sizeSmall {
-  font-family: var(--tb-typography-GothamSmallBold-fontFamily, Gotham, Helvetica, Arial, sans-serif);
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 17px;
+  // Gotham-XS-700 (11/17)
+  font: var(--tb-typography-Gotham-XS-700-font);
 }
 
 .sizeBase {
-  font: var(--tb-typography-GothamSmallBold-font, normal 400 12px/18px Gotham, Helvetica, Arial, sans-serif);
-  font-weight: 700;
+  // Gotham-S-700 (12/18)
+  font: var(--tb-typography-Gotham-S-700-font);
 }
 
 .sizeLarge {
-  font: var(--tb-typography-GothamBaseBold-font, normal 400 14px/21px Gotham, Helvetica, Arial, sans-serif);
-  font-weight: 700;
+  // Gotham-B-700 (14/21)
+  font: var(--tb-typography-Gotham-B-700-font);
 }
 
 .lightBase,
