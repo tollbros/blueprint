@@ -17,6 +17,14 @@ const preview = {
         date: /Date$/i,
       },
     },
+    options: {
+      storySort: {
+        order: [
+          'Button',
+          ['01 PrimaryCTA', '02 SecondaryCTA', '03 PillStrokeButton', '04 PillFillButton', '05 PillFillStrokeButton', '06 TextLink'],
+        ],
+      },
+    },
   },
 
   design: {

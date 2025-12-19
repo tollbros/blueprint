@@ -17,7 +17,7 @@ export function getPreviewContainerStyle(args = {}, options = {}) {
     darkProp = 'bg',
     darkValues = ['Dark'],
     wrapperWidth = 'fit-content',
-    padding = '24px 40px',
+    padding = '24px 0',
   } = options;
 
   const darkSet = Array.isArray(darkValues) ? new Set(darkValues) : new Set([darkValues]);

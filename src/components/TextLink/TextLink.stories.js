@@ -4,7 +4,7 @@ import TextLink from './TextLink';
 import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtils';
 
 const StorySchema = {
-  title: 'Button/TextLink',
+  title: 'Button/06 TextLink',
   component: TextLink,
   tags: ['autodocs'],
   parameters: {

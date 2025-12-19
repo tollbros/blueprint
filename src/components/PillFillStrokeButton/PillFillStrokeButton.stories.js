@@ -4,7 +4,7 @@ import PillFillStrokeButton from './PillFillStrokeButton';
 import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtils';
 
 const StorySchema = {
-  title: 'Button/PillFillStrokeButton',
+  title: 'Button/05 PillFillStrokeButton',
   component: PillFillStrokeButton,
   tags: ['autodocs'],
   args: {
