@@ -1,0 +1,178 @@
+// Pill stroke button styles (pillButton tokens)
+$button-height: var(--tb-pillButton-height-base);
+$button-padding: var(--tb-pillButton-padding-small);
+$button-gap: var(--tb-pillButton-gap-textIconBase);
+$stroke-base: var(--tb-pillButton-stroke-base);
+$stroke-pressed: var(--tb-pillButton-stroke-pressed);
+$pill-radius: var(--tb-pillButton-borderRadius);
+$icon-size: 16px;
+
+$font-bold: var(--tb-typography-Gotham-S-700-font);
+$font-book: var(--tb-typography-Gotham-S-400-font);
+
+$brand-gray: var(--tb-palette-TB-Brand-Gray);
+$brand-medgray: var(--tb-palette-TB-Brand-MedGray, #d8d8d8);
+$brand-medium: var(--tb-palette-TB-Brand-Medium);
+$brand-black: var(--tb-palette-TB-Brand-Black, #000000);
+$white: var(--tb-palette-TB-Functional-White);
+$state-hover: var(--tb-palette-State-GrayHover);
+$state-pressed: var(--tb-palette-State-GrayPressed);
+$state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
+
+.button {
+  align-items: center;
+  background: transparent;
+  border-radius: $pill-radius;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font: $font-bold;
+  height: $button-height;
+  justify-content: center;
+  padding: 0 $button-padding;
+  min-width: fit-content;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.sizeBase {
+  height: $button-height;
+}
+
+.label {
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.withIcon {
+  gap: $button-gap;
+}
+
+.icon {
+  align-items: center;
+  color: currentColor;
+  display: inline-flex;
+  font-size: $icon-size;
+  line-height: 1;
+  height: $icon-size;
+  justify-content: center;
+  width: $icon-size;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    fill: currentColor;
+  }
+}
+
+// Priority A - Light BG
+.lightABase {
+  background: transparent;
+  border: $stroke-base solid $brand-gray;
+  color: $brand-medium;
+}
+
+.lightAHover {
+  background: $state-hover;
+  border: $stroke-base solid $brand-gray;
+  color: $brand-medium;
+}
+
+.lightAPressed {
+  background: $state-pressed;
+  border: $stroke-pressed solid $state-hover;
+  color: $brand-medium;
+}
+
+.lightADisabled {
+  background: transparent;
+  border: $stroke-base solid $state-disabled;
+  color: $state-disabled;
+}
+
+// Priority A - Dark BG
+.darkABase {
+  background: transparent;
+  border: $stroke-base solid $white;
+  color: $white;
+}
+
+.darkAHover {
+  background: $state-hover;
+  border: $stroke-base solid $white;
+  color: $brand-medium;
+}
+
+.darkAPressed {
+  background: $state-pressed;
+  border: $stroke-pressed solid $state-hover;
+  color: $brand-medium;
+}
+
+.darkADisabled {
+  background: transparent;
+  border: $stroke-base solid $state-disabled;
+  color: $state-disabled;
+}
+
+// Priority B - Light BG
+.lightBBase {
+  background: transparent;
+  border: $stroke-base solid $brand-medgray;
+  color: $brand-black;
+  font: $font-book;
+}
+
+.lightBHover {
+  background: $state-hover;
+  border: $stroke-base solid $brand-medgray;
+  color: $brand-black;
+  font: $font-book;
+}
+
+.lightBPressed {
+  background: $state-pressed;
+  border: $stroke-pressed solid $state-hover;
+  color: $brand-black;
+  font: $font-book;
+}
+
+.lightBDisabled {
+  background: $white;
+  border: $stroke-base solid $state-disabled;
+  color: $state-disabled;
+  font: $font-book;
+}
+
+// Priority B - Dark BG
+.darkBBase {
+  background: transparent;
+  border: $stroke-base solid $brand-medgray;
+  color: $white;
+  font: $font-book;
+}
+
+.darkBHover {
+  background: $state-hover;
+  border: $stroke-base solid $brand-medgray;
+  color: $brand-medium;
+  font: $font-book;
+}
+
+.darkBPressed {
+  background: $state-pressed;
+  border: $stroke-pressed solid $state-hover;
+  color: $brand-medium;
+  font: $font-book;
+}
+
+.darkBDisabled {
+  background: transparent;
+  border: $stroke-base solid $state-disabled;
+  color: $state-disabled;
+  font: $font-book;
+}

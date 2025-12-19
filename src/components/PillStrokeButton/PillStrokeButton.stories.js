@@ -1,4 +1,4 @@
-import SecondaryCTA from './SecondaryCTA';
+import PillStrokeButton from './PillStrokeButton';
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { fn } from '@storybook/test';
 import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtils';
@@ -16,33 +16,29 @@ const DotIcon = ({ color = 'currentColor' }) => (
 );
 
 const StorySchema = {
-  title: 'primitives/SecondaryCTA',
-  component: SecondaryCTA,
+  title: 'primitives/PillStrokeButton',
+  component: PillStrokeButton,
   tags: ['autodocs'],
   args: {
     onClick: fn(),
-    label: 'SCTA',
-    size: 'base',
+    label: 'Pill Button',
+    priority: 'A',
     iconPosition: 'none',
-    fullWidth: false,
     bg: 'Light',
     state: 'base',
   },
   argTypes: {
     label: { control: 'text' },
+    priority: {
+      control: 'select',
+      options: ['A', 'B'],
+    },
     iconPosition: {
       control: 'select',
       options: ['none', 'left', 'right'],
     },
     icon: { table: { disable: true } },
-    fullWidth: {
-      control: 'boolean',
-    },
     className: { table: { disable: true } },
-    size: {
-      control: 'select',
-      options: ['base', 'small', 'large'],
-    },
     bg: {
       control: 'select',
       options: ['Light', 'Dark'],
@@ -55,7 +51,7 @@ const StorySchema = {
   parameters: {
     docs: {
       description: {
-        component: 'Secondary CTA aligned to Figma (Light/Dark BG, Base/Hover/Pressed/Disabled, sizes Base/Small/Large).',
+        component: 'Pill stroke button aligned to Figma (Light/Dark BG, Priority A/B, Base/Hover/Pressed/Disabled, optional left/right icon).',
       },
     },
   },
@@ -71,9 +67,9 @@ const StorySchema = {
             setNaturalWidth(measured);
           }
         }
-      }, [naturalWidth, context.args.label, context.args.size, context.args.bg, context.args.state, context.args.fullWidth]);
+      }, [naturalWidth, context.args.label, context.args.bg, context.args.priority, context.args.state, context.args.iconPosition]);
 
-      const wrapperWidth = getWrapperWidth(naturalWidth, context.args.fullWidth, {
+      const wrapperWidth = getWrapperWidth(naturalWidth, false, {
         padding: 40,
         fullMultiplier: 2,
       });
@@ -90,14 +86,13 @@ const StorySchema = {
             ref={measureRef}
             style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', display: 'inline-flex' }}
           >
-            <SecondaryCTA
+            <PillStrokeButton
               {...context.args}
               icon={context.args.iconPosition === 'none' ? null : <DotIcon />}
-              fullWidth={false}
             />
           </div>
 
-          <div style={{ display: 'inline-flex', width: context.args.fullWidth ? '100%' : 'auto' }}>
+          <div style={{ display: 'inline-flex' }}>
             <Story />
           </div>
         </div>
@@ -109,7 +104,7 @@ const StorySchema = {
 
     React.useEffect(() => {
       setCurrentState(args.state);
-    }, [args.state, args.label, args.size, args.bg, args.fullWidth]);
+    }, [args.state, args.label, args.bg, args.priority, args.iconPosition]);
 
     const interactive = args.state === 'base';
     const isDisabled = args.state === 'disabled';
@@ -131,10 +126,10 @@ const StorySchema = {
     const icon = args.iconPosition === 'none' ? null : <DotIcon />;
 
     return (
-      <SecondaryCTA
+      <PillStrokeButton
         {...args}
-        icon={icon}
         state={currentState}
+        icon={icon}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseDown={handleMouseDown}

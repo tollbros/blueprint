@@ -1,0 +1,137 @@
+// Pill fill button styles (pillButton tokens + fill backgrounds)
+$height-base: var(--tb-pillButton-height-base);
+$height-small: var(--tb-pillButton-height-small);
+$height-large: var(--tb-pillButton-height-large);
+$padding-small: var(--tb-pillButton-padding-small);
+$padding-large: var(--tb-pillButton-padding-base);
+$gap: var(--tb-pillButton-gap-textIconBase);
+$stroke-base: var(--tb-pillButton-stroke-base);
+$stroke-pressed: var(--tb-pillButton-stroke-pressed);
+$radius: var(--tb-pillButton-borderRadius);
+$icon-size: 16px;
+
+$font-bold: var(--tb-typography-Gotham-S-700-font);
+$font-book: var(--tb-typography-Gotham-S-400-font);
+
+$brand-medium: var(--tb-palette-TB-Brand-Medium, #004876);
+$brand-accent: var(--tb-palette-TB-Brand-Accent, #0070cd);
+$brand-black: var(--tb-palette-TB-Brand-Black, #000000);
+$white: var(--tb-palette-TB-Functional-White, #ffffff);
+$state-hover: var(--tb-palette-State-GrayHover, #cdd5da);
+$state-pressed: var(--tb-palette-State-GrayPressed, #e6eaec);
+$state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
+
+.button {
+  align-items: center;
+  background: $white;
+  border: $stroke-base solid transparent; // keep dimensions stable across states
+  border-radius: $radius;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font: $font-bold;
+  gap: $gap;
+  justify-content: center;
+  min-width: fit-content;
+  padding: 0 $padding-small;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.sizeBase {
+  height: $height-base;
+}
+
+.sizeSmall {
+  height: $height-small;
+}
+
+.sizeLarge {
+  height: $height-large;
+}
+
+.paddingSmall {
+  padding: 0 $padding-small;
+}
+
+.paddingLarge {
+  padding: 0 $padding-large;
+}
+
+.priorityA {
+  font: $font-bold;
+}
+
+.priorityB {
+  font: $font-book;
+}
+
+.stateBase {
+  background: $white;
+  border-color: transparent;
+  color: inherit;
+}
+
+.stateHover {
+  background: $state-hover;
+  border-color: transparent;
+  color: inherit;
+}
+
+.statePressed {
+  background: $state-pressed;
+  border: $stroke-pressed solid $state-hover;
+  color: inherit;
+}
+
+.stateDisabled {
+  background: $state-disabled;
+  border: $stroke-base solid $state-disabled;
+  color: $white;
+}
+
+.textMedBlue {
+  color: $brand-medium;
+}
+
+.textAccentBlue {
+  color: $brand-accent;
+}
+
+.textBlack {
+  color: $brand-black;
+}
+
+.textDisabled {
+  color: $white;
+}
+
+.withIcon {
+  gap: $gap;
+}
+
+.icon {
+  align-items: center;
+  display: inline-flex;
+  font-size: $icon-size;
+  height: $icon-size;
+  justify-content: center;
+  line-height: 1;
+  width: $icon-size;
+  color: currentColor;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    fill: currentColor;
+  }
+}
+
+.label {
+  line-height: 18px;
+  white-space: nowrap;
+}

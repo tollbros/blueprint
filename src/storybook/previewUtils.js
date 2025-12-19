@@ -12,7 +12,7 @@
  */
 export function getPreviewContainerStyle(args = {}, options = {}) {
   const {
-    lightBg = 'var(--tb-palette-TB-Functional-LightGray, #E9EDF0)',
+    lightBg = '#F4F6F7',
     darkBg = '#85909F',
     darkProp = 'bg',
     darkValues = ['Dark'],

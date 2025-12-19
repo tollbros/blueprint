@@ -8,10 +8,16 @@ import TextArea from './components/TextArea/TextArea';
 import Tabs from './components/Tabs/Tabs';
 import { useTheme } from './themes/ThemeProvider';
 import { defaultTheme } from './themes/default/theme';
+import PillStrokeButton from './components/PillStrokeButton/PillStrokeButton';
+import PillFillButton from './components/PillFillButton/PillFillButton';
+import PillFillStrokeButton from './components/PillFillStrokeButton/PillFillStrokeButton';
 
 export {
   PrimaryCTA,
   SecondaryCTA,
+  PillStrokeButton,
+  PillFillButton,
+  PillFillStrokeButton,
   TextArea,
   FallbackAddButton,
   SquareIconButton,

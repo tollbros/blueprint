@@ -76,25 +76,21 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
   args: {
     onClick: fn(),
     label: 'PCTA',
-    size: 'base',
     priority: 'A',
-    state: 'base',
+    size: 'base',
     iconPosition: 'none',
     fullWidth: false,
+    state: 'base',
   },
   argTypes: {
     label: { control: 'text' },
-    size: {
-      control: 'select',
-      options: ['base', 'small', 'large'],
-    },
     priority: {
       control: 'select',
       options: ['A', 'B'],
     },
-    state: {
+    size: {
       control: 'select',
-      options: ['base', 'hover', 'pressed', 'disabled'],
+      options: ['base', 'small', 'large'],
     },
     iconPosition: {
       control: 'select',
@@ -105,6 +101,10 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
     fullWidth: {
       control: 'boolean',
       description: 'Stretch to fill the wrapper width',
+    },
+    state: {
+      control: 'select',
+      options: ['base', 'hover', 'pressed', 'disabled'],
     },
   },
   render: (args) => {

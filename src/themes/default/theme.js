@@ -54,7 +54,7 @@ export const defaultTheme = {
     8: '48px',
     9: '60px',
   },
-  button: {
+  CTAButton: {
     height: {
       base: '48px',
       small: '40px',
@@ -70,6 +70,26 @@ export const defaultTheme = {
       base: '1px',
       pressed: '2px',
     },
+  },
+  pillButton: {
+    height: {
+      base: '32px',
+      small: '28px',
+      large: '36px',
+    },
+    padding: {
+      xsmall: '8px',
+      small: '12px',
+      base: '20px',
+    },
+    gap: {
+      textIconBase: '4px',
+    },
+    stroke: {
+      base: '1px',
+      pressed: '2px',
+    },
+    borderRadius: '1000px',
   },
   typography: {
     ...typography,
