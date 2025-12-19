@@ -1,0 +1,64 @@
+// Text Link styles aligned to design spec and existing tokens.
+$brand-medium: var(--tb-palette-TB-Brand-Medium, #004876);
+$white: var(--tb-palette-TB-Functional-White, #ffffff);
+$disabled: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
+$accent-pressed: var(--tb-palette-State-AccentPressed, #005aa4);
+$gray-pressed: var(--tb-palette-State-GrayPressed, #e6eaec);
+
+.textLink {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 120ms ease;
+
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.sizeSmall {
+  font-family: var(--tb-typography-GothamSmallBold-fontFamily, Gotham, Helvetica, Arial, sans-serif);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.sizeBase {
+  font: var(--tb-typography-GothamSmallBold-font, normal 400 12px/18px Gotham, Helvetica, Arial, sans-serif);
+  font-weight: 700;
+}
+
+.sizeLarge {
+  font: var(--tb-typography-GothamBaseBold-font, normal 400 14px/21px Gotham, Helvetica, Arial, sans-serif);
+  font-weight: 700;
+}
+
+.lightBase,
+.lightHover {
+  color: $brand-medium;
+}
+
+.lightPressed {
+  color: $accent-pressed;
+}
+
+.lightDisabled {
+  color: $disabled;
+}
+
+.darkBase,
+.darkHover {
+  color: $white;
+}
+
+.darkPressed {
+  color: $gray-pressed;
+}
+
+.darkDisabled {
+  color: $disabled;
+}

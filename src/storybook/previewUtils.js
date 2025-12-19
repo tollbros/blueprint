@@ -17,6 +17,7 @@ export function getPreviewContainerStyle(args = {}, options = {}) {
     darkProp = 'bg',
     darkValues = ['Dark'],
     wrapperWidth = 'fit-content',
+    padding = '24px 40px',
   } = options;
 
   const darkSet = Array.isArray(darkValues) ? new Set(darkValues) : new Set([darkValues]);
@@ -31,7 +32,7 @@ export function getPreviewContainerStyle(args = {}, options = {}) {
     margin: '0 auto',
     position: 'relative',
     borderRadius: '4px',
-    padding: '24px 0',
+    padding,
   };
 }
 

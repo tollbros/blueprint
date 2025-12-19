@@ -11,6 +11,7 @@ import { defaultTheme } from './themes/default/theme';
 import PillStrokeButton from './components/PillStrokeButton/PillStrokeButton';
 import PillFillButton from './components/PillFillButton/PillFillButton';
 import PillFillStrokeButton from './components/PillFillStrokeButton/PillFillStrokeButton';
+import TextLink from './components/TextLink/TextLink';
 
 export {
   PrimaryCTA,
@@ -18,6 +19,7 @@ export {
   PillStrokeButton,
   PillFillButton,
   PillFillStrokeButton,
+  TextLink,
   TextArea,
   FallbackAddButton,
   SquareIconButton,
