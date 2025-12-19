@@ -66,7 +66,7 @@ Text Link aligned to Figma: size (Small/Base/Large), bg (Light/Dark), state (Bas
     size: 'base',
     bg: 'light',
     state: 'base',
-    href: '#',
+    href: null,
   },
   argTypes: {
     label: { control: 'text' },
@@ -139,7 +139,7 @@ export const Matrix = {
         {backgrounds.map((bg) =>
           states.map((state) =>
             sizes.map((size) => (
-              <TextLink key={`${bg}-${state}-${size}`} label='Text Link' size={size} bg={bg} state={state} />
+              <TextLink key={`${bg}-${state}-${size}`} label='Text Link' size={size} bg={bg} state={state} href={null} />
             )),
           ),
         )}
