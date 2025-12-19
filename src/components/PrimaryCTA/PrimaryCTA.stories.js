@@ -16,7 +16,7 @@ const DotIcon = ({ color = 'currentColor' }) => (
 );
 
 const StorySchema = {
-  title: 'primitives/PrimaryCTA',
+  title: 'Button/PrimaryCTA',
   component: PrimaryCTA,
   tags: ['autodocs'],
   parameters: {
