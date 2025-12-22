@@ -1,7 +1,7 @@
 import { fn } from '@storybook/test';
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import TextLink from './TextLink';
-import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtils';
+import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtilsButtons';
 
 const StorySchema = {
   title: 'Buttons/06 TextLink',

@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { fn } from '@storybook/test';
 import PillFillStrokeButton from './PillFillStrokeButton';
-import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtils';
+import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtilsButtons';
 
 const StorySchema = {
   title: 'Buttons/05 PillFillStrokeButton',

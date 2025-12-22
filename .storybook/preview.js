@@ -22,6 +22,8 @@ const preview = {
         order: [
           'Buttons',
           ['01 PrimaryCTA', '02 SecondaryCTA', '03 PillStrokeButton', '04 PillFillButton', '05 PillFillStrokeButton', '06 TextLink'],
+          'Inputs',
+          ['01 InputField'],
         ],
       },
     },

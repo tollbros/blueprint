@@ -1,7 +1,7 @@
 import SecondaryCTA from './SecondaryCTA';
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { fn } from '@storybook/test';
-import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtils';
+import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtilsButtons';
 
 const DotIcon = ({ color = 'currentColor' }) => (
   <span
