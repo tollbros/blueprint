@@ -1,13 +1,16 @@
 // Variables for easier maintenance
 $input-height: var(--tb-inputs-height-base);
 $input-padding-horizontal: var(--tb-inputs-padding-base);
+$input-stroke-base: var(--tb-inputs-stroke-base);
 $border-color: var(--tb-palette-TB-Brand-Gray);
 $bg-color: var(--tb-palette-TB-Functional-White);
 $text-color: var(--tb-palette-TB-Functional-Black);
 $disabled-bg: var(--tb-palette-TB-Functional-LightGray);
 $disabled-text: var(--tb-palette-TB-Functional-DarkGray);
 $disabled-border: var(--tb-palette-State-Disabled);
-$focus-border-size: 3px;
+$focus-border-size: var(--tb-inputs-stroke-focus);
+$floating-placeholder-gap: var(--tb-inputs-floatingPlaceholder-gap);
+$floating-placeholder-top: 8px;
 $placeholder-transition: 0.2s ease-out;
 
 // Typography variables
@@ -22,7 +25,7 @@ $floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font
   height: $input-height;
   padding: 0 $input-padding-horizontal;
   align-items: center;
-  border: 1px solid $border-color;
+  border: $input-stroke-base solid $border-color;
   background: $bg-color;
   box-sizing: border-box;
 
@@ -83,7 +86,7 @@ $floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font
   font: $placeholder-font;
 
   &.floatingPlaceholder {
-    top: 8px;
+    top: $floating-placeholder-top;
     transform: translateY(0);
     font: $floating-placeholder-font;
   }
@@ -91,6 +94,10 @@ $floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font
 
 .withValue {
   .input {
-    padding-top: 12px;
+    padding-top: calc(
+      #{$floating-placeholder-top} +
+      var(--tb-typography-SemanticFloatingPlaceholder-lineHeight) +
+      #{$floating-placeholder-gap}
+    );
   }
 }

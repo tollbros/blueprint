@@ -97,8 +97,15 @@ export const defaultTheme = {
     height: {
       base: '60px',
     },
+    floatingPlaceholder: {
+      gap: '0px',
+    },
     padding: {
       base: '20px',
+    },
+    stroke: {
+      base: '1px',
+      focus: '3px',
     },
   },
   typography: {
