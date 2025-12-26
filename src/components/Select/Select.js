@@ -48,7 +48,7 @@ const Select = ({ options, placeholder = 'Select an option' }) => {
         </label>
         {selectedOption && <span className={styles.selectedText}>{selectedLabel}</span>}
       </div>
-      <div className={styles.dropdown}>
+      <div className={styles.dropdown} data-preview-dropdown data-open={isOpen}>
         {options.map((option) => (
           <div
             key={option.value}

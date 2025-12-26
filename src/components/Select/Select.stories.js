@@ -1,19 +1,48 @@
 import React from 'react';
 import Select from './Select';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
-export default {
-  title: 'Components/Select',
+const StorySchema = {
+  title: 'Inputs/02 Select',
   component: Select,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+A Select input with a floating label and custom dropdown list.
+        `,
+      },
+    },
+  },
+  args: {
+    options: [
+      { value: 'option1', label: 'Option 1' },
+      { value: 'option2', label: 'Option 2' },
+      { value: 'option3', label: 'Option 3' },
+    ],
+    placeholder: 'Select an option',
+  },
+  argTypes: {
+    options: {
+      control: 'object',
+      description: 'Array of option objects with value/label',
+    },
+    placeholder: {
+      control: 'text',
+      description: 'Placeholder text shown when no option is selected',
+    },
+  },
+  render: (args) => (
+    <InputPreviewContainer args={args}>
+      <Select {...args} />
+    </InputPreviewContainer>
+  ),
 };
 
-const Template = (args) => <Select {...args} />;
+export default StorySchema;
 
-export const Default = Template.bind({});
-Default.args = {
-  options: [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' },
-  ],
-  placeholder: 'Choose an option',
+export const Playground = {
+  parameters: { layout: 'centered' },
 };
