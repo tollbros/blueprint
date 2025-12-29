@@ -1,47 +1,93 @@
-import React, { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import styles from './TextArea.module.scss';
 
-const TextArea = ({ placeholder, disabled, maxLength = 200, value, ...props }) => {
+const TextArea = forwardRef(
+  (
+    {
+      fieldLabel,
+      fieldValue,
+      state = 'Base',
+      className = '',
+      onChange,
+      placeholder,
+      disabled,
+      value,
+      maxLength = 200,
+      ...props
+    },
+    ref,
+  ) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [hasValue, setHasValue] = useState(false);
-  const [charCount, setCharCount] = useState(value?.length || 0);
+  const [internalValue, setInternalValue] = useState(fieldValue ?? value ?? '');
 
-  const handleFocus = () => !disabled && setIsFocused(true);
+  const isControlled = fieldValue !== undefined || value !== undefined;
+  const resolvedValue = isControlled ? fieldValue ?? value : internalValue;
 
-  const handleBlur = (e) => {
-    setIsFocused(false);
-    setHasValue(e.target.value !== '');
+  const isDisabled = state === 'Disabled' || disabled;
+  const isBaseState = state === 'Base';
+  const isFilledState = state === 'Filled';
+  const isFocusedState = state === 'Focused';
+  const isInteractive = isBaseState && !isDisabled;
+  const shouldFloat = isFocusedState || isFilledState || (isBaseState && (isFocused || Boolean(resolvedValue)));
+  const showFocusedStyle = isFocusedState || (isBaseState && isFocused);
+
+  const handleFocus = () => {
+    if (isInteractive) {
+      setIsFocused(true);
+    }
   };
 
-  const handleChange = (e) => {
-    const inputValue = e.target.value;
-    setHasValue(inputValue !== '');
-    setCharCount(e.target.length);
+  const handleBlur = () => {
+    if (isInteractive) {
+      setIsFocused(false);
+    }
   };
+
+  const handleChange = (event) => {
+    if (!isInteractive) return;
+    if (!isControlled) {
+      setInternalValue(event.target.value);
+    }
+    if (onChange) {
+      onChange(event);
+    }
+  };
+
+  const containerClassName = [
+    styles.textAreaContainer,
+    showFocusedStyle && styles.focused,
+    isDisabled && styles.disabled,
+    shouldFloat && styles.withValue,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const labelClassName = [styles.placeholder, shouldFloat && styles.floatingPlaceholder].filter(Boolean).join(' ');
+  const resolvedLabel = fieldLabel ?? placeholder ?? 'Text Label';
 
   return (
-    <div
-      className={`${styles.textAreaContainer} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}
-    >
+    <div className={containerClassName}>
       <textarea
         className={styles.textarea}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
         placeholder=' '
-        disabled={disabled}
+        disabled={isDisabled}
+        readOnly={!isInteractive}
         maxLength={maxLength}
-        value={value}
+        value={isControlled ? resolvedValue : undefined}
+        defaultValue={isControlled ? undefined : resolvedValue}
+        ref={ref}
         {...props}
       />
-      <label className={`${styles.placeholder} ${isFocused || hasValue ? styles.floatingPlaceholder : ''}`}>
-        {placeholder}
-      </label>
-      <div className={styles.charCounter}>
-        {charCount}/{maxLength}
-      </div>
+      <label className={labelClassName}>{resolvedLabel}</label>
     </div>
   );
-};
+  },
+);
+
+TextArea.displayName = 'TextArea';
 
 export default TextArea;

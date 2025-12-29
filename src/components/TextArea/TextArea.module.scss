@@ -1,73 +1,103 @@
+// Variables for easier maintenance
+$text-area-height: var(--tb-inputs-text-area-height, 200px);
+$text-area-padding-horizontal: var(--tb-inputs-padding-base);
+$text-area-padding-vertical: var(--tb-inputs-padding-text-area, 16px);
+$text-area-stroke-base: var(--tb-inputs-stroke-base);
+$border-color: var(--tb-palette-TB-Brand-Gray);
+$bg-color: var(--tb-palette-TB-Functional-White);
+$text-color: var(--tb-palette-TB-Functional-Black);
+$disabled-bg: var(--tb-palette-TB-Functional-LightGray);
+$disabled-text: var(--tb-palette-TB-Functional-DarkGray);
+$disabled-border: var(--tb-palette-State-Disabled);
+$focus-border-size: var(--tb-inputs-stroke-focus);
+$floating-placeholder-gap: var(--tb-inputs-floatingPlaceholder-gap);
+$floating-placeholder-top: $text-area-padding-vertical;
+$placeholder-transition: 0.2s ease-out;
+
+// Typography variables
+$text-area-font: var(--tb-typography-SemanticInput-font);
+$placeholder-font: var(--tb-typography-SemanticPlaceholder-font);
+$floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font);
+
 .textAreaContainer {
-    display: flex;
-    height: 200px;
-    width: 343px;
-    padding: 0px 20px;
-    align-items: center;
-    position: relative;
-    border: 1px solid var(--tb-palette-TB-Brand-Gray, #8195A2);
-    background: var(--tb-palette-TB-Functional-White, #FFFFFF);
-    transition: all 0.2s ease-out;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: $text-area-height;
+  padding: $text-area-padding-vertical $text-area-padding-horizontal;
+  align-items: flex-start;
+  border: $text-area-stroke-base solid $border-color;
+  background: $bg-color;
+  box-sizing: border-box;
 
-    &.focused {
-      border-bottom: 4px solid var(--tb-palette-TB-Brand-Gray, #8195A2)
-    }
-
-    &.disabled {
-      background: var(--tb-palette-TB-Functional-LightGray, #E9EDF0);
-      border-color: var(--tb-palette-TB-Functional-DarkGray, #858585);
+  &.focused {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: $focus-border-size;
+      background: $border-color;
     }
   }
 
+  &.disabled {
+    background: $disabled-bg;
+    border-color: $disabled-border;
+
+    .placeholder {
+      color: $disabled-text;
+    }
+
+    .textarea {
+      color: $disabled-text;
+    }
+  }
+}
+
+.textarea {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: $text-color;
+  text-align: left;
+  font: $text-area-font;
+  resize: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.placeholder {
+  position: absolute;
+  left: $text-area-padding-horizontal;
+  top: $text-area-padding-vertical;
+  transition: all $placeholder-transition;
+  color: $text-color;
+  text-align: left;
+  pointer-events: none;
+  font: $placeholder-font;
+
+  &.floatingPlaceholder {
+    top: $floating-placeholder-top;
+    font: $floating-placeholder-font;
+  }
+}
+
+.withValue {
   .textarea {
-    width: 100%;
-    height: calc(100% - 20px);
-    border: none;
-    background: transparent;
-    color: #000;
-    text-align: left;
-    padding: 12px 0 0 0;
-    font: var(--tb-typography-SubheaderBase-font);
-    resize: none;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-    }
+    padding-top: calc(
+      #{$floating-placeholder-top} +
+      var(--tb-typography-SemanticFloatingPlaceholder-lineHeight) +
+      #{$floating-placeholder-gap}
+    );
   }
-
-  .placeholder {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    transition: all 0.2s ease-out;
-    color: #000;
-    pointer-events: none;
-    font: var(--tb-typography-SemanticPlaceholder-font);
-  }
-
-  .floatingPlaceholder {
-    top: 4px;
-    font: var(--tb-typography-GothamXSmallBook-font);
-  }
-
-  .textarea:not(:placeholder-shown) + .placeholder {
-    top: 4px;
-    font: var(--tb-typography-GothamXSmallBook-font);
-  }
-
-  .disabled .placeholder {
-    color: var(--tb-palette-TB-Functional-DarkGray, #858585)
-
-  }
-
-  .charCounter {
-    position: absolute;
-    bottom: 5px;
-    right: 20px;
-    font-size: 12px;
-    color: var(--tb-palette-TB-Functional-DarkGray, #858585)
-  }
+}
