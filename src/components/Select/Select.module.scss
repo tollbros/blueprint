@@ -1,13 +1,12 @@
 // Keep Select aligned with the InputField token usage.
 $input-height: var(--tb-inputs-height-base);
-$input-padding-horizontal: var(--tb-inputs-padding-base);
+$input-padding-horizontal: var(--tb-inputs-padding-hbase);
 $input-stroke-base: var(--tb-inputs-stroke-base);
 $border-color: var(--tb-palette-TB-Brand-Gray);
 $bg-color: var(--tb-palette-TB-Functional-White);
 $text-color: var(--tb-palette-TB-Functional-Black);
 $disabled-bg: var(--tb-palette-TB-Functional-LightGray);
 $focus-border-size: var(--tb-inputs-stroke-focus);
-$floating-placeholder-gap: var(--tb-inputs-floatingPlaceholder-gap);
 $placeholder-transition: 0.2s ease-out;
 
 .selectContainer {
@@ -52,7 +51,7 @@ $placeholder-transition: 0.2s ease-out;
 .selectContainer:focus-within .textContainer {
   top: 8px;
   transform: none;
-  gap: $floating-placeholder-gap;
+  gap: 0;
 }
 
 .placeholder {

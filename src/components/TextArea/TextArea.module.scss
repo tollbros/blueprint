@@ -1,7 +1,7 @@
 // Variables for easier maintenance
 $text-area-height: var(--tb-inputs-text-area-height, 200px);
-$text-area-padding-horizontal: var(--tb-inputs-padding-base);
-$text-area-padding-vertical: var(--tb-inputs-padding-text-area, 16px);
+$text-area-padding-horizontal: var(--tb-inputs-padding-hbase);
+$text-area-padding-vertical: var(--tb-inputs-padding-vbase);
 $text-area-stroke-base: var(--tb-inputs-stroke-base);
 $border-color: var(--tb-palette-TB-Brand-Gray);
 $bg-color: var(--tb-palette-TB-Functional-White);
@@ -10,8 +10,7 @@ $disabled-bg: var(--tb-palette-TB-Functional-LightGray);
 $disabled-text: var(--tb-palette-TB-Functional-DarkGray);
 $disabled-border: var(--tb-palette-State-Disabled);
 $focus-border-size: var(--tb-inputs-stroke-focus);
-$floating-placeholder-gap: var(--tb-inputs-floatingPlaceholder-gap);
-$floating-placeholder-top: $text-area-padding-vertical;
+$floating-placeholder-top: var(--tb-inputs-padding-vsmall);
 $placeholder-transition: 0.2s ease-out;
 
 // Typography variables
@@ -94,10 +93,6 @@ $floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font
 
 .withValue {
   .textarea {
-    padding-top: calc(
-      #{$floating-placeholder-top} +
-      var(--tb-typography-SemanticFloatingPlaceholder-lineHeight) +
-      #{$floating-placeholder-gap}
-    );
+    padding-top: 14px;
   }
 }

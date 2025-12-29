@@ -56,8 +56,8 @@ const TextArea = forwardRef(
   const containerClassName = [
     styles.textAreaContainer,
     showFocusedStyle && styles.focused,
-    isDisabled && styles.disabled,
     shouldFloat && styles.withValue,
+    isDisabled && styles.disabled,
     className,
   ]
     .filter(Boolean)

@@ -41,8 +41,8 @@ const InputField = forwardRef(
     const containerClassName = [
       styles.inputContainer,
       showFocusedStyle && styles.focused,
-      isDisabled && styles.disabled,
       shouldFloat && styles.withValue,
+      isDisabled && styles.disabled,
       className,
     ]
       .filter(Boolean)

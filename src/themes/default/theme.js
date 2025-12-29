@@ -93,21 +93,22 @@ export const defaultTheme = {
       borderRadius: '1000px',
     },
   },
+  
   inputs: {
     height: {
       base: '60px',
     },
-    floatingPlaceholder: {
-      gap: '0px',
-    },
     padding: {
-      base: '20px',
+      hbase: '20px',
+      vbase: '12px',
+      vsmall: '8px',
     },
     stroke: {
       base: '1px',
       focus: '3px',
     },
   },
+
   typography: {
     ...typography,
     SemanticPlaceholder: typography['Gotham-B-400'],
