@@ -113,7 +113,7 @@ export const defaultTheme = {
     ...typography,
     SemanticPlaceholder: typography['Gotham-B-400'],
     SemanticFloatingPlaceholder: typography['Gotham-XS-400'],
-    SemanticInput: typography['GothamN-B-400'],
+    SemanticInput: typography['GothamN-B-500'],
     SemanticButtonLabel: typography['Gotham-B-700'],
     SemanticButtonTag: typography['Gotham-S-700'],
     SemanticTabLabel: typography['Gotham-B-700'],
