@@ -23,6 +23,7 @@ A Select input with a floating label and custom dropdown list.
       { value: 'option3', label: 'Option 3' },
     ],
     placeholder: 'Select an option',
+    state: 'Base',
   },
   argTypes: {
     options: {
@@ -32,6 +33,10 @@ A Select input with a floating label and custom dropdown list.
     placeholder: {
       control: 'text',
       description: 'Placeholder text shown when no option is selected',
+    },
+    state: {
+      control: 'select',
+      options: ['Base', 'Error', 'Success'],
     },
   },
   render: (args) => (

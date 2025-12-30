@@ -1,5 +1,7 @@
 import { forwardRef, useState } from 'react';
 import styles from './InputField.module.scss';
+import ErrorTag from '../Tag/ErrorTag';
+import SuccessTag from '../Tag/SuccessTag';
 
 const InputField = forwardRef(
   ({ fieldLabel = 'Field Label', fieldValue, state = 'Base', className = '', onChange, ...props }, ref) => {
@@ -12,8 +14,15 @@ const InputField = forwardRef(
     const isBaseState = state === 'Base';
     const isFilledState = state === 'Filled';
     const isFocusedState = state === 'Focused';
+    const isErrorState = state === 'Error';
+    const isSuccessState = state === 'Success';
     const isInteractive = isBaseState && !isDisabled;
-    const shouldFloat = isFocusedState || isFilledState || (isBaseState && (isFocused || Boolean(value)));
+    const shouldFloat =
+      isFocusedState ||
+      isFilledState ||
+      isErrorState ||
+      isSuccessState ||
+      (isBaseState && (isFocused || Boolean(value)));
     const showFocusedStyle = isFocusedState || (isBaseState && isFocused);
 
     const handleFocus = () => {
@@ -51,21 +60,25 @@ const InputField = forwardRef(
     const labelClassName = [styles.placeholder, shouldFloat && styles.floatingPlaceholder].filter(Boolean).join(' ');
 
     return (
-      <div className={containerClassName}>
-        <input
-          className={styles.input}
-          value={isControlled ? value : undefined}
-          defaultValue={isControlled ? undefined : value}
-          placeholder=' '
-          disabled={isDisabled}
-          readOnly={!isInteractive}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          ref={ref}
-          {...props}
-        />
-        <label className={labelClassName}>{fieldLabel}</label>
+      <div className={styles.inputFieldWrapper}>
+        <div className={containerClassName}>
+          <input
+            className={styles.input}
+            value={isControlled ? value : undefined}
+            defaultValue={isControlled ? undefined : value}
+            placeholder=' '
+            disabled={isDisabled}
+            readOnly={!isInteractive}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            ref={ref}
+            {...props}
+          />
+          <label className={labelClassName}>{fieldLabel}</label>
+        </div>
+        {isErrorState && <ErrorTag className={styles.stateTag} />}
+        {isSuccessState && <SuccessTag className={styles.stateTag} />}
       </div>
     );
   },

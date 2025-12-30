@@ -24,6 +24,12 @@ $placeholder-transition: 0.2s ease-out;
   box-sizing: border-box;
 }
 
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .selectContainer:focus-within {
   border-bottom-width: $focus-border-size;
   padding-bottom: $focus-border-size;
@@ -71,6 +77,11 @@ $placeholder-transition: 0.2s ease-out;
   color: $text-color;
   text-align: left;
   font: var(--tb-typography-GothamN-B-500-font);
+}
+
+.stateTag {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Custom dropdown styling */

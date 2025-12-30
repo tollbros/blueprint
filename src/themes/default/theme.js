@@ -19,7 +19,10 @@ export const defaultTheme = {
         LightGray: '#E9EDF0',
         GrayOnDark: 'rgba(255, 255, 255, 0.2)',
         Success: '#009D47',
+        SuccessBg: '#E4F6EA',
         Error: '#A31F34',
+        ErrorBg: '#F7E6E9',
+        ErrorText: '#A42337',
       },
       POI: {
         Food: '#AD3F49',
@@ -53,6 +56,12 @@ export const defaultTheme = {
     7: '40px',
     8: '48px',
     9: '60px',
+  },
+  Tag: {
+    padding: {
+      hbase: '16px',
+      vbase: '6px',
+    },
   },
   Buttons: {
     CTAButton: {

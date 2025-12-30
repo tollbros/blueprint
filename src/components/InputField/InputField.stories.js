@@ -38,7 +38,7 @@ A versatile InputField component that supports different states and provides a m
     },
     state: {
       control: 'select',
-      options: ['Base', 'Focused', 'Filled', 'Disabled'],
+      options: ['Base', 'Focused', 'Filled', 'Disabled', 'Error', 'Success'],
     },
     onChange: { table: { disable: true } },
     componentNumber: { table: { disable: true } },

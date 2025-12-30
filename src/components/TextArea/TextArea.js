@@ -1,5 +1,7 @@
 import { forwardRef, useState } from 'react';
 import styles from './TextArea.module.scss';
+import ErrorTag from '../Tag/ErrorTag';
+import SuccessTag from '../Tag/SuccessTag';
 
 const TextArea = forwardRef(
   (
@@ -27,6 +29,8 @@ const TextArea = forwardRef(
   const isBaseState = state === 'Base';
   const isFilledState = state === 'Filled';
   const isFocusedState = state === 'Focused';
+  const isErrorState = state === 'Error';
+  const isSuccessState = state === 'Success';
   const isInteractive = isBaseState && !isDisabled;
   const shouldFloat = isFocusedState || isFilledState || (isBaseState && (isFocused || Boolean(resolvedValue)));
   const showFocusedStyle = isFocusedState || (isBaseState && isFocused);
@@ -67,22 +71,26 @@ const TextArea = forwardRef(
   const resolvedLabel = fieldLabel ?? placeholder ?? 'Text Label';
 
   return (
-    <div className={containerClassName}>
-      <textarea
-        className={styles.textarea}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        placeholder=' '
-        disabled={isDisabled}
-        readOnly={!isInteractive}
-        maxLength={maxLength}
-        value={isControlled ? resolvedValue : undefined}
-        defaultValue={isControlled ? undefined : resolvedValue}
-        ref={ref}
-        {...props}
-      />
-      <label className={labelClassName}>{resolvedLabel}</label>
+    <div className={styles.textAreaWrapper}>
+      <div className={containerClassName}>
+        <textarea
+          className={styles.textarea}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChange={handleChange}
+          placeholder=' '
+          disabled={isDisabled}
+          readOnly={!isInteractive}
+          maxLength={maxLength}
+          value={isControlled ? resolvedValue : undefined}
+          defaultValue={isControlled ? undefined : resolvedValue}
+          ref={ref}
+          {...props}
+        />
+        <label className={labelClassName}>{resolvedLabel}</label>
+      </div>
+      {isErrorState && <ErrorTag className={styles.stateTag} />}
+      {isSuccessState && <SuccessTag className={styles.stateTag} />}
     </div>
   );
   },

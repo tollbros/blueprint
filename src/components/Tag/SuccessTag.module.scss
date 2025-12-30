@@ -1,0 +1,12 @@
+.tagSuccess {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--tb-Tag-padding-vbase) var(--tb-Tag-padding-hbase);
+  background: var(--tb-palette-TB-Functional-SuccessBg);
+}
+
+.label {
+  color: var(--tb-palette-TB-Functional-Black);
+  font: var(--tb-typography-GothamN-S-500-font);
+  text-align: left;
+}

@@ -34,7 +34,7 @@ A TextArea component that mirrors InputField behavior with consistent states and
     },
     state: {
       control: 'select',
-      options: ['Base', 'Focused', 'Filled', 'Disabled'],
+      options: ['Base', 'Focused', 'Filled', 'Disabled', 'Error', 'Success'],
     },
     onChange: { table: { disable: true } },
     componentNumber: { table: { disable: true } },

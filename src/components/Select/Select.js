@@ -1,12 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../themes/ThemeProvider';
 import styles from './Select.module.scss';
+import ErrorTag from '../Tag/ErrorTag';
+import SuccessTag from '../Tag/SuccessTag';
 
-const Select = ({ options, placeholder = 'Select an option' }) => {
+const Select = ({ options, placeholder = 'Select an option', state = 'Base', className = '' }) => {
   const [selectedOption, setSelectedOption] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef(null);
   const theme = useTheme();
+  const isErrorState = state === 'Error';
+  const isSuccessState = state === 'Success';
 
   const handleSelect = (value) => {
     setSelectedOption(value);
@@ -30,36 +34,48 @@ const Select = ({ options, placeholder = 'Select an option' }) => {
   }, []);
 
   const selectedLabel = options.find((option) => option.value === selectedOption)?.label || '';
+  const containerClassName = [
+    styles.selectContainer,
+    selectedOption && styles.filled,
+    isOpen && styles.open,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <div
-      ref={selectRef}
-      className={`${styles.selectContainer} ${selectedOption && styles.filled} ${isOpen && styles.open}`}
-      onClick={toggleDropdown}
-      style={{
-        borderColor: theme?.palette?.TB?.Brand?.Gray,
-      }}
-    >
-      <div className={styles.textContainer}>
-        <label
-          className={`${styles.placeholder} ${selectedOption ? styles.placeholderSmall : styles.placeholderLarge}`}
-        >
-          {placeholder}
-        </label>
-        {selectedOption && <span className={styles.selectedText}>{selectedLabel}</span>}
-      </div>
-      <div className={styles.dropdown} data-preview-dropdown data-open={isOpen}>
-        {options.map((option) => (
-          <div
-            key={option.value}
-            className={`${styles.option} ${option.value === selectedOption ? styles.selected : ''}`}
-            onClick={() => handleSelect(option.value)}
+    <div className={styles.selectWrapper}>
+      <div
+        ref={selectRef}
+        className={containerClassName}
+        onClick={toggleDropdown}
+        style={{
+          borderColor: theme?.palette?.TB?.Brand?.Gray,
+        }}
+      >
+        <div className={styles.textContainer}>
+          <label
+            className={`${styles.placeholder} ${selectedOption ? styles.placeholderSmall : styles.placeholderLarge}`}
           >
-            {option.label}
-          </div>
-        ))}
+            {placeholder}
+          </label>
+          {selectedOption && <span className={styles.selectedText}>{selectedLabel}</span>}
+        </div>
+        <div className={styles.dropdown} data-preview-dropdown data-open={isOpen}>
+          {options.map((option) => (
+            <div
+              key={option.value}
+              className={`${styles.option} ${option.value === selectedOption ? styles.selected : ''}`}
+              onClick={() => handleSelect(option.value)}
+            >
+              {option.label}
+            </div>
+          ))}
+        </div>
+        <span className={styles.arrowIcon}>▼</span>
       </div>
-      <span className={styles.arrowIcon}>▼</span>
+      {isErrorState && <ErrorTag className={styles.stateTag} />}
+      {isSuccessState && <SuccessTag className={styles.stateTag} />}
     </div>
   );
 };

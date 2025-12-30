@@ -54,6 +54,12 @@ $floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font
   }
 }
 
+.inputFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .input {
   width: 100%;
   height: 100%;
@@ -71,6 +77,11 @@ $floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font
   &:disabled {
     cursor: not-allowed;
   }
+}
+
+.stateTag {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .placeholder {
