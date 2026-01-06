@@ -39,7 +39,17 @@ $placeholder-transition: 0.2s ease-out;
   position: absolute;
   right: $input-padding-horizontal;
   pointer-events: none;
-  color: $text-color;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowIconImage {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .textContainer {
