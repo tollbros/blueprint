@@ -70,8 +70,10 @@ export const defaultTheme = {
         small: '40px',
         large: '56px',
       },
-      padding: {
-        base: '20px',
+      hpadding: {
+        small: '8px',
+        base: '12px',
+        large: '20px',
       },
       gap: {
         textIconBase: '4px',
@@ -85,12 +87,12 @@ export const defaultTheme = {
       height: {
         base: '32px',
         small: '28px',
-        large: '36px',
+        large: '40px',
       },
-      padding: {
-        xsmall: '8px',
-        small: '12px',
-        base: '20px',
+      hpadding: {
+        small: '8px',
+        base: '12px',
+        large: '20px',
       },
       gap: {
         textIconBase: '4px',

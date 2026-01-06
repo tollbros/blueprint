@@ -10,21 +10,29 @@ const StorySchema = {
   args: {
     onClick: fn(),
     label: 'Pill Button',
-    size: 'Base',
+    size: 'Small',
+    iconBool: 'Null',
+    hPadding: 'Base',
     color: 'MedBlue',
     state: 'Base',
   },
   argTypes: {
     label: { control: 'text' },
-    size: { control: 'select', options: ['Base', 'Small'] },
+    size: { control: 'select', options: ['Small', 'Base', 'Large'] },
+    iconBool: { control: 'select', options: ['Null', 'Left', 'Right'] },
+    hPadding: { control: 'select', options: ['Small', 'Base'] },
     color: { control: 'select', options: ['MedBlue', 'AccentBlue'] },
     state: { control: 'select', options: ['Base', 'Hover', 'Pressed', 'Disabled'] },
+    iconMedBlue: { table: { disable: true } },
+    iconDisabled: { table: { disable: true } },
+    iconAccentBlue: { table: { disable: true } },
     className: { table: { disable: true } },
   },
   parameters: {
     docs: {
       description: {
-        component: 'Pill fill+stroke button (Size Base/Small, Color MedBlue/AccentBlue, States Base/Hover/Pressed/Disabled).',
+        component:
+          'Pill fill+stroke button (Size Small/Base/Large, optional icons, Color MedBlue/AccentBlue, States Base/Hover/Pressed/Disabled).',
       },
     },
   },
@@ -40,7 +48,7 @@ const StorySchema = {
             setNaturalWidth(measured);
           }
         }
-      }, [naturalWidth, context.args.label, context.args.size, context.args.color, context.args.state]);
+      }, [naturalWidth, context.args.label, context.args.size, context.args.color, context.args.state, context.args.iconBool, context.args.hPadding]);
 
       const wrapperWidth = getWrapperWidth(naturalWidth, false, {
         padding: 40,
@@ -72,7 +80,7 @@ const StorySchema = {
 
     React.useEffect(() => {
       setCurrentState(args.state);
-    }, [args.state, args.label, args.size, args.color]);
+    }, [args.state, args.label, args.size, args.color, args.iconBool, args.hPadding]);
 
     const interactive = args.state === 'Base';
     const isDisabled = args.state === 'Disabled';

@@ -1,7 +1,9 @@
 // Pill fill + stroke button styles (Pill stroke/fill hybrid)
 $height-small: var(--tb-Buttons-pillButton-height-small, 28px);
 $height-base: var(--tb-Buttons-pillButton-height-base, 32px);
-$padding-xsmall: var(--tb-Buttons-pillButton-padding-xsmall, 8px);
+$height-large: var(--tb-Buttons-pillButton-height-large, 36px);
+$padding-small: var(--tb-Buttons-pillButton-hpadding-small, 8px);
+$padding-base: var(--tb-Buttons-pillButton-hpadding-base, 12px);
 $radius: var(--tb-Buttons-pillButton-borderRadius, 100px);
 $gap: var(--tb-Buttons-pillButton-gap-textIconBase, 0px);
 $stroke-base: var(--tb-Buttons-pillButton-stroke-base, 1px);
@@ -11,7 +13,7 @@ $font-bold: var(--tb-typography-Gotham-S-700-font);
 $brand-gray: var(--tb-palette-TB-Brand-Gray);
 $brand-medium: var(--tb-palette-TB-Brand-Medium, #004876);
 $brand-accent: var(--tb-palette-TB-Brand-Accent, #0070cd);
-$brand-medgray: var(--tb-palette-TB-Brand-MedGray, #d8d8d8);
+$brand-medgray: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
 $white: var(--tb-palette-TB-Functional-White, #ffffff);
 $state-hover: var(--tb-palette-State-GrayHover, #cdd5da);
 $state-pressed: var(--tb-palette-State-GrayPressed, #e6eaec);
@@ -26,10 +28,10 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   cursor: pointer;
   display: inline-flex;
   font: $font-bold;
-  gap: $gap;
+  gap: 0;
   justify-content: center;
   min-width: fit-content;
-  padding: 0 $padding-xsmall;
+  padding: 0 $padding-base;
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
 
   &:disabled {
@@ -44,6 +46,35 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
 
 .sizeBase {
   height: $height-base;
+}
+
+.sizeLarge {
+  height: $height-large;
+}
+
+.paddingSmall {
+  padding: 0 $padding-small;
+}
+
+.paddingBase {
+  padding: 0 $padding-base;
+}
+
+.hasIcon {
+  gap: $gap;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconImage {
+  display: block;
+  width: 16px;
+  height: 16px;
 }
 
 .stateBase {
