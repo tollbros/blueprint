@@ -45,6 +45,7 @@ export const defaultTheme = {
     },
     
   },
+
   spacing: {
     0: '0',
     1: '4px',
@@ -57,13 +58,15 @@ export const defaultTheme = {
     8: '48px',
     9: '60px',
   },
-  Tag: {
+
+  tag: {
     padding: {
       hbase: '16px',
       vbase: '6px',
     },
   },
-  Buttons: {
+
+  buttons: {
     CTAButton: {
       height: {
         base: '48px',
@@ -76,7 +79,7 @@ export const defaultTheme = {
         large: '20px',
       },
       gap: {
-        textIconBase: '4px',
+        textToIcon: '4px',
       },
       stroke: {
         base: '1px',
@@ -95,7 +98,7 @@ export const defaultTheme = {
         large: '20px',
       },
       gap: {
-        textIconBase: '4px',
+        textToIcon: '4px',
       },
       stroke: {
         base: '1px',
@@ -119,6 +122,19 @@ export const defaultTheme = {
       focus: '3px',
     },
   },
+  
+  rangeSlider: {
+    width: '343px',
+    trackHeight: '4px',
+    handleSize: '32px',
+    handleRadius: '100px',
+    gap: {
+      valueToLabel: '4px',
+    },
+    shadow: {
+      basic: '0px 4px 4px rgba(133,133,133,0.15)',
+    },
+  },
 
   typography: {
     ...typography,
@@ -129,5 +145,5 @@ export const defaultTheme = {
     SemanticButtonTag: typography['Gotham-S-700'],
     SemanticTabLabel: typography['Gotham-B-700'],
   },
-  GlobalBrandBorderRadius: '4px',
+  globalBrandBorderRadius: '4px',
 };

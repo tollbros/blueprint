@@ -3,7 +3,7 @@
 - **API coverage (size/bg/state/fullWidth)** — **Status:** ✅ supports Base/Small/Large, Light/Dark backgrounds, Base/Hover/Pressed/Disabled states, fullWidth.  
   **Prompt:** “Confirm whether additional props (aria-label, loading) are needed before shipping SecondaryCTA.”
 
-- **Token alignment (colors/spacing/radius/typography/heights)** — **Status:** ✅ uses shared CTAButton height/hpadding tokens (`--tb-Buttons-CTAButton-height-*`, `--tb-Buttons-CTAButton-hpadding-large`), global radius, SemanticButtonLabel typography, state/brand palette tokens, disabled token.  
+- **Token alignment (colors/spacing/radius/typography/heights)** — **Status:** ✅ uses shared CTAButton height/hpadding tokens (`--tb-buttons-CTAButton-height-*`, `--tb-buttons-CTAButton-hpadding-large`), global radius, SemanticButtonLabel typography, state/brand palette tokens, disabled token.  
   **Prompt:** “Validate token references against the latest design tokens and add fallbacks if new tokens appear.”
 
 - **Stroke rendering** — **Status:** ✅ base stroke inset; hover/disabled strokes outside; pressed stroke inset via box-shadow; matches current spec.  

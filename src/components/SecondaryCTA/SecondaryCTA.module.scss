@@ -1,13 +1,13 @@
 // Secondary CTA styles aligned to Figma export (tokenized like PrimaryCTA)
 $button-min-width: 64px;
-$button-base-height: var(--tb-Buttons-CTAButton-height-base);
-$button-small-height: var(--tb-Buttons-CTAButton-height-small);
-$button-large-height: var(--tb-Buttons-CTAButton-height-large);
-$button-horizontal-padding: var(--tb-Buttons-CTAButton-hpadding-large);
-$button-border-radius: var(--tb-GlobalBrandBorderRadius);
+$button-base-height: var(--tb-buttons-CTAButton-height-base);
+$button-small-height: var(--tb-buttons-CTAButton-height-small);
+$button-large-height: var(--tb-buttons-CTAButton-height-large);
+$button-horizontal-padding: var(--tb-buttons-CTAButton-hpadding-large);
+$button-border-radius: var(--tb-globalBrandBorderRadius);
 
 $button-font: var(--tb-typography-SemanticButtonLabel-font);
-$button-gap: var(--tb-Buttons-CTAButton-gap-textIconBase);
+$button-gap: var(--tb-buttons-CTAButton-gap-textToIcon);
 $icon-size: 20px;
 
 $brand-gray: var(--tb-palette-TB-Brand-Gray);
@@ -16,8 +16,8 @@ $white: var(--tb-palette-TB-Functional-White);
 $gray-hover: var(--tb-palette-State-GrayHover);
 $gray-pressed: var(--tb-palette-State-GrayPressed);
 $disabled: var(--tb-palette-State-Disabled, #d8d8d8);
-$stroke-base: var(--tb-Buttons-CTAButton-stroke-base);
-$stroke-pressed: var(--tb-Buttons-CTAButton-stroke-pressed);
+$stroke-base: var(--tb-buttons-CTAButton-stroke-base);
+$stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
 
 .button {
   align-items: center;

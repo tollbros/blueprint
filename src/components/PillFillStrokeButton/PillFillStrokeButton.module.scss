@@ -1,13 +1,13 @@
 // Pill fill + stroke button styles (Pill stroke/fill hybrid)
-$height-small: var(--tb-Buttons-pillButton-height-small, 28px);
-$height-base: var(--tb-Buttons-pillButton-height-base, 32px);
-$height-large: var(--tb-Buttons-pillButton-height-large, 36px);
-$padding-small: var(--tb-Buttons-pillButton-hpadding-small, 8px);
-$padding-base: var(--tb-Buttons-pillButton-hpadding-base, 12px);
-$radius: var(--tb-Buttons-pillButton-borderRadius, 100px);
-$gap: var(--tb-Buttons-pillButton-gap-textIconBase, 0px);
-$stroke-base: var(--tb-Buttons-pillButton-stroke-base, 1px);
-$stroke-pressed: var(--tb-Buttons-pillButton-stroke-pressed, 2px);
+$height-small: var(--tb-buttons-pillButton-height-small, 28px);
+$height-base: var(--tb-buttons-pillButton-height-base, 32px);
+$height-large: var(--tb-buttons-pillButton-height-large, 36px);
+$padding-small: var(--tb-buttons-pillButton-hpadding-small, 8px);
+$padding-base: var(--tb-buttons-pillButton-hpadding-base, 12px);
+$radius: var(--tb-buttons-pillButton-borderRadius, 100px);
+$gap: var(--tb-buttons-pillButton-gap-textToIcon, 0px);
+$stroke-base: var(--tb-buttons-pillButton-stroke-base, 1px);
+$stroke-pressed: var(--tb-buttons-pillButton-stroke-pressed, 2px);
 
 $font-bold: var(--tb-typography-Gotham-S-700-font);
 $brand-gray: var(--tb-palette-TB-Brand-Gray);

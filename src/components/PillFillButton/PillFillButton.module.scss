@@ -1,13 +1,13 @@
 // Pill fill button styles (pillButton tokens + fill backgrounds)
-$height-base: var(--tb-Buttons-pillButton-height-base);
-$height-small: var(--tb-Buttons-pillButton-height-small);
-$height-large: var(--tb-Buttons-pillButton-height-large);
-$padding-small: var(--tb-Buttons-pillButton-hpadding-base);
-$padding-large: var(--tb-Buttons-pillButton-hpadding-large);
-$gap: var(--tb-Buttons-pillButton-gap-textIconBase);
-$stroke-base: var(--tb-Buttons-pillButton-stroke-base);
-$stroke-pressed: var(--tb-Buttons-pillButton-stroke-pressed);
-$radius: var(--tb-Buttons-pillButton-borderRadius);
+$height-base: var(--tb-buttons-pillButton-height-base);
+$height-small: var(--tb-buttons-pillButton-height-small);
+$height-large: var(--tb-buttons-pillButton-height-large);
+$padding-small: var(--tb-buttons-pillButton-hpadding-base);
+$padding-large: var(--tb-buttons-pillButton-hpadding-large);
+$gap: var(--tb-buttons-pillButton-gap-textToIcon);
+$stroke-base: var(--tb-buttons-pillButton-stroke-base);
+$stroke-pressed: var(--tb-buttons-pillButton-stroke-pressed);
+$radius: var(--tb-buttons-pillButton-borderRadius);
 $icon-size: 16px;
 
 $font-bold: var(--tb-typography-Gotham-S-700-font);

@@ -1,10 +1,10 @@
 // Pill stroke button styles (pillButton tokens)
-$button-height: var(--tb-Buttons-pillButton-height-base);
-$button-padding: var(--tb-Buttons-pillButton-hpadding-base);
-$button-gap: var(--tb-Buttons-pillButton-gap-textIconBase);
-$stroke-base: var(--tb-Buttons-pillButton-stroke-base);
-$stroke-pressed: var(--tb-Buttons-pillButton-stroke-pressed);
-$pill-radius: var(--tb-Buttons-pillButton-borderRadius);
+$button-height: var(--tb-buttons-pillButton-height-base);
+$button-padding: var(--tb-buttons-pillButton-hpadding-base);
+$button-gap: var(--tb-buttons-pillButton-gap-textToIcon);
+$stroke-base: var(--tb-buttons-pillButton-stroke-base);
+$stroke-pressed: var(--tb-buttons-pillButton-stroke-pressed);
+$pill-radius: var(--tb-buttons-pillButton-borderRadius);
 $icon-size: 16px;
 
 $font-bold: var(--tb-typography-Gotham-S-700-font);
