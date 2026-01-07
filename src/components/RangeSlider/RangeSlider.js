@@ -24,39 +24,35 @@ const DEFAULT_MAX_PRICE = 2000000;
 
 const RangeSlider = ({
   property1 = 'sq. ft.',
-  minSqFt = DEFAULT_MIN_SQFT,
-  maxSqFt = DEFAULT_MAX_SQFT,
+  sqFtRange,
   stepSqFt = 250,
-  minPrice = DEFAULT_MIN_PRICE,
-  maxPrice = DEFAULT_MAX_PRICE,
+  priceRange,
   stepPrice = 100000,
 }) => {
   const trackRef = useRef(null);
-  const [interactiveSqFtMin, setInteractiveSqFtMin] = useState(minSqFt);
-  const [interactiveSqFtMax, setInteractiveSqFtMax] = useState(maxSqFt);
-  const [interactivePriceMin, setInteractivePriceMin] = useState(minPrice);
-  const [interactivePriceMax, setInteractivePriceMax] = useState(maxPrice);
+  const [interactiveSqFtMin, setInteractiveSqFtMin] = useState(sqFtRange?.min ?? DEFAULT_MIN_SQFT);
+  const [interactiveSqFtMax, setInteractiveSqFtMax] = useState(sqFtRange?.max ?? DEFAULT_MAX_SQFT);
+  const [interactivePriceMin, setInteractivePriceMin] = useState(priceRange?.min ?? DEFAULT_MIN_PRICE);
+  const [interactivePriceMax, setInteractivePriceMax] = useState(priceRange?.max ?? DEFAULT_MAX_PRICE);
   const [activeHandle, setActiveHandle] = useState(null);
-  const [hasSqFtUserInput, setHasSqFtUserInput] = useState(false);
-  const [hasPriceUserInput, setHasPriceUserInput] = useState(false);
-
   const isPrice = property1 === 'price';
-  const hasValidSqFtRange = minSqFt < maxSqFt;
-  const hasValidPriceRange = minPrice < maxPrice;
-  const minLimit = isPrice
-    ? hasValidPriceRange
-      ? minPrice
-      : DEFAULT_MIN_PRICE
-    : hasValidSqFtRange
-      ? minSqFt
+  const rawMinLimit = isPrice
+    ? priceRange?.min ?? DEFAULT_MIN_PRICE
+    : sqFtRange?.min ?? DEFAULT_MIN_SQFT;
+  const rawMaxLimit = isPrice
+    ? priceRange?.max ?? DEFAULT_MAX_PRICE
+    : sqFtRange?.max ?? DEFAULT_MAX_SQFT;
+  const hasValidLimitRange = rawMinLimit < rawMaxLimit;
+  const minLimit = hasValidLimitRange
+    ? rawMinLimit
+    : isPrice
+      ? DEFAULT_MIN_PRICE
       : DEFAULT_MIN_SQFT;
-  const maxLimit = isPrice
-    ? hasValidPriceRange
-      ? maxPrice
-      : Math.max(maxPrice, minLimit + stepPrice)
-    : hasValidSqFtRange
-      ? maxSqFt
-      : Math.max(maxSqFt, minLimit + stepSqFt);
+  const maxLimit = hasValidLimitRange
+    ? rawMaxLimit
+    : isPrice
+      ? DEFAULT_MAX_PRICE
+      : DEFAULT_MAX_SQFT;
   const stepValue = isPrice ? stepPrice : stepSqFt;
   const clampMinValue = clamp(isPrice ? interactivePriceMin : interactiveSqFtMin, minLimit, maxLimit - stepValue);
   const clampMaxValue = clamp(isPrice ? interactivePriceMax : interactiveSqFtMax, minLimit + stepValue, maxLimit);
@@ -65,37 +61,30 @@ const RangeSlider = ({
   const minPercent = clamp(((clampMinValue - minLimit) / range) * 100, 0, 100);
   const maxPercent = clamp(((clampMaxValue - minLimit) / range) * 100, 0, 100);
 
-  const formattedSqFt = useMemo(() => `${clampMinValue}-${clampMaxValue}`, [clampMinValue, clampMaxValue]);
-  const formattedPrice = useMemo(
-    () => `${formatPrice(clampMinValue)} - ${formatPrice(clampMaxValue)}`,
-    [clampMinValue, clampMaxValue],
-  );
+  const formattedSqFt = `${clampMinValue}-${clampMaxValue}`;
+  const formattedPrice = `${formatPrice(clampMinValue)} - ${formatPrice(clampMaxValue)}`;
 
   useEffect(() => {
-    if (activeHandle) return;
-    if (hasSqFtUserInput) return;
-    const safeMin = minSqFt ? minSqFt : DEFAULT_MIN_SQFT;
-    const safeMax = maxSqFt ? maxSqFt : DEFAULT_MAX_SQFT;
+    if (activeHandle || isPrice) return;
+    const safeMin = sqFtRange?.min ?? DEFAULT_MIN_SQFT;
+    const safeMax = sqFtRange?.max ?? DEFAULT_MAX_SQFT;
     const hasValidRange = safeMin < safeMax;
-
     const nextMin = hasValidRange ? safeMin : DEFAULT_MIN_SQFT;
     const nextMax = Math.max(hasValidRange ? safeMax : DEFAULT_MAX_SQFT, nextMin + stepSqFt);
     setInteractiveSqFtMin(nextMin);
     setInteractiveSqFtMax(nextMax);
-  }, [activeHandle, minSqFt, maxSqFt, hasSqFtUserInput, stepSqFt]);
+  }, [activeHandle, isPrice, sqFtRange, stepSqFt]);
 
   useEffect(() => {
-    if (activeHandle) return;
-    if (hasPriceUserInput) return;
-    const safeMin = minPrice ? minPrice : DEFAULT_MIN_PRICE;
-    const safeMax = maxPrice ? maxPrice : DEFAULT_MAX_PRICE;
+    if (activeHandle || !isPrice) return;
+    const safeMin = priceRange?.min ?? DEFAULT_MIN_PRICE;
+    const safeMax = priceRange?.max ?? DEFAULT_MAX_PRICE;
     const hasValidRange = safeMin < safeMax;
-
     const nextMin = hasValidRange ? safeMin : DEFAULT_MIN_PRICE;
     const nextMax = Math.max(hasValidRange ? safeMax : DEFAULT_MAX_PRICE, nextMin + stepPrice);
     setInteractivePriceMin(nextMin);
     setInteractivePriceMax(nextMax);
-  }, [activeHandle, minPrice, maxPrice, hasPriceUserInput, stepPrice]);
+  }, [activeHandle, isPrice, priceRange, stepPrice]);
 
   const updateValueFromPointer = (clientX) => {
     const track = trackRef.current;
@@ -124,11 +113,6 @@ const RangeSlider = ({
 
   const handlePointerDown = (handle) => (event) => {
     setActiveHandle(handle);
-    if (isPrice) {
-      setHasPriceUserInput(true);
-    } else {
-      setHasSqFtUserInput(true);
-    }
     updateValueFromPointer(event.clientX);
     event.currentTarget.setPointerCapture(event.pointerId);
   };
@@ -148,16 +132,16 @@ const RangeSlider = ({
   return (
     <div className={styles.rangeSlider}>
       <div className={styles.sliderWrapper}>
-        {isPrice ? (
-          <div className={styles.priceRow}>
+        <div className={isPrice ? styles.priceRow : styles.labelRow}>
+          {isPrice ? (
             <span className={styles.priceText}>{formattedPrice}</span>
-          </div>
-        ) : (
-          <div className={styles.labelRow}>
-            <span className={styles.valueText}>{formattedSqFt}</span>
-            <span className={styles.unitText}>sq ft</span>
-          </div>
-        )}
+          ) : (
+            <>
+              <span className={styles.valueText}>{formattedSqFt}</span>
+              <span className={styles.unitText}>sq ft</span>
+            </>
+          )}
+        </div>
         <div
           className={styles.trackRow}
           ref={trackRef}
