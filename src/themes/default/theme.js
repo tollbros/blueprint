@@ -129,6 +129,7 @@ export const defaultTheme = {
     handleSize: '32px',
     handleRadius: '100px',
     gap: {
+      indicatorToSlider: '16px',
       valueToLabel: '4px',
     },
     shadow: {

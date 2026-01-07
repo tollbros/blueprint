@@ -14,6 +14,7 @@ import PillFillStrokeButton from './components/PillFillStrokeButton/PillFillStro
 import TextLink from './components/TextLink/TextLink';
 import ErrorTag from './components/Tag/ErrorTag';
 import SuccessTag from './components/Tag/SuccessTag';
+import RangeSlider from './components/RangeSlider/RangeSlider';
 
 export {
   PrimaryCTA,
@@ -24,6 +25,7 @@ export {
   TextLink,
   ErrorTag,
   SuccessTag,
+  RangeSlider,
   TextArea,
   FallbackAddButton,
   SquareIconButton,
