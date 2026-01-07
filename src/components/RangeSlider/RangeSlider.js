@@ -58,17 +58,18 @@ const RangeSlider = ({
       ? maxSqFt
       : Math.max(maxSqFt, minLimit + stepSqFt);
   const stepValue = isPrice ? stepPrice : stepSqFt;
-  const rawMinValue = isPrice ? interactivePriceMin : interactiveSqFtMin;
-  const rawMaxValue = isPrice ? interactivePriceMax : interactiveSqFtMax;
-  const minValue = clamp(rawMinValue, minLimit, maxLimit - stepValue);
-  const maxValue = clamp(rawMaxValue, minLimit + stepValue, maxLimit);
+  const clampMinValue = clamp(isPrice ? interactivePriceMin : interactiveSqFtMin, minLimit, maxLimit - stepValue);
+  const clampMaxValue = clamp(isPrice ? interactivePriceMax : interactiveSqFtMax, minLimit + stepValue, maxLimit);
 
   const range = maxLimit - minLimit || 1;
-  const minPercent = clamp(((minValue - minLimit) / range) * 100, 0, 100);
-  const maxPercent = clamp(((maxValue - minLimit) / range) * 100, 0, 100);
+  const minPercent = clamp(((clampMinValue - minLimit) / range) * 100, 0, 100);
+  const maxPercent = clamp(((clampMaxValue - minLimit) / range) * 100, 0, 100);
 
-  const formattedSqFt = useMemo(() => `${minValue}-${maxValue}`, [minValue, maxValue]);
-  const formattedPrice = useMemo(() => `${formatPrice(minValue)} - ${formatPrice(maxValue)}`, [minValue, maxValue]);
+  const formattedSqFt = useMemo(() => `${clampMinValue}-${clampMaxValue}`, [clampMinValue, clampMaxValue]);
+  const formattedPrice = useMemo(
+    () => `${formatPrice(clampMinValue)} - ${formatPrice(clampMaxValue)}`,
+    [clampMinValue, clampMaxValue],
+  );
 
   useEffect(() => {
     if (activeHandle) return;
@@ -105,14 +106,14 @@ const RangeSlider = ({
     const snapped = snapToStep(rawValue, minLimit, stepValue);
 
     if (activeHandle === 'min') {
-      const nextMin = clamp(snapped, minLimit, maxValue - stepValue);
+      const nextMin = clamp(snapped, minLimit, clampMaxValue - stepValue);
       if (isPrice) {
         setInteractivePriceMin(nextMin);
       } else {
         setInteractiveSqFtMin(nextMin);
       }
     } else if (activeHandle === 'max') {
-      const nextMax = clamp(snapped, minValue + stepValue, maxLimit);
+      const nextMax = clamp(snapped, clampMinValue + stepValue, maxLimit);
       if (isPrice) {
         setInteractivePriceMax(nextMax);
       } else {
