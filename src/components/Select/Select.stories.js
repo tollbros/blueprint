@@ -3,7 +3,7 @@ import Select from './Select';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 const StorySchema = {
-  title: 'Inputs/02 Select',
+  title: 'Inputs/03 Select',
   component: Select,
   tags: ['autodocs'],
   parameters: {

@@ -1,13 +1,22 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './RangeSlider.module.scss';
 
+// Clamp a value within inclusive bounds.
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
+// Snap a raw value to the nearest step aligned to a minimum.
 const snapToStep = (value, min, step) => {
   const snapped = Math.round((value - min) / step) * step + min;
   return Math.max(min, snapped);
 };
 
+// Round a limit down to the nearest step multiple.
+const roundDownToStep = (value, step) => Math.floor(value / step) * step;
+
+// Round a limit up to the nearest step multiple.
+const roundUpToStep = (value, step) => Math.ceil(value / step) * step;
+
+// Format a numeric price into compact $k/$m notation.
 const formatPrice = (value) => {
   if (value >= 1000000) {
     const millions = value / 1000000;
@@ -22,6 +31,7 @@ const DEFAULT_MAX_SQFT = 3000;
 const DEFAULT_MIN_PRICE = 300000;
 const DEFAULT_MAX_PRICE = 2000000;
 
+// Range slider with sq-ft and price variants plus draggable handles.
 const RangeSlider = ({
   property1 = 'sq. ft.',
   sqFtRange,
@@ -35,74 +45,136 @@ const RangeSlider = ({
   const [interactivePriceMin, setInteractivePriceMin] = useState(priceRange?.min ?? DEFAULT_MIN_PRICE);
   const [interactivePriceMax, setInteractivePriceMax] = useState(priceRange?.max ?? DEFAULT_MAX_PRICE);
   const [activeHandle, setActiveHandle] = useState(null);
+  const prevRawSetMinRef = useRef(null);
+  const prevRawSetMaxRef = useRef(null);
+  const prevRoundedSetMinRef = useRef(null);
+  const prevRoundedSetMaxRef = useRef(null);
   const isPrice = property1 === 'price';
-  const rawMinLimit = isPrice
+  const rawSetMin = isPrice
     ? priceRange?.min ?? DEFAULT_MIN_PRICE
     : sqFtRange?.min ?? DEFAULT_MIN_SQFT;
-  const rawMaxLimit = isPrice
+  const rawSetMax = isPrice
     ? priceRange?.max ?? DEFAULT_MAX_PRICE
     : sqFtRange?.max ?? DEFAULT_MAX_SQFT;
-  const hasValidLimitRange = rawMinLimit < rawMaxLimit;
-  const minLimit = hasValidLimitRange
-    ? rawMinLimit
+  const roundedSetMin = !isPrice && stepSqFt > 0 ? roundDownToStep(rawSetMin, stepSqFt) : rawSetMin;
+  const roundedSetMax = !isPrice && stepSqFt > 0 ? roundUpToStep(rawSetMax, stepSqFt) : rawSetMax;
+  const hasValidLimitRange = roundedSetMin < roundedSetMax;
+  const safeRoundedMin = hasValidLimitRange
+    ? roundedSetMin
     : isPrice
       ? DEFAULT_MIN_PRICE
       : DEFAULT_MIN_SQFT;
-  const maxLimit = hasValidLimitRange
-    ? rawMaxLimit
+  const safeRoundedMax = hasValidLimitRange
+    ? roundedSetMax
     : isPrice
       ? DEFAULT_MAX_PRICE
       : DEFAULT_MAX_SQFT;
+  const validMinLimit = safeRoundedMin;
+  const validMaxLimit = safeRoundedMax;
   const stepValue = isPrice ? stepPrice : stepSqFt;
-  const clampMinValue = clamp(isPrice ? interactivePriceMin : interactiveSqFtMin, minLimit, maxLimit - stepValue);
-  const clampMaxValue = clamp(isPrice ? interactivePriceMax : interactiveSqFtMax, minLimit + stepValue, maxLimit);
+  const clampMinValue = clamp(
+    isPrice ? interactivePriceMin : interactiveSqFtMin,
+    validMinLimit,
+    validMaxLimit - stepValue,
+  );
+  const clampMaxValue = clamp(
+    isPrice ? interactivePriceMax : interactiveSqFtMax,
+    validMinLimit + stepValue,
+    validMaxLimit,
+  );
 
-  const range = maxLimit - minLimit || 1;
-  const minPercent = clamp(((clampMinValue - minLimit) / range) * 100, 0, 100);
-  const maxPercent = clamp(((clampMaxValue - minLimit) / range) * 100, 0, 100);
+  const range = validMaxLimit - validMinLimit || 1;
+  const minPercent = clamp(((clampMinValue - validMinLimit) / range) * 100, 0, 100);
+  const maxPercent = clamp(((clampMaxValue - validMinLimit) / range) * 100, 0, 100);
 
   const formattedSqFt = `${clampMinValue}-${clampMaxValue}`;
   const formattedPrice = `${formatPrice(clampMinValue)} - ${formatPrice(clampMaxValue)}`;
 
   useEffect(() => {
-    if (activeHandle || isPrice) return;
-    const safeMin = sqFtRange?.min ?? DEFAULT_MIN_SQFT;
-    const safeMax = sqFtRange?.max ?? DEFAULT_MAX_SQFT;
-    const hasValidRange = safeMin < safeMax;
-    const nextMin = hasValidRange ? safeMin : DEFAULT_MIN_SQFT;
-    const nextMax = Math.max(hasValidRange ? safeMax : DEFAULT_MAX_SQFT, nextMin + stepSqFt);
-    setInteractiveSqFtMin(nextMin);
-    setInteractiveSqFtMax(nextMax);
-  }, [activeHandle, isPrice, sqFtRange, stepSqFt]);
+    if (activeHandle) return;
+    if (isPrice) {
+      const prevRawSetMin = prevRawSetMinRef.current;
+      const prevRawSetMax = prevRawSetMaxRef.current;
+      const prevRoundedSetMin = prevRoundedSetMinRef.current;
+      const prevRoundedSetMax = prevRoundedSetMaxRef.current;
+      if (
+        (interactivePriceMin === rawSetMin ||
+          interactivePriceMin === prevRawSetMin ||
+          interactivePriceMin === prevRoundedSetMin) &&
+        interactivePriceMin !== safeRoundedMin
+      ) {
+        setInteractivePriceMin(safeRoundedMin);
+      }
+      if (
+        (interactivePriceMax === rawSetMax ||
+          interactivePriceMax === prevRawSetMax ||
+          interactivePriceMax === prevRoundedSetMax) &&
+        interactivePriceMax !== safeRoundedMax
+      ) {
+        setInteractivePriceMax(safeRoundedMax);
+      }
+      prevRawSetMinRef.current = rawSetMin;
+      prevRawSetMaxRef.current = rawSetMax;
+      prevRoundedSetMinRef.current = safeRoundedMin;
+      prevRoundedSetMaxRef.current = safeRoundedMax;
+      return;
+    }
 
-  useEffect(() => {
-    if (activeHandle || !isPrice) return;
-    const safeMin = priceRange?.min ?? DEFAULT_MIN_PRICE;
-    const safeMax = priceRange?.max ?? DEFAULT_MAX_PRICE;
-    const hasValidRange = safeMin < safeMax;
-    const nextMin = hasValidRange ? safeMin : DEFAULT_MIN_PRICE;
-    const nextMax = Math.max(hasValidRange ? safeMax : DEFAULT_MAX_PRICE, nextMin + stepPrice);
-    setInteractivePriceMin(nextMin);
-    setInteractivePriceMax(nextMax);
-  }, [activeHandle, isPrice, priceRange, stepPrice]);
+    const prevRawSetMin = prevRawSetMinRef.current;
+    const prevRawSetMax = prevRawSetMaxRef.current;
+    const prevRoundedSetMin = prevRoundedSetMinRef.current;
+    const prevRoundedSetMax = prevRoundedSetMaxRef.current;
+    if (
+      (interactiveSqFtMin === rawSetMin ||
+        interactiveSqFtMin === prevRawSetMin ||
+        interactiveSqFtMin === prevRoundedSetMin) &&
+      interactiveSqFtMin !== safeRoundedMin
+    ) {
+      setInteractiveSqFtMin(safeRoundedMin);
+    }
+    if (
+      (interactiveSqFtMax === rawSetMax ||
+        interactiveSqFtMax === prevRawSetMax ||
+        interactiveSqFtMax === prevRoundedSetMax) &&
+      interactiveSqFtMax !== safeRoundedMax
+    ) {
+      setInteractiveSqFtMax(safeRoundedMax);
+    }
+    prevRawSetMinRef.current = rawSetMin;
+    prevRawSetMaxRef.current = rawSetMax;
+    prevRoundedSetMinRef.current = safeRoundedMin;
+    prevRoundedSetMaxRef.current = safeRoundedMax;
+  }, [
+    activeHandle,
+    interactivePriceMax,
+    interactivePriceMin,
+    interactiveSqFtMax,
+    interactiveSqFtMin,
+    isPrice,
+    rawSetMax,
+    rawSetMin,
+    safeRoundedMax,
+    safeRoundedMin,
+  ]);
 
+  // Convert pointer position into a snapped min/max update.
   const updateValueFromPointer = (clientX) => {
     const track = trackRef.current;
     if (!track) return;
     const rect = track.getBoundingClientRect();
     const relative = clamp(clientX - rect.left, 0, rect.width);
-    const rawValue = minLimit + (relative / rect.width) * range;
-    const snapped = snapToStep(rawValue, minLimit, stepValue);
+    const rawValue = validMinLimit + (relative / rect.width) * range;
+    const snapped = snapToStep(rawValue, validMinLimit, stepValue);
 
     if (activeHandle === 'min') {
-      const nextMin = clamp(snapped, minLimit, clampMaxValue - stepValue);
+      const nextMin = clamp(snapped, validMinLimit, clampMaxValue - stepValue);
       if (isPrice) {
         setInteractivePriceMin(nextMin);
       } else {
         setInteractiveSqFtMin(nextMin);
       }
     } else if (activeHandle === 'max') {
-      const nextMax = clamp(snapped, clampMinValue + stepValue, maxLimit);
+      const nextMax = clamp(snapped, clampMinValue + stepValue, validMaxLimit);
       if (isPrice) {
         setInteractivePriceMax(nextMax);
       } else {
@@ -111,17 +183,20 @@ const RangeSlider = ({
     }
   };
 
+  // Start dragging a handle and capture pointer events.
   const handlePointerDown = (handle) => (event) => {
     setActiveHandle(handle);
     updateValueFromPointer(event.clientX);
     event.currentTarget.setPointerCapture(event.pointerId);
   };
 
+  // Update the active handle during drag.
   const handlePointerMove = (event) => {
     if (!activeHandle) return;
     updateValueFromPointer(event.clientX);
   };
 
+  // End dragging and release pointer capture.
   const handlePointerUp = (event) => {
     if (event.currentTarget.hasPointerCapture(event.pointerId)) {
       event.currentTarget.releasePointerCapture(event.pointerId);

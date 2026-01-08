@@ -3,7 +3,7 @@ import RangeSlider from './RangeSlider';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 export default {
-  title: 'Inputs/03 RangeSlider',
+  title: 'Inputs/04 RangeSlider',
   component: RangeSlider,
   tags: ['autodocs'],
   args: {
