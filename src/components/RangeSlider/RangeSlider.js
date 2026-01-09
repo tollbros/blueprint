@@ -56,8 +56,10 @@ const RangeSlider = ({
   const rawSetMax = isPrice
     ? priceRange?.max ?? DEFAULT_MAX_PRICE
     : sqFtRange?.max ?? DEFAULT_MAX_SQFT;
-  const roundedSetMin = !isPrice && stepSqFt > 0 ? roundDownToStep(rawSetMin, stepSqFt) : rawSetMin;
-  const roundedSetMax = !isPrice && stepSqFt > 0 ? roundUpToStep(rawSetMax, stepSqFt) : rawSetMax;
+  const stepValue = isPrice ? stepPrice : stepSqFt;
+  const safeStepValue = stepValue > 0 ? stepValue : 1;
+  const roundedSetMin = stepValue > 0 ? roundDownToStep(rawSetMin, stepValue) : rawSetMin;
+  const roundedSetMax = stepValue > 0 ? roundUpToStep(rawSetMax, stepValue) : rawSetMax;
   const hasValidLimitRange = roundedSetMin < roundedSetMax;
   const safeRoundedMin = hasValidLimitRange
     ? roundedSetMin
@@ -71,15 +73,14 @@ const RangeSlider = ({
       : DEFAULT_MAX_SQFT;
   const validMinLimit = safeRoundedMin;
   const validMaxLimit = safeRoundedMax;
-  const stepValue = isPrice ? stepPrice : stepSqFt;
   const clampMinValue = clamp(
     isPrice ? interactivePriceMin : interactiveSqFtMin,
     validMinLimit,
-    validMaxLimit - stepValue,
+    validMaxLimit - safeStepValue,
   );
   const clampMaxValue = clamp(
     isPrice ? interactivePriceMax : interactiveSqFtMax,
-    validMinLimit + stepValue,
+    validMinLimit + safeStepValue,
     validMaxLimit,
   );
 
@@ -157,24 +158,31 @@ const RangeSlider = ({
     safeRoundedMin,
   ]);
 
-  // Convert pointer position into a snapped min/max update.
-  const updateValueFromPointer = (clientX) => {
+  const getSnappedValueFromPointer = (clientX) => {
     const track = trackRef.current;
-    if (!track) return;
+    if (!track) return null;
     const rect = track.getBoundingClientRect();
+    if (rect.width <= 0) return null;
     const relative = clamp(clientX - rect.left, 0, rect.width);
     const rawValue = validMinLimit + (relative / rect.width) * range;
-    const snapped = snapToStep(rawValue, validMinLimit, stepValue);
+    return snapToStep(rawValue, validMinLimit, safeStepValue);
+  };
 
-    if (activeHandle === 'min') {
-      const nextMin = clamp(snapped, validMinLimit, clampMaxValue - stepValue);
+  // Convert pointer position into a snapped min/max update.
+  const updateValueFromPointer = (clientX, handleOverride) => {
+    const snapped = getSnappedValueFromPointer(clientX);
+    if (snapped === null) return;
+    const activeTarget = handleOverride ?? activeHandle;
+
+    if (activeTarget === 'min') {
+      const nextMin = clamp(snapped, validMinLimit, clampMaxValue - safeStepValue);
       if (isPrice) {
         setInteractivePriceMin(nextMin);
       } else {
         setInteractiveSqFtMin(nextMin);
       }
-    } else if (activeHandle === 'max') {
-      const nextMax = clamp(snapped, clampMinValue + stepValue, validMaxLimit);
+    } else if (activeTarget === 'max') {
+      const nextMax = clamp(snapped, clampMinValue + safeStepValue, validMaxLimit);
       if (isPrice) {
         setInteractivePriceMax(nextMax);
       } else {
@@ -183,10 +191,24 @@ const RangeSlider = ({
     }
   };
 
+  const handleTrackPointerDown = (event) => {
+    if (event.target instanceof Element && event.target.closest(`.${styles.handle}`)) {
+      return;
+    }
+    const snapped = getSnappedValueFromPointer(event.clientX);
+    if (snapped === null || snapped >= clampMaxValue) return;
+    const nextMin = clamp(snapped, validMinLimit, clampMaxValue - safeStepValue);
+    if (isPrice) {
+      setInteractivePriceMin(nextMin);
+    } else {
+      setInteractiveSqFtMin(nextMin);
+    }
+  };
+
   // Start dragging a handle and capture pointer events.
   const handlePointerDown = (handle) => (event) => {
     setActiveHandle(handle);
-    updateValueFromPointer(event.clientX);
+    updateValueFromPointer(event.clientX, handle);
     event.currentTarget.setPointerCapture(event.pointerId);
   };
 
@@ -220,6 +242,7 @@ const RangeSlider = ({
         <div
           className={styles.trackRow}
           ref={trackRef}
+          onPointerDown={handleTrackPointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerUp}
