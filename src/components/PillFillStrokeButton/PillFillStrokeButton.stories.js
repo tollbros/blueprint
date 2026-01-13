@@ -13,7 +13,7 @@ const StorySchema = {
     size: 'Small',
     iconBool: 'Null',
     hPadding: 'Base',
-    color: 'MedBlue',
+    contentColor: 'MedBlue',
     state: 'Base',
   },
   argTypes: {
@@ -21,7 +21,7 @@ const StorySchema = {
     size: { control: 'select', options: ['Small', 'Base', 'Large'] },
     iconBool: { control: 'select', options: ['Null', 'Left', 'Right'] },
     hPadding: { control: 'select', options: ['Small', 'Base'] },
-    color: { control: 'select', options: ['MedBlue', 'AccentBlue'] },
+    contentColor: { control: 'select', options: ['MedBlue', 'AccentBlue'] },
     state: { control: 'select', options: ['Base', 'Hover', 'Pressed', 'Disabled'] },
     iconMedBlue: { table: { disable: true } },
     iconDisabled: { table: { disable: true } },
@@ -32,7 +32,7 @@ const StorySchema = {
     docs: {
       description: {
         component:
-          'Pill fill+stroke button (Size Small/Base/Large, optional icons, Color MedBlue/AccentBlue, States Base/Hover/Pressed/Disabled).',
+          'Pill fill+stroke button (Size Small/Base/Large, optional icons, ContentColor MedBlue/AccentBlue, States Base/Hover/Pressed/Disabled).',
       },
     },
   },
@@ -48,7 +48,7 @@ const StorySchema = {
 
     React.useEffect(() => {
       setCurrentState(args.state);
-    }, [args.state, args.label, args.size, args.color, args.iconBool, args.hPadding]);
+    }, [args.state, args.label, args.size, args.contentColor, args.iconBool, args.hPadding]);
 
     const interactive = args.state === 'Base';
     const isDisabled = args.state === 'Disabled';

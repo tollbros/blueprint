@@ -20,7 +20,7 @@ const STATE_CLASS = {
   disabled: styles.stateDisabled,
 };
 
-const COLOR_CLASS = {
+const CONTENT_COLOR_CLASS = {
   MedBlue: styles.colorMedBlue,
   AccentBlue: styles.colorAccentBlue,
 };
@@ -34,7 +34,7 @@ const PADDING_CLASS = {
 /**
  * PillFillStrokeButton aligned to Figma spec:
  * - size: Small | Base | Large
- * - color: MedBlue | AccentBlue
+ * - contentColor: MedBlue | AccentBlue
  * - state: Base | Hover | Pressed | Disabled
  * - iconBool: Null | Left | Right
  * - hPadding: Small | Base
@@ -46,14 +46,14 @@ const PillFillStrokeButton = ({
   iconAccentBlue = null,
   size = 'Base',
   iconBool = 'Null',
-  color = 'MedBlue',
+  contentColor = 'MedBlue',
   hPadding = 'Base',
   state = 'Base',
   className = '',
   ...rest
 }) => {
   const sizeClass = SIZE_CLASS[size] || SIZE_CLASS.Base;
-  const colorClass = COLOR_CLASS[color] || COLOR_CLASS.MedBlue;
+  const colorClass = CONTENT_COLOR_CLASS[contentColor] || CONTENT_COLOR_CLASS.MedBlue;
   const paddingClass = PADDING_CLASS[hPadding] || PADDING_CLASS.Base;
   const stateKey = state?.toLowerCase?.() || 'base';
   const stateClass = STATE_CLASS[stateKey] || STATE_CLASS.base;
@@ -76,11 +76,15 @@ const PillFillStrokeButton = ({
       ? null
       : isDisabled
       ? iconDisabled
-      : color === 'AccentBlue'
+      : contentColor === 'AccentBlue'
       ? iconAccentBlue
       : iconMedBlue;
 
-  const fallbackIconSrc = isDisabled ? ICONS.MedGray : color === 'AccentBlue' ? ICONS.AccentBlue : ICONS.MedBlue;
+  const fallbackIconSrc = isDisabled
+    ? ICONS.MedGray
+    : contentColor === 'AccentBlue'
+    ? ICONS.AccentBlue
+    : ICONS.MedBlue;
   const iconContent = resolvedIcon || <img alt='' className={styles.iconImage} src={fallbackIconSrc} />;
 
   return (

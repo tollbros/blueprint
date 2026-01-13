@@ -22,25 +22,19 @@ const StorySchema = {
   args: {
     onClick: fn(),
     label: 'Pill Button',
-    priority: 'A',
     size: 'Base',
     iconBool: 'Null',
-    padding: 'Small',
-    textColor: 'MedBlue',
-    padding: 'Small',
+    variant: 'MedBlue',
     state: 'Base',
   },
   argTypes: {
     label: { control: 'text' },
-    priority: { control: 'select', options: ['A', 'B'] },
     size: { control: 'select', options: ['Base', 'Small', 'Large'] },
     iconBool: { control: 'select', options: ['Null', 'Left', 'Right'] },
-    padding: { control: 'select', options: ['Small', 'Large'] },
-    textColor: {
+    variant: {
       control: 'select',
-      options: ['MedBlue', 'AccentBlue', 'Black'],
-      description:
-        'Priority B only supports Black; Padding=Large forces Size=Large, Priority=A, TextColor=AccentBlue.',
+      options: ['MedBlue', 'AccentBlue', 'BlackBook', 'AccentBlueXLarge'],
+      description: 'Valid combinations of priority, text color, and padding from the Figma matrix.',
     },
     state: { control: 'select', options: ['Base', 'Hover', 'Pressed', 'Disabled'] },
     icon: { table: { disable: true } },
@@ -67,7 +61,7 @@ const StorySchema = {
 
     React.useEffect(() => {
       setCurrentState(args.state);
-    }, [args.state, args.label, args.size, args.iconBool, args.textColor, args.priority, args.padding]);
+    }, [args.state, args.label, args.size, args.iconBool, args.variant]);
 
     const interactive = args.state === 'Base';
     const isDisabled = args.state === 'Disabled';

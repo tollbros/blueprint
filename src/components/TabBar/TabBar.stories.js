@@ -3,7 +3,7 @@ import TabBar from './TabBar';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 export default {
-  title: 'Selectors/TabBar',
+  title: 'Selectors/01 TabBar',
   component: TabBar,
   tags: ['autodocs'],
   args: {

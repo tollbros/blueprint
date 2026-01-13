@@ -22,29 +22,29 @@ const PRIORITY_TEXT_COLORS = {
   B: ['Black'],
 };
 
-const normalizeProps = ({ size, padding, priority, textColor }) => {
+const normalizeProps = ({ size, padding, priority, contentColor }) => {
   let nextSize = size;
   let nextPadding = padding;
   let nextPriority = priority;
-  let nextTextColor = textColor;
+  let nextContentColor = contentColor;
 
   // Padding Large is only defined as: Size=Large, Priority=A, TextColor=AccentBlue
   if (nextPadding === 'Large') {
     nextSize = 'Large';
     nextPriority = 'A';
-    nextTextColor = 'AccentBlue';
+    nextContentColor = 'AccentBlue';
   }
 
   // Priority B only supports Black text (no AccentBlue/MedBlue variants)
   if (nextPriority === 'B') {
-    nextTextColor = 'Black';
+    nextContentColor = 'Black';
   }
 
   return {
     size: nextSize,
     padding: nextPadding,
     priority: nextPriority,
-    textColor: nextTextColor,
+    contentColor: nextContentColor,
   };
 };
 
@@ -55,28 +55,39 @@ const STATE_CLASS = {
   disabled: styles.stateDisabled,
 };
 
+const VARIANT_PRESETS = {
+  MedBlue: { priority: 'A', contentColor: 'MedBlue', padding: 'Small' },
+  AccentBlue: { priority: 'A', contentColor: 'AccentBlue', padding: 'Small' },
+  BlackBook: { priority: 'B', contentColor: 'Black', padding: 'Small' },
+  AccentBlueXLarge: { priority: 'A', contentColor: 'AccentBlue', padding: 'Large' },
+};
+
+const resolveVariant = (variant) => VARIANT_PRESETS[variant] || VARIANT_PRESETS.MedBlue;
+
 /**
  * PillFillButton aligned to Figma spec:
  * - size: Base | Small | Large
  * - iconBool: Left | Right | Null
- * - textColor: MedBlue | AccentBlue | Black
- * - priority: A | B (A = Bold, B = Book)
- * - padding: Small | Large (horizontal)
+ * - variant: MedBlue | AccentBlue | BlackBook | AccentBlueXLarge
  * - state: Base | Hover | Pressed | Disabled
  */
 const PillFillButton = ({
   label = 'Pill Button',
   size = 'Base',
   iconBool = 'Null',
-  textColor = 'MedBlue',
-  priority = 'A',
-  padding = 'Small',
+  variant = 'MedBlue',
   state = 'Base',
   icon = null,
   className = '',
   ...rest
 }) => {
-  const normalized = normalizeProps({ size, padding, priority, textColor });
+  const preset = resolveVariant(variant);
+  const normalized = normalizeProps({
+    size,
+    padding: preset.padding,
+    priority: preset.priority,
+    contentColor: preset.contentColor,
+  });
 
   const sizeClass = SIZE_CLASS[normalized.size] || SIZE_CLASS.Base;
   const paddingClass = PADDING_CLASS[normalized.padding] || PADDING_CLASS.Small;
@@ -87,10 +98,10 @@ const PillFillButton = ({
   const isDisabled = stateKey === 'disabled';
 
   const allowedTextColors = PRIORITY_TEXT_COLORS[normalized.priority] || PRIORITY_TEXT_COLORS.A;
-  const resolvedTextColor = allowedTextColors.includes(normalized.textColor)
-    ? normalized.textColor
+  const resolvedContentColor = allowedTextColors.includes(normalized.contentColor)
+    ? normalized.contentColor
     : allowedTextColors[0];
-  const textClass = isDisabled ? styles.textDisabled : TEXT_CLASS[resolvedTextColor] || styles.textMedBlue;
+  const textClass = isDisabled ? styles.textDisabled : TEXT_CLASS[resolvedContentColor] || styles.textMedBlue;
 
   const iconPosition = iconBool?.toLowerCase?.() || 'null';
   const hasIcon = iconPosition !== 'null' && !!icon;

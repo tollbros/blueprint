@@ -1,7 +1,5 @@
 import PrimaryCTA from './components/PrimaryCTA/PrimaryCTA';
 import SecondaryCTA from './components/SecondaryCTA/SecondaryCTA';
-import FallbackAddButton from './components/FallbackAddButton/FallbackAddButton.js';
-import SquareIconButton from './components/SquareIconButton/SquareIconButton.js';
 import ThemeProvider from './themes/ThemeProvider';
 import InputField from './components/InputField/InputField';
 import TextArea from './components/TextArea/TextArea';
@@ -13,12 +11,11 @@ import PillFillStrokeButton from './components/PillFillStrokeButton/PillFillStro
 import TextLink from './components/TextLink/TextLink';
 import ErrorTag from './components/Tag/ErrorTag';
 import SuccessTag from './components/Tag/SuccessTag';
-import RangeSlider from './components/RangeSlider/RangeSlider';
-import SpecsSelector from './components/SpecsSelector/SpecsSelector';
+import TabBar from './components/TabBar/TabBar';
 import Checkbox from './components/Checkbox/Checkbox';
 import RadioButton from './components/RadioButton/RadioButton';
-import TabUnit from './components/TabUnit/TabUnit';
-import TabBar from './components/TabBar/TabBar';
+import RangeSlider from './components/RangeSlider/RangeSlider';
+import SpecsSelector from './components/SpecsSelector/SpecsSelector';
 
 export {
   PrimaryCTA,
@@ -29,15 +26,12 @@ export {
   TextLink,
   ErrorTag,
   SuccessTag,
-  RangeSlider,
-  SpecsSelector,
+  TabBar,
   Checkbox,
   RadioButton,
-  TabUnit,
-  TabBar,
+  RangeSlider,
+  SpecsSelector,
   TextArea,
-  FallbackAddButton,
-  SquareIconButton,
   ThemeProvider,
   InputField,
   defaultTheme,

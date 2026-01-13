@@ -3,7 +3,7 @@ import Checkbox from './Checkbox';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 export default {
-  title: 'Selectors/Checkbox',
+  title: 'Selectors/02 CheckBox',
   component: Checkbox,
   tags: ['autodocs'],
   args: {

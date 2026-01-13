@@ -3,7 +3,7 @@ import RadioButton from './RadioButton';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 export default {
-  title: 'Selectors/RadioButton',
+  title: 'Selectors/03 RadioButton',
   component: RadioButton,
   tags: ['autodocs'],
   args: {

@@ -3,7 +3,7 @@ import SpecsSelector from './SpecsSelector';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 export default {
-  title: 'Selectors/SpecsSelector',
+  title: 'Selectors/05 SpecsSelector',
   component: SpecsSelector,
   tags: ['autodocs'],
   args: {
