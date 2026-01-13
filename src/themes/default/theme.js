@@ -85,7 +85,6 @@ export const defaultTheme = {
       tabsSpacing: '24px',
     },
     padding: {
-      hbaseTab: '4px',
       hbase: '4px',
     },
     size: {

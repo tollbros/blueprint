@@ -1,42 +1,54 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import TabUnit from '../TabUnit/TabUnit';
 import styles from './TabBar.module.scss';
 
-const DEFAULT_ICON_TABS = [
-  { label: 'Communities' },
-  { label: 'Quick Move-In' },
-  { label: 'Home Design' },
-];
+const DEFAULT_TAB_COUNT = 3;
+const MIN_TAB_COUNT = 2;
+const MAX_TAB_COUNT = 10;
+const buildDefaultTabs = (count, startIndex = 0) => {
+  return Array.from({ length: count }, (_, index) => {
+    const letter = String.fromCharCode(65 + index + startIndex);
+    return { label: `Tab ${letter}` };
+  });
+};
+
+const clampTabCount = (count) => {
+  if (!Number.isFinite(count)) return DEFAULT_TAB_COUNT;
+  const rounded = Math.round(count);
+  if (rounded < MIN_TAB_COUNT) return MIN_TAB_COUNT;
+  if (rounded > MAX_TAB_COUNT) return MAX_TAB_COUNT;
+  return rounded;
+};
 
 const TabBar = ({
   iconBool = false,
   bg = 'Light',
-  layout = 'fit',
-  width,
+  alignment = 'fitLeft',
+  tabCount = DEFAULT_TAB_COUNT,
+  tabLabels,
   tabs,
-  activeIndex,
-  onChange,
   className = '',
 }) => {
-  const defaultTabs = useMemo(() => DEFAULT_ICON_TABS, []);
-  const resolvedTabs = tabs?.length ? tabs : defaultTabs;
-
-  const isControlled = Number.isInteger(activeIndex);
-  const [internalIndex, setInternalIndex] = useState(activeIndex ?? 0);
-
-  useEffect(() => {
-    if (isControlled) {
-      setInternalIndex(activeIndex);
+  const resolvedTabCount = useMemo(() => clampTabCount(tabCount), [tabCount]);
+  const defaultTabs = useMemo(() => buildDefaultTabs(resolvedTabCount), [resolvedTabCount]);
+  const resolvedTabs = useMemo(() => {
+    if (tabs?.length) {
+      return tabs.slice(0, resolvedTabCount);
     }
-  }, [activeIndex, isControlled]);
+    if (tabLabels?.length) {
+      const labels = tabLabels.slice(0, resolvedTabCount);
+      const padded = labels.concat(
+        buildDefaultTabs(resolvedTabCount - labels.length, labels.length).map((tab) => tab.label),
+      );
+      return padded.map((label) => ({ label }));
+    }
+    return defaultTabs;
+  }, [defaultTabs, resolvedTabCount, tabLabels, tabs]);
 
-  const selectedIndex = isControlled ? activeIndex : internalIndex;
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleSelect = (index) => {
-    if (!isControlled) {
-      setInternalIndex(index);
-    }
-    onChange?.(index, resolvedTabs[index]);
+    setSelectedIndex(index);
   };
 
   const isDark = bg === 'Dark';
@@ -47,21 +59,26 @@ const TabBar = ({
   ]
     .filter(Boolean)
     .join(' ');
-  const tabsClassName = layout === 'equal' ? styles.tabsEqual : styles.tabsSpaced;
-  const tabsStyle = layout === 'equal' ? { '--tab-count': resolvedTabs.length } : undefined;
-  const containerStyle = width ? { width } : undefined;
-
+  const isFullCenter = alignment === 'fullCenter';
+  const tabsClassName = isFullCenter
+    ? styles.tabsFull
+    : [styles.tabsSpaced, styles.alignLeft].filter(Boolean).join(' ');
+  const tabsStyle = isFullCenter ? { '--tab-count': resolvedTabs.length } : undefined;
   return (
-    <div className={containerClassName} style={containerStyle}>
+    <div className={containerClassName}>
       <div className={tabsClassName} style={tabsStyle}>
         {resolvedTabs.map((tab, index) => (
-          <div key={`${tab.label}-${index}`} className={styles.tabButton}>
+          <div
+            key={`${tab.label}-${index}`}
+            className={[styles.tabButton, isFullCenter && styles.tabButtonFull].filter(Boolean).join(' ')}
+          >
             <TabUnit
               label={tab.label}
               symbol={tab.symbol}
               state={index === selectedIndex}
               icon={iconBool}
               bg={bg}
+              width={isFullCenter ? 'full' : 'fit'}
               onClick={() => handleSelect(index)}
             />
           </div>

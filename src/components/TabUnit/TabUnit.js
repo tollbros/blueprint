@@ -18,6 +18,7 @@ const TabUnit = ({
   icon = true,
   bg = 'Light',
   symbol = null,
+  width = 'fit',
   className = '',
   onClick,
 }) => {
@@ -52,6 +53,7 @@ const TabUnit = ({
         styles.tabUnit,
         isDark ? styles.dark : styles.light,
         isActive ? styles.active : styles.inactive,
+        width === 'full' ? styles.widthFull : styles.widthFit,
         className,
       ]
         .filter(Boolean)
