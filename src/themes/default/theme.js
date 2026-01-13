@@ -59,6 +59,12 @@ export const defaultTheme = {
     9: '60px',
   },
 
+  specsSelector: {
+    height: {
+      base: '40px',
+    },
+  },
+
   tag: {
     padding: {
       hbase: '16px',

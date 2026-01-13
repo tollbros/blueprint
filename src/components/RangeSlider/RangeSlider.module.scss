@@ -1,4 +1,3 @@
-$width: var(--tb-rangeSlider-width);
 $track-height: var(--tb-rangeSlider-trackHeight);
 $handle-size: var(--tb-rangeSlider-handleSize);
 $handle-radius: var(--tb-rangeSlider-handleRadius);
@@ -17,9 +16,9 @@ $gap-indicator-to-slider: var(--tb-rangeSlider-gap-indicatorToSlider);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: $width;
-  min-width: $width;
-  max-width: $width;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   gap: $gap-indicator-to-slider;
 }
 

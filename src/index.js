@@ -15,6 +15,7 @@ import TextLink from './components/TextLink/TextLink';
 import ErrorTag from './components/Tag/ErrorTag';
 import SuccessTag from './components/Tag/SuccessTag';
 import RangeSlider from './components/RangeSlider/RangeSlider';
+import SpecsSelector from './components/SpecsSelector/SpecsSelector';
 
 export {
   PrimaryCTA,
@@ -26,6 +27,7 @@ export {
   ErrorTag,
   SuccessTag,
   RangeSlider,
+  SpecsSelector,
   TextArea,
   FallbackAddButton,
   SquareIconButton,

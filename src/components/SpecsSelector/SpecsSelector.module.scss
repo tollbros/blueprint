@@ -1,0 +1,61 @@
+$height: var(--tb-specsSelector-height-base);
+
+$radius: 100px;
+$font: var(--tb-typography-Gotham-B-500-font);
+$bg: var(--tb-palette-TB-Functional-White, #ffffff);
+$accent: var(--tb-palette-TB-Brand-Accent, #0070cd);
+$label-black: var(--tb-palette-TB-Functional-Black, #000000);
+$label-white: var(--tb-palette-TB-Functional-White, #ffffff);
+$label-medgray: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
+
+.specsSelector {
+  align-items: center;
+  background: $bg;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  width: 100%;
+}
+
+.unit {
+  align-items: center;
+  border-radius: $radius;
+  cursor: pointer;
+  display: inline-flex;
+  height: $height;
+  justify-content: center;
+  min-height: 1px;
+  min-width: 1px;
+  width: 100%;
+}
+
+.label {
+  font: $font;
+  line-height: 21px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.unitSelected {
+  background: $accent;
+}
+
+.unitUnselected {
+  background: transparent;
+}
+
+.unitNull {
+  background: transparent;
+  cursor: default;
+}
+
+.labelSelected {
+  color: $label-white;
+}
+
+.labelUnselected {
+  color: $label-black;
+}
+
+.labelNull {
+  color: $label-medgray;
+}
