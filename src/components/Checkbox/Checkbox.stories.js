@@ -1,23 +1,26 @@
 import React from 'react';
-import RadioButton from './RadioButton';
+import Checkbox from './Checkbox';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 export default {
-  title: 'Selectors/RadioButton',
-  component: RadioButton,
+  title: 'Selectors/Checkbox',
+  component: Checkbox,
   tags: ['autodocs'],
   args: {
-    size: 'Small',
+    size: 'Base',
     state: 'Base',
   },
   argTypes: {
-    size: { control: 'select', options: ['Small', 'Large'] },
-    state: { control: 'select', options: ['Base', 'Focused', 'Selected', 'Disabled'] },
+    size: { control: 'select', options: ['Base', 'Large'] },
+    state: {
+      control: 'select',
+      options: ['Base', 'Focused', 'Selected', 'Disabled'],
+    },
     className: { control: 'text' },
   },
   render: (args) => (
     <InputPreviewContainer args={args}>
-      <RadioButton {...args} />
+      <Checkbox {...args} />
     </InputPreviewContainer>
   ),
 };

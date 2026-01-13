@@ -16,6 +16,8 @@ import ErrorTag from './components/Tag/ErrorTag';
 import SuccessTag from './components/Tag/SuccessTag';
 import RangeSlider from './components/RangeSlider/RangeSlider';
 import SpecsSelector from './components/SpecsSelector/SpecsSelector';
+import Checkbox from './components/Checkbox/Checkbox';
+import RadioButton from './components/RadioButton/RadioButton';
 
 export {
   PrimaryCTA,
@@ -28,6 +30,8 @@ export {
   SuccessTag,
   RangeSlider,
   SpecsSelector,
+  Checkbox,
+  RadioButton,
   TextArea,
   FallbackAddButton,
   SquareIconButton,

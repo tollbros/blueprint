@@ -61,7 +61,10 @@ const getResolvedMaxSpecs = (maxSpecs) => {
     return MAX_UNITS;
   }
   const rounded = Math.round(maxSpecs);
-  return Math.min(Math.max(rounded, 1), MAX_UNITS);
+  if (rounded < 1) {
+    return MAX_UNITS;
+  }
+  return Math.min(rounded, MAX_UNITS);
 };
 
 const SpecsSelector = ({ maxSpecs = MAX_UNITS, className = '', onSelect, ...rest }) => {

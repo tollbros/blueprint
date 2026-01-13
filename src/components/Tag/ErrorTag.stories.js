@@ -2,7 +2,7 @@ import React from 'react';
 import ErrorTag from './ErrorTag';
 
 export default {
-  title: 'Tag/01 ErrorTag',
+  title: 'Tags/01 ErrorTag',
   component: ErrorTag,
   tags: ['autodocs'],
   args: {

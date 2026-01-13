@@ -1,7 +1,7 @@
 import SecondaryCTA from './SecondaryCTA';
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { fn } from '@storybook/test';
-import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtilsButtons';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 const DotIcon = ({ color = 'currentColor' }) => (
   <span
@@ -60,49 +60,11 @@ const StorySchema = {
     },
   },
   decorators: [
-    (Story, context) => {
-      const measureRef = useRef(null);
-      const [naturalWidth, setNaturalWidth] = useState(null);
-
-      useLayoutEffect(() => {
-        if (measureRef.current) {
-          const measured = measureRef.current.getBoundingClientRect().width;
-          if (measured && measured !== naturalWidth) {
-            setNaturalWidth(measured);
-          }
-        }
-      }, [naturalWidth, context.args.label, context.args.size, context.args.bg, context.args.state, context.args.fullWidth]);
-
-      const wrapperWidth = getWrapperWidth(naturalWidth, context.args.fullWidth, {
-        padding: 40,
-        fullMultiplier: 2,
-      });
-
-      return (
-        <div
-          style={getPreviewContainerStyle(context.args, {
-            wrapperWidth,
-            darkProp: 'bg',
-            darkValues: ['Dark'],
-          })}
-        >
-          <div
-            ref={measureRef}
-            style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', display: 'inline-flex' }}
-          >
-            <SecondaryCTA
-              {...context.args}
-              icon={context.args.iconPosition === 'none' ? null : <DotIcon />}
-              fullWidth={false}
-            />
-          </div>
-
-          <div style={{ display: 'inline-flex', width: context.args.fullWidth ? '100%' : 'auto' }}>
-            <Story />
-          </div>
-        </div>
-      );
-    },
+    (Story, context) => (
+      <InputPreviewContainer args={context.args} options={{ darkValues: ['Dark'] }}>
+        <Story />
+      </InputPreviewContainer>
+    ),
   ],
   render: (args) => {
     const [currentState, setCurrentState] = useState(args.state);

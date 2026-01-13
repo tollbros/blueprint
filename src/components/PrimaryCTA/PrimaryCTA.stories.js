@@ -1,7 +1,7 @@
 import { fn } from '@storybook/test';
 import PrimaryCTA from './PrimaryCTA';
-import React, { useLayoutEffect, useRef, useState } from 'react';
-import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtilsButtons';
+import React from 'react';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 const DotIcon = ({ color = 'currentColor' }) => (
   <span
@@ -33,45 +33,11 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
     },
   },
   decorators: [
-    (Story, context) => {
-      const measureRef = useRef(null);
-      const [naturalWidth, setNaturalWidth] = useState(null);
-
-      useLayoutEffect(() => {
-        if (measureRef.current) {
-          const measured = measureRef.current.getBoundingClientRect().width;
-          if (measured && measured !== naturalWidth) {
-            setNaturalWidth(measured);
-          }
-        }
-      }, [naturalWidth, context.args.label, context.args.size, context.args.priority, context.args.state, context.args.iconPosition]);
-
-      const wrapperWidth = getWrapperWidth(naturalWidth, context.args.fullWidth, {
-        padding: 40,
-        fullMultiplier: 2,
-      });
-
-      return (
-        <div
-          style={getPreviewContainerStyle(context.args, {
-            wrapperWidth,
-            // PCTA has no dark variant; keep light background.
-            darkValues: [],
-          })}
-        >
-          <div
-            ref={measureRef}
-            style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', display: 'inline-flex' }}
-          >
-            <PrimaryCTA {...context.args} fullWidth={false} />
-          </div>
-
-          <div style={{ display: 'inline-flex', width: context.args.fullWidth ? '100%' : 'auto' }}>
-            <Story />
-          </div>
-        </div>
-      );
-    },
+    (Story, context) => (
+      <InputPreviewContainer args={context.args}>
+        <Story />
+      </InputPreviewContainer>
+    ),
   ],
   args: {
     onClick: fn(),

@@ -1,7 +1,7 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { fn } from '@storybook/test';
 import PillFillButton from './PillFillButton';
-import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtilsButtons';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 const DotIcon = ({ color = 'currentColor' }) => (
   <span
@@ -56,58 +56,11 @@ const StorySchema = {
     },
   },
   decorators: [
-    (Story, context) => {
-      const measureRef = useRef(null);
-      const [naturalWidth, setNaturalWidth] = useState(null);
-      const forceDarkArgs = { ...context.args, __forceDark: true };
-
-      useLayoutEffect(() => {
-        if (measureRef.current) {
-          const measured = measureRef.current.getBoundingClientRect().width;
-          if (measured && measured !== naturalWidth) {
-            setNaturalWidth(measured);
-          }
-        }
-      }, [
-        naturalWidth,
-        forceDarkArgs.label,
-        forceDarkArgs.size,
-        forceDarkArgs.iconBool,
-        forceDarkArgs.textColor,
-        forceDarkArgs.priority,
-        forceDarkArgs.padding,
-        forceDarkArgs.state,
-      ]);
-
-      const wrapperWidth = getWrapperWidth(naturalWidth, false, {
-        padding: 40,
-        fullMultiplier: 2,
-      });
-
-      return (
-        <div
-          style={getPreviewContainerStyle(forceDarkArgs, {
-            wrapperWidth,
-            darkProp: '__forceDark',
-            darkValues: [true],
-          })}
-        >
-          <div
-            ref={measureRef}
-            style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', display: 'inline-flex' }}
-          >
-            <PillFillButton
-              {...forceDarkArgs}
-              icon={forceDarkArgs.iconBool === 'Null' ? null : <DotIcon />}
-            />
-          </div>
-
-          <div style={{ display: 'inline-flex' }}>
-            <Story args={forceDarkArgs} />
-          </div>
-        </div>
-      );
-    },
+    (Story, context) => (
+      <InputPreviewContainer args={context.args}>
+        <Story />
+      </InputPreviewContainer>
+    ),
   ],
   render: (args) => {
     const [currentState, setCurrentState] = useState(args.state);

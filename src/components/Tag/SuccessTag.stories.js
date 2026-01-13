@@ -2,7 +2,7 @@ import React from 'react';
 import SuccessTag from './SuccessTag';
 
 export default {
-  title: 'Tag/02 SuccessTag',
+  title: 'Tags/02 SuccessTag',
   component: SuccessTag,
   tags: ['autodocs'],
   args: {

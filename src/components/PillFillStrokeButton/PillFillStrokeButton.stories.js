@@ -1,7 +1,7 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { fn } from '@storybook/test';
 import PillFillStrokeButton from './PillFillStrokeButton';
-import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtilsButtons';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 const StorySchema = {
   title: 'Buttons/05 PillFillStrokeButton',
@@ -37,43 +37,11 @@ const StorySchema = {
     },
   },
   decorators: [
-    (Story, context) => {
-      const measureRef = useRef(null);
-      const [naturalWidth, setNaturalWidth] = useState(null);
-
-      useLayoutEffect(() => {
-        if (measureRef.current) {
-          const measured = measureRef.current.getBoundingClientRect().width;
-          if (measured && measured !== naturalWidth) {
-            setNaturalWidth(measured);
-          }
-        }
-      }, [naturalWidth, context.args.label, context.args.size, context.args.color, context.args.state, context.args.iconBool, context.args.hPadding]);
-
-      const wrapperWidth = getWrapperWidth(naturalWidth, false, {
-        padding: 40,
-        fullMultiplier: 2,
-      });
-
-      return (
-        <div
-          style={getPreviewContainerStyle(context.args, {
-            wrapperWidth,
-          })}
-        >
-          <div
-            ref={measureRef}
-            style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', display: 'inline-flex' }}
-          >
-            <PillFillStrokeButton {...context.args} />
-          </div>
-
-          <div style={{ display: 'inline-flex' }}>
-            <Story />
-          </div>
-        </div>
-      );
-    },
+    (Story, context) => (
+      <InputPreviewContainer args={context.args}>
+        <Story />
+      </InputPreviewContainer>
+    ),
   ],
   render: (args) => {
     const [currentState, setCurrentState] = useState(args.state);

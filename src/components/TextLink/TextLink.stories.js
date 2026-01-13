@@ -1,7 +1,7 @@
 import { fn } from '@storybook/test';
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React from 'react';
 import TextLink from './TextLink';
-import { getPreviewContainerStyle, getWrapperWidth } from '../../storybook/previewUtilsButtons';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 const StorySchema = {
   title: 'Buttons/06 TextLink',
@@ -21,44 +21,11 @@ Text Link aligned to Figma: size (Small/Base/Large), bg (Light/Dark), state (Bas
     },
   },
   decorators: [
-    (Story, context) => {
-      const measureRef = useRef(null);
-      const [naturalWidth, setNaturalWidth] = useState(null);
-
-      useLayoutEffect(() => {
-        if (measureRef.current) {
-          const measured = measureRef.current.getBoundingClientRect().width;
-          if (measured && measured !== naturalWidth) {
-            setNaturalWidth(measured);
-          }
-        }
-      }, [naturalWidth, context.args.label, context.args.size, context.args.bg, context.args.state]);
-
-      const wrapperWidth = getWrapperWidth(naturalWidth, false, {
-        padding: 40,
-        fullMultiplier: 2,
-      });
-
-      const containerStyle = getPreviewContainerStyle(context.args, {
-        darkValues: ['dark'],
-        darkBg: '#6E7684',
-        lightBg: '#F4F6F7',
-        wrapperWidth,
-      });
-
-      return (
-        <div style={containerStyle}>
-          <div
-            ref={measureRef}
-            style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', display: 'inline-flex' }}
-          >
-            <TextLink {...context.args} />
-          </div>
-
-          <Story />
-        </div>
-      );
-    },
+    (Story, context) => (
+      <InputPreviewContainer args={context.args} options={{ darkValues: ['dark'], darkBg: '#6E7684' }}>
+        <Story />
+      </InputPreviewContainer>
+    ),
   ],
   args: {
     onClick: fn(),

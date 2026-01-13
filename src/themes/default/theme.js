@@ -65,6 +65,19 @@ export const defaultTheme = {
     },
   },
 
+  checkboxRadio: {
+    size: {
+      base: '24px',
+      large: '28px',
+    },
+    stroke: {
+      pressed: '2px',
+    },
+    gap: {
+      radioring: '4px',
+    },
+  },
+
   tag: {
     padding: {
       hbase: '16px',
