@@ -78,6 +78,22 @@ export const defaultTheme = {
     },
   },
 
+  tabs: {
+    gap: {
+      tabToIndicator: '8px',
+      iconToText: '4px',
+      tabsSpacing: '24px',
+    },
+    padding: {
+      hbaseTab: '4px',
+      hbase: '4px',
+    },
+    size: {
+      icon: '32px',
+    },
+    indicatorHeight: '4px',
+  },
+
   tag: {
     padding: {
       hbase: '16px',

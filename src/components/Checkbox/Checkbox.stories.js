@@ -18,11 +18,67 @@ export default {
     },
     className: { control: 'text' },
   },
-  render: (args) => (
-    <InputPreviewContainer args={args}>
-      <Checkbox {...args} />
-    </InputPreviewContainer>
-  ),
+  render: (args) => {
+    const isInteractive = args.state === 'Base';
+    const [selectedValues, setSelectedValues] = React.useState(['A', 'B']);
+
+    React.useEffect(() => {
+      if (!isInteractive) {
+        setSelectedValues([]);
+      }
+    }, [isInteractive]);
+
+    const toggleValue = (value) => {
+      setSelectedValues((prev) => {
+        if (prev.includes(value)) {
+          return prev.filter((item) => item !== value);
+        }
+        return [...prev, value];
+      });
+    };
+
+    const getState = (value) => {
+      if (!isInteractive) return args.state;
+      return selectedValues.includes(value) ? 'Selected' : 'Base';
+    };
+
+    return (
+      <InputPreviewContainer args={args}>
+        <div
+          style={{
+            display: 'grid',
+            rowGap: '16px',
+            font: 'var(--tb-typography-Gotham-S-700-font)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span>A</span>
+            <Checkbox
+              {...args}
+              state={getState('A')}
+              onClick={isInteractive ? () => toggleValue('A') : undefined}
+            />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span>B</span>
+            <Checkbox
+              {...args}
+              state={getState('B')}
+              onClick={isInteractive ? () => toggleValue('B') : undefined}
+            />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span>C</span>
+            <Checkbox
+              {...args}
+              state={getState('C')}
+              onClick={isInteractive ? () => toggleValue('C') : undefined}
+            />
+          </div>
+        </div>
+      </InputPreviewContainer>
+    );
+  },
 };
 
 export const Playground = {

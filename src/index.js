@@ -5,7 +5,6 @@ import SquareIconButton from './components/SquareIconButton/SquareIconButton.js'
 import ThemeProvider from './themes/ThemeProvider';
 import InputField from './components/InputField/InputField';
 import TextArea from './components/TextArea/TextArea';
-import Tabs from './components/Tabs/Tabs';
 import { useTheme } from './themes/ThemeProvider';
 import { defaultTheme } from './themes/default/theme';
 import PillStrokeButton from './components/PillStrokeButton/PillStrokeButton';
@@ -18,6 +17,8 @@ import RangeSlider from './components/RangeSlider/RangeSlider';
 import SpecsSelector from './components/SpecsSelector/SpecsSelector';
 import Checkbox from './components/Checkbox/Checkbox';
 import RadioButton from './components/RadioButton/RadioButton';
+import TabUnit from './components/TabUnit/TabUnit';
+import TabBar from './components/TabBar/TabBar';
 
 export {
   PrimaryCTA,
@@ -32,12 +33,13 @@ export {
   SpecsSelector,
   Checkbox,
   RadioButton,
+  TabUnit,
+  TabBar,
   TextArea,
   FallbackAddButton,
   SquareIconButton,
   ThemeProvider,
   InputField,
-  Tabs,
   defaultTheme,
   useTheme,
 };
