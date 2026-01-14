@@ -1,21 +1,44 @@
 import SecondaryCTA from './SecondaryCTA';
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { fn } from '@storybook/test';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
+
+const DotIcon = ({ color = 'currentColor' }) => (
+  <span
+    style={{
+      display: 'inline-block',
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      backgroundColor: color || 'currentColor',
+    }}
+  />
+);
 
 const StorySchema = {
-  title: 'primitives/SecondaryCTA',
+  title: 'Buttons/02 SecondaryCTA',
   component: SecondaryCTA,
   tags: ['autodocs'],
   args: {
     onClick: fn(),
     label: 'SCTA',
     size: 'base',
+    iconPosition: 'none',
+    fullWidth: false,
     bg: 'Light',
     state: 'base',
-    fullWidth: false,
   },
   argTypes: {
     label: { control: 'text' },
+    iconPosition: {
+      control: 'select',
+      options: ['none', 'left', 'right'],
+    },
+    icon: { table: { disable: true } },
+    fullWidth: {
+      control: 'boolean',
+    },
+    className: { table: { disable: true } },
     size: {
       control: 'select',
       options: ['base', 'small', 'large'],
@@ -28,10 +51,6 @@ const StorySchema = {
       control: 'select',
       options: ['base', 'hover', 'pressed', 'disabled'],
     },
-    fullWidth: {
-      control: 'boolean',
-    },
-    className: { table: { disable: true } },
   },
   parameters: {
     docs: {
@@ -41,48 +60,11 @@ const StorySchema = {
     },
   },
   decorators: [
-    (Story, context) => {
-      const measureRef = useRef(null);
-      const [naturalWidth, setNaturalWidth] = useState(null);
-
-      useLayoutEffect(() => {
-        if (measureRef.current) {
-          const measured = measureRef.current.getBoundingClientRect().width;
-          if (measured && measured !== naturalWidth) {
-            setNaturalWidth(measured);
-          }
-        }
-      }, [naturalWidth, context.args.label, context.args.size, context.args.bg, context.args.state, context.args.fullWidth]);
-
-      const wrapperWidth = naturalWidth ? `${naturalWidth + 120}px` : 'fit-content';
-
-          return (
-            <div
-              style={{
-                background: 'var(--tb-palette-TB-Functional-LightGray, #E9EDF0)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: wrapperWidth,
-                margin: '0 auto',
-                position: 'relative',
-                borderRadius: '4px',
-                padding: '24px 0',
-              }}
-            >
-          <div
-            ref={measureRef}
-            style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', display: 'inline-flex' }}
-          >
-            <SecondaryCTA {...context.args} fullWidth={false} />
-          </div>
-
-          <div style={{ display: 'inline-flex', width: context.args.fullWidth ? '100%' : 'auto' }}>
-            <Story />
-          </div>
-        </div>
-      );
-    },
+    (Story, context) => (
+      <InputPreviewContainer args={context.args} options={{ darkValues: ['Dark'] }}>
+        <Story />
+      </InputPreviewContainer>
+    ),
   ],
   render: (args) => {
     const [currentState, setCurrentState] = useState(args.state);
@@ -108,9 +90,12 @@ const StorySchema = {
       if (interactive && !isDisabled) setCurrentState('hover');
     };
 
+    const icon = args.iconPosition === 'none' ? null : <DotIcon />;
+
     return (
       <SecondaryCTA
         {...args}
+        icon={icon}
         state={currentState}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -123,4 +108,6 @@ const StorySchema = {
 
 export default StorySchema;
 
-export const Playground = {};
+export const Playground = {
+  parameters: { layout: 'centered' },
+};

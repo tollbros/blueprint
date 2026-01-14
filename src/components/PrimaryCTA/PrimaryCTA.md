@@ -3,7 +3,7 @@
 - **API coverage (size/priority/state/icon/fullWidth)** — **Status:** ✅ matches Figma (Base/Small/Large, A/B, Base/Hover/Pressed/Disabled, left/right icon, fullWidth).  
   **Prompt:** “Review if any additional props (e.g., loading, aria-pressed) are needed before shipping PrimaryCTA.”
 
-- **Token alignment (colors/spacing/radius/typography)** — **Status:** ✅ uses palette/tokens and shared CTA height/padding vars (`--tb-cta-height-*`, `--tb-cta-padding-base`, global radius, typography tokens).  
+- **Token alignment (colors/spacing/radius/typography)** — **Status:** ✅ uses palette/tokens and shared CTAButton height/hPadding vars (`--tb-buttons-CTAButton-height-*`, `--tb-buttons-CTAButton-hPadding-large`, global radius, typography tokens).  
   **Prompt:** “Validate PrimaryCTA token references against design tokens and add fallbacks if any new tokens are missing.”
 
 - **Pressed stroke rendering (inside)** — **Status:** ✅ uses inset box-shadow for pressed stroke; hover/base/disabled use borders as intended.  

@@ -1,9 +1,10 @@
 import { fn } from '@storybook/test';
 import InputField from './InputField';
 import React from 'react';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 const StorySchema = {
-  title: 'primitives/InputField',
+  title: 'Inputs/01 InputField',
   component: InputField,
   tags: ['autodocs'],
   parameters: {
@@ -22,26 +23,22 @@ A versatile InputField component that supports different states and provides a m
   },
   args: {
     onChange: fn(),
-    placeholder: 'Input Field Label',
-    defaultValue: '',
+    fieldLabel: 'Field Label',
+    state: 'Base',
   },
   argTypes: {
     className: { control: 'text' },
-    placeholder: {
+    fieldLabel: {
       control: 'text',
       description: 'The label text for the input field',
-      table: {
-        defaultValue: { summary: '' },
-      },
     },
-    defaultValue: {
+    fieldValue: {
       control: 'text',
-      description: 'The default value for the input field',
+      description: 'The value text shown inside the input',
     },
-    disabled: {
-      control: 'boolean',
-      description: 'Whether the input field is disabled',
-      defaultValue: false,
+    state: {
+      control: 'select',
+      options: ['Base', 'Focused', 'Filled', 'Disabled', 'Error', 'Success'],
     },
     onChange: { table: { disable: true } },
     componentNumber: { table: { disable: true } },
@@ -49,64 +46,14 @@ A versatile InputField component that supports different states and provides a m
   },
   // Default story render function showing just one input field
   render: (args) => (
-    <div style={{ width: '300px' }}>
+    <InputPreviewContainer args={args}>
       <InputField {...args} />
-    </div>
+    </InputPreviewContainer>
   ),
 };
 
 export default StorySchema;
 
-export const StandardInputField = {
-  args: {
-    placeholder: 'Input Field Label',
-    defaultValue: '',
-    disabled: false,
-    className: '',
-    componentNumber: 1,
-    componentName: 'Standard Input Field',
-  },
-
-  parameters: {
-    layout: 'centered',
-  },
-};
-
-// Standard input field examples
-export const StandardExamples = {
-  parameters: {
-    docs: {
-      source: {
-        code: `
-// Import the InputField component
-import { InputField } from '@tollbrothers/blueprint'
-
-// Example usage
-const MyComponent = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-    <InputField placeholder="Standard Input" />
-
-    <InputField
-      placeholder="With Default Value"
-      defaultValue="Pre-populated text"
-    />
-
-    <InputField
-      placeholder="Disabled Input"
-      disabled
-    />
-  </div>
-)`,
-      },
-    },
-  },
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
-      <InputField placeholder='Standard Input' />
-
-      <InputField placeholder='With Default Value' defaultValue='Pre-populated text' />
-
-      <InputField placeholder='Disabled Input' disabled />
-    </div>
-  ),
+export const Playground = {
+  parameters: { layout: 'centered' },
 };

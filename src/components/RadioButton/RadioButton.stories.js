@@ -1,171 +1,74 @@
-import { fn } from '@storybook/test';
-import RadioButton from './RadioButton';
 import React from 'react';
+import RadioButton from './RadioButton';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
-const StorySchema = {
-  title: 'primitives/RadioButton',
+export default {
+  title: 'Selectors/03 RadioButton',
   component: RadioButton,
   tags: ['autodocs'],
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/CceZPnvgPvbO8cSOarLUBl/Storybook-Design-Actuals?node-id=33-9934&t=sONWhpjlvXD9dtIB-1',
-    },
-    layout: 'centered',
-    docs: {
-      description: {
-        component: `
-A versatile RadioButton component that provides a selectable input experience with different states.
-        `,
-      },
-    },
-  },
   args: {
-    onChange: fn(),
-    disabled: false,
+    size: 'Small',
+    state: 'Base',
   },
   argTypes: {
-    onChange: { table: { disable: true } },
-    componentNumber: { table: { disable: true } },
-    componentName: { table: { disable: true } },
-    value: { table: { disable: true } },
-    name: { table: { disable: true } },
+    size: { control: 'select', options: ['Small', 'Large'] },
+    state: { control: 'select', options: ['Base', 'Focused', 'Selected', 'Disabled'] },
+    className: { control: 'text' },
   },
-  // Default story render function showing just one radio button
-  render: (args) => (
-    <div style={{ width: '300px' }}>
-      <RadioButton {...args} />
-    </div>
-  ),
-};
+  render: (args) => {
+    const [selectedValue, setSelectedValue] = React.useState('A');
+    const isInteractive = args.state === 'Base';
 
-export default StorySchema;
+    React.useEffect(() => {
+      if (!isInteractive) {
+        setSelectedValue('A');
+      }
+    }, [isInteractive]);
 
-// Interactive radio group examples
-export const RadioGroupExamples = {
-  parameters: {
-    docs: {
-      source: {
-        code: `
-// Import the RadioButton component
-import { RadioButton } from '@tollbrothers/blueprint'
-
-// Example usage
-const MyComponent = () => {
-  const [selected, setSelected] = React.useState('');
-
-  const options = [
-    { label: 'Option A', value: 'A' },
-    { label: 'Option B', value: 'B' },
-    { label: 'Option C', value: 'C' },
-  ];
-
-  const handleChange = (event) => {
-    setSelected(event.target.value);
-  };
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      {options.map((option) => (
-        <div key={option.value} style={{ display: 'flex', alignItems: 'center' }}>
-          <RadioButton
-            value={option.value}
-            checked={selected === option.value}
-            onChange={handleChange}
-            name="radioGroup"
-          />
-          <label style={{ marginLeft: '8px' }}>{option.label}</label>
-        </div>
-      ))}
-
-      <div>Selected value: {selected || 'None'}</div>
-    </div>
-  );
-}`,
-      },
-    },
-  },
-  render: () => {
-    const [selected, setSelected] = React.useState('');
-
-    const options = [
-      { label: 'Option A', value: 'A' },
-      { label: 'Option B', value: 'B' },
-      { label: 'Option C', value: 'C' },
-    ];
-
-    const handleChange = (event) => {
-      setSelected(event.target.value);
+    const getState = (value) => {
+      if (!isInteractive) return args.state;
+      return selectedValue === value ? 'Selected' : 'Base';
     };
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {options.map((option) => (
-            <div key={option.value} style={{ display: 'flex', alignItems: 'center' }}>
-              <RadioButton
-                value={option.value}
-                checked={selected === option.value}
-                onChange={handleChange}
-                name='radioGroup'
-              />
-              <label style={{ marginLeft: '8px' }}>{option.label}</label>
-            </div>
-          ))}
+      <InputPreviewContainer args={args}>
+        <div
+          style={{
+            display: 'grid',
+            rowGap: '16px',
+            font: 'var(--tb-typography-Gotham-S-700-font)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span>A</span>
+            <RadioButton
+              {...args}
+              state={getState('A')}
+              onClick={isInteractive ? () => setSelectedValue('A') : undefined}
+            />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span>B</span>
+            <RadioButton
+              {...args}
+              state={getState('B')}
+              onClick={isInteractive ? () => setSelectedValue('B') : undefined}
+            />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span>C</span>
+            <RadioButton
+              {...args}
+              state={getState('C')}
+              onClick={isInteractive ? () => setSelectedValue('C') : undefined}
+            />
+          </div>
         </div>
-      </div>
+      </InputPreviewContainer>
     );
   },
 };
 
-// Radio button state examples
-export const StateExamples = {
-  parameters: {
-    docs: {
-      source: {
-        code: `
-// Import the RadioButton component
-import { RadioButton } from '@tollbrothers/blueprint'
-
-// Example usage
-const MyComponent = () => (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <RadioButton checked />
-      <label style={{ marginLeft: '8px' }}>Checked Radio Button</label>
-    </div>
-
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <RadioButton disabled />
-      <label style={{ marginLeft: '8px' }}>Disabled Radio Button</label>
-    </div>
-
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <RadioButton checked disabled />
-      <label style={{ marginLeft: '8px' }}>Disabled Checked Radio Button</label>
-    </div>
-  </div>
-)`,
-      },
-    },
-  },
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <RadioButton checked />
-          <label style={{ marginLeft: '8px' }}>Checked Radio Button</label>
-        </div>
-
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <RadioButton disabled />
-          <label style={{ marginLeft: '8px' }}>Disabled Radio Button</label>
-        </div>
-
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <RadioButton checked disabled />
-          <label style={{ marginLeft: '8px' }}>Disabled Checked Radio Button</label>
-        </div>
-      </div>
-    </div>
-  ),
+export const Playground = {
+  parameters: { layout: 'centered' },
 };

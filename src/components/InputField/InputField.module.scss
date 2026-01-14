@@ -1,18 +1,21 @@
 // Variables for easier maintenance
-$input-height: 60px;
-$input-padding-horizontal: 20px;
-$border-color: var(--TB-Brand-Gray, #8195A2);
-$bg-color: var(--TB-Brand-BG-Text, #FFF);
-$text-color: var(--TB-Brand-Base-Text, #000);
-$disabled-bg: #E9EDF0;
-$disabled-text: var(--TB-Brand-DarkGray, #858585);
-$focus-border-size: 4px;
+$input-height: var(--tb-inputs-height-base);
+$input-padding-horizontal: var(--tb-inputs-padding-hBase);
+$input-stroke-base: var(--tb-inputs-stroke-base);
+$border-color: var(--tb-palette-TB-Brand-Gray);
+$bg-color: var(--tb-palette-TB-Functional-White);
+$text-color: var(--tb-palette-TB-Functional-Black);
+$disabled-bg: var(--tb-palette-TB-Functional-LightGray);
+$disabled-text: var(--tb-palette-TB-Functional-DarkGray);
+$disabled-border: var(--tb-palette-State-Disabled);
+$focus-border-size: var(--tb-inputs-stroke-focus);
+$floating-placeholder-top: 8px;
 $placeholder-transition: 0.2s ease-out;
 
 // Typography variables
-$input-font: var(--tb-typography-SubheaderBase-font);
-$placeholder-font: var(--tb-typography-GothamBaseBook-font);
-$floating-placeholder-font: var(--tb-typography-GothamXSmallBook-font);
+$input-font: var(--tb-typography-SemanticInput-font);
+$placeholder-font: var(--tb-typography-SemanticPlaceholder-font);
+$floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font);
 
 .inputContainer {
   display: flex;
@@ -21,27 +24,46 @@ $floating-placeholder-font: var(--tb-typography-GothamXSmallBook-font);
   height: $input-height;
   padding: 0 $input-padding-horizontal;
   align-items: center;
-  border: 1px solid $border-color;
+  border: $input-stroke-base solid $border-color;
   background: $bg-color;
   box-sizing: border-box;
 
   &.focused {
-    border-bottom: $focus-border-size solid $border-color;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: $focus-border-size;
+      background: $border-color;
+    }
   }
 
   &.disabled {
     background: $disabled-bg;
+    border-color: $disabled-border;
 
     .placeholder {
+      color: $disabled-text;
+    }
+
+    .input {
       color: $disabled-text;
     }
   }
 }
 
+.inputFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .input {
   width: 100%;
   height: 100%;
-  padding: 12px 0 0 0;
+  padding: 0;
   border: none;
   background: transparent;
   color: $text-color;
@@ -55,11 +77,11 @@ $floating-placeholder-font: var(--tb-typography-GothamXSmallBook-font);
   &:disabled {
     cursor: not-allowed;
   }
+}
 
-  &:not(:placeholder-shown) + .placeholder {
-    top: 6px;
-    transform: translateY(0);
-  }
+.stateTag {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .placeholder {
@@ -74,8 +96,14 @@ $floating-placeholder-font: var(--tb-typography-GothamXSmallBook-font);
   font: $placeholder-font;
 
   &.floatingPlaceholder {
-    top: 6px;
+    top: $floating-placeholder-top;
     transform: translateY(0);
     font: $floating-placeholder-font;
+  }
+}
+
+.withValue {
+  .input {
+    padding-top: 12px;
   }
 }

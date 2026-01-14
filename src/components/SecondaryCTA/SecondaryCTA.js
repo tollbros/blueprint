@@ -32,21 +32,30 @@ const SecondaryCTA = ({
   size = 'base',
   bg = 'Light',
   state = 'base',
+  iconPosition = 'none',
+  icon = null,
   className = '',
   fullWidth = false,
   ...rest
 }) => {
   const sizeClass = SIZE_CLASS[size] || SIZE_CLASS.base;
-  const visualClass = STYLE_MAP[bg]?.[state] || STYLE_MAP.Light.base;
-  const buttonClasses = [styles.button, sizeClass, visualClass, fullWidth && styles.fullWidth, className]
+  const bgKey = bg === 'Dark' ? 'Dark' : 'Light';
+  const stateKey = state?.toLowerCase?.() || 'base';
+  const visualClass = STYLE_MAP[bgKey]?.[stateKey] || STYLE_MAP.Light.base;
+
+  const isDisabled = stateKey === 'disabled';
+  const hasIcon = iconPosition !== 'none' && !!icon;
+  const iconNode = hasIcon ? icon : null;
+
+  const buttonClasses = [styles.button, sizeClass, visualClass, hasIcon && styles.withIcon, fullWidth && styles.fullWidth, className]
     .filter(Boolean)
     .join(' ');
 
-  const isDisabled = state === 'disabled';
-
   return (
     <button className={buttonClasses} type='button' disabled={isDisabled} aria-disabled={isDisabled} {...rest}>
+      {iconPosition === 'left' && hasIcon ? <span className={styles.icon}>{iconNode}</span> : null}
       <span className={styles.label}>{label}</span>
+      {iconPosition === 'right' && hasIcon ? <span className={styles.icon}>{iconNode}</span> : null}
     </button>
   );
 };

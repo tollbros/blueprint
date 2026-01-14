@@ -19,7 +19,10 @@ export const defaultTheme = {
         LightGray: '#E9EDF0',
         GrayOnDark: 'rgba(255, 255, 255, 0.2)',
         Success: '#009D47',
+        SuccessBg: '#E4F6EA',
         Error: '#A31F34',
+        ErrorBg: '#F7E6E9',
+        ErrorText: '#A42337',
       },
       POI: {
         Food: '#AD3F49',
@@ -42,6 +45,7 @@ export const defaultTheme = {
     },
     
   },
+
   spacing: {
     0: '0',
     1: '4px',
@@ -54,25 +58,136 @@ export const defaultTheme = {
     8: '48px',
     9: '60px',
   },
-  cta: {
+
+  specsSelector: {
     height: {
-      base: '48px',
-      small: '40px',
-      large: '56px',
+      base: '40px',
+    },
+  },
+
+  checkboxRadio: {
+    size: {
+      base: '24px',
+      large: '28px',
+    },
+    stroke: {
+      pressed: '2px',
+    },
+    gap: {
+      radioring: '4px',
+    },
+  },
+
+  tabs: {
+    gap: {
+      tabToIndicator: '8px',
+      iconToText: '4px',
+      tabsSpacing: '24px',
     },
     padding: {
+      hBase: '4px',
+    },
+    size: {
+      icon: '32px',
+    },
+    indicatorHeight: '4px',
+  },
+
+  toggle: {
+    height: {
+      base: '32px',
+    },
+    hPadding: {
       base: '20px',
     },
   },
+
+  tag: {
+    padding: {
+      hBase: '16px',
+      vBase: '6px',
+    },
+  },
+
+  buttons: {
+    CTAButton: {
+      height: {
+        base: '48px',
+        small: '40px',
+        large: '56px',
+      },
+      hPadding: {
+        small: '8px',
+        base: '12px',
+        large: '20px',
+      },
+      gap: {
+        textToIcon: '4px',
+      },
+      stroke: {
+        base: '1px',
+        pressed: '2px',
+      },
+    },
+    pillButton: {
+      height: {
+        base: '32px',
+        small: '28px',
+        large: '40px',
+      },
+      hPadding: {
+        small: '8px',
+        base: '12px',
+        large: '20px',
+      },
+      gap: {
+        textToIcon: '4px',
+      },
+      stroke: {
+        base: '1px',
+        pressed: '2px',
+      },
+      borderRadius: '1000px',
+    },
+  },
+  
+  inputs: {
+    height: {
+      base: '60px',
+    },
+    padding: {
+      hBase: '20px',
+      vBase: '12px',
+      vSmall: '8px',
+    },
+    stroke: {
+      base: '1px',
+      focus: '3px',
+    },
+  },
+  
+  rangeSlider: {
+    width: '343px',
+    trackHeight: '4px',
+    handleSize: '32px',
+    handleRadius: '100px',
+    gap: {
+      indicatorToSlider: '16px',
+      valueToLabel: '4px',
+    },
+    shadow: {
+      basic: '0px 4px 4px rgba(133,133,133,0.15)',
+    },
+  },
+
   typography: {
     ...typography,
-    SemanticPlaceholder: typography.GothamBaseBook,
-    SemanticFloatingPlaceholder: typography.GothamXSmallBook,
-    SemanticInput: typography.SubheaderBase,
-    SemanticButtonLabelBase: typography.GothamBaseBold,
-    SemanticButtonLabelSmall: typography.GothamSmallBold,
-    SemanticTabLabel: typography.GothamBaseBold,
-    SemanticTagLabel: typography.GothamSmallBold,
+    SemanticPlaceholder: typography['Gotham-B-400'],
+    SemanticFloatingPlaceholder: typography['Gotham-XS-400'],
+    SemanticInput: typography['GothamN-B-500'],
+    SemanticButtonLabel: typography['Gotham-B-700'],
+    SemanticButtonTag: typography['Gotham-S-700'],
+    SemanticTabLabel: typography['Gotham-B-700'],
   },
-  GlobalBrandBorderRadius: '4px',
+  globalBrandBorderRadius: '4px',
 };

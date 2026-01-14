@@ -1,69 +1,156 @@
 const typography = {
-  H1: {
-    fontSize: '3rem',
-    fontFamily: 'Domaine, Helvetica, Arial, sans-serif',
+  // Domaine Display headers (Figma: H1-H6 with 700/400 weights)
+  'H1-700': {
+    fontSize: '48px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '60px',
+    letterSpacing: '0.96px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'H1-400': {
+    fontSize: '48px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
     lineHeight: '60px',
+    letterSpacing: '0.96px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  H2: {
-    fontSize: '2.5rem',
-    fontFamily: 'Domaine, Helvetica, Arial, sans-serif',
+  'H2-700': {
+    fontSize: '40px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '50px',
+    letterSpacing: '0.4px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'H2-400': {
+    fontSize: '40px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
     lineHeight: '50px',
+    letterSpacing: '0.4px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  H3: {
-    fontSize: '2.0625rem',
-    fontFamily: 'Domaine, Helvetica, Arial, sans-serif',
+  'H3-700': {
+    fontSize: '33px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '41px',
+    letterSpacing: '0.33px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'H3-400': {
+    fontSize: '33px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
     lineHeight: '41px',
+    letterSpacing: '0.33px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  H4: {
-    fontSize: '1.75rem',
-    fontFamily: 'Domaine, Helvetica, Arial, sans-serif',
+  'H4-700': {
+    fontSize: '28px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '35px',
+    letterSpacing: '0.28px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'H4-400': {
+    fontSize: '28px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
     lineHeight: '35px',
+    letterSpacing: '0.28px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  H5: {
-    fontSize: '1.75rem',
-    fontFamily: 'Domaine, Helvetica, Arial, sans-serif',
+  'H5-700': {
+    fontSize: '23px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '29px',
+    letterSpacing: '0.23px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'H5-400': {
+    fontSize: '23px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
-    lineHeight: '35px',
+    lineHeight: '29px',
+    letterSpacing: '0.23px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  H6: {
-    fontSize: '1.1875rem',
-    fontFamily: 'Domaine, Helvetica, Arial, sans-serif',
+  'H6-700': {
+    fontSize: '19px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '24px',
+    letterSpacing: '0.19px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'H6-400': {
+    fontSize: '19px',
+    fontFamily: 'Domaine Display, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
     lineHeight: '24px',
+    letterSpacing: '0.19px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  BodyBase: {
-    fontSize: '1rem',
+
+  // Gotham Narrow - Large (L)
+  'GothamN-L-700': {
+    fontSize: '18px',
     fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
-    fontWeight: 300,
-    lineHeight: '24px',
+    fontWeight: 700,
+    lineHeight: '27px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  BodyLarge: {
-    fontSize: '1.125rem',
+  'GothamN-L-500': {
+    fontSize: '18px',
+    fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    lineHeight: '27px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'GothamN-L-400': {
+    fontSize: '18px',
+    fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    lineHeight: '27px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'GothamN-L-300': {
+    fontSize: '18px',
     fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 300,
@@ -71,26 +158,28 @@ const typography = {
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  BodySmall: {
-    fontSize: '0.8125rem',
+
+  // Gotham Narrow - Base (B)
+  'GothamN-B-700': {
+    fontSize: '16px',
     fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
-    fontWeight: 300,
-    lineHeight: '20px',
+    fontWeight: 700,
+    lineHeight: '24px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  BodyXSmall: {
-    fontSize: '0.6875rem',
+  'GothamN-B-500': {
+    fontSize: '16px',
     fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
-    fontWeight: 300,
-    lineHeight: '17px',
+    fontWeight: 500,
+    lineHeight: '24px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  SubheaderBase: {
-    fontSize: '1rem',
+  'GothamN-B-400': {
+    fontSize: '16px',
     fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
@@ -98,17 +187,37 @@ const typography = {
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  SubheaderLarge: {
-    fontSize: '1.125rem',
+  'GothamN-B-300': {
+    fontSize: '16px',
     fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
-    fontWeight: 400,
-    lineHeight: '27px',
+    fontWeight: 300,
+    lineHeight: '24px',
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  SubheaderSmall: {
-    fontSize: '0.8125rem',
+
+  // Gotham Narrow - Small (S)
+  'GothamN-S-700': {
+    fontSize: '13px',
+    fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '20px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'GothamN-S-500': {
+    fontSize: '13px',
+    fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    lineHeight: '20px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'GothamN-S-400': {
+    fontSize: '13px',
     fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
@@ -116,8 +225,37 @@ const typography = {
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  SubheaderXSmall: {
-    fontSize: '0.6875rem',
+  'GothamN-S-300': {
+    fontSize: '13px',
+    fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 300,
+    lineHeight: '20px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+
+  // Gotham Narrow - XSmall (XS)
+  'GothamN-XS-700': {
+    fontSize: '11px',
+    fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '17px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'GothamN-XS-500': {
+    fontSize: '11px',
+    fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    lineHeight: '17px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'GothamN-XS-400': {
+    fontSize: '11px',
     fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
@@ -125,8 +263,66 @@ const typography = {
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  GothamBaseBold: {
-    fontSize: '0.875rem',
+  'GothamN-XS-300': {
+    fontSize: '11px',
+    fontFamily: 'Gotham Narrow, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 300,
+    lineHeight: '17px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+
+  // Gotham (regular width) - Large (L)
+  'Gotham-L-700': {
+    fontSize: '18px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '24px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'Gotham-L-500': {
+    fontSize: '18px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    lineHeight: '24px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'Gotham-L-400': {
+    fontSize: '18px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    lineHeight: '24px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'Gotham-L-300': {
+    fontSize: '18px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 300,
+    lineHeight: '24px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+
+  // Gotham - Base (B)
+  'Gotham-B-700': {
+    fontSize: '14px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '21px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'Gotham-B-500': {
+    fontSize: '14px',
     fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 500,
@@ -134,8 +330,8 @@ const typography = {
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  GothamBaseBook: {
-    fontSize: '0.875rem',
+  'Gotham-B-400': {
+    fontSize: '14px',
     fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
@@ -143,8 +339,28 @@ const typography = {
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  GothamSmallBold: {
-    fontSize: '0.75rem',
+  'Gotham-B-300': {
+    fontSize: '14px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 300,
+    lineHeight: '21px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+
+  // Gotham - Small (S)
+  'Gotham-S-700': {
+    fontSize: '12px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '18px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'Gotham-S-500': {
+    fontSize: '12px',
     fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 500,
@@ -152,8 +368,8 @@ const typography = {
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  GothamSmallBook: {
-    fontSize: '0.75rem',
+  'Gotham-S-400': {
+    fontSize: '12px',
     fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
@@ -161,8 +377,37 @@ const typography = {
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  GothamXSmallBook: {
-    fontSize: '0.6875rem',
+  'Gotham-S-300': {
+    fontSize: '12px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 300,
+    lineHeight: '18px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+
+  // Gotham - XSmall (XS)
+  'Gotham-XS-700': {
+    fontSize: '11px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '17px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'Gotham-XS-500': {
+    fontSize: '11px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    lineHeight: '17px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+  'Gotham-XS-400': {
+    fontSize: '11px',
     fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
     fontWeight: 400,
@@ -170,15 +415,27 @@ const typography = {
     textTransform: 'none',
     textDecorationLine: 'none',
   },
-  GothamOverline: {
-    fontSize: '0.6875rem',
+  'Gotham-XS-300': {
+    fontSize: '11px',
     fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
     fontStyle: 'normal',
-    fontWeight: 400,
+    fontWeight: 300,
     lineHeight: '17px',
+    textTransform: 'none',
+    textDecorationLine: 'none',
+  },
+
+  // Overline (Figma shows Gotham Base Bold)
+  Overline: {
+    fontSize: '14px',
+    fontFamily: 'Gotham, Helvetica, Arial, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '21px',
+    letterSpacing: '0px',
     textTransform: 'uppercase',
     textDecorationLine: 'none',
   },
-}
+};
 
 export default typography;

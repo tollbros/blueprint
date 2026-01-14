@@ -1,0 +1,45 @@
+$gap-tabs-spacing: var(--tb-tabs-gap-tabsSpacing, 24px);
+$gap-tab-to-indicator: var(--tb-tabs-gap-tabToIndicator, 8px);
+$divider-light: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
+$divider-dark: var(--tb-palette-TB-Functional-GrayOnDark, rgba(255, 255, 255, 0.2));
+
+.tabBar {
+  width: 100%;
+}
+
+.tabsSpaced {
+  display: flex;
+  gap: $gap-tabs-spacing;
+  align-items: center;
+}
+
+.tabsFull {
+  display: grid;
+  grid-template-columns: repeat(var(--tab-count, 3), minmax(0, 1fr));
+  align-items: center;
+  width: 100%;
+}
+
+.tabButton {
+  display: flex;
+}
+
+.tabButtonFull {
+  width: 100%;
+  justify-content: center;
+}
+
+.tabBarDark {
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: $divider-light;
+}
+
+.dividerDark {
+  background: $divider-dark;
+}

@@ -1,0 +1,12 @@
+.tagError {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--tb-tag-padding-vBase) var(--tb-tag-padding-hBase);
+  background: var(--tb-palette-TB-Functional-ErrorBg);
+}
+
+.label {
+  color: var(--tb-palette-TB-Functional-ErrorText);
+  font: var(--tb-typography-GothamN-S-500-font);
+  text-align: left;
+}

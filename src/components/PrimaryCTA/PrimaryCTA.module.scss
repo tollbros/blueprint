@@ -1,13 +1,13 @@
 // Primary CTA styles aligned to Figma export
 $button-min-width: 64px;
-$button-base-height: var(--tb-cta-height-base);
-$button-small-height: var(--tb-cta-height-small);
-$button-large-height: var(--tb-cta-height-large);
-$button-horizontal-padding: var(--tb-cta-padding-base);
-$button-border-radius: var(--tb-GlobalBrandBorderRadius);
+$button-base-height: var(--tb-buttons-CTAButton-height-base);
+$button-small-height: var(--tb-buttons-CTAButton-height-small);
+$button-large-height: var(--tb-buttons-CTAButton-height-large);
+$button-horizontal-padding: var(--tb-buttons-CTAButton-hPadding-large);
+$button-border-radius: var(--tb-globalBrandBorderRadius);
 
-$button-font: var(--tb-typography-SemanticButtonLabelBase-font);
-$button-gap: 4px;
+$button-font: var(--tb-typography-SemanticButtonLabel-font);
+$button-gap: var(--tb-buttons-CTAButton-gap-textToIcon);
 $icon-size: 20px;
 
 $accent: var(--tb-palette-TB-Brand-Accent);
@@ -59,7 +59,7 @@ $accent-text: var(--tb-palette-TB-Brand-Accent);
 }
 
 .label {
-  line-height: 21px;
+  line-height: inherit;
   white-space: nowrap;
 }
 
@@ -67,6 +67,8 @@ $accent-text: var(--tb-palette-TB-Brand-Accent);
   align-items: center;
   color: currentColor;
   display: inline-flex;
+  font-size: inherit;
+  line-height: 1;
   height: $icon-size;
   justify-content: center;
   width: $icon-size;

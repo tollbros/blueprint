@@ -1,0 +1,114 @@
+$track-height: var(--tb-rangeSlider-trackHeight);
+$handle-size: var(--tb-rangeSlider-handleSize);
+$handle-radius: var(--tb-rangeSlider-handleRadius);
+$gap-value-to-label: var(--tb-rangeSlider-gap-valueToLabel);
+$handle-shadow: var(--tb-rangeSlider-shadow-basic);
+$border-color: var(--tb-palette-TB-Brand-Gray);
+$accent: var(--tb-palette-TB-Brand-Accent);
+$inactive-track: var(--tb-palette-TB-Functional-MedGray);
+$handle-bg: var(--tb-palette-TB-Functional-White);
+$text-color: var(--tb-palette-TB-Functional-Black);
+$grip-color: var(--tb-palette-TB-Functional-DarkGray);
+$gap-indicator-to-slider: var(--tb-rangeSlider-gap-indicatorToSlider);
+
+.rangeSlider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  gap: $gap-indicator-to-slider;
+}
+
+.sliderWrapper {
+  width: 100%;
+  padding-top: calc(#{$handle-size} / 2);
+  padding-bottom: calc(#{$handle-size} / 2);
+  display: flex;
+  flex-direction: column;
+  gap: $gap-indicator-to-slider;
+}
+
+.labelRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: $gap-value-to-label;
+  color: $text-color;
+  text-align: center;
+}
+
+.priceRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: $text-color;
+  text-align: center;
+}
+
+.valueText {
+  font: var(--tb-typography-GothamN-L-400-font);
+  line-height: 27px;
+}
+
+.unitText {
+  font: var(--tb-typography-GothamN-S-400-font);
+  line-height: 20px;
+}
+
+.priceText {
+  font: var(--tb-typography-GothamN-L-400-font);
+  line-height: 27px;
+}
+
+.trackRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.track {
+  width: 100%;
+  height: $track-height;
+  background: $inactive-track;
+  border-radius: 100px;
+}
+
+.rangeTrack {
+  position: absolute;
+  height: $track-height;
+  background: $accent;
+  border-radius: 100px;
+}
+
+.handle {
+  position: absolute;
+  width: $handle-size;
+  height: $handle-size;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $handle-bg;
+  border: 1px solid $border-color;
+  border-radius: $handle-radius;
+  box-shadow: $handle-shadow;
+  flex-shrink: 0;
+  transform: translateX(-50%);
+  touch-action: none;
+}
+
+.grip {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  height: 8px;
+}
+
+.gripBar {
+  width: 1px;
+  height: 8px;
+  background: $grip-color;
+}

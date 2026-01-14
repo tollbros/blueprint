@@ -1,34 +1,70 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import styles from './RadioButton.module.scss';
 
-const RadioButton = ({ label, disabled, className, ...props }) => {
+const SIZE_CLASS = {
+  Small: styles.sizeSmall,
+  Large: styles.sizeLarge,
+};
+
+const STATE_CLASS = {
+  Base: styles.stateBase,
+  Focused: styles.stateFocused,
+  Selected: styles.stateSelected,
+  Disabled: styles.stateDisabled,
+};
+
+const normalizeSize = (size) => (SIZE_CLASS[size] ? size : 'Small');
+const normalizeState = (state) => (STATE_CLASS[state] ? state : 'Base');
+
+const RadioButton = ({ size = 'Small', state = 'Base', className = '', ...rest }) => {
+  const resolvedSize = normalizeSize(size);
+  const resolvedState = normalizeState(state);
+  const isInteractive = resolvedState === 'Base';
+  const [isSelected, setIsSelected] = useState(resolvedState === 'Selected');
+
+  useEffect(() => {
+    setIsSelected(resolvedState === 'Selected');
+  }, [resolvedState]);
+
+  const isDisabled = resolvedState === 'Disabled';
+  const effectiveState = isInteractive ? (isSelected ? 'Selected' : 'Base') : resolvedState;
+
+  const handleSelect = () => {
+    if (!isInteractive || isSelected) return;
+    setIsSelected(true);
+  };
+
+  const handleKeyDown = (event) => {
+    if (!isInteractive) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleSelect();
+    }
+  };
+
   return (
-    <label className={`${styles.radioButtonWrapper} ${disabled ? styles.disabled : ''} ${className || ''}`}>
-      <input type='radio' className={styles.hiddenRadio} disabled={disabled} {...props} />
-      <div className={styles.styledRadio}>
-        <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
-          <circle cx='10' cy='10' r='9' stroke='inherit' strokeWidth='1' />
-          <circle cx='10' cy='10' r='6' fill='none' />
-        </svg>
+    <div
+      className={[
+        styles.radioButton,
+        SIZE_CLASS[resolvedSize],
+        STATE_CLASS[effectiveState],
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      role='radio'
+      aria-checked={isSelected}
+      aria-disabled={isDisabled}
+      tabIndex={isInteractive ? 0 : undefined}
+      onClick={isInteractive ? handleSelect : undefined}
+      onKeyDown={handleKeyDown}
+      {...rest}
+    >
+      <div className={styles.ring}>
+        <span className={styles.dot} />
       </div>
-      {label && <span className={styles.label}>{label}</span>}
-    </label>
+    </div>
   );
-};
-
-RadioButton.propTypes = {
-  label: PropTypes.string,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  checked: PropTypes.bool,
-  onChange: PropTypes.func,
-};
-
-RadioButton.defaultProps = {
-  disabled: false,
 };
 
 export default RadioButton;

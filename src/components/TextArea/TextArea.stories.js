@@ -1,27 +1,52 @@
-import React from 'react';
+import { fn } from '@storybook/test';
 import TextArea from './TextArea';
+import React from 'react';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 export default {
-  title: 'Components/TextArea',
+  title: 'Inputs/02 TextArea',
   component: TextArea,
-  argTypes: {
-    placeholder: { control: 'text' },
-    disabled: { control: 'boolean' },
-    maxLength: { control: 'number' },
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+A TextArea component that mirrors InputField behavior with consistent states and floating labels.
+        `,
+      },
+    },
   },
+  args: {
+    onChange: fn(),
+    fieldLabel: 'Text Label',
+    state: 'Base',
+  },
+  argTypes: {
+    className: { control: 'text' },
+    fieldLabel: {
+      control: 'text',
+      description: 'The label text for the text area',
+    },
+    fieldValue: {
+      control: 'text',
+      description: 'The value text shown inside the text area',
+    },
+    state: {
+      control: 'select',
+      options: ['Base', 'Focused', 'Filled', 'Disabled', 'Error', 'Success'],
+    },
+    onChange: { table: { disable: true } },
+    componentNumber: { table: { disable: true } },
+    componentName: { table: { disable: true } },
+  },
+  render: (args) => (
+    <InputPreviewContainer args={args}>
+      <TextArea {...args} />
+    </InputPreviewContainer>
+  ),
 };
 
-const Template = (args) => <TextArea {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: 'Enter your text here',
-  disabled: false,
-  maxLength: 200,
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  ...Default.args,
-  disabled: true,
+export const Playground = {
+  parameters: { layout: 'centered' },
 };

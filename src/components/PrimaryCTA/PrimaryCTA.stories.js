@@ -1,6 +1,7 @@
 import { fn } from '@storybook/test';
 import PrimaryCTA from './PrimaryCTA';
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React from 'react';
+import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
 
 const DotIcon = ({ color = 'currentColor' }) => (
   <span
@@ -15,7 +16,7 @@ const DotIcon = ({ color = 'currentColor' }) => (
 );
 
 const StorySchema = {
-  title: 'primitives/PrimaryCTA',
+  title: 'Buttons/01 PrimaryCTA',
   component: PrimaryCTA,
   tags: ['autodocs'],
   parameters: {
@@ -32,69 +33,30 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
     },
   },
   decorators: [
-    (Story, context) => {
-      const measureRef = useRef(null);
-      const [naturalWidth, setNaturalWidth] = useState(null);
-
-      useLayoutEffect(() => {
-        if (measureRef.current) {
-          const measured = measureRef.current.getBoundingClientRect().width;
-          if (measured && measured !== naturalWidth) {
-            setNaturalWidth(measured);
-          }
-        }
-      }, [naturalWidth, context.args.label, context.args.size, context.args.priority, context.args.state, context.args.iconPosition]);
-
-      const wrapperWidth = naturalWidth ? `${naturalWidth + 120}px` : 'fit-content';
-
-      return (
-        <div
-          style={{
-            background: 'var(--tb-palette-TB-Functional-LightGray, #E9EDF0)',
-            display: 'flex',
-            justifyContent: 'center',
-            width: wrapperWidth,
-            position: 'relative',
-            borderRadius: '4px',
-            padding: '24px 0',
-          }}
-        >
-          <div
-            ref={measureRef}
-            style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none', display: 'inline-flex' }}
-          >
-            <PrimaryCTA {...context.args} fullWidth={false} />
-          </div>
-
-          <div style={{ display: 'inline-flex', width: context.args.fullWidth ? '100%' : 'auto' }}>
-            <Story />
-          </div>
-        </div>
-      );
-    },
+    (Story, context) => (
+      <InputPreviewContainer args={context.args}>
+        <Story />
+      </InputPreviewContainer>
+    ),
   ],
   args: {
     onClick: fn(),
     label: 'PCTA',
-    size: 'base',
     priority: 'A',
-    state: 'base',
+    size: 'base',
     iconPosition: 'none',
     fullWidth: false,
+    state: 'base',
   },
   argTypes: {
     label: { control: 'text' },
-    size: {
-      control: 'select',
-      options: ['base', 'small', 'large'],
-    },
     priority: {
       control: 'select',
       options: ['A', 'B'],
     },
-    state: {
+    size: {
       control: 'select',
-      options: ['base', 'hover', 'pressed', 'disabled'],
+      options: ['base', 'small', 'large'],
     },
     iconPosition: {
       control: 'select',
@@ -105,6 +67,10 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
     fullWidth: {
       control: 'boolean',
       description: 'Stretch to fill the wrapper width',
+    },
+    state: {
+      control: 'select',
+      options: ['base', 'hover', 'pressed', 'disabled'],
     },
   },
   render: (args) => {

@@ -1,0 +1,61 @@
+// Text Link styles aligned to design spec and existing tokens.
+$brand-medium: var(--tb-palette-TB-Brand-Medium);
+$white: var(--tb-palette-TB-Functional-White);
+$disabled: var(--tb-palette-TB-Functional-MedGray);
+$accent-pressed: var(--tb-palette-State-AccentPressed);
+$gray-pressed: var(--tb-palette-State-GrayPressed);
+
+.textLink {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 120ms ease;
+
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.sizeSmall {
+  // Gotham-XS-700 (11/17)
+  font: var(--tb-typography-Gotham-XS-700-font);
+}
+
+.sizeBase {
+  // Gotham-S-700 (12/18)
+  font: var(--tb-typography-Gotham-S-700-font);
+}
+
+.sizeLarge {
+  // Gotham-B-700 (14/21)
+  font: var(--tb-typography-Gotham-B-700-font);
+}
+
+.lightBase,
+.lightHover {
+  color: $brand-medium;
+}
+
+.lightPressed {
+  color: $accent-pressed;
+}
+
+.lightDisabled {
+  color: $disabled;
+}
+
+.darkBase,
+.darkHover {
+  color: $white;
+}
+
+.darkPressed {
+  color: $gray-pressed;
+}
+
+.darkDisabled {
+  color: $disabled;
+}
