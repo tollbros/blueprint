@@ -16,6 +16,7 @@ import Checkbox from './components/Checkbox/Checkbox';
 import RadioButton from './components/RadioButton/RadioButton';
 import RangeSlider from './components/RangeSlider/RangeSlider';
 import SpecsSelector from './components/SpecsSelector/SpecsSelector';
+import ToggleUnit from './components/ToggleUnit/ToggleUnit';
 
 export {
   PrimaryCTA,
@@ -27,6 +28,7 @@ export {
   ErrorTag,
   SuccessTag,
   TabBar,
+  ToggleUnit,
   Checkbox,
   RadioButton,
   RangeSlider,

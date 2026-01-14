@@ -1,6 +1,6 @@
 $gap-tab-to-indicator: var(--tb-tabs-gap-tabToIndicator, 8px);
 $gap-icon-to-text: var(--tb-tabs-gap-iconToText, 4px);
-$padding-hbase: var(--tb-tabs-padding-hbase, 4px);
+$padding-hBase: var(--tb-tabs-padding-hBase, 4px);
 $icon-size: var(--tb-tabs-size-icon, 32px);
 $indicator-height: var(--tb-tabs-indicatorHeight, 4px);
 
@@ -38,7 +38,7 @@ $placeholder-gray: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
   flex-direction: column;
   align-items: center;
   gap: $gap-icon-to-text;
-  padding: 0 $padding-hbase;
+  padding: 0 $padding-hBase;
 }
 
 .contentTextOnly {

@@ -1,0 +1,61 @@
+$height: var(--tb-toggle-height-base, 32px);
+$h-padding: var(--tb-toggle-hPadding-base, 20px);
+
+$brand-medium: var(--tb-palette-TB-Brand-Medium, #004876);
+$white: var(--tb-palette-TB-Functional-White, #ffffff);
+
+$font-bold: var(--tb-typography-Gotham-B-700-font);
+$font-book: var(--tb-typography-Gotham-B-400-font);
+
+.toggleUnit {
+  appearance: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: $height;
+  padding: 0 $h-padding;
+  background: transparent;
+}
+
+.label {
+  line-height: 21px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.stateOnLight {
+  background: $brand-medium;
+
+  .label {
+    color: $white;
+    font: $font-bold;
+  }
+}
+
+.stateOffLight {
+  background: $white;
+
+  .label {
+    color: $brand-medium;
+    font: $font-book;
+  }
+}
+
+.stateOnDark {
+  background: $white;
+
+  .label {
+    color: $brand-medium;
+    font: $font-bold;
+  }
+}
+
+.stateOffDark {
+  background: transparent;
+
+  .label {
+    color: $white;
+    font: $font-book;
+  }
+}

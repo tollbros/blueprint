@@ -85,7 +85,7 @@ export const defaultTheme = {
       tabsSpacing: '24px',
     },
     padding: {
-      hbase: '4px',
+      hBase: '4px',
     },
     size: {
       icon: '32px',
@@ -93,10 +93,19 @@ export const defaultTheme = {
     indicatorHeight: '4px',
   },
 
+  toggle: {
+    height: {
+      base: '32px',
+    },
+    hPadding: {
+      base: '20px',
+    },
+  },
+
   tag: {
     padding: {
-      hbase: '16px',
-      vbase: '6px',
+      hBase: '16px',
+      vBase: '6px',
     },
   },
 
@@ -107,7 +116,7 @@ export const defaultTheme = {
         small: '40px',
         large: '56px',
       },
-      hpadding: {
+      hPadding: {
         small: '8px',
         base: '12px',
         large: '20px',
@@ -126,7 +135,7 @@ export const defaultTheme = {
         small: '28px',
         large: '40px',
       },
-      hpadding: {
+      hPadding: {
         small: '8px',
         base: '12px',
         large: '20px',
@@ -147,9 +156,9 @@ export const defaultTheme = {
       base: '60px',
     },
     padding: {
-      hbase: '20px',
-      vbase: '12px',
-      vsmall: '8px',
+      hBase: '20px',
+      vBase: '12px',
+      vSmall: '8px',
     },
     stroke: {
       base: '1px',

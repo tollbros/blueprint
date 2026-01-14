@@ -1,7 +1,7 @@
 // Variables for easier maintenance
 $text-area-height: var(--tb-inputs-text-area-height, 200px);
-$text-area-padding-horizontal: var(--tb-inputs-padding-hbase);
-$text-area-padding-vertical: var(--tb-inputs-padding-vbase);
+$text-area-padding-horizontal: var(--tb-inputs-padding-hBase);
+$text-area-padding-vertical: var(--tb-inputs-padding-vBase);
 $text-area-stroke-base: var(--tb-inputs-stroke-base);
 $border-color: var(--tb-palette-TB-Brand-Gray);
 $bg-color: var(--tb-palette-TB-Functional-White);
@@ -10,7 +10,7 @@ $disabled-bg: var(--tb-palette-TB-Functional-LightGray);
 $disabled-text: var(--tb-palette-TB-Functional-DarkGray);
 $disabled-border: var(--tb-palette-State-Disabled);
 $focus-border-size: var(--tb-inputs-stroke-focus);
-$floating-placeholder-top: var(--tb-inputs-padding-vsmall);
+$floating-placeholder-top: var(--tb-inputs-padding-vSmall);
 $placeholder-transition: 0.2s ease-out;
 
 // Typography variables
