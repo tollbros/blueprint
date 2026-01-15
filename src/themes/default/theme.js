@@ -20,9 +20,8 @@ export const defaultTheme = {
         GrayOnDark: 'rgba(255, 255, 255, 0.2)',
         Success: '#009D47',
         SuccessBg: '#E4F6EA',
-        Error: '#A31F34',
         ErrorBg: '#F7E6E9',
-        ErrorText: '#A42337',
+        ErrorText: '#A31F34',
       },
       POI: {
         Food: '#AD3F49',
@@ -44,6 +43,33 @@ export const defaultTheme = {
       Disabled: 'var(--tb-palette-TB-Functional-MedGray)',
     },
     
+  },
+
+  spacing: {
+    // Nudge: gentle spacing for minor visual clarity tweaks.
+    nudge: {
+      1: '1px',
+      2: '2px',
+      3: '3px',
+    },
+    // Spacer: primary spacing tokens within a group.
+    spacer: {
+      4: '4px',
+      8: '8px',
+      12: '12px',
+      16: '16px',
+      20: '20px',
+    },
+    // BlockSpacer: spacing between distinct groups.
+    blockSpacer: {
+      24: '24px',
+      32: '32px',
+      40: '40px',
+      48: '48px',
+      64: '64px',
+      80: '80px',
+      120: '120px',
+    },
   },
 
   specsSelector: {
