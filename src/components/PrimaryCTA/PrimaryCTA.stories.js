@@ -1,4 +1,5 @@
 import { fn } from '@storybook/test';
+import { Controls, Description, Primary, Title } from '@storybook/blocks';
 import PrimaryCTA from './PrimaryCTA';
 import React from 'react';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
@@ -30,6 +31,14 @@ const StorySchema = {
 Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hover/Pressed/Disabled, optional left/right icon).
         `,
       },
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <Controls />
+        </>
+      ),
     },
   },
   decorators: [

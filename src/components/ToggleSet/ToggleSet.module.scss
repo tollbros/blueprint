@@ -1,0 +1,17 @@
+$stroke: var(--tb-toggle-stroke-base, 1px);
+$stroke-color: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
+$toggle-gap: var(--tb-toggle-gap-toggleToStroke, 4px);
+
+.toggleSet {
+  border: $stroke solid $stroke-color;
+  box-sizing: border-box;
+  display: flex;
+  gap: 0;
+  padding: $toggle-gap;
+  width: 100%;
+}
+
+.item {
+  flex: 1 1 0;
+  width: 100%;
+}

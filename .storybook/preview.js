@@ -25,7 +25,7 @@ const preview = {
           'Inputs',
           ['01 InputField', '02 TextArea', '02 Select'],
           'Selectors',
-          ['01 TabBar', '02 CheckBox', '03 RadioButton', '04 RangeSlider', '05 SpecsSelector'],
+          ['01 TabBar', '02 CheckBox', '03 RadioButton', '04 RangeSlider', '05 SpecsSelector', '06 ToggleSet'],
           'Tags',
           ['01 ErrorTag', '02 SuccessTag'],
         ],

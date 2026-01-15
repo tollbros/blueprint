@@ -46,19 +46,6 @@ export const defaultTheme = {
     
   },
 
-  spacing: {
-    0: '0',
-    1: '4px',
-    2: '8px',
-    3: '12px',
-    4: '16px',
-    5: '24px',
-    6: '32px',
-    7: '40px',
-    8: '48px',
-    9: '60px',
-  },
-
   specsSelector: {
     height: {
       base: '40px',
@@ -94,11 +81,17 @@ export const defaultTheme = {
   },
 
   toggle: {
+    gap: {
+      toggleToStroke: '4px',
+    },
     height: {
       base: '32px',
     },
     hPadding: {
       base: '20px',
+    },
+    stroke: {
+      base: '1px',
     },
   },
 
@@ -171,6 +164,7 @@ export const defaultTheme = {
     trackHeight: '4px',
     handleSize: '32px',
     handleRadius: '100px',
+    wrapperHPadding: '32px',
     gap: {
       indicatorToSlider: '16px',
       valueToLabel: '4px',

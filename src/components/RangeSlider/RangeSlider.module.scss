@@ -10,6 +10,7 @@ $handle-bg: var(--tb-palette-TB-Functional-White);
 $text-color: var(--tb-palette-TB-Functional-Black);
 $grip-color: var(--tb-palette-TB-Functional-DarkGray);
 $gap-indicator-to-slider: var(--tb-rangeSlider-gap-indicatorToSlider);
+$wrapper-h-padding: var(--tb-rangeSlider-wrapperHPadding);
 
 .rangeSlider {
   display: flex;
@@ -20,6 +21,8 @@ $gap-indicator-to-slider: var(--tb-rangeSlider-gap-indicatorToSlider);
   min-width: 0;
   max-width: 100%;
   gap: $gap-indicator-to-slider;
+  padding-left: $wrapper-h-padding;
+  padding-right: $wrapper-h-padding;
 }
 
 .sliderWrapper {
@@ -98,6 +101,7 @@ $gap-indicator-to-slider: var(--tb-rangeSlider-gap-indicatorToSlider);
   flex-shrink: 0;
   transform: translateX(-50%);
   touch-action: none;
+  cursor: ew-resize;
 }
 
 .grip {

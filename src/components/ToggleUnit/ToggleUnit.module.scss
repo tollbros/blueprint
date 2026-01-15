@@ -2,6 +2,8 @@ $height: var(--tb-toggle-height-base, 32px);
 $h-padding: var(--tb-toggle-hPadding-base, 20px);
 
 $brand-medium: var(--tb-palette-TB-Brand-Medium, #004876);
+$state-gray-hover: var(--tb-palette-State-GrayHover, #cdd5da);
+$state-accent-hover: var(--tb-palette-State-AccentHover, #00437b);
 $white: var(--tb-palette-TB-Functional-White, #ffffff);
 
 $font-bold: var(--tb-typography-Gotham-B-700-font);
@@ -16,6 +18,7 @@ $font-book: var(--tb-typography-Gotham-B-400-font);
   height: $height;
   padding: 0 $h-padding;
   background: transparent;
+  cursor: pointer;
 }
 
 .label {
@@ -40,6 +43,10 @@ $font-book: var(--tb-typography-Gotham-B-400-font);
     color: $brand-medium;
     font: $font-book;
   }
+
+  &:hover {
+    background: $state-gray-hover;
+  }
 }
 
 .stateOnDark {
@@ -57,5 +64,9 @@ $font-book: var(--tb-typography-Gotham-B-400-font);
   .label {
     color: $white;
     font: $font-book;
+  }
+
+  &:hover {
+    background: $state-accent-hover;
   }
 }

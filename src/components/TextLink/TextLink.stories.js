@@ -1,4 +1,5 @@
 import { fn } from '@storybook/test';
+import { Controls, Description, Primary, Title } from '@storybook/blocks';
 import React from 'react';
 import TextLink from './TextLink';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
@@ -18,6 +19,14 @@ const StorySchema = {
 Text Link aligned to Figma: size (Small/Base/Large), bg (Light/Dark), state (Base/Hover/Pressed/Disabled).
         `,
       },
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <Controls />
+        </>
+      ),
     },
   },
   decorators: [
