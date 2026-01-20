@@ -23,8 +23,8 @@ const StorySchema = {
           >
             <div
               style={{
-                width: '32px',
-                height: '32px',
+                width: 'var(--tb-Icons-size-base)',
+                height: 'var(--tb-Icons-size-base)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -32,7 +32,7 @@ const StorySchema = {
                 borderRadius: '6px',
               }}
             >
-              <img alt={`${icon.name} icon`} src={resolvedSrc} />
+              <img alt={`${icon.name} icon`} src={resolvedSrc} style={{ width: '100%', height: '100%' }} />
             </div>
             <div style={{ display: 'grid', gap: '2px' }}>
               <div style={{ font: 'var(--tb-typography-Gotham-B-700-font)' }}>{icon.name}</div>

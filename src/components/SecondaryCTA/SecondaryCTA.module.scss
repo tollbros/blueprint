@@ -8,7 +8,7 @@ $button-border-radius: var(--tb-buttons-SCTA-borderRadius);
 
 $button-font: var(--tb-typography-SemanticButtonLabel-font);
 $button-gap: var(--tb-buttons-CTAButton-gap-textToIcon);
-$icon-size: 20px;
+$icon-size: var(--tb-Icons-size-base, 20px);
 
 $brand-gray: var(--tb-palette-TB-Brand-Gray);
 $brand-medium: var(--tb-palette-TB-Brand-Medium);

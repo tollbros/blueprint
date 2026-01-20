@@ -8,7 +8,7 @@ $button-border-radius: var(--tb-buttons-PCTA-borderRadius);
 
 $button-font: var(--tb-typography-SemanticButtonLabel-font);
 $button-gap: var(--tb-buttons-CTAButton-gap-textToIcon);
-$icon-size: 20px;
+$icon-size: var(--tb-Icons-size-base, 20px);
 
 $accent: var(--tb-palette-TB-Brand-Accent);
 $accent-hover: var(--tb-palette-State-AccentHover);

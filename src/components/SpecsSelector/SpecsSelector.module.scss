@@ -1,4 +1,5 @@
 $height: var(--tb-specsSelector-height-base);
+$max-container-width: var(--tb-specsSelector-maxContainerWidth);
 
 $radius: 100px;
 $font: var(--tb-typography-Gotham-B-500-font);
@@ -13,6 +14,7 @@ $label-medgray: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
   background: $bg;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
+  max-width: $max-container-width;
   width: 100%;
 }
 

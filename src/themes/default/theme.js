@@ -79,6 +79,13 @@ export const defaultTheme = {
     height: {
       base: '40px',
     },
+    maxContainerWidth: '375px',
+  },
+
+  Icons: {
+    size: {
+      base: '20px',
+    },
   },
 
   checkboxRadio: {
