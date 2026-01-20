@@ -3,6 +3,7 @@ $text-area-height: var(--tb-inputs-text-area-height, 200px);
 $text-area-padding-horizontal: var(--tb-inputs-padding-hBase);
 $text-area-padding-vertical: var(--tb-inputs-padding-vBase);
 $text-area-stroke-base: var(--tb-inputs-stroke-base);
+$text-area-border-radius: var(--tb-inputs-TextArea-borderRadius);
 $border-color: var(--tb-palette-TB-Brand-Gray);
 $bg-color: var(--tb-palette-TB-Functional-White);
 $text-color: var(--tb-palette-TB-Functional-Black);
@@ -26,6 +27,7 @@ $floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font
   padding: $text-area-padding-vertical $text-area-padding-horizontal;
   align-items: flex-start;
   border: $text-area-stroke-base solid $border-color;
+  border-radius: $text-area-border-radius;
   background: $bg-color;
   box-sizing: border-box;
 

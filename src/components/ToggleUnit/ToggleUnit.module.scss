@@ -1,5 +1,6 @@
 $height: var(--tb-toggle-height-base, 32px);
 $h-padding: var(--tb-toggle-hPadding-base, 20px);
+$border-radius: var(--tb-toggle-ToggleUnit-borderRadius);
 
 $brand-medium: var(--tb-palette-TB-Brand-Medium, #004876);
 $state-gray-hover: var(--tb-palette-State-GrayHover, #cdd5da);
@@ -17,6 +18,7 @@ $font-book: var(--tb-typography-Gotham-B-400-font);
   justify-content: center;
   height: $height;
   padding: 0 $h-padding;
+  border-radius: $border-radius;
   background: transparent;
   cursor: pointer;
 }

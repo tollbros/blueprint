@@ -3,18 +3,9 @@ import { Controls, Description, Primary, Title } from '@storybook/blocks';
 import PrimaryCTA from './PrimaryCTA';
 import React from 'react';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
+import { icons } from '../../icons';
 
-const DotIcon = ({ color = 'currentColor' }) => (
-  <span
-    style={{
-      display: 'inline-block',
-      width: '100%',
-      height: '100%',
-      borderRadius: '50%',
-      backgroundColor: color || 'currentColor',
-    }}
-  />
-);
+const resolveIconSrc = (src) => (typeof src === 'string' ? src : src?.src || src?.default || '');
 
 const StorySchema = {
   title: 'Buttons/01 PrimaryCTA',
@@ -54,6 +45,7 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
     priority: 'A',
     size: 'base',
     iconPosition: 'none',
+    iconName: 'PlaceholderCircle',
     fullWidth: false,
     state: 'base',
   },
@@ -70,6 +62,10 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
     iconPosition: {
       control: 'select',
       options: ['none', 'left', 'right'],
+    },
+    iconName: {
+      control: 'select',
+      options: icons.map((icon) => icon.name),
     },
     icon: { table: { disable: true } },
     className: { control: 'text' },
@@ -106,7 +102,9 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
       if (interactive && !isDisabled) setCurrentState('hover');
     };
 
-    const icon = args.iconPosition === 'none' ? null : <DotIcon />;
+    const selectedIcon = icons.find((iconItem) => iconItem.name === args.iconName);
+    const iconSrc = selectedIcon ? resolveIconSrc(selectedIcon.src) : '';
+    const icon = args.iconPosition === 'none' || !iconSrc ? null : iconSrc;
 
     return (
       <PrimaryCTA

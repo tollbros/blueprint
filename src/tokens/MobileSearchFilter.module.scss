@@ -1,0 +1,110 @@
+$screen-width: 375px;
+$spacing-nudge-1: var(--tb-spacing-nudge-1);
+$spacing-spacer-4: var(--tb-spacing-spacer-4);
+$spacing-spacer-8: var(--tb-spacing-spacer-8);
+$spacing-spacer-16: var(--tb-spacing-spacer-16);
+$spacing-block-24: var(--tb-spacing-blockSpacer-24);
+
+.screen {
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  color: var(--tb-palette-TB-Functional-Black, #000000);
+  display: flex;
+  flex-direction: column;
+  width: $screen-width;
+  min-height: 812px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  height: 71px;
+  padding: $spacing-spacer-16;
+}
+
+.closeButton {
+  align-items: center;
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  border: 1px solid var(--tb-palette-TB-Brand-Gray, #8195a2);
+  border-radius: 1000px;
+  color: var(--tb-palette-TB-Functional-Black, #000000);
+  cursor: pointer;
+  display: inline-flex;
+  font: var(--tb-typography-Gotham-B-700-font);
+  height: 40px;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  width: 40px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-block-24;
+  padding: $spacing-spacer-16;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-spacer-16;
+}
+
+.sectionLabel {
+  font: var(--tb-typography-Gotham-B-700-font);
+  line-height: 21px;
+}
+
+.sectionTitle {
+  font: var(--tb-typography-GothamN-B-500-font);
+  line-height: 24px;
+}
+
+.collectionRow {
+  align-items: center;
+  display: flex;
+  gap: $spacing-spacer-8;
+  justify-content: space-between;
+}
+
+.collectionText {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-spacer-4;
+}
+
+.collectionName {
+  font: var(--tb-typography-Gotham-B-700-font);
+  line-height: 21px;
+}
+
+.collectionSubtext {
+  font: var(--tb-typography-GothamN-XS-300-font);
+  line-height: 17px;
+}
+
+.showAllRow {
+  align-items: center;
+  display: flex;
+  gap: $spacing-spacer-8;
+  justify-content: flex-end;
+}
+
+.showAllText {
+  font: var(--tb-typography-Gotham-S-400-font);
+  line-height: 18px;
+}
+
+.divider {
+  background: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
+  height: 1px;
+  opacity: 0.45;
+  width: 100%;
+}
+
+.specsRow {
+  background: var(--tb-palette-TB-Functional-White, #ffffff);
+  overflow: hidden;
+  width: 100%;
+}

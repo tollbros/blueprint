@@ -10,6 +10,7 @@ export const defaultTheme = {
         Gray: '#8195A2',
       },
       Functional: {
+        // Figma exports use --functional/* tokens; keep names aligned with this set.
         Black: '#000000',
         OffBlack: '#595959',
         White: '#FFFFFF',
@@ -18,7 +19,7 @@ export const defaultTheme = {
         MedGray: '#D8D8D8',
         LightGray: '#E9EDF0',
         GrayOnDark: 'rgba(255, 255, 255, 0.2)',
-        Success: '#009D47',
+        On: '#009D47',
         SuccessBg: '#E4F6EA',
         ErrorBg: '#F7E6E9',
         ErrorText: '#A31F34',
@@ -44,6 +45,8 @@ export const defaultTheme = {
     },
     
   },
+
+  globalBrandBorderRadius: '4px',
 
   spacing: {
     // Nudge: gentle spacing for minor visual clarity tweaks.
@@ -71,7 +74,7 @@ export const defaultTheme = {
       120: '120px',
     },
   },
-
+  
   specsSelector: {
     height: {
       base: '40px',
@@ -83,6 +86,7 @@ export const defaultTheme = {
       base: '24px',
       large: '28px',
     },
+    iconScale: 0.6,
     stroke: {
       pressed: '2px',
     },
@@ -116,8 +120,43 @@ export const defaultTheme = {
     hPadding: {
       base: '20px',
     },
+    ToggleUnit: {
+      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+    },
+    ToggleSet: {
+      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+    },
     stroke: {
       base: '1px',
+    },
+  },
+
+  switch: {
+    size: {
+      base: {
+        width: '40px',
+        height: '24px',
+        trackHeight: '20px',
+        handle: '24px',
+      },
+      large: {
+        width: '56px',
+        height: '36px',
+        trackHeight: '28px',
+        handle: '36px',
+      },
+    },
+    iconScale: 0.6,
+    borderRadius: {
+      pill: '1000px',
+      track: '100px',
+    },
+    stroke: {
+      base: '1px',
+    },
+    shadow: {
+      handle: '0px 4px 4px rgba(0,0,0,0.25)',
+      handleDisabled: 'none',
     },
   },
 
@@ -129,6 +168,12 @@ export const defaultTheme = {
   },
 
   buttons: {
+    PCTA: {
+      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+    },
+    SCTA: {
+      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+    },
     CTAButton: {
       height: {
         base: '48px',
@@ -174,6 +219,15 @@ export const defaultTheme = {
     height: {
       base: '60px',
     },
+    InputField: {
+      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+    },
+    TextArea: {
+      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+    },
+    Select: {
+      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+    },
     padding: {
       hBase: '20px',
       vBase: '12px',
@@ -209,5 +263,4 @@ export const defaultTheme = {
     SemanticButtonTag: typography['Gotham-S-700'],
     SemanticTabLabel: typography['Gotham-B-700'],
   },
-  globalBrandBorderRadius: '4px',
 };

@@ -17,6 +17,7 @@ $wrapper-h-padding: var(--tb-rangeSlider-wrapperHPadding);
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   width: 100%;
   min-width: 0;
   max-width: 100%;

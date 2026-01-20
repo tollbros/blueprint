@@ -41,7 +41,9 @@ const PrimaryCTA = ({
 }) => {
   const sizeClass = SIZE_CLASS[size] || SIZE_CLASS.base;
   const visualClass = PRIORITY_STATE_CLASS[priority]?.[state] || PRIORITY_STATE_CLASS.A.base;
-  const hasIcon = iconPosition !== 'none' && !!icon;
+  const resolvedIcon = icon ? icon : null;
+  const hasIcon = iconPosition !== 'none' && !!resolvedIcon;
+  const isIconUrl = typeof resolvedIcon === 'string';
 
   const buttonClasses = [styles.button, sizeClass, visualClass, hasIcon && styles.withIcon, fullWidth && styles.fullWidth, className]
     .filter(Boolean)
@@ -51,9 +53,21 @@ const PrimaryCTA = ({
 
   return (
     <button className={buttonClasses} type='button' disabled={isDisabled} aria-disabled={isDisabled} {...rest}>
-      {iconPosition === 'left' && hasIcon ? <span className={styles.icon}>{icon}</span> : null}
+      {iconPosition === 'left' && hasIcon ? (
+        isIconUrl ? (
+          <span className={[styles.icon, styles.iconMask].join(' ')} style={{ '--icon-url': `url(${resolvedIcon})` }} />
+        ) : (
+          <span className={styles.icon}>{resolvedIcon}</span>
+        )
+      ) : null}
       <span className={styles.label}>{label}</span>
-      {iconPosition === 'right' && hasIcon ? <span className={styles.icon}>{icon}</span> : null}
+      {iconPosition === 'right' && hasIcon ? (
+        isIconUrl ? (
+          <span className={[styles.icon, styles.iconMask].join(' ')} style={{ '--icon-url': `url(${resolvedIcon})` }} />
+        ) : (
+          <span className={styles.icon}>{resolvedIcon}</span>
+        )
+      ) : null}
     </button>
   );
 };

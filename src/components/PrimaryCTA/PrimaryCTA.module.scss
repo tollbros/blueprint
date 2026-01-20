@@ -4,7 +4,7 @@ $button-base-height: var(--tb-buttons-CTAButton-height-base);
 $button-small-height: var(--tb-buttons-CTAButton-height-small);
 $button-large-height: var(--tb-buttons-CTAButton-height-large);
 $button-horizontal-padding: var(--tb-buttons-CTAButton-hPadding-large);
-$button-border-radius: var(--tb-globalBrandBorderRadius);
+$button-border-radius: var(--tb-buttons-PCTA-borderRadius);
 
 $button-font: var(--tb-typography-SemanticButtonLabel-font);
 $button-gap: var(--tb-buttons-CTAButton-gap-textToIcon);
@@ -78,6 +78,18 @@ $accent-text: var(--tb-palette-TB-Brand-Accent);
     width: 100%;
     fill: currentColor;
   }
+}
+
+.iconMask {
+  background-color: currentColor;
+  mask-image: var(--icon-url);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
 }
 
 // Priority A (filled)

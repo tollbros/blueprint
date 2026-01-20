@@ -1,0 +1,167 @@
+$track-radius: var(--tb-switch-borderRadius-track);
+$handle-radius: var(--tb-switch-borderRadius-pill);
+$stroke-base: var(--tb-switch-stroke-base);
+$shadow-handle: var(--tb-switch-shadow-handle);
+
+$on-color: var(--tb-palette-TB-Functional-On);
+$off-color: var(--tb-palette-TB-Functional-LightGray);
+$off-disabled-base: var(--tb-palette-TB-Functional-MedGray);
+$off-disabled-large: var(--tb-palette-State-Disabled);
+$handle-bg: var(--tb-palette-TB-Functional-White);
+$handle-disabled-bg: var(--tb-palette-TB-Functional-LightGray);
+$handle-border: var(--tb-palette-TB-Brand-Gray);
+$handle-disabled-border: var(--tb-palette-State-Disabled);
+$handle-disabled-shadow: var(--tb-switch-shadow-handleDisabled);
+
+$base-width: var(--tb-switch-size-base-width);
+$base-height: var(--tb-switch-size-base-height);
+$base-track-height: var(--tb-switch-size-base-trackHeight);
+$base-handle: var(--tb-switch-size-base-handle);
+
+$large-width: var(--tb-switch-size-large-width);
+$large-height: var(--tb-switch-size-large-height);
+$large-track-height: var(--tb-switch-size-large-trackHeight);
+$large-handle: var(--tb-switch-size-large-handle);
+$icon-scale: var(--tb-switch-iconScale, 0.6);
+
+.switch {
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+}
+
+.track {
+  border-radius: $track-radius;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.handle {
+  background: $handle-bg;
+  border: $stroke-base solid $handle-border;
+  border-radius: $handle-radius;
+  box-shadow: $shadow-handle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 160ms ease;
+}
+
+.checkmark {
+  background-color: currentColor;
+  mask-image: var(--checkmark-url);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--checkmark-url);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
+.stateOn .track {
+  background: $on-color;
+}
+
+.stateOff .track {
+  background: $off-color;
+}
+
+.stateOn .handle {
+  color: var(--tb-palette-TB-Functional-White);
+}
+
+.stateOn .checkmark {
+  color: $on-color;
+}
+
+.stateDisabled {
+  cursor: not-allowed;
+}
+
+.sizeBase {
+  height: $base-height;
+  width: $base-width;
+
+  .track {
+    height: $base-track-height;
+  }
+
+  .handle {
+    height: $base-handle;
+    width: $base-handle;
+  }
+
+  .checkmark {
+    width: calc(#{$base-handle} * #{$icon-scale});
+    height: calc(#{$base-handle} * #{$icon-scale});
+  }
+}
+
+.sizeLarge {
+  height: $large-height;
+  width: $large-width;
+
+  .track {
+    height: $large-track-height;
+  }
+
+  .handle {
+    height: $large-handle;
+    width: $large-handle;
+  }
+
+  .checkmark {
+    width: calc(#{$large-handle} * #{$icon-scale});
+    height: calc(#{$large-handle} * #{$icon-scale});
+  }
+}
+
+.sizeBase.stateDisabled .track {
+  background: $off-disabled-base;
+}
+
+.sizeLarge.stateDisabled .track {
+  background: $off-disabled-large;
+}
+
+.stateDisabled .handle {
+  background: $handle-disabled-bg;
+  box-shadow: $handle-disabled-shadow;
+}
+
+.sizeBase.stateDisabled .handle {
+  border-color: transparent;
+}
+
+.sizeLarge.stateDisabled .handle {
+  border-color: $handle-disabled-border;
+}
+
+.sizeBase.stateOn .handle {
+  left: calc(100% - #{$base-handle});
+}
+
+.sizeBase.stateOff .handle {
+  left: 0;
+}
+
+.sizeLarge.stateOn .handle {
+  left: calc(100% - #{$large-handle});
+}
+
+.sizeLarge.stateOff .handle {
+  left: 0;
+}

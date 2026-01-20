@@ -2,6 +2,7 @@
 $input-height: var(--tb-inputs-height-base);
 $input-padding-horizontal: var(--tb-inputs-padding-hBase);
 $input-stroke-base: var(--tb-inputs-stroke-base);
+$input-border-radius: var(--tb-inputs-InputField-borderRadius);
 $border-color: var(--tb-palette-TB-Brand-Gray);
 $bg-color: var(--tb-palette-TB-Functional-White);
 $text-color: var(--tb-palette-TB-Functional-Black);
@@ -25,6 +26,7 @@ $floating-placeholder-font: var(--tb-typography-SemanticFloatingPlaceholder-font
   padding: 0 $input-padding-horizontal;
   align-items: center;
   border: $input-stroke-base solid $border-color;
+  border-radius: $input-border-radius;
   background: $bg-color;
   box-sizing: border-box;
 

@@ -18,6 +18,7 @@ import RangeSlider from './components/RangeSlider/RangeSlider';
 import SpecsSelector from './components/SpecsSelector/SpecsSelector';
 import ToggleUnit from './components/ToggleUnit/ToggleUnit';
 import ToggleSet from './components/ToggleSet/ToggleSet';
+import Switch from './components/Switch/Switch';
 
 export {
   PrimaryCTA,
@@ -31,6 +32,7 @@ export {
   TabBar,
   ToggleUnit,
   ToggleSet,
+  Switch,
   Checkbox,
   RadioButton,
   RangeSlider,

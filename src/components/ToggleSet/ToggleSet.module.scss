@@ -1,9 +1,11 @@
 $stroke: var(--tb-toggle-stroke-base, 1px);
 $stroke-color: var(--tb-palette-TB-Functional-MedGray, #d8d8d8);
 $toggle-gap: var(--tb-toggle-gap-toggleToStroke, 4px);
+$border-radius: var(--tb-toggle-ToggleSet-borderRadius);
 
 .toggleSet {
   border: $stroke solid $stroke-color;
+  border-radius: $border-radius;
   box-sizing: border-box;
   display: flex;
   gap: 0;

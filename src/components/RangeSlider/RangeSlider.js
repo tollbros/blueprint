@@ -38,6 +38,7 @@ const RangeSlider = ({
   stepSqFt = 250,
   priceRange,
   stepPrice = 100000,
+  className = '',
 }) => {
   const trackRef = useRef(null);
   const [interactiveSqFtMin, setInteractiveSqFtMin] = useState(sqFtRange?.min ?? DEFAULT_MIN_SQFT);
@@ -227,7 +228,7 @@ const RangeSlider = ({
   };
 
   return (
-    <div className={styles.rangeSlider}>
+    <div className={[styles.rangeSlider, className].filter(Boolean).join(' ')}>
       <div className={styles.sliderWrapper}>
         <div className={isPrice ? styles.priceRow : styles.labelRow}>
           {isPrice ? (

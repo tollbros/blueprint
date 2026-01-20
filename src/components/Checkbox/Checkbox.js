@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import styles from './Checkbox.module.scss';
-
-const CHECKMARK_ICON = 'http://localhost:3845/assets/afb09fc9d1fd13013c650d30c8d3cf5ea30d407a.svg';
+import CheckmarkIcon from '../../icons/checkmark.svg';
 
 const SIZE_CLASS = {
   Base: styles.sizeBase,
@@ -18,22 +17,43 @@ const STATE_CLASS = {
 const normalizeSize = (size) => (SIZE_CLASS[size] ? size : 'Base');
 const normalizeState = (state) => (STATE_CLASS[state] ? state : 'Base');
 
-const Checkbox = ({ size = 'Base', state = 'Base', className = '', ...rest }) => {
+const Checkbox = ({
+  size = 'Base',
+  state = 'Base',
+  defaultChecked = false,
+  checked,
+  onChange,
+  className = '',
+  ...rest
+}) => {
   const resolvedSize = normalizeSize(size);
   const resolvedState = normalizeState(state);
   const isInteractive = resolvedState === 'Base';
-  const [isChecked, setIsChecked] = useState(resolvedState === 'Selected');
+  const isControlled = typeof checked === 'boolean';
+  const [isChecked, setIsChecked] = useState(resolvedState === 'Selected' || defaultChecked);
+  const resolvedIconSrc = useMemo(
+    () => (typeof CheckmarkIcon === 'string' ? CheckmarkIcon : CheckmarkIcon?.src || CheckmarkIcon?.default || ''),
+    [],
+  );
 
   useEffect(() => {
+    if (resolvedState === 'Base' && !isControlled) {
+      setIsChecked(!!defaultChecked);
+      return;
+    }
     setIsChecked(resolvedState === 'Selected');
-  }, [resolvedState]);
-  const isSelected = isInteractive ? isChecked : resolvedState === 'Selected';
+  }, [defaultChecked, isControlled, resolvedState]);
+  const isSelected = isInteractive ? (isControlled ? checked : isChecked) : resolvedState === 'Selected';
   const isDisabled = resolvedState === 'Disabled';
   const effectiveState = isInteractive ? (isSelected ? 'Selected' : 'Base') : resolvedState;
 
   const handleToggle = () => {
     if (!isInteractive) return;
-    setIsChecked((prev) => !prev);
+    const nextChecked = !isSelected;
+    if (!isControlled) {
+      setIsChecked(nextChecked);
+    }
+    onChange?.(nextChecked);
   };
 
   const handleKeyDown = (event) => {
@@ -64,9 +84,11 @@ const Checkbox = ({ size = 'Base', state = 'Base', className = '', ...rest }) =>
     >
       <div className={styles.box}>
         {isSelected ? (
-          <span className={styles.checkmark}>
-            <img alt='' src={CHECKMARK_ICON} />
-          </span>
+          <span
+            className={styles.checkmark}
+            style={{ '--checkmark-url': `url(${resolvedIconSrc})` }}
+            aria-hidden='true'
+          />
         ) : null}
       </div>
     </div>
