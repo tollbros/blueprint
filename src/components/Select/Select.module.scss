@@ -46,12 +46,17 @@ $placeholder-transition: 0.2s ease-out;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: transform 160ms ease;
 }
 
 .arrowIconImage {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.arrowIconOpen {
+  transform: rotate(180deg);
 }
 
 .textContainer {

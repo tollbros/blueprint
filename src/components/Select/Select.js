@@ -3,12 +3,9 @@ import { useTheme } from '../../themes/ThemeProvider';
 import styles from './Select.module.scss';
 import ErrorTag from '../Tag/ErrorTag';
 import SuccessTag from '../Tag/SuccessTag';
+import { icons } from '../../icons';
 
-const ICONS = {
-  default: 'http://localhost:3845/assets/96daf780b84a35ffdf0cf63e29f939ca5ecccf6f.svg',
-  open: 'http://localhost:3845/assets/1554490fae55dec364de6d4c4ef7f470ef0d22c7.svg',
-  disabled: 'http://localhost:3845/assets/57a5831df55c5a803b28788c10fffba3bd19d1bb.svg',
-};
+const resolveIconSrc = (src) => (typeof src === 'string' ? src : src?.src || src?.default || '');
 
 const Select = ({ options, placeholder = 'Select an option', state = 'Base', className = '' }) => {
   const [selectedOption, setSelectedOption] = useState('');
@@ -19,7 +16,8 @@ const Select = ({ options, placeholder = 'Select an option', state = 'Base', cla
   const isSuccessState = state === 'Success';
   const isDisabled = state === 'Disabled';
   const isOpenState = state === 'OpenUnselected' || state === 'OpenSelected' || isOpen;
-  const iconSrc = isDisabled ? ICONS.disabled : isOpenState ? ICONS.open : ICONS.default;
+  const chevronIcon = icons.find((iconItem) => iconItem.name === 'ChevronDown');
+  const iconSrc = resolveIconSrc(chevronIcon?.src || '');
 
   const handleSelect = (value) => {
     setSelectedOption(value);
@@ -81,7 +79,7 @@ const Select = ({ options, placeholder = 'Select an option', state = 'Base', cla
             </div>
           ))}
         </div>
-        <span className={styles.arrowIcon}>
+        <span className={[styles.arrowIcon, isOpenState && styles.arrowIconOpen].filter(Boolean).join(' ')}>
           <img alt='' className={styles.arrowIconImage} src={iconSrc} />
         </span>
       </div>

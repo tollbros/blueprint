@@ -57,7 +57,8 @@ $functional-white: var(--tb-palette-TB-Functional-White, #ffffff);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: currentColor;
+  color: var(--tb-globalTokens-defaultContentColor);
+  background-color: var(--tb-globalTokens-defaultContentColor);
   mask-image: var(--checkmark-url);
   mask-position: center;
   mask-repeat: no-repeat;
@@ -83,6 +84,7 @@ $functional-white: var(--tb-palette-TB-Functional-White, #ffffff);
 
 .stateSelected .checkmark {
   color: $functional-white;
+  background-color: $functional-white;
 }
 
 .stateDisabled .box {

@@ -32,7 +32,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   justify-content: center;
   min-width: $button-min-width;
   padding: 0 $button-horizontal-padding;
-  --tb-scta-contentColor: var(--tb-globalTokens-contentColor);
+  --tb-scta-contentColor: var(--tb-globalTokens-defaultContentColor);
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
 
   &:disabled {
@@ -147,12 +147,12 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   svg {
     height: 100%;
     width: 100%;
-    fill: currentColor;
+    fill: var(--tb-scta-contentColor);
   }
 }
 
 .iconMask {
-  background-color: currentColor;
+  background-color: var(--tb-scta-contentColor);
   mask-image: var(--icon-url);
   mask-position: center;
   mask-repeat: no-repeat;

@@ -48,7 +48,8 @@ export const defaultTheme = {
 
   globalTokens: {
     borderRadius: '4px',
-    contentColor: 'var(--tb-palette-TB-Functional-Black)',
+    // Figma equivalent: globalContentColor. Usage may differ in code; flag during audits.
+    defaultContentColor: 'var(--tb-palette-TB-Functional-Black)',
   },
 
   spacing: {

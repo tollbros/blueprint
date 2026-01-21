@@ -30,7 +30,7 @@ const StorySchema = {
                 justifyContent: 'center',
                 background: '#f5f5f5',
                 borderRadius: '6px',
-                color: 'var(--tb-globalTokens-contentColor)',
+                color: 'var(--tb-globalTokens-defaultContentColor)',
               }}
             >
               <img alt={`${icon.name} icon`} src={resolvedSrc} style={{ width: '100%', height: '100%' }} />

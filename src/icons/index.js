@@ -1,5 +1,6 @@
 import PlaceholderCircle from './placeholder-circle.svg';
 import Checkmark from './checkmark.svg';
+import ChevronDown from './chevron-down.svg';
 
 export const icons = [
   {
@@ -9,5 +10,9 @@ export const icons = [
   {
     name: 'Checkmark',
     src: Checkmark,
+  },
+  {
+    name: 'ChevronDown',
+    src: ChevronDown,
   },
 ];

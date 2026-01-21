@@ -60,7 +60,8 @@ $icon-scale: var(--tb-switch-iconScale, 0.6);
 }
 
 .checkmark {
-  background-color: currentColor;
+  color: var(--tb-globalTokens-defaultContentColor);
+  background-color: var(--tb-globalTokens-defaultContentColor);
   mask-image: var(--checkmark-url);
   mask-position: center;
   mask-repeat: no-repeat;
@@ -85,6 +86,7 @@ $icon-scale: var(--tb-switch-iconScale, 0.6);
 
 .stateOn .checkmark {
   color: $on-color;
+  background-color: $on-color;
 }
 
 .stateDisabled {

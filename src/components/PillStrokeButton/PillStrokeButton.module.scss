@@ -31,7 +31,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   justify-content: center;
   padding: 0 $button-padding;
   min-width: fit-content;
-  --tb-pillStroke-contentColor: var(--tb-globalTokens-contentColor);
+  --tb-pillStroke-contentColor: var(--tb-globalTokens-defaultContentColor);
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
 
   &:disabled {
@@ -67,12 +67,12 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   svg {
     height: 100%;
     width: 100%;
-    fill: currentColor;
+    fill: var(--tb-pillStroke-contentColor);
   }
 }
 
 .iconMask {
-  background-color: currentColor;
+  background-color: var(--tb-pillStroke-contentColor);
   mask-image: var(--icon-url);
   mask-position: center;
   mask-repeat: no-repeat;

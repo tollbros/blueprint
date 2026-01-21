@@ -34,7 +34,7 @@ $accent-text: var(--tb-palette-TB-Brand-Accent);
   justify-content: center;
   min-width: $button-min-width;
   padding: 0 $button-horizontal-padding;
-  --tb-pcta-contentColor: var(--tb-globalTokens-contentColor);
+  --tb-pcta-contentColor: var(--tb-globalTokens-defaultContentColor);
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, width 120ms ease;
 
   &:disabled {
@@ -78,12 +78,12 @@ $accent-text: var(--tb-palette-TB-Brand-Accent);
   svg {
     height: 100%;
     width: 100%;
-    fill: currentColor;
+    fill: var(--tb-pcta-contentColor);
   }
 }
 
 .iconMask {
-  background-color: currentColor;
+  background-color: var(--tb-pcta-contentColor);
   mask-image: var(--icon-url);
   mask-position: center;
   mask-repeat: no-repeat;
