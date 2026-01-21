@@ -34,14 +34,14 @@ const PrimaryCTA = ({
   priority = 'A',
   state = 'base',
   iconPosition = 'none',
-  icon = null,
+  iconSelect = null,
   fullWidth = false,
   className = '',
   ...rest
 }) => {
   const sizeClass = SIZE_CLASS[size] || SIZE_CLASS.base;
   const visualClass = PRIORITY_STATE_CLASS[priority]?.[state] || PRIORITY_STATE_CLASS.A.base;
-  const resolvedIcon = icon ? icon : null;
+  const resolvedIcon = iconSelect ? iconSelect : null;
   const hasIcon = iconPosition !== 'none' && !!resolvedIcon;
   const isIconUrl = typeof resolvedIcon === 'string';
 

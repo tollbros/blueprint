@@ -2,18 +2,9 @@ import React, { useState } from 'react';
 import { fn } from '@storybook/test';
 import PillFillButton from './PillFillButton';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
+import { icons } from '../../icons';
 
-const DotIcon = ({ color = 'currentColor' }) => (
-  <span
-    style={{
-      display: 'inline-block',
-      width: '100%',
-      height: '100%',
-      borderRadius: '50%',
-      backgroundColor: color || 'currentColor',
-    }}
-  />
-);
+const resolveIconSrc = (src) => (typeof src === 'string' ? src : src?.src || src?.default || '');
 
 const StorySchema = {
   title: 'Buttons/04 PillFillButton',
@@ -24,6 +15,7 @@ const StorySchema = {
     label: 'Pill Button',
     size: 'Base',
     iconBool: 'Null',
+    iconSelect: 'PlaceholderCircle',
     variant: 'MedBlue',
     state: 'Base',
   },
@@ -31,13 +23,16 @@ const StorySchema = {
     label: { control: 'text' },
     size: { control: 'select', options: ['Base', 'Small', 'Large'] },
     iconBool: { control: 'select', options: ['Null', 'Left', 'Right'] },
+    iconSelect: {
+      control: 'select',
+      options: icons.map((icon) => icon.name),
+    },
     variant: {
       control: 'select',
       options: ['MedBlue', 'AccentBlue', 'BlackBook', 'AccentBlueXLarge'],
       description: 'Valid combinations of priority, text color, and padding from the Figma matrix.',
     },
     state: { control: 'select', options: ['Base', 'Hover', 'Pressed', 'Disabled'] },
-    icon: { table: { disable: true } },
     className: { table: { disable: true } },
     __forceDark: { table: { disable: true } },
   },
@@ -80,13 +75,15 @@ const StorySchema = {
       if (interactive && !isDisabled) setCurrentState('Hover');
     };
 
-    const icon = args.iconBool === 'Null' ? null : <DotIcon />;
+    const selectedIcon = icons.find((iconItem) => iconItem.name === args.iconSelect);
+    const iconSrc = selectedIcon ? resolveIconSrc(selectedIcon.src) : '';
+    const icon = args.iconBool === 'Null' || !iconSrc ? null : iconSrc;
 
     return (
       <PillFillButton
         {...args}
         state={currentState}
-        icon={icon}
+        iconSelect={icon}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseDown={handleMouseDown}

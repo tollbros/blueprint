@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import styles from './PillFillButton.module.scss';
+import { icons } from '../../icons';
 
 const SIZE_CLASS = {
   Base: styles.sizeBase,
@@ -63,6 +65,7 @@ const VARIANT_PRESETS = {
 };
 
 const resolveVariant = (variant) => VARIANT_PRESETS[variant] || VARIANT_PRESETS.MedBlue;
+const resolveIconSrc = (src) => (typeof src === 'string' ? src : src?.src || src?.default || '');
 
 /**
  * PillFillButton aligned to Figma spec:
@@ -77,7 +80,7 @@ const PillFillButton = ({
   iconBool = 'Null',
   variant = 'MedBlue',
   state = 'Base',
-  icon = null,
+  iconSelect = null,
   className = '',
   ...rest
 }) => {
@@ -104,7 +107,14 @@ const PillFillButton = ({
   const textClass = isDisabled ? styles.textDisabled : TEXT_CLASS[resolvedContentColor] || styles.textMedBlue;
 
   const iconPosition = iconBool?.toLowerCase?.() || 'null';
-  const hasIcon = iconPosition !== 'null' && !!icon;
+  const placeholderIcon = useMemo(
+    () => icons.find((iconItem) => iconItem.name === 'PlaceholderCircle'),
+    [],
+  );
+  const placeholderSrc = placeholderIcon ? resolveIconSrc(placeholderIcon.src) : '';
+  const resolvedIcon = iconSelect || placeholderSrc;
+  const resolvedIconSrc = resolveIconSrc(resolvedIcon);
+  const hasIcon = iconPosition !== 'null' && !!resolvedIconSrc;
 
   const buttonClasses = [
     styles.button,
@@ -127,9 +137,13 @@ const PillFillButton = ({
       aria-disabled={isDisabled}
       {...rest}
     >
-      {iconPosition === 'left' && hasIcon ? <span className={styles.icon}>{icon}</span> : null}
+      {iconPosition === 'left' && hasIcon ? (
+        <span className={[styles.icon, styles.iconMask].join(' ')} style={{ '--icon-url': `url(${resolvedIconSrc})` }} />
+      ) : null}
       <span className={styles.label}>{label}</span>
-      {iconPosition === 'right' && hasIcon ? <span className={styles.icon}>{icon}</span> : null}
+      {iconPosition === 'right' && hasIcon ? (
+        <span className={[styles.icon, styles.iconMask].join(' ')} style={{ '--icon-url': `url(${resolvedIconSrc})` }} />
+      ) : null}
     </button>
   );
 };

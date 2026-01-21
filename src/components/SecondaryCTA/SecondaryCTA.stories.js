@@ -2,18 +2,9 @@ import SecondaryCTA from './SecondaryCTA';
 import React, { useState } from 'react';
 import { fn } from '@storybook/test';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
+import { icons } from '../../icons';
 
-const DotIcon = ({ color = 'currentColor' }) => (
-  <span
-    style={{
-      display: 'inline-block',
-      width: '100%',
-      height: '100%',
-      borderRadius: '50%',
-      backgroundColor: color || 'currentColor',
-    }}
-  />
-);
+const resolveIconSrc = (src) => (typeof src === 'string' ? src : src?.src || src?.default || '');
 
 const StorySchema = {
   title: 'Buttons/02 SecondaryCTA',
@@ -24,6 +15,7 @@ const StorySchema = {
     label: 'SCTA',
     size: 'base',
     iconPosition: 'none',
+    iconSelect: 'PlaceholderCircle',
     fullWidth: false,
     bg: 'Light',
     state: 'base',
@@ -34,7 +26,10 @@ const StorySchema = {
       control: 'select',
       options: ['none', 'left', 'right'],
     },
-    icon: { table: { disable: true } },
+    iconSelect: {
+      control: 'select',
+      options: icons.map((icon) => icon.name),
+    },
     fullWidth: {
       control: 'boolean',
     },
@@ -90,12 +85,14 @@ const StorySchema = {
       if (interactive && !isDisabled) setCurrentState('hover');
     };
 
-    const icon = args.iconPosition === 'none' ? null : <DotIcon />;
+    const selectedIcon = icons.find((iconItem) => iconItem.name === args.iconSelect);
+    const iconSrc = selectedIcon ? resolveIconSrc(selectedIcon.src) : '';
+    const icon = args.iconPosition === 'none' || !iconSrc ? null : iconSrc;
 
     return (
       <SecondaryCTA
         {...args}
-        icon={icon}
+        iconSelect={icon}
         state={currentState}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

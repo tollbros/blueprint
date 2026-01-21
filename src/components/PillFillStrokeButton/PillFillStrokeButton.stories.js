@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { fn } from '@storybook/test';
 import PillFillStrokeButton from './PillFillStrokeButton';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
+import { icons } from '../../icons';
+
+const resolveIconSrc = (src) => (typeof src === 'string' ? src : src?.src || src?.default || '');
 
 const StorySchema = {
   title: 'Buttons/05 PillFillStrokeButton',
@@ -12,6 +15,7 @@ const StorySchema = {
     label: 'Pill Button',
     size: 'Small',
     iconBool: 'Null',
+    iconSelect: 'PlaceholderCircle',
     hPadding: 'Base',
     contentColor: 'MedBlue',
     state: 'Base',
@@ -20,6 +24,10 @@ const StorySchema = {
     label: { control: 'text' },
     size: { control: 'select', options: ['Small', 'Base', 'Large'] },
     iconBool: { control: 'select', options: ['Null', 'Left', 'Right'] },
+    iconSelect: {
+      control: 'select',
+      options: icons.map((icon) => icon.name),
+    },
     hPadding: { control: 'select', options: ['Small', 'Base'] },
     contentColor: { control: 'select', options: ['MedBlue', 'AccentBlue'] },
     state: { control: 'select', options: ['Base', 'Hover', 'Pressed', 'Disabled'] },
@@ -67,9 +75,13 @@ const StorySchema = {
       if (interactive && !isDisabled) setCurrentState('Hover');
     };
 
+    const selectedIcon = icons.find((iconItem) => iconItem.name === args.iconSelect);
+    const iconSrc = selectedIcon ? resolveIconSrc(selectedIcon.src) : '';
+
     return (
       <PillFillStrokeButton
         {...args}
+        iconSelect={iconSrc || null}
         state={currentState}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

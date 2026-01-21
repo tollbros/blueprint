@@ -34,6 +34,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   justify-content: center;
   min-width: fit-content;
   padding: 0 $padding-small;
+  --tb-pillFill-contentColor: var(--tb-globalTokens-contentColor);
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
 
   &:disabled {
@@ -92,22 +93,27 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   background: $state-disabled;
   border: $stroke-base solid $state-disabled;
   color: $white;
+  --tb-pillFill-contentColor: #{$white};
 }
 
 .textMedBlue {
   color: $brand-medium;
+  --tb-pillFill-contentColor: #{$brand-medium};
 }
 
 .textAccentBlue {
   color: $brand-accent;
+  --tb-pillFill-contentColor: #{$brand-accent};
 }
 
 .textBlack {
   color: $brand-black;
+  --tb-pillFill-contentColor: #{$brand-black};
 }
 
 .textDisabled {
   color: $white;
+  --tb-pillFill-contentColor: #{$white};
 }
 
 .withIcon {
@@ -122,7 +128,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   justify-content: center;
   line-height: 1;
   width: $icon-size;
-  color: currentColor;
+  color: var(--tb-pillFill-contentColor);
 
   svg {
     height: 100%;
@@ -131,7 +137,20 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   }
 }
 
+.iconMask {
+  background-color: currentColor;
+  mask-image: var(--icon-url);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
 .label {
+  color: var(--tb-pillFill-contentColor);
   line-height: 18px;
   white-space: nowrap;
 }

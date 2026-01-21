@@ -31,6 +31,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   justify-content: center;
   padding: 0 $button-padding;
   min-width: fit-content;
+  --tb-pillStroke-contentColor: var(--tb-globalTokens-contentColor);
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
 
   &:disabled {
@@ -44,6 +45,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
 }
 
 .label {
+  color: var(--tb-pillStroke-contentColor);
   line-height: 18px;
   white-space: nowrap;
 }
@@ -54,7 +56,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
 
 .icon {
   align-items: center;
-  color: currentColor;
+  color: var(--tb-pillStroke-contentColor);
   display: inline-flex;
   font-size: $icon-size;
   line-height: 1;
@@ -69,29 +71,45 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   }
 }
 
+.iconMask {
+  background-color: currentColor;
+  mask-image: var(--icon-url);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
 // Priority A - Light BG
 .lightABase {
   background: transparent;
   border: $stroke-base solid $brand-gray;
   color: $brand-medium;
+  --tb-pillStroke-contentColor: #{$brand-medium};
 }
 
 .lightAHover {
   background: $state-hover;
   border: $stroke-base solid $brand-gray;
   color: $brand-medium;
+  --tb-pillStroke-contentColor: #{$brand-medium};
 }
 
 .lightAPressed {
   background: $state-pressed;
   border: $stroke-pressed solid $state-hover;
   color: $brand-medium;
+  --tb-pillStroke-contentColor: #{$brand-medium};
 }
 
 .lightADisabled {
   background: transparent;
   border: $stroke-base solid $state-disabled;
   color: $state-disabled;
+  --tb-pillStroke-contentColor: #{$state-disabled};
 }
 
 // Priority A - Dark BG
@@ -99,24 +117,28 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   background: transparent;
   border: $stroke-base solid $white;
   color: $white;
+  --tb-pillStroke-contentColor: #{$white};
 }
 
 .darkAHover {
   background: $state-hover;
   border: $stroke-base solid $white;
   color: $brand-medium;
+  --tb-pillStroke-contentColor: #{$brand-medium};
 }
 
 .darkAPressed {
   background: $state-pressed;
   border: $stroke-pressed solid $state-hover;
   color: $brand-medium;
+  --tb-pillStroke-contentColor: #{$brand-medium};
 }
 
 .darkADisabled {
   background: transparent;
   border: $stroke-base solid $state-disabled;
   color: $state-disabled;
+  --tb-pillStroke-contentColor: #{$state-disabled};
 }
 
 // Priority B - Light BG
@@ -125,6 +147,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   border: $stroke-base solid $brand-medgray;
   color: $brand-black;
   font: $font-book;
+  --tb-pillStroke-contentColor: #{$brand-black};
 }
 
 .lightBHover {
@@ -132,6 +155,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   border: $stroke-base solid $brand-medgray;
   color: $brand-black;
   font: $font-book;
+  --tb-pillStroke-contentColor: #{$brand-black};
 }
 
 .lightBPressed {
@@ -139,6 +163,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   border: $stroke-pressed solid $state-hover;
   color: $brand-black;
   font: $font-book;
+  --tb-pillStroke-contentColor: #{$brand-black};
 }
 
 .lightBDisabled {
@@ -146,6 +171,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   border: $stroke-base solid $state-disabled;
   color: $state-disabled;
   font: $font-book;
+  --tb-pillStroke-contentColor: #{$state-disabled};
 }
 
 // Priority B - Dark BG
@@ -154,6 +180,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   border: $stroke-base solid $brand-medgray;
   color: $white;
   font: $font-book;
+  --tb-pillStroke-contentColor: #{$white};
 }
 
 .darkBHover {
@@ -161,6 +188,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   border: $stroke-base solid $brand-medgray;
   color: $brand-medium;
   font: $font-book;
+  --tb-pillStroke-contentColor: #{$brand-medium};
 }
 
 .darkBPressed {
@@ -168,6 +196,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   border: $stroke-pressed solid $state-hover;
   color: $brand-medium;
   font: $font-book;
+  --tb-pillStroke-contentColor: #{$brand-medium};
 }
 
 .darkBDisabled {
@@ -175,4 +204,5 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   border: $stroke-base solid $state-disabled;
   color: $state-disabled;
   font: $font-book;
+  --tb-pillStroke-contentColor: #{$state-disabled};
 }

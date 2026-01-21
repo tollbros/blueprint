@@ -32,6 +32,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   justify-content: center;
   min-width: $button-min-width;
   padding: 0 $button-horizontal-padding;
+  --tb-scta-contentColor: var(--tb-globalTokens-contentColor);
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
 
   &:disabled {
@@ -41,6 +42,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
 }
 
 .label {
+  color: var(--tb-scta-contentColor);
   line-height: inherit;
   white-space: nowrap;
 }
@@ -68,6 +70,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   border: 0;
   box-shadow: inset 0 0 0 $stroke-base $brand-gray;
   color: $brand-medium;
+  --tb-scta-contentColor: #{$brand-medium};
 }
 
 .lightHover {
@@ -75,6 +78,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   border: 0;
   box-shadow: 0 0 0 $stroke-base $brand-gray;
   color: $brand-medium;
+  --tb-scta-contentColor: #{$brand-medium};
 }
 
 .lightPressed {
@@ -82,6 +86,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   border: 0;
   box-shadow: inset 0 0 0 $stroke-pressed $gray-hover;
   color: $brand-medium;
+  --tb-scta-contentColor: #{$brand-medium};
 }
 
 .lightDisabled {
@@ -89,6 +94,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   border: 0;
   box-shadow: 0 0 0 $stroke-base $disabled;
   color: $disabled;
+  --tb-scta-contentColor: #{$disabled};
 }
 
 // Dark background variants
@@ -97,6 +103,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   border: 0;
   box-shadow: inset 0 0 0 $stroke-base $white;
   color: $white;
+  --tb-scta-contentColor: #{$white};
 }
 
 .darkHover {
@@ -104,6 +111,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   border: 0;
   box-shadow: 0 0 0 $stroke-base $white;
   color: $brand-medium;
+  --tb-scta-contentColor: #{$brand-medium};
 }
 
 .darkPressed {
@@ -111,6 +119,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   border: 0;
   box-shadow: inset 0 0 0 $stroke-pressed $gray-hover;
   color: $brand-medium;
+  --tb-scta-contentColor: #{$brand-medium};
 }
 
 .darkDisabled {
@@ -118,6 +127,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
   border: 0;
   box-shadow: 0 0 0 $stroke-base $disabled;
   color: $disabled;
+  --tb-scta-contentColor: #{$disabled};
 }
 
 .withIcon {
@@ -126,7 +136,7 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
 
 .icon {
   align-items: center;
-  color: currentColor;
+  color: var(--tb-scta-contentColor);
   display: inline-flex;
   font-size: $icon-size;
   line-height: 1;
@@ -139,4 +149,16 @@ $stroke-pressed: var(--tb-buttons-CTAButton-stroke-pressed);
     width: 100%;
     fill: currentColor;
   }
+}
+
+.iconMask {
+  background-color: currentColor;
+  mask-image: var(--icon-url);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
 }

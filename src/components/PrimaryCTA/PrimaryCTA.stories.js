@@ -45,7 +45,7 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
     priority: 'A',
     size: 'base',
     iconPosition: 'none',
-    iconName: 'PlaceholderCircle',
+    iconSelect: 'PlaceholderCircle',
     fullWidth: false,
     state: 'base',
   },
@@ -63,11 +63,10 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
       control: 'select',
       options: ['none', 'left', 'right'],
     },
-    iconName: {
+    iconSelect: {
       control: 'select',
       options: icons.map((icon) => icon.name),
     },
-    icon: { table: { disable: true } },
     className: { control: 'text' },
     fullWidth: {
       control: 'boolean',
@@ -102,7 +101,7 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
       if (interactive && !isDisabled) setCurrentState('hover');
     };
 
-    const selectedIcon = icons.find((iconItem) => iconItem.name === args.iconName);
+    const selectedIcon = icons.find((iconItem) => iconItem.name === args.iconSelect);
     const iconSrc = selectedIcon ? resolveIconSrc(selectedIcon.src) : '';
     const icon = args.iconPosition === 'none' || !iconSrc ? null : iconSrc;
 
@@ -110,7 +109,7 @@ Primary CTA aligned to the Figma spec (Priority A/B, Base/Small/Large, Base/Hove
       <PrimaryCTA
         {...args}
         state={currentState}
-        icon={icon}
+        iconSelect={icon}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseDown={handleMouseDown}
@@ -131,6 +130,8 @@ export const Matrix = {
     const priorities = ['A', 'B'];
     const states = ['base', 'hover', 'pressed', 'disabled'];
     const sizes = ['base', 'small', 'large'];
+    const placeholderIcon = icons.find((iconItem) => iconItem.name === 'PlaceholderCircle');
+    const matrixIcon = resolveIconSrc(placeholderIcon?.src || icons[0]?.src);
 
     return (
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, auto)', gap: '12px', alignItems: 'center' }}>
@@ -144,7 +145,7 @@ export const Matrix = {
                 state={state}
                 size={size}
                 iconPosition={state === 'disabled' ? 'none' : 'left'}
-                icon={<DotIcon />}
+                iconSelect={matrixIcon}
               />
             )),
           ),

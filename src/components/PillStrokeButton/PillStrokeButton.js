@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import styles from './PillStrokeButton.module.scss';
+import { icons } from '../../icons';
 
 const STYLE_MAP = {
   Light: {
@@ -31,6 +33,8 @@ const STYLE_MAP = {
   },
 };
 
+const resolveIconSrc = (src) => (typeof src === 'string' ? src : src?.src || src?.default || '');
+
 /**
  * PillStrokeButton aligned to Figma spec:
  * - bg: Light | Dark
@@ -44,7 +48,7 @@ const PillStrokeButton = ({
   priority = 'A',
   state = 'base',
   iconPosition = 'none',
-  icon = null,
+  iconSelect = null,
   className = '',
   ...rest
 }) => {
@@ -55,7 +59,14 @@ const PillStrokeButton = ({
   const visualClass = STYLE_MAP[bgKey]?.[priorityKey]?.[stateKey] || STYLE_MAP.Light.A.base;
 
   const isDisabled = stateKey === 'disabled';
-  const hasIcon = iconPosition !== 'none' && !!icon;
+  const placeholderIcon = useMemo(
+    () => icons.find((iconItem) => iconItem.name === 'PlaceholderCircle'),
+    [],
+  );
+  const placeholderSrc = placeholderIcon ? resolveIconSrc(placeholderIcon.src) : '';
+  const resolvedIcon = iconSelect || placeholderSrc;
+  const resolvedIconSrc = resolveIconSrc(resolvedIcon);
+  const hasIcon = iconPosition !== 'none' && !!resolvedIconSrc;
 
   const buttonClasses = [styles.button, sizeClass, visualClass, hasIcon && styles.withIcon, className]
     .filter(Boolean)
@@ -63,9 +74,13 @@ const PillStrokeButton = ({
 
   return (
     <button className={buttonClasses} type='button' disabled={isDisabled} aria-disabled={isDisabled} {...rest}>
-      {iconPosition === 'left' && hasIcon ? <span className={styles.icon}>{icon}</span> : null}
+      {iconPosition === 'left' && hasIcon ? (
+        <span className={[styles.icon, styles.iconMask].join(' ')} style={{ '--icon-url': `url(${resolvedIconSrc})` }} />
+      ) : null}
       <span className={styles.label}>{label}</span>
-      {iconPosition === 'right' && hasIcon ? <span className={styles.icon}>{icon}</span> : null}
+      {iconPosition === 'right' && hasIcon ? (
+        <span className={[styles.icon, styles.iconMask].join(' ')} style={{ '--icon-url': `url(${resolvedIconSrc})` }} />
+      ) : null}
     </button>
   );
 };

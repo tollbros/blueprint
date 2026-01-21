@@ -32,6 +32,7 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   justify-content: center;
   min-width: fit-content;
   padding: 0 $padding-base;
+  --tb-pillFillStroke-contentColor: var(--tb-globalTokens-contentColor);
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
 
   &:disabled {
@@ -69,12 +70,21 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-}
-
-.iconImage {
-  display: block;
+  color: var(--tb-pillFillStroke-contentColor);
   width: 16px;
   height: 16px;
+}
+
+.iconMask {
+  background-color: currentColor;
+  mask-image: var(--icon-url);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
 }
 
 .stateBase {
@@ -96,15 +106,18 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
   background: $white;
   border-color: $state-disabled;
   color: $brand-medgray;
+  --tb-pillFillStroke-contentColor: #{$brand-medgray};
 }
 
 .colorMedBlue {
   color: $brand-medium;
+  --tb-pillFillStroke-contentColor: #{$brand-medium};
 }
 
 .colorAccentBlue {
   color: $brand-accent;
   border-color: $brand-accent;
+  --tb-pillFillStroke-contentColor: #{$brand-accent};
 }
 
 .colorAccentBlue.stateHover {
@@ -118,9 +131,11 @@ $state-disabled: var(--tb-palette-State-Disabled, #d8d8d8);
 .colorAccentBlue.stateDisabled {
   border-color: $state-disabled;
   color: $brand-medgray;
+  --tb-pillFillStroke-contentColor: #{$brand-medgray};
 }
 
 .label {
+  color: var(--tb-pillFillStroke-contentColor);
   line-height: 18px;
   white-space: nowrap;
 }

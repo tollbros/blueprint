@@ -1,11 +1,6 @@
+import { useMemo } from 'react';
 import styles from './PillFillStrokeButton.module.scss';
-
-const ICONS = {
-  MedBlue: 'http://localhost:3845/assets/7f9b00802e515bf8021382c7420298f6b796552a.svg',
-  AccentBlue: 'http://localhost:3845/assets/13c795ee60876f41ea4865e1a7f0faad16c50029.svg',
-  MedGray: 'http://localhost:3845/assets/46d35cd0744a8f28b3336e971806fcaaa5ff05bf.svg',
-  DarkGray: 'http://localhost:3845/assets/3606b9384fd85b73fd7e639b27df8534332699cf.svg',
-};
+import { icons } from '../../icons';
 
 const SIZE_CLASS = {
   Small: styles.sizeSmall,
@@ -30,6 +25,8 @@ const PADDING_CLASS = {
   Base: styles.paddingBase,
 };
 
+const resolveIconSrc = (src) => (typeof src === 'string' ? src : src?.src || src?.default || '');
+
 
 /**
  * PillFillStrokeButton aligned to Figma spec:
@@ -41,6 +38,7 @@ const PADDING_CLASS = {
  */
 const PillFillStrokeButton = ({
   label = 'Pill Button',
+  iconSelect = null,
   iconMedBlue = null,
   iconDisabled = null,
   iconAccentBlue = null,
@@ -59,6 +57,11 @@ const PillFillStrokeButton = ({
   const stateClass = STATE_CLASS[stateKey] || STATE_CLASS.base;
   const isDisabled = stateKey === 'disabled';
   const hasIcon = iconBool !== 'Null';
+  const placeholderIcon = useMemo(
+    () => icons.find((iconItem) => iconItem.name === 'PlaceholderCircle'),
+    [],
+  );
+  const placeholderSrc = placeholderIcon ? resolveIconSrc(placeholderIcon.src) : '';
   const buttonClasses = [
     styles.button,
     sizeClass,
@@ -74,24 +77,29 @@ const PillFillStrokeButton = ({
   const resolvedIcon =
     iconBool === 'Null'
       ? null
-      : isDisabled
-      ? iconDisabled
-      : contentColor === 'AccentBlue'
-      ? iconAccentBlue
-      : iconMedBlue;
-
-  const fallbackIconSrc = isDisabled
-    ? ICONS.MedGray
-    : contentColor === 'AccentBlue'
-    ? ICONS.AccentBlue
-    : ICONS.MedBlue;
-  const iconContent = resolvedIcon || <img alt='' className={styles.iconImage} src={fallbackIconSrc} />;
+      : iconSelect ||
+        (isDisabled
+          ? iconDisabled
+          : contentColor === 'AccentBlue'
+          ? iconAccentBlue
+          : iconMedBlue) ||
+        placeholderSrc;
+  const resolvedIconSrc = resolveIconSrc(resolvedIcon);
+  const iconContent = !resolvedIcon
+    ? null
+    : resolvedIconSrc
+    ? (
+        <span className={[styles.icon, styles.iconMask].join(' ')} style={{ '--icon-url': `url(${resolvedIconSrc})` }} />
+      )
+    : (
+        <span className={styles.icon}>{resolvedIcon}</span>
+      );
 
   return (
     <button type='button' className={buttonClasses} disabled={isDisabled} aria-disabled={isDisabled} {...rest}>
-      {hasIcon && iconBool === 'Left' && <span className={styles.icon}>{iconContent}</span>}
+      {hasIcon && iconBool === 'Left' ? iconContent : null}
       <span className={styles.label}>{label}</span>
-      {hasIcon && iconBool === 'Right' && <span className={styles.icon}>{iconContent}</span>}
+      {hasIcon && iconBool === 'Right' ? iconContent : null}
     </button>
   );
 };

@@ -14,7 +14,7 @@ export const defaultTheme = {
         Black: '#000000',
         OffBlack: '#595959',
         White: '#FFFFFF',
-        OffWhite: '#B5B5B5',
+        OffWhite: '#E3E3E3',
         DarkGray: '#858585',
         MedGray: '#D8D8D8',
         LightGray: '#E9EDF0',
@@ -46,7 +46,10 @@ export const defaultTheme = {
     
   },
 
-  globalBrandBorderRadius: '4px',
+  globalTokens: {
+    borderRadius: '4px',
+    contentColor: 'var(--tb-palette-TB-Functional-Black)',
+  },
 
   spacing: {
     // Nudge: gentle spacing for minor visual clarity tweaks.
@@ -128,10 +131,10 @@ export const defaultTheme = {
       base: '20px',
     },
     ToggleUnit: {
-      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+      borderRadius: 'var(--tb-globalTokens-borderRadius)',
     },
     ToggleSet: {
-      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+      borderRadius: 'var(--tb-globalTokens-borderRadius)',
     },
     stroke: {
       base: '1px',
@@ -176,10 +179,10 @@ export const defaultTheme = {
 
   buttons: {
     PCTA: {
-      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+      borderRadius: 'var(--tb-globalTokens-borderRadius)',
     },
     SCTA: {
-      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+      borderRadius: 'var(--tb-globalTokens-borderRadius)',
     },
     CTAButton: {
       height: {
@@ -227,13 +230,13 @@ export const defaultTheme = {
       base: '60px',
     },
     InputField: {
-      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+      borderRadius: 'var(--tb-globalTokens-borderRadius)',
     },
     TextArea: {
-      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+      borderRadius: 'var(--tb-globalTokens-borderRadius)',
     },
     Select: {
-      borderRadius: 'var(--tb-globalBrandBorderRadius)',
+      borderRadius: 'var(--tb-globalTokens-borderRadius)',
     },
     padding: {
       hBase: '20px',

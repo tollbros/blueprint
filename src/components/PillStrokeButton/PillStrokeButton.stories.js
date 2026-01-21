@@ -2,18 +2,9 @@ import PillStrokeButton from './PillStrokeButton';
 import React, { useState } from 'react';
 import { fn } from '@storybook/test';
 import { InputPreviewContainer } from '../../storybook/previewUtilsInputs';
+import { icons } from '../../icons';
 
-const DotIcon = ({ color = 'currentColor' }) => (
-  <span
-    style={{
-      display: 'inline-block',
-      width: '100%',
-      height: '100%',
-      borderRadius: '50%',
-      backgroundColor: color || 'currentColor',
-    }}
-  />
-);
+const resolveIconSrc = (src) => (typeof src === 'string' ? src : src?.src || src?.default || '');
 
 const StorySchema = {
   title: 'Buttons/03 PillStrokeButton',
@@ -24,6 +15,7 @@ const StorySchema = {
     label: 'Pill Button',
     priority: 'A',
     iconPosition: 'none',
+    iconSelect: 'PlaceholderCircle',
     bg: 'Light',
     state: 'base',
   },
@@ -37,7 +29,10 @@ const StorySchema = {
       control: 'select',
       options: ['none', 'left', 'right'],
     },
-    icon: { table: { disable: true } },
+    iconSelect: {
+      control: 'select',
+      options: icons.map((icon) => icon.name),
+    },
     className: { table: { disable: true } },
     bg: {
       control: 'select',
@@ -86,13 +81,15 @@ const StorySchema = {
       if (interactive && !isDisabled) setCurrentState('hover');
     };
 
-    const icon = args.iconPosition === 'none' ? null : <DotIcon />;
+    const selectedIcon = icons.find((iconItem) => iconItem.name === args.iconSelect);
+    const iconSrc = selectedIcon ? resolveIconSrc(selectedIcon.src) : '';
+    const icon = args.iconPosition === 'none' || !iconSrc ? null : iconSrc;
 
     return (
       <PillStrokeButton
         {...args}
         state={currentState}
-        icon={icon}
+        iconSelect={icon}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseDown={handleMouseDown}
